@@ -26,4 +26,7 @@
 ## LINKS
 
 * [Robotics Project Guidebook](https://docs.idew.org/project-robotics/)
+* [Arduino Web Editor](https://create.arduino.cc/editor/)
+* [Arduino Language Reference](https://www.arduino.cc/reference/en/)
+* [RedBot Experiments](https://learn.sparkfun.com/tutorials/experiment-guide-for-redbot-with-shadow-chassis)
 
