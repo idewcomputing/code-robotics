@@ -1,4 +1,4 @@
-# RedBot
+# RedBot Library
 
 TK
 
