@@ -22,6 +22,7 @@
   * [LED Light](references/physical-outputs/led-light.md)
   * [Speaker \(Buzzer\)](references/physical-outputs/speaker-buzzer.md)
   * [Motors](references/physical-outputs/motors.md)
+* [Robot Behaviors](references/robot-behaviors.md)
 * [Navigation Modes](references/navigation-modes/README.md)
   * [Distance Navigation](references/navigation-modes/distance-navigation.md)
   * [Line Counting Navigation](references/navigation-modes/line-counting-navigation.md)
