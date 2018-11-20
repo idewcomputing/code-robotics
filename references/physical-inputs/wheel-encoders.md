@@ -10,11 +10,11 @@ Each wheel encoder consists of a [Hall effect sensor](https://en.wikipedia.org/w
 
 **IMPORTANT:** In order to function accurately, the wheel encoder sensor must be positioned correctly. The sensor tip must be centered within the silver band of the ring magnet \(not too far inward or outward\) and must be close to the ring magnet's surface \(about ⅛" inch away\). You may need to push or pull the sensor to position it correctly. Even a small adjustment can affect its accuracy.
 
-![](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/.gitbook/assets/encoder-position%20%281%29.png)
+![](../../.gitbook/assets/encoder-position.png)
 
 When you think of a magnet, you probably think of a magnet that has 2 poles: north and south. It is true that magnets have pairs of N-S poles. However, a magnet can be created with multiple pairs of N-S poles. The ring magnets attached to the RedBot motors each have 4 pairs of N-S poles, similar to the diagram below.
 
-![](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/.gitbook/assets/ring-magnet.jpg)
+![](../../.gitbook/assets/ring-magnet.jpg)
 
 As the ring magnet completes one full rotation, the Hall effect sensor detects 4 changes \(or "ticks"\) in the magnetic field as the magnetic poles pass by the sensor.
 
