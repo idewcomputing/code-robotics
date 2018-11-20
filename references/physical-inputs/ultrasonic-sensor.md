@@ -1,12 +1,16 @@
 # Ultrasonic Sensor \*
 
+{% hint style="info" %}
+**ADD-ON COMPONENT:** The SparkFun RedBot Kit does **NOT** include an ultrasonic sensor as a standard component. However, SparkFun sells the [HC-SR04 Ultrasonic Sensor](https://www.sparkfun.com/products/13959), which can be easily connected to a RedBot. Your teacher may have added this sensor to your kit.
+{% endhint %}
+
 You can add an ultrasonic sensor to your RedBot in order to detect obstacles from a distance \(before colliding with them\).
 
 An ultrasonic sensor uses sonar to measure the distance to an object. The sensor has a speaker that transmits high-frequency sound, which cannot be heard by the human ear. The sensor also has a receiver \(i.e., a microphone\) that detects the echo of the high-frequency sound reflected back from an object. By measuring how much time it takes for the echo to arrive, you can calculate the distance between the RedBot and the object.
 
 The way that the ultrasonic sensor works is similar to how certain types of animals, such as bats and dolphins, use [echolocation](https://en.wikipedia.org/wiki/Animal_echolocation) for navigation and hunting.
 
-![](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/.gitbook/assets/ultrasonic-sensor.jpg)
+![Ultrasonic Sensor \(HC-SR04\)](../../.gitbook/assets/ultrasonic-sensor.jpg)
 
 If you want to add an ultrasonic sensor to the front of your RedBot, you will need:
 
@@ -16,9 +20,11 @@ If you want to add an ultrasonic sensor to the front of your RedBot, you will ne
 
 This ultrasonic sensor measures distances in a narrow cone of about 15° in front of the sensor. This sensor can detect obstacles located up to 400 cm away \(about 13 feet\). The distances calculated from the sensor measurements are very accurate, within about 3 mm \(about 0.1 inch\) of the actual distance.
 
-![](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/.gitbook/assets/ultrasonic-cone.png)
+![](../../.gitbook/assets/ultrasonic-plus-bumpers.png)
 
 The primary use of the ultrasonic sensor is to prevent collisions. If the sensor detects an obstacle nearby in the path ahead, the RedBot can be programmed to avoid the obstacle by stopping, turning, etc. This not only prevents collisions — it can allow the RedBot to navigate a "maze" of obstacles on its own.
+
+However, the ultrasonic sensor might **not** detect obstacles off to the left or right side — if those obstacles are outside the 15° detection cone directly in front of the sensor. For these situations, you may want to use the mechanical bumpers as a fallback system that supplements the ultrasonic sensor. Since the mechanical bumper whiskers extend outwards on both sides, they can detect a collision with an obstacle that the ultrasonic sensor might not have detected, as shown above.
 
 ### How to Use the Ultrasonic Sensor in a Program:
 
