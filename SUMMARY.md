@@ -10,7 +10,7 @@
 
 * [Arduino](references/arduino.md)
 * [RedBot Library](references/redbot-library.md)
-* [Robot App Template](references/robot-app-template.md)
+* [RedBot App Template](references/redbot-app-template.md)
 * [Physical Inputs](references/physical-inputs/README.md)
   * [Push Button](references/physical-inputs/push-button.md)
   * [Mechanical Bumpers](references/physical-inputs/mechanical-bumpers.md)

@@ -1,4 +1,4 @@
-# Robot App Template
+# RedBot App Template
 
 You want to have a clear framework or template for your robot demonstration program. This will make it easier for you \(and others\) to review, understand, and edit the program. For example, break down your program into identifiable chunks and carefully consider what code should belong in each.
 
