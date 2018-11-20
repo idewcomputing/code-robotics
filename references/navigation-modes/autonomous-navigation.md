@@ -10,7 +10,7 @@ The diagram below represents a scenario where a security robot will patrol an ar
 
 In this scenario, every time the robot makes a turn, the angle is slightly random \(though within a certain range\), which makes the robot's pattern different every time the demonstration is run. \(Thus, the diagram only shows one possible path.\) The robot can be started from anywhere in the environment \(pointing in any direction\), and the robot will still perform its task of patrolling within the area while avoiding obstacles.
 
-![](../../.gitbook/assets/robot-demo4.jpg)
+![](https://github.com/idewcomputing/code-robotics/tree/50d7d138085c64440a55a963c2042331840d55d8/.gitbook/assets/robot-demo4.jpg)
 
 For the purposes of the demonstration, we will set the robot to patrol for a limited amount of time \(such as 30 seconds\) before stopping. In addition, the testing environment is obviously much smaller than what an actual security guard setting would require.
 
@@ -155,14 +155,15 @@ Here's how the program code works:
    * For example, maybe for Scenario 2, your team would demonstrate the robot patrolling in a specific pattern while also avoiding the lines and obstacles.
    * Maybe for Scenario 3, your team would demonstrate your robot guarding a doorway, detecting when someone approaches within a certain distance, and then driving towards the person while sounding an alarm.
 8. The program utilizes several pre-built custom functions that are listed in other sections of this project guidebook. In order for this program to work properly, you would need to add the full code for the following custom functions:
-   * `checkButton()` — code listed in [Push Button](push-button.md#checkbutton-function) section
-   * `alertSound()` — code listed in [Buzzer \(Speaker\)](buzzer-speaker.md#alertsound-function) section
-   * `avoidLine()` — code listed in [IR Line Sensors](ir-line-sensors.md#avoidline-function) section
-   * `avoidCollision()` — code listed in [Ultrasonic Sensor](ultrasonic-sensor.md#avoidcollision-function) section
-   * `measureDistance()` — code listed in [Ultrasonic Sensor](ultrasonic-sensor.md#measuredistance-function) section 
-   * `driveDistance()` — code listed in [Wheel Encoders](wheel-encoders.md#drivedistance-function) section 
-   * `pivotAngle()` — code listed in [Wheel Encoders](wheel-encoders.md#pivotangle-function) section
+   * `checkButton()` — code listed in [Push Button](https://github.com/idewcomputing/code-robotics/tree/50d7d138085c64440a55a963c2042331840d55d8/references/navigation-methods/push-button.md#checkbutton-function) section
+   * `alertSound()` — code listed in [Buzzer \(Speaker\)](https://github.com/idewcomputing/code-robotics/tree/50d7d138085c64440a55a963c2042331840d55d8/references/navigation-methods/buzzer-speaker.md#alertsound-function) section
+   * `avoidLine()` — code listed in [IR Line Sensors](https://github.com/idewcomputing/code-robotics/tree/50d7d138085c64440a55a963c2042331840d55d8/references/navigation-methods/ir-line-sensors.md#avoidline-function) section
+   * `avoidCollision()` — code listed in [Ultrasonic Sensor](https://github.com/idewcomputing/code-robotics/tree/50d7d138085c64440a55a963c2042331840d55d8/references/navigation-methods/ultrasonic-sensor.md#avoidcollision-function) section
+   * `measureDistance()` — code listed in [Ultrasonic Sensor](https://github.com/idewcomputing/code-robotics/tree/50d7d138085c64440a55a963c2042331840d55d8/references/navigation-methods/ultrasonic-sensor.md#measuredistance-function) section 
+   * `driveDistance()` — code listed in [Wheel Encoders](https://github.com/idewcomputing/code-robotics/tree/50d7d138085c64440a55a963c2042331840d55d8/references/navigation-methods/wheel-encoders.md#drivedistance-function) section 
+   * `pivotAngle()` — code listed in [Wheel Encoders](https://github.com/idewcomputing/code-robotics/tree/50d7d138085c64440a55a963c2042331840d55d8/references/navigation-methods/wheel-encoders.md#pivotangle-function) section
 
 Although this program is only an example, you could use it as a template to create your own program. At a minimum, you might need to modify the code instructions listed inside the `scenario1()` custom function — and also add the missing code for the other custom functions.
 
 If you wanted to add other features to your robot demonstration, such as detecting bumps using the accelerometer, then you would need to add other code into the program.
+

@@ -8,7 +8,7 @@ This navigation method is similar to the directions that a person might give you
 
 The diagram below represents a scenario where a store robot will navigate through a set of store aisles \(red rectangles are cardboard boxes that represent store shelves\) to a specific location \(Shelf B in Aisle 2\), simulate delivering a box of items \(which a team member would do\), and then drive back to the stockroom \(labeled as "Start"\). The black lines and "plus signs" are line markers that the robot will use for navigation.
 
-![](../../.gitbook/assets/robot-demo2.jpg)
+![](https://github.com/idewcomputing/code-robotics/tree/0a721a89d1e51acd76bc6864dfc5493a143d5b7f/.gitbook/assets/robot-demo2.jpg)
 
 For the purposes of the demonstration, the distances traveled are much shorter than what would be required in an actual store environment.
 
@@ -162,14 +162,15 @@ Here's how the program code works:
    * For example, maybe for Scenario 2, your team would show that the robot can travel to different shelves within the store aisles — or maybe you would show that the robot can make multiple stops to deliver boxes before heading back.
    * Maybe for Scenario 3, your team would demonstrate that your robot can avoid colliding with people \(or other obstacles\) in the aisles while still finding its way to its destination.
 8. The program utilizes several pre-built custom functions that are listed in other sections of this project guidebook. In order for this program to work properly, you would need to add the full code for the following custom functions:
-   * `checkButton()` — code listed in [Push Button](push-button.md#checkbutton-function) section
-   * `alertSound()` — code listed in [Buzzer \(Speaker\)](buzzer-speaker.md#alertsound-function) section
-   * `clearEncoders()` — code listed in [Wheel Encoders](wheel-encoders.md#clearencoders-function) section
-   * `driveStraight()` — code listed in [Wheel Encoders](wheel-encoders.md#drivestraight-function) section
-   * `countLine()` — code listed in [IR Line Sensors](ir-line-sensors.md#countline-function) section
-   * `driveDistance()` — code listed in [Wheel Encoders](wheel-encoders.md#drivedistance-function) section 
-   * `pivotAngle()` — code listed in [Wheel Encoders](wheel-encoders.md#pivotangle-function) section
+   * `checkButton()` — code listed in [Push Button](https://github.com/idewcomputing/code-robotics/tree/0a721a89d1e51acd76bc6864dfc5493a143d5b7f/references/navigation-methods/push-button.md#checkbutton-function) section
+   * `alertSound()` — code listed in [Buzzer \(Speaker\)](https://github.com/idewcomputing/code-robotics/tree/0a721a89d1e51acd76bc6864dfc5493a143d5b7f/references/navigation-methods/buzzer-speaker.md#alertsound-function) section
+   * `clearEncoders()` — code listed in [Wheel Encoders](https://github.com/idewcomputing/code-robotics/tree/0a721a89d1e51acd76bc6864dfc5493a143d5b7f/references/navigation-methods/wheel-encoders.md#clearencoders-function) section
+   * `driveStraight()` — code listed in [Wheel Encoders](https://github.com/idewcomputing/code-robotics/tree/0a721a89d1e51acd76bc6864dfc5493a143d5b7f/references/navigation-methods/wheel-encoders.md#drivestraight-function) section
+   * `countLine()` — code listed in [IR Line Sensors](https://github.com/idewcomputing/code-robotics/tree/0a721a89d1e51acd76bc6864dfc5493a143d5b7f/references/navigation-methods/ir-line-sensors.md#countline-function) section
+   * `driveDistance()` — code listed in [Wheel Encoders](https://github.com/idewcomputing/code-robotics/tree/0a721a89d1e51acd76bc6864dfc5493a143d5b7f/references/navigation-methods/wheel-encoders.md#drivedistance-function) section 
+   * `pivotAngle()` — code listed in [Wheel Encoders](https://github.com/idewcomputing/code-robotics/tree/0a721a89d1e51acd76bc6864dfc5493a143d5b7f/references/navigation-methods/wheel-encoders.md#pivotangle-function) section
 
 Although this program is only an example, you could use it as a template to create your own program. At a minimum, you would need to modify the code instructions listed inside the `scenario1()` custom function — and also add the missing code for the other custom functions.
 
 If you wanted to add other features to your robot demonstration, such as avoiding collisions using an ultrasonic sensor, then you would need to add other code into the program.
+
