@@ -174,7 +174,7 @@ Try the following tests to see how the encoder counts change:
 * When you manually turn the wheels, you will notice that the counter will increase whether you turn the wheel clockwise or counter-clockwise. However, when you drive the motors using your program, a wheel's encoder count will only increase if the motor is driving the wheel forwards. If the motor is driving the wheel backwards, its encoder count will decrease \(and can become a negative count\). To test this, modify your `testWheelEncoder()` function by changing `motors.drive(150);` to `motors.pivot(150);` which will make the left motor drive forwards, while the right motor drives backwards. Run the modified program to verify that the left count increases, while the right count decreases.
 * **TROUBLESHOOTING:** If either encoder count doesn't seem to be changing as the motor rotates, check the position of the wheel encoder sensor. The sensor tip must be centered within the silver band of the ring magnet \(not too far inward or outward\) and must be close to the ring magnet's surface \(about ⅛" inch away\). Otherwise, it may not detect the magnetic "ticks" accurately. You may need to push or pull the encoder to position it accurately. Even a small adjustment can affect its accuracy. If the encoder is pushed too far inward, use the flat-tipped screwdriver included in your RedBot kit to gently push the encoder back into the correct position.
 
-![](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/.gitbook/assets/encoder-position.png)
+![](../../.gitbook/assets/encoder-position.png)
 
 **NOTE:** When you change the batteries in your RedBot's battery pack, it is easy to accidentally push the wheel encoder wires. So every time after changing the batteries, check the positions of the wheel encoder sensors and adjust them if necessary.
 
@@ -513,7 +513,7 @@ You can also make your RedBot turn by driving one wheel while the other wheel is
 
 Here is a visual comparison of pivoting on both wheels versus turning on one wheel:
 
-![](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/.gitbook/assets/pivot-both-vs-turn-one.png)
+![](../../.gitbook/assets/pivot-both-vs-turn-one.png)
 
 When turning on one wheel, the RedBot turns in a circle that is centered on the stopped wheel. The distance between the centers of the RedBot wheel treads is 6.125 inches, which represents the radius of this turn circle. So the diameter of the turn circle is twice the radius - i.e., 12.25 inches. If the RedBot turned 360°, the distance traveled by the driving wheel would be equal to the circumference of this turn circle:
 
