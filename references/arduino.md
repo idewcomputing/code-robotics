@@ -1,8 +1,8 @@
 # Arduino
 
-The RedBot device runs programs written in a computer language called [Arduino](https://www.arduino.cc/reference/en/).
+The RedBot device runs apps written in a programming language called [Arduino](https://www.arduino.cc/reference/en/).
 
-Arduino is actually a code library written in another computer language called [C++](https://en.wikipedia.org/wiki/C%2B%2B) \(similar to how jQuery is a code library written in JavaScript\). If needed, your Arduino program can incorporate code written directly in C++.
+Arduino is actually a code library written in another computer language called [C++](https://en.wikipedia.org/wiki/C%2B%2B) \(similar to how jQuery is a code library written in JavaScript\). If and when necessary, your Arduino program can also incorporate code written directly in C++.
 
 The Arduino "language" is designed to make it easier to write programs for microcontrollers, which are small, low-cost, low-power computers that control physical inputs and outputs \(such as sensors, lights, motors, etc.\).
 
@@ -14,7 +14,7 @@ A microcontroller doesn't have a keyboard, monitor, or other peripherals that fu
 
 So why even use a microcontroller if it seems so limited in power? Microcontrollers are perfectly suited for performing dedicated computing tasks that don't require a full-size computer. Microcontrollers are also small enough \(and cheap enough\) that they can be embedded inside other devices. Want to create a "smart" device? Use a microcontroller, and create a program for it.
 
-An Arduino program is also referred to as a **sketch** because the Arduino language is designed to allow you to quickly create a program — just like a sketch is a quick drawing.
+An Arduino program \(or app\) is also referred to as a **sketch** because the Arduino language is designed to allow you to quickly create a program — just like a sketch is a quick drawing.
 
 The [Arduino Programming Language Reference](https://www.arduino.cc/reference/en/) is helpful for understanding the structure and syntax of Arduino code.
 
