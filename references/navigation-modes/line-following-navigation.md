@@ -8,7 +8,7 @@ This navigation method is also similar to the directions that a person might giv
 
 The diagram below represents a scenario where a restaurant robot will deliver a food order from the kitchen out to Table 2, drive around the table \(delivering each person's order\), and then return to the kitchen. \(The red rectangles are cardboard boxes that represent a wall between the kitchen and dining area.\) The robot will follow the current line it is on while also counting other lines that it crosses, which help determine where it makes turns or stops. There is also a line marker \(labeled "Start"\) in the kitchen area, so the robot knows where to stop in the kitchen.
 
-![](https://github.com/idewcomputing/code-robotics/tree/3d334221207e4b82a1a6f69dc29302de5e47ff95/.gitbook/assets/robot-demo3.jpg)
+![](../../.gitbook/assets/robot-demo3.jpg)
 
 For the purposes of the demonstration, the distances traveled are much shorter than what would be required in an actual restaurant environment.
 

@@ -8,7 +8,7 @@ This navigation method is similar to the directions that a person might give you
 
 The diagram below represents a scenario where a store robot will navigate through a set of store aisles \(red rectangles are cardboard boxes that represent store shelves\) to a specific location \(Shelf B in Aisle 2\), simulate delivering a box of items \(which a team member would do\), and then drive back to the stockroom \(labeled as "Start"\). The black lines and "plus signs" are line markers that the robot will use for navigation.
 
-![](https://github.com/idewcomputing/code-robotics/tree/0a721a89d1e51acd76bc6864dfc5493a143d5b7f/.gitbook/assets/robot-demo2.jpg)
+![](../../.gitbook/assets/robot-demo2.jpg)
 
 For the purposes of the demonstration, the distances traveled are much shorter than what would be required in an actual store environment.
 
