@@ -9,7 +9,6 @@
 ## REFERENCES
 
 * [Arduino](references/arduino.md)
-* [RedBot Library](references/redbot-library.md)
 * [Robot App Template](references/robot-app-template.md)
 * [Physical Inputs](references/physical-inputs/README.md)
   * [Push Button](references/physical-inputs/push-button.md)
