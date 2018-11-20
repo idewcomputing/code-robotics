@@ -72,7 +72,7 @@ Velcro \("hook-and-loop"\) tape will allow you to remove the sensor if needed \(
 2. Attach one piece of tape under the sensor's transmitter and one piece of tape under the sensor's receiver. 
 3. Press the sensor onto the front edge of the RedBot's top mounting plate, so the other side of the tape pieces will attach securely to the RedBot. Be sure the sensor is mounted to face forward, like a pair of eyes.
 
-![](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/.gitbook/assets/ultrasonic-mounted.jpg)
+![Ultrasonic Sensor mounted at front of RedBot](../../.gitbook/assets/ultrasonic-mounted.jpg)
 
 ## Declare Variables for Sensor Pin Numbers
 
@@ -295,7 +295,7 @@ Avoiding obstacles while [following a line](ir-line-sensors.md#follow-line-autom
 
 This diagram shows one possible solution to detour around an obstacle while following a line.
 
-![](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/.gitbook/assets/follow-line-avoid-obstacle.png)
+![](../../.gitbook/assets/follow-line-avoid-obstacle.png)
 
 Notice in step 5 of the diagram that a 45° degree turn is made to angle back towards the line \(instead of making another 90° turn\). The reason for this is to make sure the right-hand IR line sensor will detect the line first, so the `followLine()` function can adjust the left and right motor powers to steer the RedBot to become centered on the line again. \(Otherwise, if the RedBot approaches the line at a 90° degree angle, the RedBot will simply drive over the line without correcting itself.\)
 
