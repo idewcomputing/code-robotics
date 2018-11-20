@@ -24,7 +24,7 @@ To use the motors, you will need to: 1. Create `RedBotMotors` object for the mot
 
 In order to use the methods that control the motors, you must first create a `RedBotMotors` object.
 
-**IMPORTANT:** Be sure that your program includes a copy of the SparkFun `RedBot` library. If necessary, see the instructions for [how to include the RedBot library](redbot-library.md).
+**IMPORTANT:** Be sure that your program includes a copy of the SparkFun `RedBot` library. If necessary, see the instructions for [how to include the RedBot library](https://github.com/idewcomputing/code-robotics/tree/64cdad2dc649e653442a139dd557784bf73edac0/references/physical-outputs/redbot-library.md).
 
 Before your `setup()` function, create a `RedBotMotors` object by assigning it to a variable name:
 
@@ -135,7 +135,7 @@ motors.drive(-150); // move backwards
 
 When driving both motors at the same power, you may notice that your RedBot drifts slightly to the left \(or right\), instead of driving in a perfectly straight line. If this occurs, it is because the motors are rotating at slightly different speeds, even though they are receiving the same amount of power.
 
-If necessary, you can use the [wheel encoders](wheel-encoders.md) to help adjust the left and right motor powers while the RedBot is driving, in order to make it drive in a straight line.
+If necessary, you can use the [wheel encoders](https://github.com/idewcomputing/code-robotics/tree/64cdad2dc649e653442a139dd557784bf73edac0/references/physical-outputs/wheel-encoders.md) to help adjust the left and right motor powers while the RedBot is driving, in order to make it drive in a straight line.
 
 ## Coast to Stop
 
@@ -215,7 +215,7 @@ There are several ways to turn the RedBot left or right, depending on how tight 
 
 Here is a visual comparison of pivoting on both wheels versus turning on one wheel:
 
-![](../../.gitbook/assets/pivot-both-vs-turn-one.png)
+![](https://github.com/idewcomputing/code-robotics/tree/64cdad2dc649e653442a139dd557784bf73edac0/.gitbook/assets/pivot-both-vs-turn-one.png)
 
 ### Pivot on Both Wheels
 
@@ -334,7 +334,7 @@ It is extremely useful to be able to control how far your RedBot drives, so it c
 
 One way to do this is to determine the average driving speed of your RedBot \(at a specific motor power\), and then use this to calculate how much time it will take to make your RedBot drive any specific distance.
 
-**NOTE:** Alternatively, you can use the [wheel encoders](wheel-encoders.md) to make your RedBot drive a specific distance. This will typically be more accurate than using your RedBot's average driving speed.
+**NOTE:** Alternatively, you can use the [wheel encoders](https://github.com/idewcomputing/code-robotics/tree/64cdad2dc649e653442a139dd557784bf73edac0/references/physical-outputs/wheel-encoders.md) to make your RedBot drive a specific distance. This will typically be more accurate than using your RedBot's average driving speed.
 
 The last activity in [RedBot Experiment 2](https://learn.sparkfun.com/tutorials/experiment-guide-for-redbot-with-shadow-chassis/experiment-2-drive-forward-) requires you to conduct a test to determine the average speed of your RedBot.
 
@@ -412,7 +412,7 @@ It is extremely useful to be able to make your RedBot turn by a specific angle \
 
 One way to do this is to determine the average turning speed of your RedBot \(at a specific motor power\), and then use this to calculate how much time it will take to make your RedBot turn by any specific angle.
 
-**NOTE:** Alternatively, you can use the [wheel encoders](wheel-encoders.md) to make your RedBot turn by a specific angle. This will typically be more accurate than using your RedBot's average turning speed.
+**NOTE:** Alternatively, you can use the [wheel encoders](https://github.com/idewcomputing/code-robotics/tree/64cdad2dc649e653442a139dd557784bf73edac0/references/physical-outputs/wheel-encoders.md) to make your RedBot turn by a specific angle. This will typically be more accurate than using your RedBot's average turning speed.
 
 The last activity in [RedBot Experiment 3](https://learn.sparkfun.com/tutorials/experiment-guide-for-redbot-with-shadow-chassis/experiment-3-turning) requires you to conduct a test to determine the average turning speed of your RedBot.
 

@@ -7,7 +7,7 @@ Accelerometer readings are affected by:
 * acceleration of the device \(i.e., the device speeding up or slowing down\)
 * acceleration due to Earth's gravity \(i.e., the orientation of the device\)
 
-![](../../.gitbook/assets/accelerometer-axes.jpg)
+![](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/.gitbook/assets/accelerometer-axes.jpg)
 
 Even if a device with an accelerometer is **not** moving, the accelerometer can detect the orientation of the device by measuring the acceleration due to Earth's gravity, which is a constant downward force acting on all objects. The accelerometer can determine if the device is parallel to the Earth's surface or if it is tilted at an angle.
 
@@ -29,7 +29,7 @@ To use the accelerometer, you will need to: 1. Create `RedBotAccel` object 2. Us
 
 The SparkFun `RedBot` library has a class named `RedBotAccel` which contains methods \(functions\) to control the accelerometer.
 
-**IMPORTANT:** Be sure that your program includes a copy of the SparkFun `RedBot` library. If necessary, see the instructions for [how to include the RedBot library](redbot-library.md).
+**IMPORTANT:** Be sure that your program includes a copy of the SparkFun `RedBot` library. If necessary, see the instructions for [how to include the RedBot library](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/references/physical-inputs/redbot-library.md).
 
 Before your `setup()` function, create a `RedBotAccel` object by assigning it to a variable:
 
@@ -59,7 +59,7 @@ The new measurements are stored as properties of the object:
 
 This diagram shows how the X, Y, and Z axes are oriented on your RedBot and what the XZ, YZ, and XY angles represent. These angles are also referred to as **pitch**, **roll**, and **yaw**.
 
-![](../../.gitbook/assets/redbot-pitch-roll-yaw.jpg)
+![](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/.gitbook/assets/redbot-pitch-roll-yaw.jpg)
 
 For a wheeled vehicle, pitch and roll are the most important angles to measure as they indicate the tilt of the vehicle from front-to-back and side-to-side.
 

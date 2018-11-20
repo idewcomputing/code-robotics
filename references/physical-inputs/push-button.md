@@ -79,7 +79,7 @@ To read the button this way, you will need to: 1. Include the `RedBot` library i
 
 ### 1. Include RedBot Library
 
-Be sure that your program includes a copy of the SparkFun `RedBot` library. If necessary, see the instructions for [how to include the RedBot library](redbot-library.md).
+Be sure that your program includes a copy of the SparkFun `RedBot` library. If necessary, see the instructions for [how to include the RedBot library](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/references/physical-inputs/redbot-library.md).
 
 ### 2. Create RedBotButton Object
 

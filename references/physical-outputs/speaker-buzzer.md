@@ -1,65 +1,69 @@
 # Speaker \(Buzzer\)
 
-The RedBot kit includes a "buzzer" — a small speaker that can produce simple sounds. The buzzer can only play one tone \(sound\) at a time, but you can create different sounds or sound patterns. You could even program it to play simple music by playing one note at a time.
+The RedBot kit includes a "buzzer" — a small speaker that can produce simple sounds. The speaker can only play one tone \(sound\) at a time, but you can create different sounds or sound patterns. You could even program it to play simple music by playing one note at a time.
 
-Sounds produced by the buzzer could be useful as feedback or information to people interacting with your RedBot device.
+Sounds produced by the speaker could be useful as feedback or information to people interacting with your RedBot device.
 
-### How to Use the Buzzer in a Program:
+### How to Use the Speaker in a Program:
 
-To produce sounds with the buzzer, you will need to: 1. Declare a variable to store the buzzer pin number 2. Set the pin mode for the buzzer 3. Use the `tone()`, `delay()`, and `noTone()` functions to produce a sound and then stop it
+To produce sounds with the speaker, you will need to:
 
-**NOTE:** The SparkFun RedBot library does not have a built-in class for the buzzer.
+1. Declare a variable to store the speaker pin number
+2. Set the pin mode for the speaker
+3. Use the `tone()`, `delay()`, and `noTone()` functions to produce a sound and then stop it
+
+**NOTE:** The SparkFun RedBot library does not have a built-in class for the speaker.
 
 ### Coding References in this Section:
 
-* Declare Variable for Buzzer Pin Number
-* Set Pin Mode for Buzzer
+* Declare Variable for Speaker Pin Number
+* Set Pin Mode for Speaker
 * Produce Sound
 * Add Delay Before Stopping Sound
 * Stop Sound
 * Produce Different Sound Patterns
 * Play Song Note by Note
 
-## Declare Variable for Buzzer Pin Number
+## Declare Variable for Speaker Pin Number
 
-Before your `setup()` function, declare a variable to store the buzzer pin number:
+Before your `setup()` function, declare a variable to store the speaker pin number:
 
 ```cpp
-const int buzzer = 9;
+const int speaker = 9;
 ```
 
 * `const` indicates that the variable will be a constant, which means its value won't change during the program.
 * `int` indicates the variable type, which is an **integer** in this case. All Arduino pins are treated as integers \(even analog pins that have a letter in their pin number\).
-* `buzzer` represents the name of the variable that stores the buzzer's pin number. If desired, you could use a different variable name.
-* `9` is the pin number that the RedBot buzzer is normally plugged into.
+* `speaker` represents the name of the variable that stores the buzzer's pin number. If desired, you could use a different variable name.
+* `9` is the pin number that the RedBot speaker is normally plugged into.
 
-## Set Pin Mode for Buzzer
+## Set Pin Mode for Speaker
 
-Before your program can control the buzzer, you must set its pin mode \(so the Arduino program knows whether the part connected to the pin is an input or output\).
+Before your program can control the speaker, you must set its pin mode \(so the Arduino program knows whether the part connected to the pin is an input or output\).
 
 Within your `setup()` function, use the `pinMode()` function to set the pin mode for the buzzer pin:
 
 ```cpp
-pinMode(buzzer, OUTPUT);
+pinMode(speaker, OUTPUT);
 ```
 
-* `buzzer` represents the variable that stores the buzzer's pin number. If necessary, change this to the variable name you used for your buzzer pin. \(You could list the pin number directly, instead of listing a variable that stores the number. However, your program will be easier to read and understand if you use a variable.\)
-* `OUTPUT` indicates that the buzzer pin will be used for output \(instead of input\).
+* `speaker` represents the variable that stores the speaker's pin number. If necessary, change this to the variable name you used for your speaker pin. \(You could list the pin number directly, instead of listing a variable that stores the number. However, your program will be easier to read and understand if you use a variable.\)
+* `OUTPUT` indicates that the speaker pin will be used for output \(instead of input\).
 
 ## Produce Sound
 
 To produce a sound, use the `tone()` function:
 
 ```cpp
-tone(buzzer, frequency);
+tone(speaker, frequency);
 ```
 
-* `buzzer` represents the variable that stores the buzzer's pin number. If necessary, change this to the variable name you used for your buzzer pin.
-* `frequency` represents the frequency \(in Hertz\) of the sound. The frequency should be an integer value. Lower values \(lower frequencies\) have a lower pitch, while higher values \(higher frequencies\) have a higher pitch.
+* `speaker` represents the variable that stores the speaker's pin number. If necessary, change this to the variable name you used for your speaker pin number.
+* `frequency` represents the frequency \(in Hertz\) of the sound. For the frequency, list an integer value \(whole number\) between 20-20000. Lower values \(lower frequencies\) have a lower pitch, while higher values \(higher frequencies\) have a higher pitch.
 
 To produce sounds that most people can easily hear, use a frequency value between 50 and 8000. Try using a value of 3000, and then decide whether you want the sound to have a higher or lower pitch.
 
-**NOTE:** Once this command is performed, the buzzer will keep playing the sound. A separate command has to be used to stop the sound.
+**NOTE:** Once this command is performed, the speaker will keep playing the sound. A separate command has to be used to stop the sound.
 
 ## Add Delay Before Stopping Sound
 
@@ -78,39 +82,39 @@ Sounds will typically only need to play for a fraction of a second, so you'll ty
 To stop the sound, use the `noTone()` function:
 
 ```cpp
-noTone(buzzer);
+noTone(speaker);
 ```
 
-* `buzzer` represents the variable that stores the buzzer's pin number. If necessary, change this to the variable name you used for your buzzer pin.
+* `speaker` represents the variable that stores the speaker's pin number. If necessary, change this to the variable name you used for your speaker pin number.
 
 The `noTone()` function is typically used after using the `delay()` function to allow the sound to play for a certain amount of time.
 
 ## Produce Different Sound Patterns
 
-You can combine `tone()`, `delay()`, and `noTone()` functions to make the buzzer produce different sounds or sound patterns.
+You can combine `tone()`, `delay()`, and `noTone()` functions to make the speaker produce different sounds or sound patterns.
 
-For example, to produce a brief "beep" sound, you would use the `tone()`, `delay()`, and `noTone()` functions in order:
+For example, to produce a brief "beep" sound, you would use the `tone()`, `delay()`, and `noTone()` functions in order, such as:
 
 ```cpp
-tone(buzzer, 3000); // turn on sound
+tone(speaker, 3000); // turn on sound
 delay(200); // wait 0.2 seconds
-noTone(buzzer); // turn off sound
+noTone(speaker); // turn off sound
 ```
 
-You can modify your code to make the buzzer produce different sound patterns, which might be useful as audio feedback:
+You can modify your code to make the speaker produce different sound patterns, which might be useful as audio feedback:
 
 * You can change the frequency value used in the `tone()` function to modify the pitch of the sound.
 * You can change the `delay()` value to modify how long the sound stays on \(and how long it pauses between sounds\).
-* You can use multiple sets of commands — or a `for()` loop that runs a set of commands multiple times — to make the buzzer "beep" a certain number of times in a row.
+* You can use multiple sets of commands — or a `for()` loop that runs a set of commands multiple times — to make the speaker "beep" a certain number of times in a row.
 
-For example, the buzzer could be used to provide feedback when a person presses the built-in push button on the RedBot mainboard:
+For example, the speaker could be used to provide feedback when a person presses the built-in push button on the RedBot mainboard:
 
 ```cpp
 if (button.read() == true) {
     // single-beep
-    tone(buzzer, 3000);
+    tone(speaker, 3000);
     delay(200);
-    noTone(buzzer);
+    noTone(speaker);
 
     // add other code to perform when button pushed
 
@@ -122,9 +126,9 @@ As another example, you can use a `for` loop to make the buzzer beep three times
 ```cpp
 // triple-beep
 for (int i=0; i < 3; i++) {
-    tone(buzzer, 4000);
+    tone(speaker, 4000);
     delay(100);
-    noTone(buzzer);
+    noTone(speaker);
     delay(100); // pause before next beep
 }
 ```
@@ -139,9 +143,9 @@ For example, you could create a custom function named `alertSound()`:
 void alertSound() {
     // modify code to play whatever sound pattern you want
     for (int i=0; i < 3; i++) {
-        tone(buzzer, 4000);
+        tone(speaker, 4000);
         delay(100);
-        noTone(buzzer);
+        noTone(speaker);
         delay(100); // pause before next beep
     }
 }
@@ -164,7 +168,7 @@ You could program your RedBot to play different sounds or sound patterns as a wa
 
 ## Play Song Note by Note
 
-You can use the buzzer to play simple music by playing a song note by note. Each note corresponds to a specific frequency played for a specific duration \(such as: whole note, half note, quarter note, etc.\).
+You can use the speaker to play simple music by playing a song note by note. Each note corresponds to a specific frequency played for a specific duration \(such as: whole note, half note, quarter note, etc.\).
 
 [RedBot Experiment 4.2](https://learn.sparkfun.com/tutorials/experiment-guide-for-redbot-with-shadow-chassis/experiment-4-push-to-start--making-sounds-sik) includes an example program that can play "Twinkle Twinkle Little Star" or "It's A Small World".
 
@@ -215,7 +219,7 @@ Add the `playNote()` custom function **after** your `loop()` function:
 ```cpp
 void playNote(int note, int duration) {
     // variable names for notes and durations defined in "notes.h"
-    tone(buzzer, note, duration);
+    tone(speaker, note, duration);
     delay(duration);
 }
 ```
@@ -267,11 +271,11 @@ For example, here's a program that will play a song that you might recognize:
 ```cpp
 #include "notes.h"
 
-const int buzzer = 9;
+const int speaker = 9;
 const int button = 12;
 
 void setup() {
-    pinMode(buzzer, OUTPUT);
+    pinMode(speaker, OUTPUT);
     pinMode(button, INPUT_PULLUP);
 }
 
@@ -286,7 +290,7 @@ void loop() {
 
 void playNote(int note, int duration) {
     // variable names for notes and durations defined in "notes.h"
-    tone(buzzer, note, duration);
+    tone(speaker, note, duration);
     delay(duration);
 }
 
