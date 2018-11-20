@@ -2,11 +2,15 @@
 
 The RedBot device runs programs written in a computer language called [Arduino](https://www.arduino.cc/reference/en/).
 
-To be more accurate, Arduino is actually a code library written in another computer language called [C++](https://en.wikipedia.org/wiki/C%2B%2B) \(similar to how jQuery is a code library written in JavaScript\). If needed, your Arduino program can incorporate code written directly in C++.
+Arduino is actually a code library written in another computer language called [C++](https://en.wikipedia.org/wiki/C%2B%2B) \(similar to how jQuery is a code library written in JavaScript\). If needed, your Arduino program can incorporate code written directly in C++.
 
 The Arduino "language" is designed to make it easier to write programs for microcontrollers, which are small, low-cost, low-power computers that control physical inputs and outputs \(such as sensors, lights, motors, etc.\).
 
-An Arduino microcontroller board contains a processor \(CPU\), memory \(RAM\), storage \(Flash\), input/output pins, a USB port \(for data transfer\), and a power supply input \(typically battery-powered\). A microcontroller doesn't have a keyboard, monitor, or other peripherals that full-size computers usually have. A microcontroller is also much less powerful than a full-size computer: a microcontroller has a slower processor, less memory, less storage, etc.
+![Arduino Uno Microcontroller](../.gitbook/assets/arduino-uno.jpg)
+
+An Arduino microcontroller board contains a processor \(CPU\), memory \(RAM\), storage \(Flash\), input/output pins, a USB port \(for data transfer\), and a power supply input \(typically battery-powered\).
+
+A microcontroller doesn't have a keyboard, monitor, or other peripherals that full-size computers typically use. A microcontroller is also much less powerful than a full-size computer: a microcontroller has a slower processor, less memory, less storage, etc.
 
 So why even use a microcontroller if it seems so limited in power? Microcontrollers are perfectly suited for performing dedicated computing tasks that don't require a full-size computer. Microcontrollers are also small enough \(and cheap enough\) that they can be embedded inside other devices. Want to create a "smart" device? Use a microcontroller, and create a program for it.
 
@@ -22,7 +26,7 @@ Alternatively, you can download a desktop version of the [Arduino IDE](https://w
 
 There are different types of [Arduino microcontroller boards](https://www.arduino.cc/en/Main/Products), which have slightly different capabilities. The Arduino code editor will need to know which Arduino board you are using:
 
-* The RedBot mainboard is equivalent to: **Arduino/Genuino Uno**
+* The RedBot mainboard is equivalent to:  **Arduino/Genuino Uno**
 
 ## Arduino Devices Run One Program at a Time
 
