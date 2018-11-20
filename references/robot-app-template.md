@@ -119,8 +119,9 @@ void pivotAngle(float angle) {
 }
 ```
 
-The full code for the pre-built custom functions are listed in other sections of the [RedBot Code References](./) — check the "Quick Links".
+The full code for the pre-built custom functions are listed in other sections of the [RedBot Code References](https://github.com/idewcomputing/code-robotics/tree/9eab54c9124e9aa06960e1bd42af1cd61e7679d5/references/README.md) — check the "Quick Links".
 
 **IMPORTANT:** Your program will most likely need to include certain other pre-built custom functions \(such as `driveStraight()`, `followLine()`, `countLine()`, `followCountLine()`, `checkBumpers()`, `measureDistance()`, `avoidCollision()`, etc.\). The specific custom functions that you should include depend on your robot's navigation method\(s\) and the specific sensors/features you're using in your demonstration.
 
 Furthermore, you might want or need to create some of your own custom functions to perform specific actions or decisions.
+
