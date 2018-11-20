@@ -22,6 +22,7 @@
   * [LED Light](references/physical-outputs/led-light.md)
   * [Speaker \(Buzzer\)](references/physical-outputs/speaker-buzzer.md)
   * [Motors](references/physical-outputs/motors.md)
+* [Navigation Methods](references/navigation-methods.md)
 
 ## LINKS
 
