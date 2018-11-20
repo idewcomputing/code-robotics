@@ -4,7 +4,7 @@ If you were to drive the RedBot motors at the same power, you would expect them 
 
 The RedBot has wheel encoders that can measure exactly how many times the left and right motors have rotated. Over time, even a slight difference between the left and right motor rotations will add up and prevent the robot from traveling in a straight line. Fortunately, you can use the wheel encoders to help fix this issue \(by adjusting the power supplied to each motor\) and make your robot drive perfectly straight.
 
-![](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/.gitbook/assets/wheel-encoder.jpg)
+![](../../.gitbook/assets/wheel-encoder.jpg)
 
 Each wheel encoder consists of a [Hall effect sensor](https://en.wikipedia.org/wiki/Hall_effect_sensor) that can measure the strength of a magnetic field. A ring magnet is attached to each RedBot motor. When the motor rotates the wheel, it also rotates the ring magnet. The Hall effect sensor positioned near the ring detects changes in the magnetic field as the ring rotates. This is how the sensor can measure how many times the motor has rotated.
 
