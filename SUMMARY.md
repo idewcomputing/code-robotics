@@ -7,9 +7,9 @@
 * [A. Meet Your Robot](tutorials/meet-your-robot.md)
 * [B. Hello World Test](tutorials/hello-world-test.md)
 * [C. Driving and Turning](tutorials/driving-and-turning.md)
-* [D. Detecting Objects](tutorials/detecting-objects.md)
-* [E. Detecting Lines](tutorials/detecting-lines.md)
-* [F. Detecting Other Conditions](tutorials/detecting-other-conditions.md)
+* [D. Detect Objects in Path](tutorials/detect-objects-in-path.md)
+* [E. Detect Lines on Surface](tutorials/detect-lines-on-surface.md)
+* [F. Detect Other Conditions](tutorials/detect-other-conditions.md)
 
 ## REFERENCES
 
