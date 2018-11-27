@@ -6,10 +6,10 @@
 
 * [A. Meet Your Robot](tutorials/meet-your-robot.md)
 * [B. Hello World Test](tutorials/hello-world-test.md)
-* [Driving and Turning](tutorials/driving-and-turning.md)
-* [Detecting Objects](tutorials/detecting-objects.md)
-* [Detecting Lines](tutorials/detecting-lines.md)
-* [Detecting Other Conditions](tutorials/detecting-other-conditions.md)
+* [C. Driving and Turning](tutorials/driving-and-turning.md)
+* [D. Detecting Objects](tutorials/detecting-objects.md)
+* [E. Detecting Lines](tutorials/detecting-lines.md)
+* [F. Detecting Other Conditions](tutorials/detecting-other-conditions.md)
 
 ## REFERENCES
 

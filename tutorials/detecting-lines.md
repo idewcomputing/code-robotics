@@ -1,4 +1,6 @@
-# Detecting Lines
+# E. Detecting Lines
 
-TK
+In this fifth tutorial, you'll learn how to make your robot detect lines on the surface using its IR sensors.
+
+
 
