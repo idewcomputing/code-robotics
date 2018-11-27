@@ -1,4 +1,6 @@
-# A. Hello World Test
+# B. Hello World Test
 
-TK
+In this second tutorial, you'll program a "Hello World" app for your robot.
+
+
 

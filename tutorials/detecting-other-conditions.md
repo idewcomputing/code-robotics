@@ -1,0 +1,6 @@
+# Detecting Other Conditions
+
+TK
+
+
+
