@@ -4,7 +4,7 @@
 
 ## TUTORIALS
 
-* [A. Tutorial](tutorials/a.-tutorial.md)
+* [A. Hello World Test](tutorials/hello-world-test.md)
 
 ## REFERENCES
 
