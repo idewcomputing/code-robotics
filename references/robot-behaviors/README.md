@@ -6,21 +6,21 @@ Here are direct links to certain custom functions in the coding references that 
 
 ## Driving
 
-These custom functions use the [wheel encoders](physical-inputs/wheel-encoders.md):
+These custom functions use the [wheel encoders](../physical-inputs/wheel-encoders.md):
 
 * [`driveStraight()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/wheel-encoders.md#drive-straight-continuously) — drive straight continuously
 * [`driveDistance()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/wheel-encoders.md#drive-straight-for-specific-distance) — drive straight for specific distance at specific motor power
 
 ## Turning
 
-These custom functions also use the [wheel encoders](physical-inputs/wheel-encoders.md):
+These custom functions also use the [wheel encoders](../physical-inputs/wheel-encoders.md):
 
 * [`pivotAngle()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/wheel-encoders.md#pivot-both-wheels-by-specific-angle) — pivot on both wheels by specific angle
 * [`turnAngle()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/wheel-encoders.md#turn-on-one-wheel-by-specific-angle) — turn on one wheel by specific angle
 
 ## Detecting Lines
 
-These custom functions use the [IR line sensors](physical-inputs/ir-line-sensors.md):
+These custom functions use the [IR line sensors](../physical-inputs/ir-line-sensors.md):
 
 * [`followLine()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/ir-line-sensors.md#follow-line-automatically) — follow a line automatically
 * [`avoidLine()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/ir-line-sensors.md#avoid-line-automatically) — avoid a line automatically \(acts like border to contain robot\)
@@ -29,7 +29,7 @@ These custom functions use the [IR line sensors](physical-inputs/ir-line-sensors
 
 ## Detecting Objects
 
-These custom functions use the [mechanical bumpers](physical-inputs/mechanical-bumpers.md), [ultrasonic sensor](physical-inputs/ultrasonic-sensor.md), or [IR line sensors](physical-inputs/ir-line-sensors.md):
+These custom functions use the [mechanical bumpers](../physical-inputs/mechanical-bumpers.md), [ultrasonic sensor](../physical-inputs/ultrasonic-sensor.md), or [IR line sensors](../physical-inputs/ir-line-sensors.md):
 
 * [`checkBumpers()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/mechanical-bumpers.md#check-bumpers-for-collisions) — check for bumper collision with object
 * [`measureDistance()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/ultrasonic-sensor.md#measure-distance-to-object) — measure distance ahead to nearest object
