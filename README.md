@@ -8,7 +8,7 @@ This Robotics Code Guidebook is a supplement the [Robotics Project Guidebook](ht
 
 ## What's in this Guidebook?
 
-This guidebook contains a **series of robotics code tutorials** to help you get familiar with programming your robot to perform different behaviors and tasks.
+This guidebook contains a series of **robotics code tutorials** to help you get familiar with programming your robot to perform different behaviors and tasks.
 
 In addition, this guidebook contains **coding references** to explain how to add code in your robot app to control its physical inputs and outputs. There are also coding references for different robot behaviors and navigation modes.
 
