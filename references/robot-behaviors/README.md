@@ -21,7 +21,7 @@ Here is a list of robot behaviors that the RedBot can perform that may be useful
 
 The robot behaviors in this list could be categorized into different types based on their purpose:
 
-* Producing Light or Sound
+* Producing Alerts
 * Driving
 * Turning
 * Detecting Lines

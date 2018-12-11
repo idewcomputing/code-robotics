@@ -2,7 +2,7 @@
 
 The RedBot mainboard has a built-in green LED light that can be controlled by your program. The LED is hardwired to pin D13 on the RedBot mainboard and is located near the center-right of the mainboard.
 
-The LED light is often used for testing purposes \(e.g., to verify that your program is running\). However, the LED light can also be used to provide visual feedback.
+The LED light is often used for testing purposes \(e.g., to verify that your program is running\). However, the LED light can also be used to provide visual alerts or feedback.
 
 ### How to Use the LED in a Program:
 

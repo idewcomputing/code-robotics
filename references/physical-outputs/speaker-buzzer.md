@@ -2,7 +2,7 @@
 
 The RedBot kit includes a "buzzer" — a small speaker that can produce simple sounds. The speaker can only play one tone \(sound\) at a time, but you can create different sounds or sound patterns. You could even program it to play simple music by playing one note at a time.
 
-Sounds produced by the speaker could be useful as feedback or information to people interacting with your RedBot device.
+Sounds produced by the speaker could be useful as audio alerts or feedback to people interacting with your RedBot device.
 
 ### How to Use the Speaker in a Program:
 
