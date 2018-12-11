@@ -1,46 +1,37 @@
 # Robot Behaviors
 
-Here are direct links to certain custom functions in the coding references that can help you program your robot's tasks and behaviors. Be sure to review the the rest of the sensor's coding reference for additional code that may be necessary for the sensor and the function to work properly.
+## Levels of Robot Behaviors
 
-**TIP:** If any of the links below don't take you directly to the desired custom function on the destination page, just reload the destination page.
+A robot behavior can be defined as any action that the robot can perform.  Robot behaviors can generally be categorized as one of the following:
 
-## Driving
+* **Basic Behaviors** – these are low-level behaviors that perform a single action, such as: turning on the motors, reading a sensor, etc.  In the robot's program, basic behaviors can be performed with a single code statement.
+* **Simple Behaviors** – these are mid-level behaviors that perform a simple task, such as: driving forward for 5 seconds, turning to the right, etc. A simple behavior consists of a sequence of basic behaviors. In the robot's program, simple behaviors require several code statements.
+* **Complex Behaviors** – these are high-level behaviors that perform a complex task, such as: following a line, driving around an obstacle, etc.  A complex behavior consists of a sequence of simple behaviors. In the robot's program, complex behaviors require multiple code statements, which are typically put into a custom function.
 
-These custom functions use the [wheel encoders](../physical-inputs/wheel-encoders.md):
+The exact distinction between a "simple" behavior and a "complex" behavior is not necessarily clear.  The value of thinking about different levels of robot behaviors is to simply recognize that behaviors can combined or broken down into other behaviors:
 
-* [`driveStraight()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/wheel-encoders.md#drive-straight-continuously) — drive straight continuously
-* [`driveDistance()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/wheel-encoders.md#drive-straight-for-specific-distance) — drive straight for specific distance at specific motor power
+* **Composition:**  Lower-level robot behaviors can be combined into a sequence that produces a more complex behavior.
+* **Decomposition:**  A higher-level robot behavior can be broken down into a sequence of more simple behaviors.
 
-## Turning
+Understanding this can help you plan out the structure of your robot's program and figure out how to program the higher-level behaviors that you need to demonstrate your task scenarios.
 
-These custom functions also use the [wheel encoders](../physical-inputs/wheel-encoders.md):
+## Types of Robot Behaviors
 
-* [`pivotAngle()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/wheel-encoders.md#pivot-both-wheels-by-specific-angle) — pivot on both wheels by specific angle
-* [`turnAngle()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/wheel-encoders.md#turn-on-one-wheel-by-specific-angle) — turn on one wheel by specific angle
+Here is a list of robot behaviors that the RedBot can perform that may be useful for coding your own robot program. There are also other behaviors **not** listed here \(such as:  solving a maze, etc.\) that you could program your RedBot to perform.
 
-## Detecting Lines
+The robot behaviors in this list could be categorized into different types based on their purpose:
 
-These custom functions use the [IR line sensors](../physical-inputs/ir-line-sensors.md):
-
-* [`followLine()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/ir-line-sensors.md#follow-line-automatically) — follow a line automatically
-* [`avoidLine()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/ir-line-sensors.md#avoid-line-automatically) — avoid a line automatically \(acts like border to contain robot\)
-* [`countLine()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/ir-line-sensors.md#count-lines-and-stop-at-target-number) — drive straight while counting lines crossed and stop at specific line number
-* [`followCountLine()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/ir-line-sensors.md#follow-line-while-counting-lines-crossed) — follow a line while counting lines crossed and stop at specific line number
-
-## Detecting Objects
-
-These custom functions use the [mechanical bumpers](../physical-inputs/mechanical-bumpers.md), [ultrasonic sensor](../physical-inputs/ultrasonic-sensor.md), or [IR line sensors](../physical-inputs/ir-line-sensors.md):
-
-* [`checkBumpers()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/mechanical-bumpers.md#check-bumpers-for-collisions) — check for bumper collision with object
-* [`measureDistance()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/ultrasonic-sensor.md#measure-distance-to-object) — measure distance ahead to nearest object
-* [`avoidCollision()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/ultrasonic-sensor.md#avoid-collisions) — avoid colliding with object if it is too close \(also works [while following a line](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/ultrasonic-sensor.md#avoid-collisions-while-following-line)\)
-* [`findClosestObject()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/ultrasonic-sensor.md#find-closest-object) — performs 360° scan to find the closest object and then drive towards it
-* [`detectSurfaceObjects()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/ir-line-sensors.md#detect-flat-objects-on-surface) — detects different types of flat paper objects on the surface
+* Producing Light or Sound
+* Driving
+* Turning
+* Detecting Lines
+* Detecting Objects
+* Detecting Other Conditions
 
 | Robot Behavior | Components Required |
 | :--- | :--- |
-| Turn light on or off | LED Light |
-| Produce a sound | Speaker \(Buzzer\) |
+| Turn light on/off | LED Light |
+| Produce sound | Speaker \(Buzzer\) |
 | Drive for specific amount of time | Motors |
 | Drive straight continuously | Wheel Encoders, Motors |
 | Drive straight for specific distance | Wheel Encoders, Motors |
@@ -53,7 +44,7 @@ These custom functions use the [mechanical bumpers](../physical-inputs/mechanica
 | Detect bumper collision with object | Mechanical Bumpers |
 | Measure distance ahead to closest object | Ultrasonic Sensor |
 | Avoid collision with object in path | Ultrasonic Sensor, Wheel Encoders, Motors |
-| Avoid collisions while following line | IR Line Sensors, Ultrasonic Sensor, Wheel Encoders, Motors |
+| Avoid collision with object while following line | IR Line Sensors, Ultrasonic Sensor, Wheel Encoders, Motors |
 | Find closest object \(360° scan\) and drive towards it | Ultrasonic Sensor, Wheel Encoders, Motors |
 | Check if button is pressed | Push Button |
 | Check for surface drop-off | IR Line Sensors |
