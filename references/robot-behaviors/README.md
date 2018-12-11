@@ -37,3 +37,30 @@ These custom functions use the [mechanical bumpers](../physical-inputs/mechanica
 * [`findClosestObject()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/ultrasonic-sensor.md#find-closest-object) — performs 360° scan to find the closest object and then drive towards it
 * [`detectSurfaceObjects()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/ir-line-sensors.md#detect-flat-objects-on-surface) — detects different types of flat paper objects on the surface
 
+| Robot Behavior | Components Required |
+| :--- | :--- |
+| Turn light on or off | LED Light |
+| Produce a sound | Speaker \(Buzzer\) |
+| Drive straight continuously | Wheel Encoders, Motors |
+| Drive straight for specific distance | Wheel Encoders, Motors |
+| Turn by specific angle \(90° right, etc.\) | Wheel Encoders, Motors |
+| Follow a line | IR Line Sensors, Motors |
+| Avoid a line | IR Line Sensors, Motors |
+| Drive straight while counting lines crossed | Wheel Encoders, IR Line Sensors, Motors |
+| Follow a line while counting lines crossed | IR Line Sensors, Motors |
+| Detect bumper collision with object | Mechanical Bumpers |
+| Measure distance ahead to closest object | Ultrasonic Sensor |
+| Avoid collision with object in path | Ultrasonic Sensor, Wheel Encoders, Motors |
+| Avoid collisions while following line | IR Line Sensors, Ultrasonic Sensor, Wheel Encoders, Motors |
+| Find closest object \(360° scan\) and drive towards it | Ultrasonic Sensor, Wheel Encoders, Motors |
+| Check if button is pressed | Push Button |
+| Check for surface drop-off | IR Line Sensors |
+| Check if robot has been bumped | Accelerometer |
+| Measure pitch angle \(tilt up or down\) | Accelerometer |
+| Measure roll angle \(tilt left or right\) | Accelerometer |
+| Check if robot is upside down | Accelerometer |
+
+{% hint style="info" %}
+**ULTRASONIC SENSOR:** The SparkFun RedBot Kit does **NOT** include an ultrasonic sensor as a standard component. However, SparkFun sells the [HC-SR04 Ultrasonic Sensor](https://www.sparkfun.com/products/13959), which can be easily connected to a RedBot. Your teacher may have added this sensor to your kit.
+{% endhint %}
+
