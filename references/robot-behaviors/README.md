@@ -26,9 +26,9 @@ delay(2800);
 motors.brake();
 ```
 
-* Each code statement represents a **basic behavior**. For example, line 1 turns on the motors at a power of 200. Line 2 produces a delay of 2.8 seconds. Line 3 brakes the motors.
+* Each code statement represents a **basic behavior**. For example, line 1 turns on the motors at a power of 200. Line 2 waits for 2800 milliseconds \(2.8 seconds\). Line 3 brakes the motors.
 * Each code block represents a **simple behavior**. For example, lines 1-3 work together to make the robot drive forward about 4 feet. Lines 5-7 work together to make the robot turn around \(~ 180°\).
-* All of this code represents a **complex behavior**:  the robot will drive forward, turn around, and return to its starting position.
+* All of this code represents a **complex behavior**:  the robot will drive forward about 4 feet, turn around, and return to its starting position.
 
 The exact distinction between a "simple" behavior and a "complex" behavior is not necessarily clear.  The value of thinking about different levels of robot behaviors is to simply recognize that behaviors can combined \(or broken down\) into other behaviors:
 
@@ -75,7 +75,7 @@ The robot behaviors in this table could be categorized into different types base
 | Measure roll angle \(tilt left or right\) | Accelerometer |
 | Check if robot is upside down | Accelerometer |
 
-{% hint style="info" %}
+{% hint style="success" %}
 **OTHER POSSIBLE BEHAVIORS:**  There are other possible behaviors **not** listed in the table \(such as:  solving a maze, etc.\) that you could program your robot to perform.
 {% endhint %}
 
