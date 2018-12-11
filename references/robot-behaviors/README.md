@@ -39,7 +39,7 @@ Understanding composition and decomposition can help you plan out the structure 
 
 ## Types of Robot Behaviors
 
-The table below lists numerous robot behaviors that the RedBot can perform, which may be useful for coding your own robot program. Each behavior is linked to a reference that provides and explains the necessary code to perform the behavior. There are also other behaviors **not** listed here \(such as:  solving a maze, etc.\) that you could program your RedBot to perform.
+The table below lists numerous robot behaviors that the RedBot can perform, which may be useful for coding your own robot program. Each behavior is linked to a reference that provides and explains the code necessary to perform the behavior.
 
 The robot behaviors in this table could be categorized into different types based on their purpose:
 
@@ -75,7 +75,9 @@ The robot behaviors in this table could be categorized into different types base
 | Measure roll angle \(tilt left or right\) | Accelerometer |
 | Check if robot is upside down | Accelerometer |
 
-Again, there are other behaviors **not** listed here \(such as:  solving a maze, etc.\) that you could program your robot to perform.
+{% hint style="info" %}
+**OTHER POSSIBLE BEHAVIORS:**  There are other possible behaviors **not** listed in the table \(such as:  solving a maze, etc.\) that you could program your robot to perform.
+{% endhint %}
 
 {% hint style="info" %}
 **ULTRASONIC SENSOR:** The SparkFun RedBot Kit does **NOT** include an ultrasonic sensor as a standard component. However, SparkFun sells the [HC-SR04 Ultrasonic Sensor](https://www.sparkfun.com/products/13959), which can be easily connected to a RedBot. Your teacher may have added this sensor to your kit.
