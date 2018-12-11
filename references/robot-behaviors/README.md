@@ -41,8 +41,10 @@ These custom functions use the [mechanical bumpers](../physical-inputs/mechanica
 | :--- | :--- |
 | Turn light on or off | LED Light |
 | Produce a sound | Speaker \(Buzzer\) |
+| Drive for specific amount of time | Motors |
 | Drive straight continuously | Wheel Encoders, Motors |
 | Drive straight for specific distance | Wheel Encoders, Motors |
+| Turn for specific amount of time | Motors |
 | Turn by specific angle \(90° right, etc.\) | Wheel Encoders, Motors |
 | Follow a line | IR Line Sensors, Motors |
 | Avoid a line | IR Line Sensors, Motors |
