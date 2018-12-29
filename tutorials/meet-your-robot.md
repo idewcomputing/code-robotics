@@ -11,4 +11,4 @@ The goals of this tutorial are to help you:
 
 In progress...
 
-![RedBot Circuit Board](../../.gitbook/assets/redbot-mainboard-annotated.jpg)
+![RedBot Circuit Board](../.gitbook/assets/redbot-mainboard-annotated.jpg)
