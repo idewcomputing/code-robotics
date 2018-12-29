@@ -9,3 +9,4 @@ The goals of this tutorial are to help you:
 * Understand the parts of your robot and their purposes
 * Identify the physical inputs and outputs that your robot can use to sense and act 
 
+In progress...
