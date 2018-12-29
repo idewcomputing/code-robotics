@@ -10,3 +10,5 @@ The goals of this tutorial are to help you:
 * Identify the physical inputs and outputs that your robot can use to sense and act 
 
 In progress...
+
+![RedBot Circuit Board](../../.gitbook/assets/redbot-mainboard-annotated.jpg)
