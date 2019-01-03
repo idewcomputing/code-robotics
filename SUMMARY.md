@@ -5,6 +5,9 @@
 ## TUTORIALS
 
 * [A. Meet Your Robot](tutorials/meet-your-robot.md)
+* [A-1 Circuit Board](tutorials/a-1-circuit-board.md)
+* [A-2 Motors and Wheels](tutorials/a-2-motors-and-wheels.md)
+* [A-3 Other Components](tutorials/a-3-other-components.md)
 * [B. Hello World Test](tutorials/hello-world-test.md)
 * [C. Driving and Turning](tutorials/driving-and-turning.md)
 * [D. Detect Objects in Path](tutorials/detect-objects-in-path.md)
