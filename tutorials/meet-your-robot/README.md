@@ -23,19 +23,19 @@ This guidebook is tailored for a two-wheeled robotics kit called the [SparkFun I
 
 ​[SparkFun](https://www.sparkfun.com/) is a company that sells products to help people build and program electronics devices. SparkFun created its RedBot kit by incorporating an Arduino-based microcontroller into an easy-to-use circuit board and packaged it with a set of motors, wheels, sensors, and other parts to help you learn how to program a wheeled robot. It is also possible to purchase additional parts \(sensors, servo motors, etc.\) that can be used with this RedBot kit.
 
-![SparkFun RedBot Kit Parts](../.gitbook/assets/redbot-kit-parts.jpg)
+![SparkFun RedBot Kit Parts](../../.gitbook/assets/redbot-kit-parts.jpg)
 
 Once assembled, your RedBot should look like this:
 
-![SparkFun RedBot \(without Ultrasonic Sensor\)](../.gitbook/assets/redbot.jpg)
+![SparkFun RedBot \(without Ultrasonic Sensor\)](../../.gitbook/assets/redbot.jpg)
 
 A simple \(but important\) step is to understand the orientation of the RedBot — specifically, which end is the front?  An easy way to remember:  most of the sensors are attached at the front end, while the circuit board is located at the back end.
 
-![Top View of RedBot \(with Ultrasonic Sensor\)](../.gitbook/assets/redbot-top-view-sides.jpg)
+![Top View of RedBot \(with Ultrasonic Sensor\)](../../.gitbook/assets/redbot-top-view-sides.jpg)
 
-If you have an [ultrasonic sensor](../references/physical-inputs/ultrasonic-sensor.md), it should be mounted at the front of the robot on top of the chassis \(above the mechanical bumpers and IR line sensors\). The ultrasonic sensor should face forward, like a pair of "eyes" \(though an ultrasonic sensor actually uses high-frequency sound waves to "see"\).
+If you have an [ultrasonic sensor](../../references/physical-inputs/ultrasonic-sensor.md), it should be mounted at the front of the robot on top of the chassis \(above the mechanical bumpers and IR line sensors\). The ultrasonic sensor should face forward, like a pair of "eyes" \(though an ultrasonic sensor actually uses high-frequency sound waves to "see"\).
 
-![Ultrasonic Sensor Mounted at Front of RedBot](../.gitbook/assets/ultrasonic-mounted.jpg)
+![Ultrasonic Sensor Mounted at Front of RedBot](../../.gitbook/assets/ultrasonic-mounted.jpg)
 
 
 

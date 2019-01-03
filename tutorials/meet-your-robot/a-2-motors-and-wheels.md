@@ -6,7 +6,7 @@ Motors and Wheels
 
 Wheel Encoders
 
-![](../.gitbook/assets/wheel-encoder.jpg)
+![](../../.gitbook/assets/wheel-encoder.jpg)
 
 
 
