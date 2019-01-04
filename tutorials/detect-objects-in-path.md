@@ -1,5 +1,7 @@
 # D. Detect Objects in Path
 
+**STILL IN PROGRESS**
+
 In this fourth tutorial, you'll learn how to make your robot detect objects in its path by using its mechanical bumpers and \(if equipped\) ultrasonic sensor.
 
 ## Tutorial Goals <a id="tutorial-goals"></a>

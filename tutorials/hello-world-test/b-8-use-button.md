@@ -1,5 +1,7 @@
 # B-8 Use Button
 
+**STILL IN PROGRESS**
+
 add global variable for button
 
 set pin mode for button

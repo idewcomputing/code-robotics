@@ -1,5 +1,7 @@
 # E. Detect Lines on Surface
 
+**STILL IN PROGRESS**
+
 In this fifth tutorial, you'll learn how to make your robot detect lines on the surface by using its IR line sensors.
 
 ## Tutorial Goals <a id="tutorial-goals"></a>

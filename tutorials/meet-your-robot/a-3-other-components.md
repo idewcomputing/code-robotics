@@ -1,6 +1,6 @@
 # A-3 Other Components
 
-In progress...
+**STILL IN PROGRESS**
 
 Speaker
 

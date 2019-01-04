@@ -1,5 +1,7 @@
 # C. Driving and Turning
 
+**STILL IN PROGRESS**
+
 In this third tutorial, you'll learn how to make your robot drive and turn by using its motors and wheel encoders.
 
 ## Tutorial Goals <a id="tutorial-goals"></a>

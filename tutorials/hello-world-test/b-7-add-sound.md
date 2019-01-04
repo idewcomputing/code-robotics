@@ -1,5 +1,7 @@
 # B-7 Add Sound
 
+**STILL IN PROGRESS**
+
 add global variable for speaker
 
 set pin mode for speaker
