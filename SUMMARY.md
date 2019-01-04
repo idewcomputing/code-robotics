@@ -33,7 +33,11 @@
   * [E-2 Follow Line](tutorials/detect-lines-on-surface/e-2-follow-line.md)
   * [E-3 Avoid Line](tutorials/detect-lines-on-surface/e-3-avoid-line.md)
   * [E-4 Count Lines Crossed](tutorials/detect-lines-on-surface/e-4-count-lines-crossed.md)
-* [F. Detect Other Conditions](tutorials/detect-other-conditions.md)
+* [F. Detect Other Conditions](tutorials/detect-other-conditions/README.md)
+  * [F-1 Detect Surface Drop-Off](tutorials/detect-other-conditions/f-1-detect-surface-drop-off.md)
+  * [F-2 Test Accelerometer](tutorials/detect-other-conditions/f-2-test-accelerometer.md)
+  * [F-3 Detect If Bumped](tutorials/detect-other-conditions/f-3-detect-if-bumped.md)
+  * [F-4 Detect If Upside-Down](tutorials/detect-other-conditions/f-4-detect-if-upside-down.md)
 
 ## REFERENCES
 

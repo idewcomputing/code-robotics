@@ -6,5 +6,5 @@ create RedBotSensor objects
 
 read sensor measurements - explain conceptually how they work
 
-use testLineSensor\(\) custom function to use serial monitor to view sensor measurements
+use testLineSensors\(\) custom function to use serial monitor to view sensor measurements
 

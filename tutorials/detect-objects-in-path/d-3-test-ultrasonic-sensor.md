@@ -10,7 +10,7 @@ set pin modes for sensor
 
 use measureDistance\(\) custom function - explain conceptually how it works
 
-use testUltrasonic\(\) custom function to use serial monitor to view distance measurements
+use testUltrasonicSensor\(\) custom function to use serial monitor to view distance measurements
 
 
 

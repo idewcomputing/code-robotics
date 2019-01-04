@@ -8,7 +8,7 @@ create RedBotEncoder object
 
 clear both encoder counters
 
-use serial monitor to view encoder counts during test \(verify each wheel encoder is working properly when driving forwards and backwards, verify encoder counts are relatively close to each other\)
+use testWheelEncoders\(\) custom function to use serial monitor to view encoder counts during test \(verify each wheel encoder is working properly when driving forwards and backwards, verify encoder counts are relatively close to each other\)
 
 if a wheel encoder is not working properly, check alignment again - this accounts for nearly all issues with the wheel encoder - last resort: swap out Hall effect sensor and/or ring magnet
 
