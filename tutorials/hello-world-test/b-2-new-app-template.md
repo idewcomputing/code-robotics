@@ -2,7 +2,7 @@
 
 **STILL IN PROGRESS**
 
-title app
+create new sketch \(app\), and name app \(use Rename Sketch in web editor; use Save As in desktop editor\)
 
 app structure - setup\(\) and loop\(\) functions
 

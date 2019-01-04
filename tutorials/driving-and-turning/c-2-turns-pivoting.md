@@ -1,4 +1,4 @@
-# C-3 Turns \(Pivoting\)
+# C-2 Turns \(Pivoting\)
 
 #### **STILL IN PROGRESS**
 

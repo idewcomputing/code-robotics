@@ -4,7 +4,11 @@
 
 connect robot to computer via USB, and turn on robot
 
-login to Arduino Create web editor, or start Arduino desktop editor
+login to Arduino Create web editor \(if not already done so: create account and install plug-in\)
 
-Arduino programming language
+OR
+
+start Arduino desktop editor \(if not already done so:  download and install\)
+
+Arduino programming language - brief description and link to reference
 
