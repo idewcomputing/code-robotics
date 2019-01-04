@@ -1,8 +1,6 @@
 # B-1 Arduino Code Editor
 
-connect robot to computer via USB
-
-turn on robot
+connect robot to computer via USB, and turn on robot
 
 login to Arduino Create web editor, or start Arduino desktop editor
 
