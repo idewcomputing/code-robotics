@@ -21,9 +21,9 @@ The RedBot circuit board also has various pins, ports, buttons, switches, and LE
 * **FTDI FT232R USB Chip:**  used to send and receive data through the USB port
 * **Input/Output Pins:**  used to connect wires for inputs \(sensors, etc.\) and outputs \(speaker, etc.\)
   * These I/O pins are in groups labeled as "Sensor" or "Servo" – each group has 6 pins, representing a set of 3 pins on the left and another set of 3 pins on the right
-  * Each set of 3 pins has one pin for input/output of data, a second pin for power (5V = positive), and a third pin for ground (GND = negative). Typically, a white wire connects to the I/O pin, a red wire connects to the 5V pin, and a black wire connects the GND pin.
-  * The "Sensor" I/O pins are numbered as A0, A1, A2, A3, A4, A5, A6, A7
-  * The "Servo" I/O pins are numbered as 3, 9, 10, 11
+  * Each set of 3 pins has one pin for input/output of data, a second pin for power (5V = positive), and a third pin for ground (GND = negative). Typically, a white wire connects to the I/O pin, a red wire connects to the 5V pin, and a black wire connects to the GND pin.
+  * The "Sensor" I/O pins are numbered as:  A0, A1, A2, A3, A4, A5, A6, A7
+  * The "Servo" I/O pins are numbered as:  3, 9, 10, 11
   * There are also I/O pins connected directly to a built-in LED light (pin D13) and push button (pin D12)
 * **Motor Pins:**  used to connect wires for left and right motors \(which are a type of output\)
 * **Power Supply Jack:**  used to provide power to robot \(by plugging in barrel jack from battery pack\)
