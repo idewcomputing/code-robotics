@@ -2,15 +2,27 @@
 
 **STILL IN PROGRESS**
 
-Speaker
+## Speaker
 
-Mechanical Bumpers
+The RedBot has a small speaker \(labeled as a "buzzer"\) attached to I/O pin 9 on the circuit board.
 
-IR Line Sensors
+This speaker can produce simple sounds. The speaker can only play one tone \(sound\) at a time, but you can create different sounds or sound patterns. You could even program it to play simple music by playing one note at a time.
 
-Accelerometer
+Sounds could be useful as audio alerts or feedback to people interacting with your robot.
 
-Ultrasonic Sensor
+## Mechanical Bumpers
 
+explain
 
+## IR Line Sensors
+
+explain
+
+## Accelerometer
+
+explain
+
+## Ultrasonic Sensor
+
+explain
 
