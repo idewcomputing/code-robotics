@@ -4,7 +4,7 @@
 
 The RedBot is a two-wheeled robot.  It also has a semi-circular plastic "nub caster" on the underside of its chassis at the back. This caster acts as a third point of contact to balance the robot \(similar to a third wheel, except this caster doesn't rotate\).
 
-Each wheel is driven by its own motor. These left and right motors can be independently controlled, in order to make the robot drive forward, backwards, or make turns.
+Each wheel is driven by its own motor, which is connected to the RedBot circuit board by a pair of red and black wires. These left and right motors can be independently controlled, in order to make the robot drive forward, backwards, or make turns.
 
 You can also determine how power each motor receives, in order to rotate the wheels faster or slower, to control the speed of your robot as it drives and turns.
 
@@ -29,6 +29,8 @@ When you think of a magnet, you probably think of a magnet that has 2 poles: nor
 ![](../../.gitbook/assets/ring-magnet.jpg)
 
 So as the ring magnet completes one full rotation, the Hall effect sensor detects 4 changes \(or "ticks"\) in the magnetic field as each magnetic pole passes by the sensor.
+
+Each wheel encoder is connected to the RedBot circuit board by a 3-wire jumper cable \(white, red, and black wires for data, power, and ground\). The left wheel encoder is connected to I/O pin A3 for data, and the right wheel encoder is connected to I/O pin 10 for data.
 
 The wheel encoders are one of the most useful sensors on your robot because they can allow your robot to drive straight for specific distances and to make turns of specific angles \(such as:  90° right, 90° left, 180° around, etc.\).
 

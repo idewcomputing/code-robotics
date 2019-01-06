@@ -19,7 +19,7 @@ The RedBot circuit board also has various pins, ports, buttons, switches, and LE
   * Input/Output: supports up to 23 general-purpose I/O pins
 * **TB6612FNG Dual DC Motor Driver Chip:**  used to control the two wheel motors
 * **FTDI FT232R USB Chip:**  used to send and receive data through the USB port
-* **Input/Output Pins:**  used to connect wires for inputs \(sensors, etc.\) and outputs \(speaker, etc.\)
+* **Input/Output Pins:**  used to connect wires for inputs \(sensors, etc.\) and outputs \(speaker, etc.\) - these I/O pins are in groups labeled as "Sensor" or "Servo" - each group contains 3 pins \(one for data, one for 5V of power, and "Sensor" pins are numbered as A0, A1, A2, A3, A4, A5, A6, A7 - "Servo" pins are numbered as 3, 9, 10, 11
 * **Motor Pins:**  used to connect wires for left and right motors \(which are a type of output\)
 * **Power Supply Jack:**  used to provide power to robot \(by plugging in barrel jack from battery pack\)
 * **Mini USB Port:**  used to connect robot to computer \(to download new app from computer or to send serial data to computer\)
