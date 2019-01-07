@@ -3,7 +3,7 @@
 In this first tutorial, you'll become familiar with your team's robotics kit. Your team might receive a new robotics kit that needs to be assembled – or you might receive an existing robot that is ready to use.
 
 {% hint style="success" %}
-**NEW ROBOT:**  If you need to assemble a new SparkFun RedBot robotics kit, carefully follow the instructions in the [SparkFun Assembly Guide for RedBot](https://learn.sparkfun.com/tutorials/assembly-guide-for-redbot-with-shadow-chassis). If your teacher included an ultrasonic sensor in your kit, follow these [instructions to connect the ultrasonic sensor](../../references/physical-inputs/ultrasonic-sensor.md) to your assembled robot.
+**NEW ROBOT:**  If you need to assemble a new SparkFun RedBot robotics kit, carefully follow the instructions in the [SparkFun Assembly Guide for RedBot](https://learn.sparkfun.com/tutorials/assembly-guide-for-redbot-with-shadow-chassis). If your teacher added an ultrasonic sensor to your kit, follow these [instructions to connect the ultrasonic sensor](../../references/physical-inputs/ultrasonic-sensor.md) to your assembled robot.
 {% endhint %}
 
 {% hint style="danger" %}
@@ -29,7 +29,7 @@ Once assembled, your RedBot should look like this:
 
 ![SparkFun RedBot \(without Ultrasonic Sensor\)](../../.gitbook/assets/redbot.jpg)
 
-A simple \(but important\) step is to understand the orientation of the RedBot — specifically, which end is the front?  An easy way to remember:  most of the sensors are attached at the front end, while the circuit board is located at the back end.
+A simple \(but important\) step is to understand the orientation of the RedBot — specifically, which end is the front of the robot?  An easy way to remember:  most of the sensors are attached at the front end, while the circuit board is located at the back end.
 
 ![Top View of RedBot \(with Ultrasonic Sensor\)](../../.gitbook/assets/redbot-top-view-sides.jpg)
 

@@ -1,7 +1,5 @@
 # A-3 Other Components
 
-**STILL IN PROGRESS**
-
 Your RedBot robot has other useful components, which can be categorized as either physical inputs or physical outputs.
 
 **Physical inputs** \(such as sensors, etc.\) are components that gather data from the physical environment. The D12 push button on the circuit board and the wheel encoders are both examples of physical inputs. Most of the other components on your RedBot are physical inputs that help the robot sense its environment.
@@ -33,7 +31,7 @@ Each mechanical bumper is connected to the RedBot circuit board by a 3-wire jump
 
 ## IR Line Sensors
 
-The RedBot has three IR line sensors \(left, center, and right\) mounted at its front close to the surface. The bottom of each line sensor has an LED that transmits infrared \(IR\) light, which is invisible to the human eye. The bottom of each sensor also has an IR detector, which measures how much of the IR light is reflected back by the surface that the RedBot is driving on.
+The RedBot has three IR line sensors \(left, center, and right\) mounted at its front close to the surface. The bottom of each line sensor has an LED that transmits infrared \(IR\) light, which is invisible to the human eye. The bottom of each sensor also has an IR detector, which measures how much of the IR light is reflected back by the surface that the robot is driving on.
 
 ![Bottom View of IR Line Sensor](../../.gitbook/assets/line-sensor.jpg)
 
@@ -112,12 +110,24 @@ Angle XY represents **yaw**. Yaw is the right-to-left rotation on the device's Z
 **ADD-ON COMPONENT:** The SparkFun RedBot Kit does **NOT** include an ultrasonic sensor as a standard component. However, SparkFun sells the [HC-SR04 Ultrasonic Sensor](https://www.sparkfun.com/products/13959), which can be easily connected to a RedBot. Your teacher may have added this sensor to your kit.
 {% endhint %}
 
-explain
+An ultrasonic sensor uses sonar to measure the distance ahead to the closest object in the robot's path. This can be used to avoid collisions with obstacles.  This is similar to how bats and dolphins use echolocation for navigation and hunting.
+
+The ultrasonic sensor has a transmitter \(i.e., a speaker\) that can produce high-frequency sound, which cannot be heard by the human ear. The sensor also has a receiver \(i.e., a microphone\) that detects the echo of the high-frequency sound when it is reflected back from a nearby object. By measuring how much time it takes for the echo to arrive, you can calculate the distance between the sensor and the closest object.
 
 ![Ultrasonic Sensor](../../.gitbook/assets/ultrasonic-sensor.jpg)
+
+This ultrasonic sensor measures distances in a narrow cone of about 15° in front of the sensor. This sensor can detect obstacles located up to 400 cm away \(about 13 feet\). The distance measurements from the sensor are very accurate, within about 3 mm \(about 0.1 inch\) of the actual distance.
+
+The primary use of the ultrasonic sensor is to prevent collisions. If the sensor detects a nearby obstacle in the path ahead, the robot can be programmed to avoid the obstacle by stopping or turning. You could even use this sensor to program your robot to navigate a maze on its own.
+
+However, the ultrasonic sensor might **not** detect obstacles off to the left side or right side — if those obstacles are outside the 15° detection cone directly in front of the sensor. For these situations, you may want to use the mechanical bumpers as a fallback system to supplement the ultrasonic sensor. Since the mechanical bumper whiskers extend outwards on both sides, they can detect a collision with an obstacle that the ultrasonic sensor might not detect \(as shown below\).
+
+![](../../.gitbook/assets/ultrasonic-plus-bumpers.png)
 
 The ultrasonic sensor should be connected to the RedBot circuit board by a 4-wire jumper cable \(will be different colors – two wires are for data, one is for power, and one is for ground\):
 
 * The transmitter data wire \(TRIG\) should be connected to I/O pin A0.
 * The receiver data wire \(ECHO\) should be connected to I/O pin A1.
+
+
 
