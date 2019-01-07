@@ -14,7 +14,7 @@ If your robot has an **ultrasonic sensor**, be sure to complete these tutorials 
 
 The goals of this tutorial are to help you:
 
-* Understand how to use Arduino to program apps for your robot
+* Understand how to use the Arduino programming language to code apps for your robot
 * Create a Hello World app to learn how to control your robot's LED light, speaker, and push button
 
 ## What is a Hello World app? <a id="what-is-a-hello-world-app"></a>
