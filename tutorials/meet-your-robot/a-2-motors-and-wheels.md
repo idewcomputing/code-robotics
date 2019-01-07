@@ -8,6 +8,8 @@ Each wheel is driven by its own motor, which is connected to the RedBot circuit 
 
 You can also determine how power each motor receives, in order to rotate the wheels faster or slower, to control the speed of your robot as it drives and turns.
 
+![Left and Right Motors](../../.gitbook/assets/redbot-motors.jpg)
+
 ## Wheel Encoders
 
 Located directly behind each wheel motor is a wheel encoder. The wheel encoder is used to count exactly how many times that motor has rotated. These wheel encoder counts can be used to:
