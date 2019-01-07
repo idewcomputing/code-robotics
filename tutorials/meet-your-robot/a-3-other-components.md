@@ -2,6 +2,12 @@
 
 **STILL IN PROGRESS**
 
+Your RedBot robot has other useful components, which can be categorized as either physical inputs or physical outputs.
+
+**Physical inputs** \(such as sensors, etc.\) are components that gather data from the physical environment. The D12 push button on the circuit board and the wheel encoders are both examples of physical inputs. Most of the other components on your RedBot are physical inputs that help the robot sense its environment.
+
+**Physical outputs** \(such as motors, etc.\) are components that can something in the physical environment. The D13 LED light on the circuit board and the motors are both examples of physical outputs. The only other component on your RedBot that is a physical output is its speaker.
+
 ## Speaker
 
 The RedBot has a small speaker \(labeled as a "buzzer"\) that should be attached to I/O pin 9 on the circuit board.
@@ -16,7 +22,7 @@ Sounds could be useful as audio alerts or feedback to people interacting with yo
 
 explain
 
-![Mechanical Bumpers](../../.gitbook/assets/redbot-bumpers.jpg)
+![Mechanical Bumpers \(wire whiskers will be longer\)](../../.gitbook/assets/redbot-bumpers.jpg)
 
 Each mechanical bumper is connected to the RedBot circuit board by a 3-wire jumper cable \(white, red, and black wires for data, power, and ground\):
 

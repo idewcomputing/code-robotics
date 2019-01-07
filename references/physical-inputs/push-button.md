@@ -1,4 +1,4 @@
-# Push Button
+# Push Button \(D12\)
 
 The RedBot mainboard has a built-in push button that can be detected by your program. The button is hardwired to pin D12 on the RedBot mainboard and is located next to the USB port.
 
