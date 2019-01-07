@@ -6,6 +6,8 @@
 
 The RedBot has a small speaker \(labeled as a "buzzer"\) that should be attached to I/O pin 9 on the circuit board.
 
+![Speaker \(Buzzer\)](../../.gitbook/assets/redbot-speaker.jpg)
+
 This speaker can produce simple sounds. The speaker can only play one tone \(sound\) at a time, but you can create different sounds or sound patterns. You could even program it to play simple music by playing one note at a time.
 
 Sounds could be useful as audio alerts or feedback to people interacting with your robot.
@@ -13,6 +15,8 @@ Sounds could be useful as audio alerts or feedback to people interacting with yo
 ## Mechanical Bumpers
 
 explain
+
+
 
 Each mechanical bumper is connected to the RedBot circuit board by a 3-wire jumper cable \(white, red, and black wires for data, power, and ground\):
 
@@ -23,6 +27,8 @@ Each mechanical bumper is connected to the RedBot circuit board by a 3-wire jump
 
 explain
 
+![IR Line Sensor](../../.gitbook/assets/redbot-line-sensor.jpg)
+
 Each IR line sensor is connected to the RedBot circuit board by a 3-wire jumper cable \(white, red, and black wires for data, power, and ground\):
 
 * The left line sensor data wire should be connected to I/O pin A3
@@ -31,9 +37,11 @@ Each IR line sensor is connected to the RedBot circuit board by a 3-wire jumper 
 
 ## Accelerometer
 
-explain
-
 The accelerometer is a small circuit board that should be connected to I/O pins A4 and A5 on the main RedBot circuit board.
+
+![Accelerometer](../../.gitbook/assets/redbot-accelerometer.jpg)
+
+explain
 
 ## Ultrasonic Sensor
 
@@ -42,6 +50,8 @@ The accelerometer is a small circuit board that should be connected to I/O pins 
 {% endhint %}
 
 explain
+
+![Ultrasonic Sensor](../../.gitbook/assets/ultrasonic-sensor.jpg)
 
 The ultrasonic sensor should be connected to the RedBot circuit board by a 4-wire jumper cable \(will be different colors – two wires are for data, one is for power, and one is for ground\):
 
