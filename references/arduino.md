@@ -1,6 +1,6 @@
 # Arduino
 
-The RedBot device runs apps written in a programming language called [Arduino](https://www.arduino.cc/reference/en/).
+The RedBot robot runs apps written in a programming language called [Arduino](https://www.arduino.cc/reference/en/).
 
 Arduino is actually a code library written in another computer language called [C++](https://en.wikipedia.org/wiki/C%2B%2B) \(similar to how jQuery is a code library written in JavaScript\). If and when necessary, your Arduino program can also incorporate code written directly in C++.
 
