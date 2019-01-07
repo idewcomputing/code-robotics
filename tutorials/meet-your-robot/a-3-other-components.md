@@ -16,7 +16,7 @@ Sounds could be useful as audio alerts or feedback to people interacting with yo
 
 explain
 
-
+![Mechanical Bumpers](../../.gitbook/assets/redbot-bumpers.jpg)
 
 Each mechanical bumper is connected to the RedBot circuit board by a 3-wire jumper cable \(white, red, and black wires for data, power, and ground\):
 
