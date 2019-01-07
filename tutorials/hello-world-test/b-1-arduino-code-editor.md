@@ -1,12 +1,10 @@
 # B-1 Arduino Code Editor
 
-**STILL IN PROGRESS**
-
 You will use an Arduino code editor \(also called an IDE – Integrated Development Environment\) to create and save your Arduino apps for your robot. You can either use an online code editor or a desktop code editor \(though your teacher might instruct you to use a particular editor\).
 
-## Arduino Create Web Editor
+## Arduino Create \(Web Editor\)
 
-If possible, it is highly recommended that you use the online Arduino Create web editor to create and save your Arduino programs in the cloud.
+If possible, it is highly recommended that you use the online **Arduino Create web editor** to create and save your Arduino programs in the cloud.
 
 The Arduino Create web editor is compatible with Windows, Mac, and Linux and with most browsers \(Chrome, Firebox, Safari, and Edge\). You will need to create a free Arduino account and also install a browser plugin \(which requires **Administrator** access on your computer\).
 
@@ -17,9 +15,9 @@ Here are steps for [Getting Started with Arduino Editor on Various Platforms](ht
 3. After verifying your new account, follow these steps to [install the browser plugin](https://create.arduino.cc/getting-started/plugin) on your computer \(which requires **Administrator** access\).
 4. Once the browser plugin is installed, login to the [Arduino Create Web Editor](https://create.arduino.cc/editor).
 
-## Arduino IDE Desktop Editor
+## Arduino IDE \(Desktop Editor\)
 
-Alternatively, you can download a desktop version of the [Arduino IDE](https://www.arduino.cc/en/Main/Software) code editor, which saves your Arduino programs locally on your computer.
+Alternatively, you can download a desktop version of the **Arduino IDE code editor**, which saves your Arduino programs locally on your computer.
 
 Here is the page with links to [download the Arduino IDE](https://www.arduino.cc/en/Main/Software). The basic steps are:
 
@@ -30,10 +28,10 @@ Here is the page with links to [download the Arduino IDE](https://www.arduino.cc
 5. On a **Mac** computer, just double-click the ZIP file. Then drag-and-drop the Arduino application to your Desktop \(or to your Applications folder if you have Administrator access\).
 6. Double-click the Arduino application icon to start the code editor.
 
-**WINDOWS ONLY:**  If you installed Arduino using the ZIP file on a Windows computer, you will also need to install drivers for your Arduino board.  \(The RedBot is equivalent to an **Arduino Uno** board.\)
+**WINDOWS ONLY:**  If you installed the Arduino desktop editor on Windows using the ZIP file, you also need to install drivers for your Arduino board.  \(The RedBot is equivalent to an **Arduino Uno** board.\) You might need Administrator access to install the board drivers.
 
 1. Connect your RedBot's USB cable to the RedBot's Mini-USB port, and connect the other end of the cable to a USB port on your computer.
 2. Place the RedBot so it is standing upright on its back end \(with its wheels in the air\).
 3. Turn the RedBot's Power switch to ON.  \(If you received an existing robot and the robot's wheels start spinning, temporarily turn the Motor switch to STOP.\)
-4. Follow these [instructions to install the board drivers](https://www.arduino.cc/en/Guide/ArduinoUno#toc2) on Windows.
+4. Follow these [instructions from Arduino to install the board drivers on Windows](https://www.arduino.cc/en/Guide/ArduinoUno#toc2). Alternatively, you could follow [instructions from SparkFun to install FTDI board drivers on Windows](https://learn.sparkfun.com/tutorials/how-to-install-ftdi-drivers/windows---quick-and-easy).
 
