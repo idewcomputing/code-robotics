@@ -30,7 +30,10 @@ When you think of a magnet, you probably think of a magnet that has 2 poles: nor
 
 So as the ring magnet completes one full rotation, the Hall effect sensor detects 4 changes \(or "ticks"\) in the magnetic field as each magnetic pole passes by the sensor.
 
-Each wheel encoder is connected to the RedBot circuit board by a 3-wire jumper cable \(white, red, and black wires for data, power, and ground\). The left wheel encoder is connected to I/O pin A3 for data, and the right wheel encoder is connected to I/O pin 10 for data.
+Each wheel encoder is connected to the RedBot circuit board by a 3-wire jumper cable \(white, red, and black wires for data, power, and ground\):
+
+* The left wheel encoder data wire should be connected to I/O pin A2
+* The right wheel encoder data wire should be connected to I/O pin 10
 
 The wheel encoders are one of the most useful sensors on your robot because they can allow your robot to drive straight for specific distances and to make turns of specific angles \(such as:  90° right, 90° left, 180° around, etc.\).
 

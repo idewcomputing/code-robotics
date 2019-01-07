@@ -6,7 +6,7 @@
 
 You can add an ultrasonic sensor to your RedBot in order to detect obstacles from a distance \(before colliding with them\).
 
-An ultrasonic sensor uses sonar to measure the distance to an object. The sensor has a speaker that transmits high-frequency sound, which cannot be heard by the human ear. The sensor also has a receiver \(i.e., a microphone\) that detects the echo of the high-frequency sound reflected back from an object. By measuring how much time it takes for the echo to arrive, you can calculate the distance between the RedBot and the object.
+An ultrasonic sensor uses sonar to measure the distance to an object. The sensor has a transmitter \(i.e., a speaker\) that can produce high-frequency sound, which cannot be heard by the human ear. The sensor also has a receiver \(i.e., a microphone\) that detects the echo of the high-frequency sound reflected back from a nearby object. By measuring how much time it takes for the echo to arrive, you can calculate the distance between the RedBot and the closest object.
 
 The way that the ultrasonic sensor works is similar to how certain types of animals, such as bats and dolphins, use [echolocation](https://en.wikipedia.org/wiki/Animal_echolocation) for navigation and hunting.
 
