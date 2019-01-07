@@ -1,6 +1,6 @@
 # Accelerometer
 
-The RedBot has an accelerometer can be measure changes in motion or orientation in 3 dimensions \(X, Y, Z\). Accelerometers are used in a variety of devices, including smartphones, fitness trackers, etc.
+The RedBot has an accelerometer can measure changes in motion or orientation in 3 dimensions \(X, Y, Z\). Accelerometers are used in a variety of devices, including smartphones, fitness trackers, etc.
 
 Accelerometer readings are affected by:
 
