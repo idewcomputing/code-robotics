@@ -20,7 +20,7 @@ The [Arduino Programming Language Reference](https://www.arduino.cc/reference/en
 
 ## Arduino Code Editor
 
-It is highly recommended that you use the online [Arduino Create Web Editor](https://create.arduino.cc/editor/) to create and save your Arduino programs in the cloud. This web editor is free-to-use, always up-to-date, and allows you can access your programs from any browser.
+It is highly recommended that you use the online [Arduino Create Web Editor](https://create.arduino.cc/editor/) to create and save your Arduino programs in the cloud. This web editor is free-to-use, always up-to-date, and allows you to access your programs from any browser.
 
 Alternatively, you can download a desktop version of the [Arduino IDE](https://www.arduino.cc/en/Main/Software) code editor, which saves your programs locally on your computer.
 
