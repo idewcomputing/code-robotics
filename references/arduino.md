@@ -38,7 +38,7 @@ A USB cable is used to connect your Arduino device to your computer, in order to
 
 The USB connection can also be used to transmit data between the Arduino device and your computer while a program is running on the Arduino device. This data communication can be displayed in a serial monitor available in the Arduino code editor. This is often used as a way to troubleshoot programs \(by displaying messages or data\) or to verify that sensors are working correctly \(by displaying sensor measurements\).
 
-Some Arduino devices have a built-in WiFi chip that allows them to wirelessly update their program and transmit data. However, the RedBot does not have WiFi capabilities built-in.
+Some Arduino devices have a built-in WiFi chip that allows them to wirelessly update their program and transmit data. However, the RedBot circuit board does **not** have WiFi capabilities built-in.
 
 ## Arduino Program Structure
 
