@@ -1,13 +1,11 @@
 # B. Hello World Test
 
-#### **TUTORIAL STILL IN PROGRESS**
-
 In this second tutorial, you'll program a "Hello World" app for your robot by using its LED light, speaker, and push button.
 
 {% hint style="info" %}
-**ALTERNATIVE TUTORIALS:** Instead of completing these tutorials, your teacher might instruct your team to complete the [SparkFun Experiment Guide for RedBot](https://learn.sparkfun.com/tutorials/experiment-guide-for-redbot-with-shadow-chassis). If so, you should complete all the experiments **except** Experiment 9 \(Remote Control\).
+**ALTERNATIVE TUTORIALS:**  Instead of completing these tutorials, your teacher might instruct your team to complete the [SparkFun Experiment Guide for RedBot](https://learn.sparkfun.com/tutorials/experiment-guide-for-redbot-with-shadow-chassis). If so, you should complete all the experiments **except** Experiment 9 \(Remote Control\).
 
-If your robot has an **ultrasonic sensor**, be sure to complete these tutorials for that sensor:  [D-3 Test Ultrasonic Sensor](../detect-objects-in-path/d-3-test-ultrasonic-sensor.md) and [D-4 Avoid Collisions](../detect-objects-in-path/d-4-avoid-collisions.md)
+Afterwards, if your robot has an **ultrasonic sensor**, be sure to also complete these tutorials:  [D-3 Test Ultrasonic Sensor](../detect-objects-in-path/d-3-test-ultrasonic-sensor.md) and [D-4 Avoid Collisions](../detect-objects-in-path/d-4-avoid-collisions.md)
 {% endhint %}
 
 ## Tutorial Goals  <a id="tutorial-goals"></a>
@@ -27,11 +25,11 @@ After that you'll modify the app to also produce a sound with the robot's speake
 
 ## Arduino Programming Language
 
-The RedBot robot runs apps written in a programming language called [Arduino](https://www.arduino.cc/reference/en/), which was specifically designed for microcontrollers.  Many electronic kits and robotics kits use Arduino for programming.
+The RedBot robot runs apps written in a programming language called [Arduino](https://www.arduino.cc/reference/en/), which is specifically designed for microcontrollers.  Many electronic kits and robotics kits use Arduino for programming.
 
 Arduino is actually a code library written in another computer language called [C++](https://en.wikipedia.org/wiki/C%2B%2B) \(similar to how jQuery is a code library written in JavaScript\). If and when necessary, your Arduino program can also incorporate code written directly in C++.
 
 An Arduino program \(or app\) is also referred to as a **sketch** because the Arduino language is designed to allow you to quickly create a program — just like a sketch is a quick drawing.
 
-This tutorial will introduce you to some of the basics of programming with Arduino.  For additional help, the [Arduino Programming Language Reference](https://www.arduino.cc/reference/en/) is useful for learning more about the structure and syntax of Arduino code.
+These tutorials will introduce you to some of the basics of programming with Arduino.  For additional help, the [Arduino Programming Language Reference](https://www.arduino.cc/reference/en/) is useful for learning more about the structure and syntax of Arduino code.
 
