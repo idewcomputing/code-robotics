@@ -9,7 +9,7 @@ Your app can **receive signals from inputs** using the `digitalRead()` or `analo
 Your app can **send signals to outputs** using the `digitalWrite()` or `analogWrite()` methods, depending on whether the values being sent will be digital or analog.
 
 {% hint style="info" %}
-**DIGITAL VS. ANALOG:**  Digital inputs and outputs use **binary values** \(such as: HIGH vs. LOW, etc.\). Analog inputs and outputs use a **range of values** \(such as:  0-255, etc.\)
+**DIGITAL VS. ANALOG:** Digital inputs and outputs use **binary values** \(such as: HIGH vs. LOW, etc.\). Analog inputs and outputs use a **range of values** \(such as: 0-255, etc.\)
 {% endhint %}
 
 The LED can be controlled as a digital output that is either "on" or "off".
@@ -72,5 +72,6 @@ Now, the code within your `loop()` function should perform these tasks \(in orde
 5. Repeat
 
 {% hint style="success" %}
-**REPEATING LOOP:**  You **don't** need to add a command to make the `loop()` function repeat – it **automatically** repeats itself after its last line of code has been performed.
+**REPEATING LOOP:** You **don't** need to add a command to make the `loop()` function repeat – it **automatically** repeats itself after its last line of code has been performed.
 {% endhint %}
+
