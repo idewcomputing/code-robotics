@@ -43,7 +43,7 @@ Notice that the `pinMode()` statement shown in the app code above is indented \(
 
 The Arduino code editor does **NOT** check your code syntax as you type, so be sure to periodically verify your code to check for errors.
 
-Verify your app code by clicking the **Verify** icon \(looks like a checkmark\) at the top of the code editor panel. \(The Arduino code editor will save your code before verifying it.\)
+Verify your app code by clicking the **Verify** icon \(looks like a checkmark\) at the top of the code editor panel. \(The Arduino code editor will first save your code before verifying it.\)
 
 After the verification is done, a message will appear in a status bar at the bottom of the code editor panel:
 
