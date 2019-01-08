@@ -6,7 +6,7 @@ Let's add a variable in your app code to represent the built-in LED light.
 
 Your "Hello World" app will make the RedBot circuit board's built-in blue LED light turn on and off in a blinking pattern. This will be accomplished by sending separate "on" and "off" signals to the LED's pin.
 
-Each I/O pin on the RedBot circuit board is identified by a pin number \(such as:  A0, A1, A2, 3, 9, 10, etc.\). In this case, the RedBot's built-in blue LED light is connected to pin D13 \(via internal circuitry\).
+Each I/O pin on the RedBot circuit board is identified by a pin number \(such as: A0, A1, A2, 3, 9, 10, etc.\). In this case, the RedBot's built-in blue LED light is connected to pin D13 \(via internal circuitry\).
 
 When coding an Arduino app, you will typically create global variables to store the pin numbers for the inputs and outputs connected to your circuit board that you want to control. This will help make your code easier to understand because the variable names help identify each input or output.
 
@@ -17,7 +17,7 @@ int LED = 13;
 ```
 
 {% hint style="success" %}
-**HOW TO COPY CODE:**  When using this IoT code guidebook, you can copy a code block simply by clicking the **copy icon** displayed in the upper right of the code block.
+**HOW TO COPY CODE:** When using this IoT code guidebook, you can copy a code block simply by clicking the **copy icon** displayed in the upper right of the code block.
 {% endhint %}
 
 This code statement does 3 things \(in order\):
@@ -35,6 +35,14 @@ Although you can actually list multiple code statements on the same line \(becau
 ## Save Your App Code
 
 The Arduino code editor does **NOT** autosave your work as you type, so be sure to periodically save your code.
+
+#### ARDUINO CREATE
+
+At the top of the code editor panel, hover your mouse cursor over the button with 3 dots, and then select "Save" from the pop-up menu.
+
+#### ARDUINO IDE
+
+Under the **File** menu, select "Save" – alternatively, you can click the **Save** icon \(looks like a downward arrow\) at the top of the code editor window.
 
 ## Tips for Naming Variables
 
@@ -58,3 +66,4 @@ You get to decide what to name each variable in your app's code. However, here a
   * Examples of variable name using camelCase:  `pushButton`
 * If you have multiple inputs or outputs of the same type \(mechanical bumpers, IR line sensors, etc.\), add an adjective \(or number\) to their variable names to help identify them in your app code.
   * Examples of variable names using adjectives:  `leftBumper`, `rightBumper`
+
