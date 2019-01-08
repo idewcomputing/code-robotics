@@ -34,7 +34,7 @@ Although you can actually list multiple code statements on the same line \(becau
 
 ## Save Your App Code
 
-The Arduino code editor does **NOT** autosave your work as you type, so be sure to periodically save your code.
+The Arduino code editor does **NOT** autosave as you type, so be sure to periodically save your code.
 
 #### ARDUINO CREATE
 
@@ -43,6 +43,10 @@ At the top of the code editor panel, hover your mouse cursor over the button wit
 #### ARDUINO IDE
 
 Under the **File** menu, select "Save" – alternatively, you can click the **Save** icon \(looks like a downward arrow\) at the top of the code editor window.
+
+{% hint style="success" %}
+**TURN ON AUTOSAVE:**  You can turn on autosave in the Arduino Create web editor \(but **not** the desktop editor\). Click the Preferences menu in the left navigation to display its menu options. Be sure "Enable Autosave" and "Save when verifying and uploading" are both checked.
+{% endhint %}
 
 ## Tips for Naming Variables
 
