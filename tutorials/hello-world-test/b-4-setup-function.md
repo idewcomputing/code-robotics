@@ -8,7 +8,7 @@ A variety of inputs and outputs can be connected to the I/O pins on your RedBot 
 
 You'll need to set the pin mode for the built-in LED that you'll be using. Add this code to your app by inserting it **within** the `setup()` function \(between the curly braces\):
 
-```text
+```cpp
 pinMode(LED, OUTPUT);
 ```
 

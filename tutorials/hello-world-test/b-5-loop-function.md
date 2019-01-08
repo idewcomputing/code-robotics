@@ -22,14 +22,14 @@ digitalWrite(LED, HIGH);
 
 The `digitalWrite()` method requires two parameters inside its parentheses \(in this order\):
 
-1. **The I/O pin number**, which can be the actual pin number \(such as: `D7`, etc.\) or a variable that stores a pin number. In this case, the variable `LED` is listed \(which has a value equal to `D7`\).
-2. **The signal value**, which can be `HIGH` or `LOW`. Your Photon uses this value to send an electrical signal through the pin: `HIGH` is a signal of 3.3 volts which represents "on," while `LOW` is a signal of 0 volts which represents "off."  In this case, the signal was set to `HIGH` because you want to turn on the LED light.
+1. **The I/O pin number**, which can be the actual pin number \(such as: `13`, etc.\) or a variable that stores a pin number. In this case, the variable `LED` is listed \(which has a value equal to `13`\).
+2. **The signal value**, which can be `HIGH` or `LOW`. Your RedBot uses this value to send an electrical signal through the pin: `HIGH` is a signal of 5 volts which represents "on," while `LOW` is a signal of 0 volts which represents "off."  In this case, the signal was set to `HIGH` because you want to turn on the LED light.
 
 ## Add Time Delay
 
 You'll want to leave the LED turned on for a short amount of time before you send the "off" signal.
 
-Because the Photon's app code runs very fast, there will be certain situations where you'll want to insert delays into the code, in order to allow time for certain events to occur. Typically, these delays are intended to give people time to perceive the event and/or respond to the event.
+Because the RedBot's app code runs very fast, there will be certain situations where you'll want to insert delays into the code, in order to allow time for certain events to occur.
 
 Your app can use the `delay()` method to insert a time delay. It acts like a timer that makes the app wait before performing the next line of code.
 
@@ -55,7 +55,7 @@ You can see that the second parameter in this `digitalWrite()` statement was set
 
 ## Add Another Delay
 
-When all the code within the `loop()` function has been performed, the `loop()` will automatically repeat itself. Since the first line of code in your `loop()` turns on the LED, you'll want to add another delay to leave the LED turned off for a short amount of time before the `loop()` repeats itself.
+When all the code within the `loop()` function has been performed, the `loop()` will automatically repeat itself. Since the first line of code in your `loop()` turns on the LED, you'll want to add another delay to leave the LED turned off for a brief amount of time before the `loop()` repeats itself.
 
 Add this code to your app by inserting it **within** the `loop()` function \(**after the second** `digitalWrite()` statement\):
 
