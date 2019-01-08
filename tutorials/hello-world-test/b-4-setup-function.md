@@ -20,6 +20,12 @@ The `pinMode()` method requires two parameters inside its parentheses \(in this 
 At this point, your app code should look similar to this:
 
 ```cpp
+/*
+Hello World App
+Student Name
+Teacher and Class Period
+*/
+
 int LED = 13;
 
 void setup() {
@@ -45,5 +51,6 @@ After the verification process is complete, a status bar message will appear at 
 * If your code contains an error, the status bar will display an **error message** with a description of the error, and the code editor will highlight the specific line number in your code where the error was detected \(though the root cause of the error usually occurs on a previous line\). You'll want to fix the error and then try verifying your code again.
 
 {% hint style="warning" %}
-**MULTIPLE ERRORS:**  Sometimes your app code might contain multiple errors. However, the Arduino code editor will stop verifying the code at the first error that is detected. Once you fix that error and verify the code again, you might see a **new** error message for another error that occurs later in the code.
+**MULTIPLE ERRORS:** Sometimes your app code might contain multiple errors. However, the Arduino code editor will stop verifying the code at the first error that is detected. Once you fix that error and verify the code again, you might see a **new** error message for another error that occurs later in the code.
 {% endhint %}
+
