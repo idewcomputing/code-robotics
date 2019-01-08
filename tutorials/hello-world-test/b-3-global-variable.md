@@ -34,11 +34,7 @@ Although you can actually list multiple code statements on the same line \(becau
 
 ## Save Your App Code
 
-The Particle Build code editor does **NOT** autosave your work as you type, so be sure to periodically save your code.
-
-Save your app code by clicking the **Save** icon in the left navigation bar.
-
-![Save Icon](../../.gitbook/assets/pb-save-icon.png)
+The Arduino code editor does **NOT** autosave your work as you type, so be sure to periodically save your code.
 
 ## Tips for Naming Variables
 
