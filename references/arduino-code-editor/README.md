@@ -28,7 +28,7 @@ Here is the page with links to [download the Arduino IDE](https://www.arduino.cc
    * On a **Mac** computer, just double-click the ZIP file. Then drag-and-drop the Arduino application to your Desktop \(or to your Applications folder if you have Administrator access\).
 4. Double-click the Arduino application icon to start the code editor.
 
-### WINDOWS ZIP ONLY
+#### WINDOWS ZIP ONLY
 
 If you installed the Arduino desktop editor on Windows using the ZIP file, you also need to install drivers for your Arduino board. \(The RedBot is equivalent to an **Arduino Uno** board.\) You might need Administrator access to install the board drivers.
 
