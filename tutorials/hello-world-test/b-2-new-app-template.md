@@ -1,7 +1,5 @@
 # B-2 New App Template
 
-**STILL IN PROGRESS**
-
 An Arduino program \(or app\) is also referred to as a "sketch" because the Arduino language is designed to allow you to quickly create a program — just like a sketch is a quick drawing.
 
 This guidebook will primarily use the term "app" but just keep in mind that **program**, **app**, and **sketch** all mean the same thing:  a set of coded software instructions to control the operation of a computing device \(which is your robot, in this case\).
