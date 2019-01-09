@@ -1,30 +1,42 @@
 # Create New App
 
-in progress
+IN PROGRESS
 
-how to create new app template in each code editor \(web editor & desktop editor\)
+An Arduino program \(or app\) is also referred to as a "sketch" because the Arduino language is designed to allow you to quickly create a program — just like a sketch is a quick drawing.
 
-starter code for new app template \(web editor & desktop editor\)
+This guidebook will primarily use the term "app" but just keep in mind that **program**, **app**, and **sketch** all mean the same thing:  a set of coded software instructions to control the operation of a computing device \(which is your robot, in this case\).
 
-## Create New Program
+## Create New App
 
-### Arduino Create Web Editor
+#### Arduino Create \(Web Editor\)
 
-To create a new sketch \(program\) in the Arduino Create Web Editor:
+1. If necessary, click the **Sketchbook** menu link in the left navigation panel to display the Sketchbook menu options in the middle panel.
+2. Click the **New Sketch** button at the top of the middle panel.
 
-1. If necessary, click the "Sketchbook" menu in the left navigation panel to display the its menu options in the middle panel.
-2. Click the "New Sketch" button at the top of the middle panel.
+#### Arduino IDE \(Desktop Editor\)
 
-### Arduino IDE Desktop Editor
+Under the **File** menu, select "New" – or you can click the **New** icon \(looks like a document\) at the top of an existing code editor window.
 
-To create a new sketch \(program\) in the desktop version of the Arduino IDE code editor, do one of the following:
+### Starter Code in New App
 
-* Under the "File" menu, select "New"
-* Alternatively, you can click the "New" icon \(looks like a document\) at the top of the code editor window.
+If you're using the **Arduino Create web editor**, your new app template will probably look like this:
 
-### Both Editors
+```cpp
+/*
 
-The editor will create a new sketch that **automatically** contains starter code similar to below:
+*/
+
+void setup() {
+    
+}
+
+void loop() {
+    
+}
+
+```
+
+If you're using the **Arduino IDE desktop editor**, your new app template will probably look like this:
 
 ```cpp
 void setup() {
@@ -40,7 +52,7 @@ void loop() {
 
 ## Add Comment Block to Identify App
 
-It is recommended to insert a comment block at the very top of your program to list a title for your app, your name, and any other information that might be helpful to you or to anyone else reviewing the program code.
+It is recommended to add a comment block at the very top of your code to list a title for your app and any other information that might be helpful to you or to anyone else reviewing the program code.
 
 A blank comment block is created with slashes and asterisks like this:
 
@@ -50,9 +62,9 @@ A blank comment block is created with slashes and asterisks like this:
 */
 ```
 
-In between the asterisks, you can list as many lines of comments as you want or need. This would be a good place to name your app and perhaps describe its purpose. You could also include other information, such as your team information, your teacher's name and class period, etc.
+In between the asterisks, you can list as many lines of comments as you want or need. This would be a good place to list your app's name and perhaps describe its purpose. You could also include other information, such as your team information, your teacher's name and class period, etc.
 
-Find out if your teacher has specific information that should be listed in this block comment.
+Ask your teacher if there is specific information that should be listed in this block comment.
 
 For example, your block comment might look like this:
 
@@ -61,7 +73,6 @@ For example, your block comment might look like this:
 Hello World App
 Team 3 - Destiny, Katya, Lucas, Miguel
 Ms. Hopper - Period 2
-January 14, 2019
 */
 ```
 
