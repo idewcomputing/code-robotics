@@ -1,4 +1,4 @@
-# B-1 Arduino Code Editor
+# Arduino Code Editor
 
 You will use an Arduino code editor \(also called an IDE – Integrated Development Environment\) to create and save your Arduino apps for your robot. You'll also use the code editor to upload apps to your robot, in order to run them. You can either use an online code editor or a desktop code editor \(though your teacher might instruct you to use a particular editor\).
 
@@ -36,4 +36,6 @@ If you installed the Arduino desktop editor on Windows using the ZIP file, you a
 2. Place the RedBot so it is standing upright on its back end \(with its wheels in the air\).
 3. Turn the RedBot's Power switch to ON.  \(If you received an existing robot and the robot's wheels start spinning, temporarily turn the Motor switch to STOP.\)
 4. Follow these [instructions from Arduino to install the board drivers on Windows](https://www.arduino.cc/en/Guide/ArduinoUno#toc2). Alternatively, you could follow [instructions from SparkFun to install FTDI board drivers on Windows](https://learn.sparkfun.com/tutorials/how-to-install-ftdi-drivers/windows---quick-and-easy).
+
+
 
