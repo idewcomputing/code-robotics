@@ -30,7 +30,7 @@ Click the **Upload** icon \(looks like a right arrow\) at the top of the code ed
 
 Once the upload is complete, the new app will immediately start running on your robot.
 
-Confirm that the built-in blue D13 LED light blinks on and off in a repeating pattern \(changing every 1 second\).
+Confirm that the built-in blue D13 LED light blinks on and off in a repeating pattern \(changing every 0.5 second\).
 
 ## Arduino Devices Store and Run One Program at a Time
 
@@ -41,4 +41,10 @@ However, you can create and save **multiple** programs in your Arduino account \
 ## Modify App and Upload to Robot
 
 modify app \(change LED blink pattern\)
+
+Next, try modifying the code to change the LED blinking pattern. Upload your modified program to your RedBot to see what your changes do.
+
+* Can you make the LED blink faster?
+* Can you make it blink slower?
+* Can you make it blink in a different patterns \(maybe similar to Morse code\)?
 

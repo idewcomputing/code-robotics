@@ -36,12 +36,12 @@ Your app can use the `delay()` method to insert a time delay. It acts like a tim
 You'll need to add a delay after the LED has been turned on. Add this code to your app by inserting it \(as a separate line of code\) **within** the `loop()` function \(**after** the `digitalWrite()` statement\):
 
 ```cpp
-delay(1000);
+delay(500);
 ```
 
 The `delay()` method requires one parameter inside its parentheses:
 
-* **The time value**, which can be an integer number \(whole number\) or a variable that stores an integer. The value represents the number of milliseconds for the delay \(1000 ms = 1 second\). In this case, the delay was set to `1000` ms \(1 second\).
+* **The time value**, which can be an integer number \(whole number\) or a variable that stores an integer. The value represents the number of milliseconds for the delay \(1000 ms = 1 second\). In this case, the delay was set to `500` ms \(0.5 second\).
 
 ## Turn Off LED
 
@@ -60,15 +60,15 @@ When all the code within the `loop()` function has been performed, the `loop()` 
 Add this code to your app by inserting it **within** the `loop()` function \(**after the second** `digitalWrite()` statement\):
 
 ```cpp
-delay(1000);
+delay(500);
 ```
 
 Now, the code within your `loop()` function should perform these tasks \(in order\):
 
 1. Turn On LED light
-2. Wait 1 second
+2. Wait 0.5 second
 3. Turn Off LED light
-4. Wait 1 second
+4. Wait 0.5 second
 5. Repeat
 
 {% hint style="success" %}

@@ -1,14 +1,12 @@
-# Include RedBot Library in App
+# Include RedBot Library
 
 In progress
 
-How to add library \(i.e., SparkFun RedBot library\) to code editor - this is one-time process
+explain what library is
 
-How to include library \(i.e., SparkFun RedBot library\) to app - needed for each robot app
+instructions to add RedBot to editor \(one-time\) and to robot app \(every time\)
 
-this is also covered by RedBot Library page \(need to decide whether to include both pages or merge\)
-
-steps can also be used for other libraries \(such as OneButton library, etc.\)
+add note that steps can also be used for other libraries \(such as OneButton library, etc.\)
 
 ## SparkFun RedBot Library
 

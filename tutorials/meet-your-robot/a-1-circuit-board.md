@@ -42,7 +42,7 @@ The RedBot circuit board also has various pins, ports, buttons, switches, and LE
 
 ## Robot Firmware and App
 
-A microcontroller is controlled by its firmware, which acts as its operating system. Your RedBot's microcontroller has Optiboot firmware installed, which is the same firmware used on Arduino Uno circuit boards. You'll code apps for your robot using the [Arduino programming language](../../references/arduino.md).
+A microcontroller is controlled by its firmware, which acts as its operating system. Your RedBot's microcontroller has Optiboot firmware installed, which is the same firmware used on Arduino Uno circuit boards. You'll code apps for your robot using the [Arduino programming language](../../references/arduino-language.md).
 
 Unlike other computers, a microcontroller is designed to store and run only one app at a time. The app determines what actions the robot will perform. Whenever the robot is powered on, the robot's app will automatically start and will run in a continuous loop.
 

@@ -41,17 +41,16 @@
 
 ## REFERENCES
 
-* [Arduino](references/arduino.md)
+* [Arduino Language](references/arduino-language.md)
 * [Arduino Code Editor](references/arduino-code-editor/README.md)
   * [Create New App](references/arduino-code-editor/create-new-app.md)
   * [Save and Rename App](references/arduino-code-editor/save-and-rename-app.md)
-  * [Include RedBot Library in App](references/arduino-code-editor/include-library-in-app.md)
+  * [Include RedBot Library](references/arduino-code-editor/include-library-in-app.md)
   * [Verify App Code](references/arduino-code-editor/verify-app-code.md)
   * [Upload App to Robot](references/arduino-code-editor/upload-app-to-robot.md)
   * [Download Copy of App](references/arduino-code-editor/download-copy-of-app.md)
   * [Use Serial Monitor to View Data](references/arduino-code-editor/use-serial-monitor-to-view-data.md)
-* [RedBot Library](references/redbot-library.md)
-* [RedBot App Template](references/redbot-app-template.md)
+  * [RedBot App Template](references/arduino-code-editor/redbot-app-template.md)
 * [Physical Inputs](references/physical-inputs/README.md)
   * [Push Button \(D12\)](references/physical-inputs/push-button.md)
   * [Mechanical Bumpers](references/physical-inputs/mechanical-bumpers.md)
