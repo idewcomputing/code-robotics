@@ -68,11 +68,9 @@ Arduino devices, such as the RedBot, can only store and run **one** app at a tim
 
 ## Modify App and Upload to Robot
 
-Next, try modifying the code within the `loop()` function to change the LED blinking pattern. Here are some possible options your team could choose:
-
-* Make the LED blink faster \(**Hint:**  use shorter delays\)
-* Make the LED blink slower
-* Make the LED blink in a different pattern \(such as two quick blinks followed by a longer pause\)
+Next, try modifying the code within the `loop()` function to make the LED blink faster \(**Hint:**  use shorter delays\).
 
 Upload your modified app to your robot to see if your changes worked as you expected.
+
+Then modify the code to make the LED blink slower. Then upload your modified app to your robot to see if it works.
 

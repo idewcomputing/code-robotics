@@ -50,7 +50,7 @@ pinMode(speaker, OUTPUT);
 * `speaker` represents the variable that stores the speaker's pin number. If necessary, change this to the variable name you used for your speaker pin. \(You could list the pin number directly, instead of listing a variable that stores the number. However, your program will be easier to read and understand if you use a variable.\)
 * `OUTPUT` indicates that the speaker pin will be used for output \(instead of input\).
 
-## Produce Sound
+## Produce Tone \(Sound\)
 
 To produce a sound, use the `tone()` function:
 
@@ -63,7 +63,11 @@ tone(speaker, frequency);
 
 To produce sounds that most people can easily hear, use a frequency value between 50 and 8000. Try using a value of 3000, and then decide whether you want the sound to have a higher or lower pitch.
 
-**NOTE:** Once this command is performed, the speaker will keep playing the sound. A separate command has to be used to stop the sound.
+**NOTE:** Once the `tone()` command is performed, the speaker will keep playing the sound. A separate command has to be used to stop the sound.
+
+{% hint style="info" %}
+**VOLUME:** There **isn't** a way to change the volume of a tone produced by the speaker. However, you will notice that certain frequencies will naturally seem louder to your ears.
+{% endhint %}
 
 ## Add Delay Before Stopping Sound
 
