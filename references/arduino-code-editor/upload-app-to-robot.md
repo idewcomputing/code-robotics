@@ -33,8 +33,8 @@ If you previously selected your Arduino board type \(which should be "Arduino/Ge
 
 1. Click "Select Other Board & Port" in the drop down menu at the top of the code editor panel.
 2. In the pop-up, verify that "Arduino/Genuino Uno" is selected, and then select the correct USB port that your robot is connected to. Finally, click the **OK** button.
-  * On Mac, the correct port should include "usbserial" as part of its name.
-  * On Windows, there should be one or more numbered COM ports listed. You may have to select one, try uploading your app — and then if the app won't upload, switch to another COM port instead until you identify the correct port.
+    * On Mac, the correct port should include "usbserial" as part of its name.
+    * On Windows, there should be one or more numbered COM ports listed. You may have to select one, try uploading your app — and then if the app won't upload, switch to another COM port instead until you identify the correct port.
 
 #### Arduino IDE \(Desktop Editor\)
 
