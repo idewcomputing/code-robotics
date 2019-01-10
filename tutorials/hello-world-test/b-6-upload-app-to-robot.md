@@ -2,13 +2,13 @@
 
 **STILL IN PROGRESS**
 
-Next, you'll upload your "Hello World" app to your robot to see if it works.
+Let's upload your "Hello World" app to your robot to see if it works.
 
 ## Connect Robot to Computer
 
 Your RedBot kit should have a USB to Mini-USB cable that allows you to connect the robot to a computer, in order to update the robot's app \(or to send serial data to the computer\).
 
-Carefully plug the small end of this cable into the Mini-USB port on your RedBot circuit board. Plug the other end of the cable into a USB port on your computer.
+Carefully plug the small end of this cable into the Mini-USB port on your RedBot circuit board. \(The cable only plugs in one way, so turn it over if it doesn't seem to fit.\) Plug the other end of the cable into a USB port on your computer.
 
 ## Turn On Robot Power
 
@@ -20,7 +20,9 @@ If you were given an existing robot and its wheels start spinning when you turn 
 
 ## Select Correct Board and Port
 
-in order to upload your app to your robot, the code editor must know which type of Arduino board the robot has and which port on your computer that the robot is connected to.
+In order to upload your app to your robot, the code editor must know which type of Arduino board your robot has and which port on your computer that the robot is connected to.
+
+
 
 ## Upload App to Robot
 

@@ -6,7 +6,7 @@ Next you'll add a command in your app code to designate the LED pin as an output
 
 A variety of inputs and outputs can be connected to the I/O pins on your RedBot circuit board. Your app code needs to identify which I/O pins you are using and whether each of these pins will be used for an input or output. This is referred to as **setting the pin modes**.
 
-Setting the pin modes for your inputs and outputs only needs to be done one time when your app first starts to run, so the code statements to do this should be added within the `setup()` function.
+Setting the pin modes for your inputs and outputs only needs to occur **one time** when your app first starts to run, so the code statements to do this should be added within the `setup()` function.
 
 So you'll need to set the pin mode for the built-in LED that you'll be using. Add this code statement **within** the `setup()` function \(between the curly braces\):
 

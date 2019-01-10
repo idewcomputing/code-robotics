@@ -12,9 +12,9 @@ Your app can **send signals to outputs** using the `digitalWrite()` or `analogWr
 **DIGITAL VS. ANALOG:** Digital inputs and outputs use **binary values** \(such as: HIGH vs. LOW, etc.\). Analog inputs and outputs use a **range of values** \(such as: 0-255, etc.\)
 {% endhint %}
 
-The LED can be controlled as a digital output that is either "on" or "off".
+The LED can be controlled as a **digital output** that is either "on" or "off".
 
-You'll need to send an "on" signal to the LED pin. Add this code to your app by inserting it **within** the `loop()` function \(between the curly braces\):
+You'll need to send an "on" signal to the LED pin, in order to turn on the LED light. Add this code statement **within** the `loop()` function \(between the curly braces\):
 
 ```cpp
 digitalWrite(LED, HIGH);
@@ -27,13 +27,13 @@ The `digitalWrite()` method requires two parameters inside its parentheses \(in 
 
 ## Add Time Delay
 
-You'll want to leave the LED turned on for a short amount of time before you send the "off" signal.
+You'll want to leave the LED turned on for a certain amount of time before you send the "off" signal.
 
 Because the RedBot's app code runs very fast, there will be certain situations where you'll want to insert delays into the code, in order to allow time for certain events to occur.
 
 Your app can use the `delay()` method to insert a time delay. It acts like a timer that makes the app wait before performing the next line of code.
 
-You'll need to add a delay after the LED has been turned on. Add this code to your app by inserting it \(as a separate line of code\) **within** the `loop()` function \(**after** the `digitalWrite()` statement\):
+You'll need to add a delay after the LED has been turned on. Add this code statement \(as a separate line of code\) **within** the `loop()` function \(**after** the `digitalWrite()` statement\):
 
 ```cpp
 delay(500);
@@ -41,11 +41,11 @@ delay(500);
 
 The `delay()` method requires one parameter inside its parentheses:
 
-* **The time value**, which can be an integer number \(whole number\) or a variable that stores an integer. The value represents the number of milliseconds for the delay \(1000 ms = 1 second\). In this case, the delay was set to `500` ms \(0.5 second\).
+* **The time value**, which can be an integer number \(whole number\) or a variable that stores an integer. The value represents the number of milliseconds for the time delay \(1000 ms = 1 second\). In this case, the delay was set to `500` ms \(0.5 second\).
 
 ## Turn Off LED
 
-Next, you'll send an "off" signal to the LED pin. Add this code to your app by inserting it \(as a separate line of code\) **within** the `loop()` function \(**after** the `delay()` statement\):
+Next, you'll send an "off" signal to the LED pin. Add this code statement \(as a separate line of code\) **within** the `loop()` function \(**after** the `delay()` statement\):
 
 ```cpp
 digitalWrite(LED, LOW);
@@ -55,15 +55,15 @@ You can see that the second parameter in this `digitalWrite()` statement was set
 
 ## Add Another Delay
 
-When all the code within the `loop()` function has been performed, the `loop()` will automatically repeat itself. Since the first line of code in your `loop()` turns on the LED, you'll want to add another delay to leave the LED turned off for a brief amount of time before the `loop()` repeats itself.
+When all the code within the `loop()` function has been performed, the `loop()` will automatically repeat itself. Since the first line of code in your `loop()` turns on the LED, you'll want to add another delay to leave the LED turned off for a brief amount of time before the `loop()` repeats itself \(which will start by turning the LED back on again\).
 
-Add this code to your app by inserting it **within** the `loop()` function \(**after the second** `digitalWrite()` statement\):
+Add this code statement \(as a separate line of code\) **within** the `loop()` function \(**after the second** `digitalWrite()` statement\):
 
 ```cpp
 delay(500);
 ```
 
-Now, the code within your `loop()` function should perform these tasks \(in order\):
+At this point, the code within your `loop()` function should perform these actions \(in order\):
 
 1. Turn On LED light
 2. Wait 0.5 second
@@ -72,6 +72,8 @@ Now, the code within your `loop()` function should perform these tasks \(in orde
 5. Repeat
 
 {% hint style="success" %}
-**REPEATING LOOP:** You **don't** need to add a command to make the `loop()` function repeat – it **automatically** repeats itself after its last line of code has been performed.
+**REPEATING LOOP:** You **don't** need to add a command to make the `loop()` function repeat – it **automatically** repeats itself after its last code statement has been performed.
 {% endhint %}
+
+This represents all the code needed for your first version of the "Hello World" app. In the next step, you'll upload the app to your robot to test it out.
 
