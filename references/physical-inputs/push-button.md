@@ -48,7 +48,7 @@ pinMode(button, INPUT_PULLUP);
 ```
 
 * `button` represents the variable that stores the button's pin number. If necessary, change this to the variable name you used for your button pin. \(You could list the pin number directly, instead of listing a variable that stores the number. However, your program will be easier to read and understand if you use a variable.\)
-* `INPUT_PULLUP` indicates that the button pin will be used for input \(instead of output\) and will use a built-in pullup resistor \(which something that buttons and switches typically require\).
+* `INPUT_PULLUP` indicates the button pin will be used for input and will also use a pull-up resistor \(which is something that buttons and switches typically require, but other inputs do not\).
 
 ### 3. Use `digitalRead()` to Detect Button Push
 

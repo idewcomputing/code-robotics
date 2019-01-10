@@ -12,7 +12,7 @@ Add this code statement **before** the `setup()` function:
 int speaker = 9;
 ```
 
-Your code should now have separate code statements **before** the `setup()` function to declare a global variable for the LED and a global variable for the speaker. 
+Your code should now have two separate code statements **before** the `setup()` function to declare a global variable for the LED and a global variable for the speaker. 
 
 ## Set Pin Mode for Speaker
 
@@ -24,7 +24,7 @@ Add this code statement **within** the `setup()` function:
 pinMode(speaker, OUTPUT);
 ```
 
-Your code should now have separate code statements **within** the `setup()` function to set the pin mode for the LED and set the pin mode for the speaker.
+Your code should now have two separate code statements **within** the `setup()` function to set the pin mode for the LED and set the pin mode for the speaker.
 
 ## Produce Tone \(Sound\)
 

@@ -52,7 +52,7 @@ Once you've selected the correct port, the code editor should remember this sele
 
 Click the **Upload** icon \(looks like a right arrow\) at the top of the code editor panel. The code editor will automatically save and verify the app before uploading it to your robot.
 
-During the upload process, you may notice two green LED lights \(labeled TX and RX, located next to the Mini USB port\) blinking rapidly as the app code is transferred to the robot.
+During the upload process, you may notice two other green LED lights \(labeled TX and RX, located next to the Mini USB port\) blinking rapidly as the app code is transferred to the robot.
 
 Once the upload is complete, the new app will immediately start running on your robot.
 
