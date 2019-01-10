@@ -24,31 +24,45 @@ In order to upload your app to your robot, the code editor must know which type 
 
 If you previously selected your Arduino board type \(which should be "Arduino/Genuino Uno"\), the code editor should remember this selection.
 
+#### Arduino Create \(Web Editor\)
 
+1. Click "Select Other Board & Port" in the drop down menu at the top of the code editor panel.
+2. In the pop-up, verify that "Arduino/Genuino Uno" is selected, and then select the correct USB port that your robot is connected to. Finally, click the **OK** button.
+    * On Mac, the correct port should include "usbserial" as part of its name.
+    * On Windows, there should be one or more numbered COM ports listed. You may have to select one, try uploading your app — and then if the app won't upload, switch to another COM port instead until you identify the correct port.
+
+#### Arduino IDE \(Desktop Editor\)
+
+Under the **Tools** menu, verify that "Arduino/Genuino" is selected in the **Board** sub-menu, and then select the correct USB port in the **Port** sub-menu:
+  * On Mac, the correct port should include "usbserial" as part of its name.
+  * On Windows, there should be one or more numbered COM ports listed. You may have to select one, try uploading your app — and then if the app won't upload, switch to another COM port instead until you identify the correct port.
+
+Once you've selected the correct port, the code editor should remember this selection while you keep the code editor open. However, if you close the code editor, you'll have to select the correct port again the next time you open and use the code editor.
 
 ## Upload App to Robot
 
-Click the **Upload** icon \(looks like a right arrow\) at the top of the code editor panel.
+Click the **Upload** icon \(looks like a right arrow\) at the top of the code editor panel. The code editor will automatically save and verify the app before uploading it to your robot.
 
-## Confirm App Works
+During the upload process, you may notice two green LED lights \(labeled TX and RX, located next to the Mini USB port\) blinking rapidly as the app code is transferred to the robot.
 
 Once the upload is complete, the new app will immediately start running on your robot.
 
+{% hint style="danger" %}
+**UPLOAD ERROR:**  If the Arduino code editor indicates there was a problem uploading to the board, it most likely means that the correct port was **not** selected. Be sure the correct USB port is selected in the code editor.
+{% endhint %}
+
+## Confirm App Works
+
 Confirm that the built-in green D13 LED light blinks on and off in a repeating pattern \(changing every 0.5 second\).
 
-## Arduino Devices Store and Run One Program at a Time
-
-Arduino devices, such as the RedBot, can only store and run **one** program at a time. If you want to change the program running on your robot, you have to upload a different program onto the robot.
-
-However, you can create and save **multiple** programs in your Arduino account \(if using the Arduino Create web editor\) or on your computer \(if using the Arduino IDE desktop editor\).
+Arduino devices, such as the RedBot, can only store and run **one** app at a time. If you want to change the app running on your robot, you have to upload a different app from your code editor to the robot.
 
 ## Modify App and Upload to Robot
 
 Next, try modifying the code within the `loop()` function to change the LED blinking pattern. Here are some possible options your team could choose:
 
-* Make the LED blink faster
+* Make the LED blink faster (hint: use a shorter delay)
 * Make the LED blink slower
 * Make the LED blink in a different pattern \(such as two quick blinks followed by a longer pause\)
 
 Upload your modified app to your robot to see if your changes worked as you expected.
-
