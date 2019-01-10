@@ -2,6 +2,8 @@
 
 **STILL IN PROGRESS**
 
+Next, you'll modify the "Hello World" app so your robot makes a "beep" sound when the LED blinks.
+
 add global variable for speaker
 
 set pin mode for speaker

@@ -22,6 +22,10 @@ Slide the RedBot's **Power** switch to **ON**. The RedBot's green Power LED ligh
 **STOP MOTORS:**  If your robot's wheels start spinning when powered on \(because the robot is running an existing app\), you can temporarily slide the **Motor** switch to **STOP** if desired.
 {% endhint %}
 
+{% hint style="danger" %}
+**NO POWER:** If the robot's Power LED doesn't turn on, verify the battery pack cable is plugged in and the Power switch is set to ON. Next, try replacing the AA batteries in the battery pack.
+{% endhint %}
+
 ## Select Correct Board and Port
 
 In order to upload your app to your robot, the code editor must know which type of Arduino board your robot has and which USB port on your computer that the robot is connected to.
