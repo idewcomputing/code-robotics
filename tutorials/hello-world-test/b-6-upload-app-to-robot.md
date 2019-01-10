@@ -42,11 +42,11 @@ However, you can create and save **multiple** programs in your Arduino account \
 
 ## Modify App and Upload to Robot
 
-modify app \(change LED blink pattern\)
+Next, try modifying the code within the `loop()` function to change the LED blinking pattern. Here are some possible options your team could choose:
 
-Next, try modifying the code to change the LED blinking pattern. Upload your modified program to your RedBot to see what your changes do.
+* Make the LED blink faster
+* Make the LED blink slower
+* Make the LED blink in a different pattern \(such as two quick blinks followed by a longer pause\)
 
-* Can you make the LED blink faster?
-* Can you make it blink slower?
-* Can you make it blink in a different patterns \(maybe similar to Morse code\)?
+Upload your modified app to your robot to see if your changes worked as you expected.
 
