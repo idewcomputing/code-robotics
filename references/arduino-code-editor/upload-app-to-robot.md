@@ -24,10 +24,16 @@ In order to upload your app to your robot, the code editor must know which type 
 
 If you previously selected your Arduino board type \(which should be "Arduino/Genuino Uno"\), the code editor should remember this selection.
 
+* On Mac, the correct port will include "usbserial" as part of its name.
+* On Windows, there should be one or more numbered COM ports listed. You may have to select one, try uploading your app — and then if the app won't upload, switch to another COM port instead.
+
 #### Arduino Create \(Web Editor\)
 
 1. Click "Select Other Board & Port" in the drop down menu at the top of the code editor panel.
 2. In the pop-up, verify that "Arduino/Genuino Uno" is selected, and then select the correct USB port that your robot is connected to. Finally, click the **OK** button.
+
+* On Mac, the correct port will include "usbserial" as part of its name.
+* On Windows, there should be one or more numbered COM ports listed. You may have to select one, try uploading your app — and then if the app won't upload, switch to another COM port instead.
 
 #### Arduino IDE \(Desktop Editor\)
 
