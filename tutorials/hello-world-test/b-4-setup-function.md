@@ -4,9 +4,11 @@ Next you'll add a command in your app code to designate the LED pin as an output
 
 ## Set Pin Mode for LED
 
-A variety of inputs and outputs can be connected to the I/O pins on your RedBot circuit board. Your app code needs to identify which I/O pins are being used and whether each of these pins will be used for an input or output. This is referred to as **setting the pin modes**.
+A variety of inputs and outputs can be connected to the I/O pins on your RedBot circuit board. Your app code needs to identify which I/O pins you are using and whether each of these pins will be used for an input or output. This is referred to as **setting the pin modes**.
 
-You'll need to set the pin mode for the built-in LED that you'll be using. Add this code to your app by inserting it **within** the `setup()` function \(between the curly braces\):
+Setting the pin modes for your inputs and outputs only needs to be done one time when your app first starts to run, so the code statements to do this should be added within the `setup()` function.
+
+So you'll need to set the pin mode for the built-in LED that you'll be using. Add this code statement **within** the `setup()` function \(between the curly braces\):
 
 ```cpp
 pinMode(LED, OUTPUT);
@@ -22,17 +24,20 @@ At this point, your app code should look similar to this:
 ```cpp
 /*
 Hello World App
-Student Name
+Team Info
 Teacher and Class Period
 */
 
 int LED = 13;
 
 void setup() {
-    pinMode(LED, OUTPUT);
+  // put your setup code here, to run once:
+  pinMode(LED, OUTPUT);
+
 }
 
 void loop() {
+  // put your main code here, to run repeatedly:
 
 }
 ```
@@ -41,14 +46,14 @@ Notice that the `pinMode()` statement shown in the app code above is indented \(
 
 ## Verify Your App Code
 
-The Arduino code editor does **NOT** check your code syntax as you type, so be sure to periodically verify your code to check for errors.
+The Arduino code editor does **NOT** check your code syntax as you type, so be sure to periodically verify your code to check for errors. You can verify your code even if you're not done creating your entire app.
 
 Verify your app code by clicking the **Verify** icon \(looks like a checkmark\) at the top of the code editor panel. \(The Arduino code editor will first save your code before verifying it.\)
 
 After the verification is done, a message will appear in a status bar at the bottom of the code editor panel:
 
 * If your code compiled without any errors, the status bar will display a **success message**. \(In the web editor, the message will say "Success." In the desktop editor, the message will say "Done compiling."\)
-* If your code contains an error, the status bar will display an **error message** with a description of the error, and the code editor will highlight the specific line number in your code where the error was detected \(though the root cause of the error usually occurs on a previous line\). You'll want to fix the error and then try verifying your code again.
+* If your code contains an error, the status bar will display an **error message** with a description of the error, and the code editor will highlight the specific line number in your code where the error was detected \(although the actual cause of the error usually occurs on a previous line\). You'll want to fix the error and then try verifying your code again.
 
 {% hint style="warning" %}
 **MULTIPLE ERRORS:** Sometimes your app code might contain multiple errors. However, the Arduino code editor will stop verifying the code at the first error that is detected. Once you fix that error and verify the code again, you might see a **new** error message for another error that occurs later in the code.

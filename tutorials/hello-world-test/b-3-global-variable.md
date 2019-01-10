@@ -28,7 +28,7 @@ This code statement does 3 things \(in order\):
 
 Notice that this code statement ends with a [semi-colon](https://www.arduino.cc/reference/en/language/structure/further-syntax/semicolon/). Typically, each code statement in your app will end with a semi-colon. The semi-colon separates code statements, similar to how periods separate sentences in written English.
 
-* The exceptions to ending with a semi-colon are certain statements \(such as functions, conditionals, loops, etc.\) that use [curly braces](https://www.arduino.cc/reference/en/language/structure/further-syntax/curlybraces/) to enclose other code statements. However, within the curly braces, each code statement ends with a semi-colon.
+* The exceptions to ending with a semi-colon are certain statements \(such as functions, conditionals, loops, etc.\) that use [curly braces](https://www.arduino.cc/reference/en/language/structure/further-syntax/curlybraces/) to enclose other code statements. However, within the curly braces, each code statement will end with a semi-colon.
 
 Although you can actually list multiple code statements on the same line \(because their semi-colons will separate them\), each code statement is traditionally listed on its own separate line to make it easier to read the code.
 
