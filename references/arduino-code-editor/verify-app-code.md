@@ -1,12 +1,12 @@
 # Verify App Code
 
-in progress
-
 The Arduino code editor does **NOT** check your code syntax as you type, so be sure to periodically verify your code to check for errors. You can verify your code even if you're not done creating your entire app.
 
 ## Select Correct Board
 
 In order to verify the code, the code editor first needs to know which type of Arduino board is being used. The RedBot circuit board is equivalent to an Arduino Uno circuit board.
+
+Once you've selected the correct type of Arduino board, the code editor should remember this selection for the future.
 
 #### Arduino Create \(Web Editor\)
 
@@ -17,7 +17,7 @@ In order to verify the code, the code editor first needs to know which type of A
 
 Under the **Tools** menu, go to the **Board** sub-menu, and select "Arduino/Genuino Uno" in the **Board**.
 
-
+## Verify App Code
 
 Verify your app code by clicking the **Verify** icon \(looks like a checkmark\) at the top of the code editor panel. \(The Arduino code editor will first save your code before verifying it.\)
 

@@ -4,9 +4,9 @@ Let's add a variable in your app code to represent the built-in LED light.
 
 ## Add Global Variable for LED
 
-Your "Hello World" app will make the RedBot circuit board's built-in blue LED light turn on and off in a blinking pattern. This will be accomplished by sending separate "on" and "off" signals to the LED's pin.
+Your "Hello World" app will make the RedBot circuit board's built-in green LED light turn on and off in a blinking pattern. This will be accomplished by sending separate "on" and "off" signals to the LED's pin.
 
-Each I/O pin on the RedBot circuit board is identified by a pin number \(such as: A0, A1, A2, 3, 9, 10, etc.\). In this case, the RedBot's built-in blue LED light is connected to pin D13 \(via internal circuitry\).
+Each I/O pin on the RedBot circuit board is identified by a pin number \(such as: A0, A1, A2, 3, 9, 10, etc.\). In this case, the RedBot's built-in green LED light is connected to pin D13 \(via internal circuitry\).
 
 When coding an Arduino app, you will typically create global variables to store the pin numbers for the inputs and outputs connected to your circuit board that you want to control. This will help make your code easier to understand because the variable names help identify each input or output.
 
@@ -64,7 +64,7 @@ You get to decide what to name each variable in your app's code. However, here a
 * Make each variable's name concise yet descriptive, so it will be easy to read and understand.
   * Example of variable name that's concise yet descriptive:  `LED`
   * Example of variable name that's **too** concise:  `L`
-  * Example of variable name that's **too** descriptive: `blueD13LEDlight`
+  * Example of variable name that's **too** descriptive:  `greenD13LEDlight`
 * If your variable name combines multiple words, you can make the name easier to read by either using an underscore between words – or using "[camelCase](https://en.wikipedia.org/wiki/Camel_case)" \(lowercase letters, but new words start with an uppercase letter\).
   * Examples of variable name using underscore:  `push_button`
   * Examples of variable name using camelCase:  `pushButton`

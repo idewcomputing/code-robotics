@@ -20,7 +20,9 @@ If you were given an existing robot and its wheels start spinning when you turn 
 
 ## Select Correct Board and Port
 
-In order to upload your app to your robot, the code editor must know which type of Arduino board your robot has and which port on your computer that the robot is connected to.
+In order to upload your app to your robot, the code editor must know which type of Arduino board your robot has and which USB port on your computer that the robot is connected to.
+
+If you previously selected your Arduino board type \(which should be "Arduino/Genuino Uno"\), the code editor should remember this selection.
 
 
 
@@ -32,7 +34,7 @@ Click the **Upload** icon \(looks like a right arrow\) at the top of the code ed
 
 Once the upload is complete, the new app will immediately start running on your robot.
 
-Confirm that the built-in blue D13 LED light blinks on and off in a repeating pattern \(changing every 0.5 second\).
+Confirm that the built-in green D13 LED light blinks on and off in a repeating pattern \(changing every 0.5 second\).
 
 ## Arduino Devices Store and Run One Program at a Time
 

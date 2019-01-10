@@ -30,7 +30,7 @@ The RedBot circuit board also has various pins, ports, buttons, switches, and LE
 * **Mini USB Port:**  used to connect robot to computer \(to download new app from computer or to send serial data to computer\)
 * **LED Lights:**
   * **Power LED:**  Green LED which indicates the robot is powered on
-  * **D13 LED:**  Blue LED which can be controlled by your robot's app
+  * **D13 LED:**  Green LED which can be controlled by your robot's app
 * **Buttons:**
   * **Reset Button:**  Restarts your robot's app \(similar to turning robot off and then on again\)
   * **D12 Button:**  Your robot's app can be programmed to detect when this button is pushed

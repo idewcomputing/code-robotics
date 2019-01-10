@@ -20,7 +20,23 @@ If your robot's wheels start moving when the power is turned on \(because the ro
 
 ## Select Correct Board and Port
 
-in order to upload your app to your robot, the code editor must know which type of Arduino board the robot has and which port on your computer that the robot is connected to.
+In order to upload your app to your robot, the code editor must know which type of Arduino board your robot has and which USB port on your computer that the robot is connected to.
+
+If you previously selected your Arduino board type \(which should be "Arduino/Genuino Uno"\), the code editor should remember this selection.
+
+#### Arduino Create \(Web Editor\)
+
+1. Click "Select Other Board & Port" in the drop down menu at the top of the code editor panel.
+2. In the pop-up, verify that "Arduino/Genuino Uno" is selected, and then select the correct USB port that your robot is connected to. Finally, click the **OK** button.
+
+#### Arduino IDE \(Desktop Editor\)
+
+Under the **Tools** menu, verify that "Arduino/Genuino" is selected in the **Board** sub-menu, and then select the correct USB port in the **Port** sub-menu.
+
+* On Mac, the correct port will include "usbserial" as part of its name.
+* On Windows, there should be one or more numbered COM ports listed. You may have to select one, try uploading your app — and then if the app won't upload, switch to another COM port instead.
+
+Once you've selected the correct port, the code editor should remember this selection while you keep the code editor open. However, if you quit the code editor, you'll have to select the correct port again the next time you use the code editor.
 
 ## Upload App to Robot
 
@@ -35,6 +51,10 @@ If you used the **Motor** switch to temporarily stop the motors from running, yo
 Confirm the app works as you intended. You can then revise the app to fix any coding issues or to add new code.
 
 To stop the robot from running its app, slide the RedBot's **Power** switch to **OFF**.
+
+{% hint style="danger" %}
+**UPLOAD ERROR:**  If the Arduino code editor indicates there was a problem uploading to the board, it most likely means that the correct port was **not** selected. Be sure the correct USB port is selected in the code editor.
+{% endhint %}
 
 ## Arduino Devices Store and Run One App at a Time
 
