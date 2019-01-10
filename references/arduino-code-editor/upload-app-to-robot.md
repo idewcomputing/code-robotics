@@ -33,9 +33,8 @@ If you previously selected your Arduino board type \(which should be "Arduino/Ge
 
 1. Click "Select Other Board & Port" in the drop down menu at the top of the code editor panel.
 2. In the pop-up, verify that "Arduino/Genuino Uno" is selected, and then select the correct USB port that your robot is connected to. Finally, click the **OK** button.
-
-* On Mac, the correct port should include "usbserial" as part of its name.
-* On Windows, there should be one or more numbered COM ports listed. You may have to select one, try uploading your app — and then if the app won't upload, switch to another COM port instead until you identify the correct port.
+  * On Mac, the correct port should include "usbserial" as part of its name.
+  * On Windows, there should be one or more numbered COM ports listed. You may have to select one, try uploading your app — and then if the app won't upload, switch to another COM port instead until you identify the correct port.
 
 #### Arduino IDE \(Desktop Editor\)
 
@@ -69,6 +68,3 @@ To stop the robot from running its app, slide the RedBot's **Power** switch to *
 {% hint style="info" %}
 **ONE APP AT A TIME:**  Arduino devices, such as the RedBot, can only store and run **one** app at a time. If you want to change the app running on your robot, you have to upload a different app to your robot from your code editor.
 {% endhint %}
-
-
-
