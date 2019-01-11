@@ -2,6 +2,8 @@
 
 #### **STILL IN PROGRESS**
 
+create new app, rename app
+
 include RedBot library
 
 create RedBotMotors object
