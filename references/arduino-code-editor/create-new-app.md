@@ -1,19 +1,17 @@
 # Create New App
 
-IN PROGRESS
-
 An Arduino program \(or app\) is also referred to as a "sketch" because the Arduino language is designed to allow you to quickly create a program — just like a sketch is a quick drawing.
 
 This guidebook will primarily use the term "app" but just keep in mind that **program**, **app**, and **sketch** all mean the same thing:  a set of coded software instructions to control the operation of a computing device \(which is your robot, in this case\).
 
 ## Create New App
 
-#### Arduino Create \(Web Editor\)
+### Arduino Create \(Web Editor\)
 
 1. If necessary, click the **Sketchbook** menu link in the left navigation panel to display the Sketchbook menu options in the middle panel.
 2. Click the **New Sketch** button at the top of the middle panel.
 
-#### Arduino IDE \(Desktop Editor\)
+### Arduino IDE \(Desktop Editor\)
 
 Under the **File** menu, select "New" – or you can click the **New** icon \(looks like a document\) at the top of an existing code editor window.
 
