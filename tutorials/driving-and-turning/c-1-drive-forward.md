@@ -110,46 +110,57 @@ When the `drive()` method is used in your code, the motors will start driving an
 When the robot's button is pressed, let's make your robot drive forward for 2 seconds and then brake. Add this code **within** the `if` statement in the `loop()` function \(**after** the `noTone()` statement\):
 
 ```cpp
-    motors.drive(150);
+    motors.drive(200);
     delay(2000);
     motors.brake();
 ```
 
 The `drive()` method requires one parameter inside its parentheses:
 
-* **The motor power value**, which can be any integer value \(whole number\) between `-255` and `255`. A positive value drives the robot forward, and a negative value drives the robot backwards. A larger absolute value produces a faster driving speed \(`-255` and `255` are the fastest speeds, while `-1` and `1` are the slowest speeds.\)
+* **The motor power**, which can be any integer \(whole number\) between `-255` and `255`. A positive power drives the robot forward, and a negative power drives the robot backwards. A larger absolute power produces a faster speed \(`-255` and `255` are the fastest speeds, while `-1` and `1` are the slowest speeds\). In this case, the motor power will be set to `200`.
 
 {% hint style="danger" %}
-**SLOW DOWN:**  Driving the motors at high power can cause the wheels to "spin out" due to insufficient traction with the surface. If you notice traction issues between the wheels and the surface, use a lower power \(slower speed\). In general, use a motor power of 200 or less.
+**SLOW DOWN:**  Driving the motors at high power can sometimes cause the wheels to "spin out" due to insufficient traction with the surface. If you notice traction issues, use a lower motor power \(slower speed\). In general, use a motor power of 200 or less.
 {% endhint %}
 
 ## Upload App to Robot
 
-upload app to robot, and confirm it works
+[Follow the steps to upload the app to your robot](../../references/arduino-code-editor/upload-app-to-robot.md):
+
+1. Connect Robot to Computer
+2. Turn on Robot Power
+3. Select Correct Board and Port
+4. Upload App to Robot
+
+Unplug the USB cable from the robot, and place the robot on the floor. Be sure a path of at least 3 feet in front of the robot is clear of any obstacles. \(Just to be safe, also be sure a path of 3 feet **behind** the robot is clear — in case your robot's motor wires were accidentally reversed during assembly.\)
+
+Press the D12 button on your robot's circuit board. Your robot should beep and then drive forward about 30 inches.
 
 #### TROUBLESHOOTING
 
-If robot spins clockwise \(to the right\), reverse the red and black wires of the right motor
+* **If your robot doesn't drive at all**, first check that its **Motor** switch is set to **RUN**. If the switch was correct, next check the left and right motor wires on the circuit board to verify the red and black wires are correctly plugged in. If the wires were correct, replace the batteries in the robot's battery pack.
+* **If your robot spins clockwise \(to the right\)**, unplug and reverse the red and black wires of the right motor on the circuit board.
+* **If your robot spins counter-clockwise \(to the left\)**, unplug and reverse the red and black wires of the left motor on the circuit board.
+* **If your robot drives backwards**, first check your app code to make sure you used a positive value for the motor power \(**not** a negative value\). If the app code is correct, unplug and reverse the red and black wires for each motor on the circuit board.
 
-If robot spins counter-clockwise \(to the left\), reverse the red and black wires of the left motor
+**NOTE:**  If your robot drives forward but **not** in a perfectly straight line, this is actually normal. Even though the two motors are supposed to be identical and are receiving identical power, they might not necessarily rotate at the exact same rate. Even a minor difference in their rotation rates will cause the robot to drift either to the left or to the right as it drives \(depending on which motor is rotating more slowly\).
 
-If robot drives backwards, reverse the red and black wires for each motor
+Later in this tutorial, you'll use the wheel encoders to continuously measure the rotation rates of the motors, in order to make small power adjustments to each motor so the robot will drive in a straight line.
 
-NOTE: If the robot does not drive in a perfectly straight line, this is actually "normal." In theory, if both motors are being driven with the same amount of power, the robot should travel in a straight line. However, even though the two motors are supposed to be identical and are being driven with identical amount of power, they might not necessarily rotate at the exact same rate - even a minor difference in their rotation rate will cause the robot to slowly drift either to the left or to the right \(depending on which motor is rotating more slowly\), instead of driving perfectly straight.
+## Drive Backwards \(Reverse\)
 
-Later in this tutorial, you'll use the wheel encoders to continuously measure and compare the rotation rates of the motors and make small power adjustments to keep the robot driving in a straight line. You'll also use the wheel encoders to calculate how far the wheels have rotated, in order to make the robot travel a specific distance.
+Next you'll modify the app so the robot will drive forward for 2 seconds, stop briefly, drive backwards for 2 seconds, and finally stop approximately at its starting point.
 
-#### DRIVE BACKWARDS \(REVERSE\)
-
-keep drive forward sequence, and add drive backward sequence within if statement:
+Add this code **within** the `if` statement in the `loop()` function \(**after** the `motors.brake()` statement\):
 
 ```cpp
-motors.drive(-power);
-delay(time);
-motors.brake();
+    delay(1000); // pause for 1 second
+    motors.drive(-200); // drive backwards
+    delay(2000);
+    motors.brake();
 ```
 
-upload app to robot, and confirm it works
+Upload the modified app to your robot. Unplug the USB cable from the robot, and place the robot on the floor. Be sure a path of at least 3 feet in front of the robot is clear of any obstacles.
 
-
+Press the D12 button on your robot's circuit board. Your robot should beep and then drive forward about 30 inches. It should stop and pause for 1 second before driving backwards about 30 inches.
 
