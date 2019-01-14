@@ -1,6 +1,6 @@
 # C-2 Turns \(Pivoting\)
 
-Next, you'll code an app to make your robot turn 90° right. Then you'll modify the app so the robot turns 90° left and 180° around.
+Next, you'll code an app to make your robot turn 90° right. Then you'll modify the app so the robot turns 90° left and turns 180° around.
 
 ## Save Copy of App With New Name
 
@@ -29,7 +29,6 @@ Next, you'll add new code so that when the robot's button is pressed, the robot 
     delay(1500);
     motors.brake();
 
-    // pivot 90 degrees right
     motors.pivot(100);
     delay(650);
     motors.brake();
@@ -69,7 +68,7 @@ In the app code, the second `delay()` of `650` milliseconds \(0.65 seconds\) is 
 * If your robot is pivoting **less** than 90°, **increase** the pivot `delay()` time slightly \(such as: `700` ms\).
 * If your robot is pivoting **more** than 90°, **decrease** the pivot `delay()` time slightly \(such as: `600` ms\).
 
-If you do change the pivot `delay()` time, upload the modified app to your robot, and test it with the new value. You may need to change the value more than once to fine-tune your results.
+If you do change the pivot `delay()` time, upload the modified app to your robot, and test it again with the new value. You may need to change the value several times to fine-tune your results.
 
 Later in this tutorial, you'll learn how to use the wheel encoders to measure how far the wheels have turned, in order to make the robot pivot by a specific angle.
 
