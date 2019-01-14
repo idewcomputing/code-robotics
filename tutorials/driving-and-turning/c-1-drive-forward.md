@@ -1,6 +1,6 @@
 # C-1 Driving
 
-First, you'll code an app to make your robot drive forwards. Then you'll modify the app so the robot drives forwards and then backwards.
+First, you'll code an app to make your robot drive forward. Then you'll modify the app so the robot drives forward and then backward.
 
 ## Create New App Template
 
@@ -61,7 +61,7 @@ This code statement does two things \(in order\):
 
 ## Add Code for "Press to Start"
 
-As a reminder, whenever you upload a new app to your robot, the new app starts running **immediately** \(even before you've had a chance to unplug the USB cable from your robot\). In a worst-case scenario, your robot might accidentally drive off the edge of your desk and crash onto the floor.
+As a reminder, whenever you upload a new app to your robot, the new app starts running **immediately** \(even before you've had a chance to unplug the USB cable from your robot\). In a worst-case scenario, your robot might accidentally drive off your desk and crash onto the floor.
 
 Therefore as a safety feature, most of the robot apps in these tutorials will use an `if` statement within the `loop()` function to check whether the D12 button on the circuit board has been pressed before making the robot drive around. When the button is pressed, the speaker and built-in LED will beep and blink as a confirmation before performing other robot actions \(such as driving, etc.\).
 
@@ -117,7 +117,7 @@ When the robot's button is pressed, let's make your robot drive forward for 2 se
 
 The `motors.drive()` method requires one parameter inside its parentheses:
 
-* **The motor power**, which can be any integer \(whole number\) between `-255` and `255`. A positive power drives the robot forward, and a negative power drives the robot backwards. A larger absolute power produces a faster speed \(`-255` and `255` are the fastest speeds, while `-1` and `1` are the slowest speeds\). In this case, the motor power will be set to `200`.
+* **The motor power**, which can be any integer \(whole number\) between `-255` and `255`. A positive power drives the robot forward, and a negative power drives the robot backward. A larger absolute power produces a faster speed \(`-255` and `255` are the fastest speeds, while `-1` and `1` are the slowest speeds\). In this case, the motor power will be set to `200`.
 
 {% hint style="danger" %}
 **SLOW DOWN:**  Driving the motors at high power can sometimes cause the wheels to "spin out" due to insufficient traction with the surface. If you notice traction issues, use a lower motor power \(slower speed\). In general, use a motor power of 200 or less.
@@ -141,21 +141,21 @@ Press the D12 button on your robot's circuit board. Your robot should beep and t
 * **If your robot doesn't drive at all**, first check that its **Motor** switch is set to **RUN**. If the switch was correct, next check the left and right motor wires on the circuit board to verify the red and black wires are correctly plugged in. If the wires were correct, replace the batteries in the robot's battery pack.
 * **If your robot spins clockwise \(to the right\)**, unplug and reverse the red and black wires of the right motor on the circuit board.
 * **If your robot spins counter-clockwise \(to the left\)**, unplug and reverse the red and black wires of the left motor on the circuit board.
-* **If your robot drives backwards**, first check your app code to make sure you used a positive value for the motor power \(**not** a negative value\). If the app code is correct, unplug and reverse the red and black wires for each motor on the circuit board.
+* **If your robot drives backward**, first check your app code to make sure you used a positive value for the motor power \(**not** a negative value\). If the app code is correct, unplug and reverse the red and black wires for each motor on the circuit board.
 
 **NOTE:**  If your robot drives forward but **not** in a perfectly straight line, this is actually normal. Even though the two motors are supposed to be identical and are receiving identical power, they might not necessarily rotate at the exact same rate. Even a minor difference in their rotation rates will cause the robot to drift either to the left or to the right as it drives \(depending on which motor is rotating more slowly\).
 
 Later in this tutorial, you'll use the wheel encoders to continuously measure the rotation rates of the motors, in order to make small power adjustments to each motor so the robot will drive in a straight line.
 
-## Drive Backwards \(Reverse\)
+## Drive Backward \(Reverse\)
 
-Next you'll modify the app so the robot will drive forward for 2 seconds, stop briefly, drive backwards for 2 seconds, and finally stop approximately at its starting point.
+Next you'll modify the app so the robot will drive forward for 2 seconds, stop briefly, drive backward for 2 seconds, and finally stop approximately at its starting point.
 
 Add this code **within** the `if` statement in the `loop()` function \(**after** the `motors.brake()` statement\):
 
 ```cpp
     delay(1000); // pause for 1 second
-    motors.drive(-200); // drive backwards
+    motors.drive(-200); // drive backward
     delay(2000);
     motors.brake();
 ```

@@ -2,6 +2,14 @@
 
 #### **STILL IN PROGRESS**
 
+Next, you'll code an app to make your robot turn 90° right. Then you'll modify the app so the robot turns 90° left and also 180° around.
+
+## Save As New App
+
+In your code editor, use the "Save As" command to save a copy of your driving\_test app as a new app named:  pivot\_test
+
+
+
 turn on one wheel vs. pivoting on both wheels
 
 3 most common turns required:  turn 90° right, turn 90° left, and turn 180° around
