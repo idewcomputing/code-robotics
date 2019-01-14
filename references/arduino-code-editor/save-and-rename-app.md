@@ -37,3 +37,17 @@ You should rename your new sketch to give it a filename that will make it easy f
 
 **Rename Existing Program \(previously saved\):** Click the down arrow icon in the top-right corner of the code editor window, and then select "Rename" in the drop-down list. A small dialog will appear at the bottom of the code editor window. Enter a new filename, and then click the **OK** button.
 
+## Save Copy of App with New Name
+
+You can use the "Save As" command to save a copy of an existing app as a new app with a different name. This is a useful way to copy an app and then modify its code.
+
+### Arduino Create Web Editor
+
+1. Hover over the 3-dot button at the top of the code editor panel, and then select "Save As."
+2. In the pop-up, replace the existing sketch name with a new filename.
+3. Click the **OK** button to save the new app and close the pop-up.
+
+### Arduino IDE Desktop Editor
+
+Under the **File** menu, select "Save As". A pop-up dialog window will appear. Enter a new filename, and then click the **Save** button.
+

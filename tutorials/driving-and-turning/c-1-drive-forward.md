@@ -105,7 +105,7 @@ The `RedBotMotors` class defines a method named `drive()` that can be used to dr
 
 Therefore, your `motors` object has a `motors.drive()` method and a `motors.brake()` method \(as well as any other methods defined in the `RedBotMotors` class\).
 
-When the `motors.drive()` method is used in your code, the motors will start driving and will stay on \(sort of like cruise control on a car\). Then you'll use the `delay()` method to wait for a certain amount of time before turning the motors off with the `motors.brake()` method.
+When the `motors.drive()` method is used in your code, the motors will start and will keep driving continuously \(sort of like cruise control on a car\). You'll use a `delay()` statement to allow the motors to drive for a certain amount of time before turning the motors off with the `motors.brake()` method.
 
 When the robot's button is pressed, let's make your robot drive forward for 2 seconds and then brake. Add this code **within** the `if` statement in the `loop()` function \(**after** the `noTone()` statement\):
 
@@ -117,10 +117,10 @@ When the robot's button is pressed, let's make your robot drive forward for 2 se
 
 The `motors.drive()` method requires one parameter inside its parentheses:
 
-* **The motor power**, which can be any integer \(whole number\) between `-255` and `255`. A positive power drives the robot forward, and a negative power drives the robot backward. A larger absolute power produces a faster speed \(`-255` and `255` are the fastest speeds, while `-1` and `1` are the slowest speeds\). In this case, the motor power will be set to `200`.
+* **The motor power**, which can be any integer \(whole number\) between `-255` and `255`. A positive power drives the robot forward, and a negative power drives the robot backward. A larger absolute power produces a faster driving speed \(`-255` and `255` are the fastest speeds, while `-1` and `1` are the slowest speeds\). In this case, the power will be `200`.
 
 {% hint style="danger" %}
-**SLOW DOWN:**  Driving the motors at high power can sometimes cause the wheels to "spin out" due to insufficient traction with the surface. If you notice traction issues, use a lower motor power \(slower speed\). In general, use a motor power of 200 or less.
+**SLOW DOWN:**  Driving the motors at high power can sometimes cause the wheels to slip due to insufficient traction with the surface. If you notice traction issues while driving, use a lower motor power \(slower speed\). In general, use a motor power of 200 or less for driving.
 {% endhint %}
 
 ## Upload App to Robot
@@ -134,7 +134,7 @@ The `motors.drive()` method requires one parameter inside its parentheses:
 
 Unplug the USB cable from the robot, and place the robot on the floor. Be sure a path of at least 3 feet in front of the robot is clear of any obstacles. \(Just to be safe, also be sure a path of 3 feet **behind** the robot is clear — in case your robot's motor wires were accidentally reversed during assembly.\)
 
-Press the D12 button on your robot's circuit board. Your robot should beep and then drive forward about 30 inches.
+Press the D12 button on your robot's circuit board. Your robot should beep and then drive forward for 2 seconds \(about 30 inches\).
 
 ### TROUBLESHOOTING
 
@@ -145,7 +145,7 @@ Press the D12 button on your robot's circuit board. Your robot should beep and t
 
 **NOTE:**  If your robot drives forward but **not** in a perfectly straight line, this is actually normal. Even though the two motors are supposed to be identical and are receiving identical power, they might not necessarily rotate at the exact same rate. Even a minor difference in their rotation rates will cause the robot to drift either to the left or to the right as it drives \(depending on which motor is rotating more slowly\).
 
-Later in this tutorial, you'll use the wheel encoders to continuously measure the rotation rates of the motors, in order to make small power adjustments to each motor so the robot will drive in a straight line.
+Later in this tutorial, you'll learn how to use the wheel encoders to measure the rotation rates of the motors, in order to make small power adjustments to each motor so the robot drives in a straight line.
 
 ## Drive Backward \(Reverse\)
 
@@ -162,7 +162,7 @@ Add this code **within** the `if` statement in the `loop()` function \(**after**
 
 Upload the modified app to your robot. Unplug the USB cable from the robot, and place the robot on the floor. Be sure a path of at least 3 feet in front of the robot is clear of any obstacles.
 
-Press the D12 button on your robot's circuit board. Your robot should beep and then drive forward about 30 inches. It should stop and pause for 1 second before driving backwards about 30 inches.
+Press the D12 button on your robot's circuit board. Your robot should beep and then drive forward for 2 seconds \(about 30 inches\). It should stop and pause for 1 second before driving backward for 2 seconds \(about 30 inches\), returning approximately to its starting point.
 
 If you want, you can modify the app further to try different motor powers or different delay times — just be sure you have a clear driving path to avoid crashing your robot into any obstacles.
 
