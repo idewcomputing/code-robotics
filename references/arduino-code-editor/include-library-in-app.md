@@ -10,7 +10,13 @@ There is a **SparkFun RedBot Library** \(filename: `RedBot.h`\) that makes it mu
 
 ## SparkFun RedBot Library
 
-The `RedBot.h` library contains Arduino code that defines different classes of objects. Each class defines a set of **properties** \(variables\) and **methods** \(functions\) for a specific type of object. The `RedBot.h` library defines the following classes:
+The `RedBot.h` library contains Arduino code that defines different classes of objects. Each class defines a set of **properties** \(variables\) and **methods** \(functions\) for a specific type of object.
+
+Your robot apps will use these classes to create objects in your app code. An object is a special type of variable that represents a specific **instance** \(member\) of a class. An object has all the properties and methods defined for that class.
+
+The objects in your robot app code will correspond to real-life parts on your robot \(such as:  motors, wheel encoders, mechanical bumpers, etc.\).
+
+The `RedBot.h` library defines the following classes:
 
 * `RedBotButton` class — used to control the push button
 * `RedBotMotors` class — used to control the left and right motors
@@ -18,8 +24,6 @@ The `RedBot.h` library contains Arduino code that defines different classes of o
 * `RedBotSensor` class — used to control analog sensors, such as the IR line sensors
 * `RedBotEncoder` class — used to control the left and right wheel encoders
 * `RedBotAccel` class — used to control the accelerometer
-
-Your robot apps will use these classes to create objects. An object is a special type of variable that represents a specific **instance** \(member\) of a class. An object has all the properties \(variables\) and methods \(functions\) defined for that class.
 
 ## Add RedBot Library to Code Editor
 

@@ -42,7 +42,7 @@ Your app will need to use an [`if`](https://www.arduino.cc/reference/en/language
 
 ```cpp
   if (digitalRead(button) == LOW) {
-    // add code to perform when button is pushed
+    // add code to perform when button is pressed
     
   }
 ```
@@ -77,7 +77,7 @@ Just for reference, here's what your `loop()` function should now look like:
 void loop() {
   // put your main code here, to run repeatedly:
   if (digitalRead(button) == LOW) {
-    // add code to perform when button is pushed
+    // add code to perform when button is pressed
     digitalWrite(LED, HIGH);
     tone(speaker, 2000);
     delay(200);
