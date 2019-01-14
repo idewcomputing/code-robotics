@@ -1,6 +1,6 @@
 # C-1 Driving
 
-#### **STILL IN PROGRESS**
+First, you'll code an app to make your robot drive forwards. Then you'll modify the app so the robot drives forwards and then backwards.
 
 ## Create New App Template
 
@@ -57,13 +57,13 @@ RedBotMotors motors;
 This code statement does two things \(in order\):
 
 1. **It declares the class for the object.**  This is similar to declaring a data type for a variable. In this case, `RedBotMotors` is the name of the class in the RedBot library being used to create the new object.
-2. **It declares the object's name.** In this case, the object will be named `motors`. Just like with other variables, you get to decide what to name your objects. Choose a name that will make sense to anyone reviewing your code.
+2. **It declares the object's name.** In this case, the object will be named `motors`. Just like with other variables, you get to decide what to name your objects.
 
 ## Add Code for "Press to Start"
 
 As a reminder, whenever you upload a new app to your robot, the new app starts running **immediately** \(even before you've had a chance to unplug the USB cable from your robot\). In a worst-case scenario, your robot might accidentally drive off the edge of your desk and crash onto the floor.
 
-Therefore as a safety feature, most of the robot apps in these tutorials will use an `if` statement within the `loop()` function to check whether the D12 button on the circuit board has been pressed before making the robot drive around. When the button is pressed, the speaker and built-in LED will beep and blink as a confirmation before performing the other robot actions \(such as driving, etc.\).
+Therefore as a safety feature, most of the robot apps in these tutorials will use an `if` statement within the `loop()` function to check whether the D12 button on the circuit board has been pressed before making the robot drive around. When the button is pressed, the speaker and built-in LED will beep and blink as a confirmation before performing other robot actions \(such as driving, etc.\).
 
 Create global variables for the LED pin, speaker pin, and button pin by adding this code **before** the `setup()` function: 
 
@@ -103,9 +103,9 @@ Basically, this code for "Press to Start" is the same as the final version of th
 
 The `RedBotMotors` class defines a method named `drive()` that can be used to drive the motors either forward or backwards. The `RedBotMotors` class also defines a method named `brake()` that can be used to stop the motors.
 
-Therefore, your `motors` object also has the `drive()` method and the `brake()` method \(as well as all the other methods defined in the `RedBotMotors` class\).
+Therefore, your `motors` object has a `motors.drive()` method and a `motors.brake()` method \(as well as any other methods defined in the `RedBotMotors` class\).
 
-When the `drive()` method is used in your code, the motors will start driving and will stay on \(sort of like cruise control on a car\). Then you'll use the `delay()` method to wait for a certain period of time before turning the motors off with the `brake()` method.
+When the `motors.drive()` method is used in your code, the motors will start driving and will stay on \(sort of like cruise control on a car\). Then you'll use the `delay()` method to wait for a certain amount of time before turning the motors off with the `motors.brake()` method.
 
 When the robot's button is pressed, let's make your robot drive forward for 2 seconds and then brake. Add this code **within** the `if` statement in the `loop()` function \(**after** the `noTone()` statement\):
 
@@ -115,7 +115,7 @@ When the robot's button is pressed, let's make your robot drive forward for 2 se
     motors.brake();
 ```
 
-The `drive()` method requires one parameter inside its parentheses:
+The `motors.drive()` method requires one parameter inside its parentheses:
 
 * **The motor power**, which can be any integer \(whole number\) between `-255` and `255`. A positive power drives the robot forward, and a negative power drives the robot backwards. A larger absolute power produces a faster speed \(`-255` and `255` are the fastest speeds, while `-1` and `1` are the slowest speeds\). In this case, the motor power will be set to `200`.
 
@@ -136,7 +136,7 @@ Unplug the USB cable from the robot, and place the robot on the floor. Be sure a
 
 Press the D12 button on your robot's circuit board. Your robot should beep and then drive forward about 30 inches.
 
-#### TROUBLESHOOTING
+### TROUBLESHOOTING
 
 * **If your robot doesn't drive at all**, first check that its **Motor** switch is set to **RUN**. If the switch was correct, next check the left and right motor wires on the circuit board to verify the red and black wires are correctly plugged in. If the wires were correct, replace the batteries in the robot's battery pack.
 * **If your robot spins clockwise \(to the right\)**, unplug and reverse the red and black wires of the right motor on the circuit board.
@@ -163,4 +163,6 @@ Add this code **within** the `if` statement in the `loop()` function \(**after**
 Upload the modified app to your robot. Unplug the USB cable from the robot, and place the robot on the floor. Be sure a path of at least 3 feet in front of the robot is clear of any obstacles.
 
 Press the D12 button on your robot's circuit board. Your robot should beep and then drive forward about 30 inches. It should stop and pause for 1 second before driving backwards about 30 inches.
+
+If you want, you can modify the app further to try different motor powers or different delay times — just be sure you have a clear driving path to avoid crashing your robot into any obstacles.
 
