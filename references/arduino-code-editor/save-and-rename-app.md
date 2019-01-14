@@ -16,7 +16,7 @@ At the top of the code editor panel, hover your mouse cursor over the button wit
 
 Under the **File** menu, select "Save" – alternatively, you can click the **Save** icon \(looks like a downward arrow\) at the top of the code editor window.
 
-## Rename Program
+## Rename App
 
 By default, a new sketch will be given a generic filename that starts with `sketch_` and includes the current date \(plus a letter, such as: `a`, `b`, `c`, etc.\).
 

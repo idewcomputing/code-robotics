@@ -2,7 +2,7 @@
 
 Arduino apps can include one or more libraries. A library is a pre-built code file that makes it easier to program certain things in your app.
 
-There is a **SparkFun RedBot Library** \(filename: `RedBot.h`\) that makes it much easier to control the motors and sensors connected to your RedBot. You will need to add a copy of this library to your code editor, which is a **one-time process**. Then you will also need to include a copy of this library in **each of your robot apps**.
+There is a **SparkFun RedBot Library** \(filename: `RedBot.h`\) that makes it much easier to control the motors and sensors connected to your RedBot. You will need to add a copy of this library to your code editor, which is a **one-time process**. Then you will also need to include a copy of this library in **each new robot app**.
 
 {% hint style="info" %}
 **OTHER LIBRARIES:**  You can follow the same steps below to add other Arduino code libraries \(such as the [OneButton](http://www.mathertel.de/Arduino/OneButtonLibrary.aspx) library, etc.\) to your code editor, and then include the library in an app.

@@ -2,11 +2,45 @@
 
 #### **STILL IN PROGRESS**
 
-create new app, rename app
+## Create New App Template
 
-include RedBot library
+If necessary, log in to the Arduino Create web editor, or open the Arduino IDE desktop editor.
 
-create RedBotMotors object
+Create a new app template. If you need a reminder, here are [instructions for creating a new app template](../../references/arduino-code-editor/create-new-app.md).
+
+## Rename App
+
+Rename the the new app as:  `driving_test`
+
+If you need a reminder, here are [instructions for how to rename an app](../../references/arduino-code-editor/save-and-rename-app.md).
+
+## Add Block Comment
+
+Add this block comment at the beginning of your app code. Modify the comment to list your information.
+
+```cpp
+/*
+Driving Test App
+Team 3 - Destiny, Katya, Lucas, Miguel
+Ms. Hopper - Period 2
+*/
+```
+
+## Include RedBot Library
+
+Arduino apps can include one or more libraries. A library is a pre-built code file that makes it easier to program certain things in your app.
+
+There is a **SparkFun RedBot Library** \(filename: `RedBot.h`\) that makes it much easier to control the motors and sensors connected to your RedBot.
+
+You will need to add a copy of the SparkFun RedBot Library to your code editor, which is a **one-time process**. Then you will also need to include a copy of this library in **each new robot app**.
+
+[Follow these instructions to \(1\) add the SparkFun RedBot Library to your code editor, and \(2\) include the library in your current app](../../references/arduino-code-editor/include-library-in-app.md).
+
+You should now have an `#include` statement for the RedBot library \(filename: `RedBot.h`\) listed at the beginning of your app code.
+
+## Create RedBotMotors Object
+
+
 
 keep "push to start" if statement \(if button pushed, then blink LED & produce tone\)
 
