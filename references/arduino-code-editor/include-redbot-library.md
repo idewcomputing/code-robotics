@@ -18,7 +18,7 @@ The objects in your robot app code will correspond to real-life parts on your ro
 
 The `RedBot.h` library defines the following classes:
 
-* `RedBotButton` class — used to control the push button
+* `RedBotButton` class — used to control the built-in D12 button
 * `RedBotMotors` class — used to control the left and right motors
 * `RedBotBumper` class — used to control the left and right mechanical bumpers
 * `RedBotSensor` class — used to control analog sensors, such as the IR line sensors

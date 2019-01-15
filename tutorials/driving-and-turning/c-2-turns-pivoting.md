@@ -8,7 +8,7 @@ In your Arduino code editor, use the "Save As" command to save a copy of your ex
 
 If necessary, here are [instructions for how to save a copy of an app with a new name](../../references/arduino-code-editor/save-and-rename-app.md).
 
-Once you saved the new app name, modify the block comment near the beginning of the app code to change `Driving Test App` to `Pivot Test App`.
+Once you saved the new app name, modify the block comment near the beginning of the app code to change `Driving Test` to `Pivot Test`.
 
 ## Turn Right
 

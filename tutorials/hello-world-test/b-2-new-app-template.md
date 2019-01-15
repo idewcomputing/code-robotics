@@ -94,7 +94,7 @@ For example, your block comment might look like this:
 
 ```cpp
 /*
-Hello World App
+Hello World
 Team 3 - Destiny, Katya, Lucas, Miguel
 Ms. Hopper - Period 2
 */

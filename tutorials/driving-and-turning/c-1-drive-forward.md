@@ -20,7 +20,7 @@ Add this block comment at the beginning of your app code. Modify the comment to 
 
 ```cpp
 /*
-Driving Test App
+Driving Test
 Team 3 - Destiny, Katya, Lucas, Miguel
 Ms. Hopper - Period 2
 */
@@ -34,7 +34,7 @@ There is a **SparkFun RedBot Library** that makes it much easier to control the 
 
 You will need to add a copy of the SparkFun RedBot Library to your code editor, which is a **one-time process**. Then you will also need to include a copy of this library in **each new robot app**.
 
-[Follow these instructions to \(1\) add the SparkFun RedBot Library to your code editor, and \(2\) include the library in your current app](../../references/arduino-code-editor/include-library-in-app.md).
+[Follow these instructions to \(1\) add the SparkFun RedBot Library to your code editor, and \(2\) include the library in your current app](../../references/arduino-code-editor/include-redbot-library.md).
 
 You should now have an `#include` statement for the RedBot library \(filename: `RedBot.h`\) listed at the beginning of your app code.
 

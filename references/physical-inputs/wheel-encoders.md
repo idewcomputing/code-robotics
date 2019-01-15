@@ -8,7 +8,7 @@ The RedBot has wheel encoders that can measure exactly how many times the left a
 
 Each wheel encoder consists of a [Hall effect sensor](https://en.wikipedia.org/wiki/Hall_effect_sensor) that can measure the strength of a magnetic field. A ring magnet is attached to each RedBot motor. When the motor rotates the wheel, it also rotates the ring magnet. The Hall effect sensor positioned near the ring detects changes in the magnetic field as the ring rotates. This is how the sensor can measure how many times the motor has rotated.
 
-**IMPORTANT:** In order to function accurately, the wheel encoder sensor must be positioned correctly. The sensor tip must be centered within the silver band of the ring magnet \(not too far inward or outward\) and must be close to the ring magnet's surface \(about ⅛" inch away\). You may need to push or pull the sensor to position it correctly. Even a small adjustment can affect its accuracy.
+**IMPORTANT:** In order to function accurately, the wheel encoder sensor must be positioned correctly. The sensor tip must be centered within the silver band of the ring magnet \(not too far inward or outward\) and must be close to the ring magnet's surface \(about ⅛" inch away\). You may need to push \(or pull\) the sensor to position it correctly. Even a small adjustment can affect its accuracy.
 
 ![](../../.gitbook/assets/encoder-position.png)
 
@@ -118,13 +118,14 @@ The count for each encoder represents the cumulative total number of "ticks" sin
 
 To test out your wheel encoders, you can view the encoder counts using the serial monitor in the Arduino code editor. This is also a good way to verify your wheel encoders are positioned correctly to accurately count the magnetic "ticks" as the motor rotates.
 
-### 1. Create RedBotEncoder Object and RedBotButton Object
+### 1. Create Objects for Motors, Button, and Encoders
 
-Add this code before your setup\(\) function to create an object for the wheel encoders and another object for the D12 button:
+Add this code before your setup\(\) function to create objects for the motors, the D12 button, and the wheel encoders:
 
 ```cpp
-RedBotEncoder encoder(A2, 10);
+RedBotMotors motors;
 RedBotButton button;
+RedBotEncoder encoder(A2, 10);
 ```
 
 ### 2. Start Serial Connection
@@ -132,7 +133,6 @@ RedBotButton button;
 Add this code into your `setup()` function to start a serial connection between your RedBot and the code editor:
 
 ```cpp
-// start serial connection to view sensor data
 Serial.begin(9600);
 ```
 
@@ -145,7 +145,7 @@ Add this custom function named `testWheelEncoders()` after your `loop()` functio
 ```cpp
 void testWheelEncoders() {
 
-    // wait for button press to start driving
+    // wait for button press to start motors
     if (button.read() == true) {
         encoder.clearEnc(BOTH); // reset counters
         motors.drive(150);
@@ -160,8 +160,10 @@ void testWheelEncoders() {
     Serial.print("\tR: ");
     Serial.println(rightCount);
 
-    // if either count reaches 1000, brake motors
-    if (leftCount >= 1000 || rightCount >= 1000) motors.brake();
+    // if either counter reaches 1000, brake motors
+    if (leftCount >= 1000 || rightCount >= 1000) {
+        motors.brake();
+    }
 }
 ```
 

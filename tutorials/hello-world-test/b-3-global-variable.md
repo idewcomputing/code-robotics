@@ -36,11 +36,11 @@ Although you can actually list multiple code statements on the same line \(becau
 
 The Arduino code editor does **NOT** autosave as you type, so be sure to periodically save your code.
 
-#### ARDUINO CREATE
+#### Arduino Create \(Web Editor\)
 
 At the top of the code editor panel, hover your mouse cursor over the button with 3 dots, and then select "Save" from the pop-up menu.
 
-#### ARDUINO IDE
+#### Arduino IDE \(Desktop Editor\)
 
 Under the **File** menu, select "Save" – alternatively, you can click the **Save** icon \(looks like a downward arrow\) at the top of the code editor window.
 
