@@ -118,7 +118,16 @@ The count for each encoder represents the cumulative total number of "ticks" sin
 
 To test out your wheel encoders, you can view the encoder counts using the serial monitor in the Arduino code editor. This is also a good way to verify your wheel encoders are positioned correctly to accurately count the magnetic "ticks" as the motor rotates.
 
-### 1. Start Serial Connection
+### 1. Create RedBotEncoder Object and RedBotButton Object
+
+Add this code before your setup\(\) function to create an object for the wheel encoders and another object for the D12 button:
+
+```cpp
+RedBotEncoder encoder(A2, 10);
+RedBotButton button;
+```
+
+### 2. Start Serial Connection
 
 Add this code into your `setup()` function to start a serial connection between your RedBot and the code editor:
 
@@ -127,7 +136,7 @@ Add this code into your `setup()` function to start a serial connection between 
 Serial.begin(9600);
 ```
 
-### 2. Send Data Over Serial Connection
+### 3. Send Data Over Serial Connection
 
 Add this custom function named `testLineSensors()` after your `loop()` function. This custom function will send \(print\) the sensor measurements over the serial connection:
 
@@ -166,7 +175,7 @@ void loop() {
 
 **NOTE:** Be sure that your program also contains the necessary code to create a `RedBotButton` object named `button`.
 
-### 3. View Data in Serial Monitor
+### 4. View Data in Serial Monitor
 
 After uploading the program to the RedBot, **keep the RedBot connected to your computer using the USB cable** \(because the serial data is transferred over USB\).
 
