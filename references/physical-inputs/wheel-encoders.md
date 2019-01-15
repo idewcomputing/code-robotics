@@ -138,7 +138,7 @@ Serial.begin(9600);
 
 ### 3. Send Data Over Serial Connection
 
-Add this custom function named `testLineSensors()` after your `loop()` function. This custom function will send \(print\) the sensor measurements over the serial connection:
+Add this custom function named `testWheelEncoders()` after your `loop()` function. This custom function will send \(print\) the sensor measurements over the serial connection:
 
 ### testWheelEncoders\(\) function
 
