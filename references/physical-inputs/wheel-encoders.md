@@ -32,11 +32,21 @@ So for your RedBot's wheel encoders, the following is true:
 
 **192 ticks of wheel encoder = 1 wheel revolution = 8.04 inches traveled**
 
-By keeping track of the total number of magnetic "ticks" for each motor, you can use the wheel encoders to help the RedBot perform several useful tasks: 1. **Drive in a straight line** by making small adjustments in the powers of the left and right motors, to make sure they rotate at the same average speed. 2. **Drive for a specific distance** by calculating how far the wheels have traveled. \(This is typically combined with adjusting the left and right motor powers to drive straight.\) 3. **Turn by a specific angle** by calculating how far a wheel has traveled while turning in a circle. This can be used for pivoting on both wheels or turning on one wheel.
+By keeping track of the total number of magnetic "ticks" for each motor, you can use the wheel encoders to help the RedBot perform several useful tasks:
+
+1. **Drive in a straight line** by making small adjustments in the powers of the left and right motors, to make sure they rotate at the same average speed.
+2. **Drive for a specific distance** by calculating how far the wheels have traveled. \(This is typically combined with adjusting the left and right motor powers to drive straight.\)
+3. **Turn by a specific angle** by calculating how far a wheel has traveled while turning in a circle. This can be used for pivoting on both wheels or turning on one wheel.
 
 ### How to Use the Wheel Encoders in a Program:
 
-To use the wheel encoders, you will need to: 1. Create `RedBotEncoder` object for the wheel encoders 2. Use the object's `clearEnc()` method to clear the encoder counters \(reset to zero\) 3. Add code to drive one or both motors 4. Use the object's `getTicks()` method to get the current encoder counts 5. Add code to perform an action based on the encoder counts \(e.g., adjust motor powers, stop motors, etc.\)
+To use the wheel encoders, you will need to:
+
+1. Create `RedBotEncoder` object for the wheel encoders
+2. Use the object's `clearEnc()` method to clear the encoder counters \(reset to zero\)
+3. Add code to drive one or both motors
+4. Use the object's `getTicks()` method to get the current encoder counts
+5. Add code to perform actions based on the encoder counts \(adjust motor powers, stop motors, etc.\)
 
 ### Coding References in this Section:
 
