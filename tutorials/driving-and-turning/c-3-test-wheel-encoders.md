@@ -1,7 +1,5 @@
 # C-3 Test Wheel Encoders
 
-#### **STILL IN PROGRESS**
-
 Next, you'll code an app to test your robot's wheel encoders by sending serial data to your computer.
 
 ## Wheel Encoders
@@ -18,7 +16,7 @@ The wheel encoder actually consists of two parts:
 
 ![](../../.gitbook/assets/wheel-encoder.jpg)
 
-When the motor rotates the wheel, it also rotates the ring magnet. The Hall effect sensor positioned near the ring detects changes in the magnetic field as the ring rotates. This is how the wheel encoder can count how many times the motor has rotated.
+When the motor rotates the wheel, it also rotates the ring magnet. The Hall effect sensor positioned near the ring detects changes in the magnetic field \(these are referred to as "ticks"\) as the ring rotates. This is how the wheel encoder can count how many times the motor has rotated.
 
 ## Check Wheel Encoder Alignments
 
@@ -74,9 +72,9 @@ The third code statement creates a `RedBotEncoder` object named `encoder`, which
 
 ## Begin Serial Communication
 
-When your robot and computer are connected with a USB cable, they can communicate with each other transferring serial data.
+When your robot and computer are connected with a USB cable, they can communicate with each other by transferring serial data.
 
-In this app, your robot will send data from the wheel encoders to your computer. Your Arduino code editor has a serial monitor \(a window\) that can be used to view this serial data communication.
+In this app, your robot will send data from the wheel encoders to your computer. Your Arduino code editor has a serial monitor window that can be used to view this serial data communication.
 
 Add this code statement **within** the `setup()` function:
 
@@ -88,38 +86,62 @@ This starts the serial data communication and sets the data transfer rate to 960
 
 ## Add Custom Function to Test Wheel Encoders
 
-add testWheelEncoders\(\) custom function to use serial monitor to view encoder counts during test \(verify each wheel encoder is working properly when driving forwards and backwards, verify encoder counts are relatively close to each other\)
+As you've learned, every Arduino app must have one `setup()` function and one `loop()` function. In addition, you can add your own custom functions to your app.
+
+A custom function is typically used to contain code that performs a specific task or subtask. Custom functions are useful for breaking up your app into smaller code modules that are easier to understand and easier to re-use.
+
+Custom functions are typically listed after the `loop()` function. Each custom function added to your app must be given a unique name to identify it. You get to decide what to name your custom functions, but choose names that will make sense to anyone reading your code. \(The same rules and recommendations for naming variables apply to naming functions\).
+
+In this case, you'll add a custom function that contains all the code to perform a test of the wheel encoders. The function will be named `testWheelEncoders()`.
 
 Add this custom function **after** the `loop()` function \(i.e., after its closing curly brace\):
 
 ```cpp
 void testWheelEncoders() {
 
-    // wait for button press to start motors
+    // when button is pressed, reset encoder counters and start motors
     if (button.read() == true) {
-        encoder.clearEnc(BOTH); // reset counters
+        encoder.clearEnc(BOTH);
         motors.drive(150);
     }
-
+    
+    // get current encoder counts
     long leftCount = encoder.getTicks(LEFT);
     long rightCount = encoder.getTicks(RIGHT);
 
     // send data to serial monitor
-    Serial.print("L: ");
+    Serial.print("Left: ");
     Serial.print(leftCount);
-    Serial.print("\tR: ");
+    Serial.print("\t"); // insert tab
+    Serial.print("Right: ");
     Serial.println(rightCount);
 
-    // if either counter reaches 1000, brake motors
+    // if either count reaches 1000, brake motors
     if (leftCount >= 1000 || rightCount >= 1000) {
         motors.brake();
     }
 }
 ```
 
+In line 4 above, you can see that the code statement used to check whether the built-in D12 button is pressed is slightly different when you use a RedBotButton object:
+
+* The `RedBotButton` object named `button` has a `read()` method that can be used to detect whether or not the button is being pressed.
+* If the `button.read()` method returns a value equal to `true`, it means the button is pressed. \(Otherwise, a value of `false` means the button is **not** pressed.\)
+
+When the button is pressed, two things will occur:
+
+* Both wheel encoder counters will be reset back to zero by using the code statement: `encoder.clearEnc(BOTH);`
+* Both motors will start driving at a power of 150.
+
+Then two local variables called `leftCount` and `rightCount` are declared.  Each variable has a data type of [`long`](https://www.arduino.cc/reference/en/language/variables/data-types/long/) \(special type of integer\) because that's what the wheel encoders use. The value assigned to each of these variables is the current encoder count \(i.e., the number of magnetic "ticks" counted\) returned by the `encoder.getTicks()` method.
+
+Then the wheel encoder data is sent to the computer using `Serial.print()` statements. This is the data that will be displayed in the computer's serial monitor window.
+
+Finally, if either the left or right encoder count reaches 1000 or higher \(which will happen after the motors have been driving for a few seconds\), the motors will be braked.
+
 ## Call Custom Function in Loop
 
-The code within a custom function is only performed if the custom function is "called" by its name in another function, such as the `setup()` function or `loop()` function.
+The code within a custom function is only performed if the custom function is "called" by its name within another function, such as the `setup()` function or `loop()` function.
 
 Add this code statement **within** the `loop()` function:
 
@@ -127,11 +149,9 @@ Add this code statement **within** the `loop()` function:
 testWheelEncoders();
 ```
 
-By listing the name of the custom function, the custom function is "called" - and the code within that custom function will be performed.
+By listing the name of the custom function, the custom function is "called" — so the code within that custom function will be performed one time.
 
-For this app, that's the only code statement that will be listed within the `loop()` function.
-
-Since the `loop()` function repeats itself continuously, the `testWheelEncoders()` function will be called repeatedly, which is the main task of this app.
+For this app, this will be only code statement listed within the `loop()` function. Since the `loop()` function repeats itself continuously, the `testWheelEncoders()` function will be called repeatedly.
 
 ## Upload App
 
@@ -148,6 +168,8 @@ In your Arduino code editor, open the serial monitor, so you can view the serial
 
 Press the D12 button on your robot's circuit board. Your robot's wheels should start driving. In the serial monitor, view the data showing the wheel encoder counts.  When either one of the wheel encoder counts reaches 1000 \(which should take about 3-4 seconds\), the motors will brake.
 
+Each line of serial data \(one set of left and right encoder counts\) represents the `testWheelEncoders()` function being performed one time. Each time the `loop()` function repeats, it calls the custom function, which sends another line of serial data to the serial monitor.
+
 You'll probably notice that the wheel encoder counts do **not** stop exactly at 1000. This is normal —  it takes a brief amount of time for the braking to occur. The final counts should be less than 1050.
 
 You'll probably notice that your left and right wheel encoder counts are **not** exactly the same. This is normal — they should be close to each other \(within about 25\), but they probably won't be identical.
@@ -155,7 +177,7 @@ You'll probably notice that your left and right wheel encoder counts are **not**
 If one or both wheel encoders are **not** working properly \(the count stays at zero\), then turn off the robot's power, and check the wheel encoder alignment again. After correcting the alignment, turn the robot's power back on to restart the app.
 
 {% hint style="success" %}
-**CHECK ENCODERS AFTER BATTERY CHANGE:**  Whenever you change the robot's batteries, check the wheel encoder alignments **afterwards**. It's very common to accidentally move the wheel encoder sensors when changing the battery pack.
+**CHECK ENCODERS AFTER CHANGING BATTERIES:**  Whenever you change the robot's batteries, be sure to check the wheel encoder alignments **afterwards**. It's very common to accidentally move the wheel encoder sensors when changing the battery pack.
 {% endhint %}
 
 
