@@ -65,11 +65,11 @@ In this case, the condition being checked is whether the value returned from `di
 
 Here's what we want to happen:  if the button is pressed, the LED will blink and the speaker will beep at the same time. 
 
-To do that, you're going to move the existing code statements in the `loop()` that make the LED blink and speaker beep, so those code statements are now listed **within** the curly braces of the `if` statement. The only code statement that you **won't** move is the **second** `delay()` statement.
+To do that, you're going to move the existing code statements in the `loop()` that make the LED blink and speaker beep, so those code statements are now listed **within** the curly braces of the `if` statement.
 
 1. Select the code statements to be moved, cut them \(choose "Cut" from **Edit** menu – or press Control-X on keyboard\), and then paste them in their new location \(choose "Paste" from **Edit** menu – or press Control-V on keyboard\).
 2. You may want to use the tab key to indent the code statements that you moved \(so it is more visually clear that they are contained within the curly braces of the `if`statement\).
-3. Modify the **second** `delay()` method, so the delay is `200` milliseconds. This will be a 0.2 second pause between each check of the button \(to allow sufficient time for a person to release the button\).
+3. Modify the **second** `delay()` method, so the delay is `200` milliseconds. This will act as a 0.2 second pause between each check of the button \(to allow sufficient time for a person to release the button, so the code doesn't read a single button press as if it were multiple presses\).
 
 Just for reference, here's what your `loop()` function should now look like:
 
@@ -83,8 +83,8 @@ void loop() {
     delay(200);
     digitalWrite(LED, LOW);
     noTone(speaker);
+    delay(200);
   }
-  delay(200);
 }
 ```
 

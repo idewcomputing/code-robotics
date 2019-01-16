@@ -21,8 +21,8 @@ Add this block comment at the beginning of your app code. Modify the comment to 
 ```cpp
 /*
 Driving Test
-Team 3 - Destiny, Katya, Lucas, Miguel
-Ms. Hopper - Period 2
+Team Info
+Teacher - Class Period
 */
 ```
 
@@ -94,10 +94,9 @@ Check whether the button has been pressed by adding this code **within** the `lo
     // add code for other robot actions (driving, etc.)
     
   }
-  delay(200);
 ```
 
-Basically, this code for "Press to Start" is the same as the final version of the "Hello World" app you completed in the previous tutorial.
+Basically, this code for "Press to Start" is the same as the final version of the "Hello World" app you completed in the previous tutorial — except the second `delay()` statement was removed \(because the code that will be added for "other robot actions" will act as a delay between each check of the button\).
 
 ## Drive Forward
 
@@ -110,8 +109,8 @@ When the `motors.drive()` method is used in your code, the motors will start and
 When the robot's button is pressed, let's make your robot drive forward for 2 seconds and then brake. Add this code **within** the `if` statement in the `loop()` function \(**after** the `noTone()` statement\):
 
 ```cpp
-    motors.drive(200);
-    delay(2000);
+    motors.drive(200); // drive forward
+    delay(2000); // allow to drive for 2 seconds
     motors.brake();
 ```
 
@@ -156,7 +155,7 @@ Add this code **within** the `if` statement in the `loop()` function \(**after**
 ```cpp
     delay(1000); // pause for 1 second
     motors.drive(-200); // drive backward
-    delay(2000);
+    delay(2000); // allow to drive for 2 seconds
     motors.brake();
 ```
 

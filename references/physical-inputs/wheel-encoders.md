@@ -316,16 +316,16 @@ You can also use the wheel encoder counts to stop the RedBot after it has driven
 
 A custom function named `driveDistance()` can be used to make your RedBot drive straight for a specified distance at a specified average motor power.
 
-When calling this custom function, you must pass in a value for the **distance** \(inches\) and **power** \(between 0-255\). For example, to make your RedBot drive 24 inches at an average motor power of 150:
+When calling this custom function, you must pass in a value for the **distance** \(inches\). For example, to make your RedBot drive 24 inches:
 
 ```cpp
-driveDistance(24, 150);
+driveDistance(24);
 ```
 
 You can even drive backwards by passing in a negative value for the distance:
 
 ```cpp
-driveDistance(-12, 150);
+driveDistance(-12);
 ```
 
 **NOTE:** The `driveDistance()` function does not require declaring global variables for the wheel encoders counts or the left and right motor powers. Instead, all these variables are declared inside the function as local variables. Furthermore, the `clearEncoders()` function is not required because the encoders and variables are reset within the `driveDistance()` function itself.
@@ -335,26 +335,27 @@ driveDistance(-12, 150);
 Add the `driveDistance()` function after your `loop()` function:
 
 ```cpp
-void driveDistance(float distance, int power) {
+void driveDistance(float distance) {
 
     // use wheel encoders to drive straight for specified distance at specified power
 
     // set initial power for left and right motors
-    int leftPower = power;
-    int rightPower = power;
+    int leftPower = 200;
+    int rightPower = leftPower;
 
     // amount to offset motor powers to drive straight
     int offset = 5;
 
-    // if negative distance, make powers & offset also negative
+    // if negative distance, make motor powers & offset also negative
     if (distance < 0) {
         leftPower *= -1;
         rightPower *= -1;
         offset *= -1;
     }
 
-    // adjust distance to improve accuracy
-    float correction = -1.0; // change value based on test results
+    // use correction to improve distance accuracy
+    // adjust correction value based on test results
+    float correction = -1.5; // need decimal point for float value
     if (distance > 0) distance += correction;
     else if (distance < 0) distance -= correction;
 
@@ -422,13 +423,13 @@ void driveDistance(float distance, int power) {
 }
 ```
 
-**NOTE:** You will notice that a variable named `correction` is used to adjust the distance. This is needed if your RedBot is consistently driving too far \(or not far enough\). During testing, our RedBot was consistently driving about 1 inch too far, which is why `correction` was assigned a value of `-1.0`.
+**NOTE:** You will notice that a variable named `correction` is used to adjust the distance. This is needed if your RedBot is consistently driving too far \(or not far enough\). During testing, our RedBot was consistently driving about 1.5 inch too far \(when using a motor power of 200\), which is why `correction` was assigned a value of `-1.5`.
 
 1. Start by changing the value of `correction` to zero \(`0.0`\).
 2. Conduct repeated tests using the custom function to drive your RedBot to various distances \(such as 12, 24, 36, etc.\). Use a ruler or tape measure to measure the actual distance your RedBot drives. What is the average amount of error \(in inches\)?
 3. Based on your test results, adjust the value assigned to `correction` to represent the number of inches to use as a correction for the error:
-   * If your RedBot is driving too far, use a negative value to correct the error.
-   * If your RedBot is not driving far enough, use a positive value to correct the error.
+   * If your RedBot is driving **too far**, use a **negative** value to correct the error.
+   * If your RedBot is driving **not far enough**, use a **positive** value to correct the error.
 
 ## Pivot Both Wheels by Specific Angle
 
@@ -523,13 +524,13 @@ void pivotAngle(float angle) {
 }
 ```
 
-**NOTE:** You will notice that a variable named `correction` is used to adjust the angle. This is needed if your RedBot is consistently pivoting too far \(or not far enough\). During testing, our RedBot was consistently pivoting about 5 degrees too far, which is why `correction` was assigned a value of `-5.0`.
+**NOTE:** You will notice that a variable named `correction` is used to adjust the angle. This is needed if your RedBot is consistently pivoting too far \(or not far enough\). During testing, our RedBot was consistently pivoting about 5 degrees too far \(when using a motor power of 100\), which is why `correction` was assigned a value of `-5.0`.
 
 1. Start by changing the value of `correction` to zero \(`0.0`\).
 2. Conduct repeated tests using the custom function to pivot your RedBot to various angles \(such as 90, 180, -90, etc.\). Use a protractor to measure the actual angle your RedBot pivots. What is the average amount of error \(in degrees\)?
 3. Based on your test results, adjust the value assigned to `correction` to represent the number of degrees to use as a correction for the error:
-   * If your RedBot is pivoting too far, use a negative value to correct the error.
-   * If your RedBot is not pivoting far enough, use a positive value to correct the error.
+   * If your RedBot is pivoting **too much**, use a **negative** value to correct the error.
+   * If your RedBot is pivoting **too little**, use a **positive** value to correct the error.
 
 ## Turn on One Wheel By Specific Angle
 
