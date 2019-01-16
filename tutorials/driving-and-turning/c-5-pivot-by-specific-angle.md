@@ -157,7 +157,7 @@ Upload the modified app to your robot. Align the robot on the "plus sign," and p
 
 ## Modify App to Drive and Pivot in Pattern
 
-Finally, you'll modify the app to make your robot drive in a pattern using calls to the `driveDistance()`function and the `pivotAngle()` function.
+Finally, you'll modify the app to make your robot drive in a pattern using multiple calls to the `driveDistance()`function and the `pivotAngle()` function.
 
 You'll make the robot follow the pattern shown in the diagram below. When the robot reaches the end, it will turn around and retrace its path back to the start.
 
