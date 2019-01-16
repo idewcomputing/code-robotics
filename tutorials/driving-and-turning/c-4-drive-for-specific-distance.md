@@ -8,7 +8,7 @@ The ring magnet attached to each motor shaft has 4 pairs of N-S poles, similar t
 
 ![](../../.gitbook/assets/ring-magnet.jpg)
 
-As the motor shaft and its attached ring magnet complete one full rotation, the wheel encoder detects 4 changes \(or "ticks"\) in the magnetic field as the magnetic poles pass by the sensor. Each wheel encoder keeps a running count of the number of ticks it has detected.
+As the motor shaft and its attached ring magnet complete one full rotation, the wheel encoder detects 4 changes \(or "ticks"\) in the magnetic field as the magnetic poles pass by the sensor. Each wheel encoder keeps track of the total number of "ticks" it has counted.
 
 However, each rotation of the motor shaft only turns the wheel a certain number of degrees. The RedBot motors have a gearbox ratio of 48:1, which means it actually takes 48 rotations of the motor shaft to make the wheel complete one full revolution.
 
@@ -226,6 +226,3 @@ If your robot is driving too far \(or not far enough\), you'll probably want to 
 * If your robot is **not driving far enough**, make the correction a smaller negative number. For example, if your robot is driving about 0.5 inch too little \(35.5 inches\), change the value of `correction` from `-1.5` to `-1.0`.
 
 If you do adjust the `correction` value, upload the modified app to your robot, and test again to ensure the driving distance is accurate \(within 0.5 inch of the intended distance\).
-
-
-
