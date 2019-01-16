@@ -36,7 +36,7 @@ By keeping track of the total number of magnetic "ticks" for each motor, you can
 
 1. **Drive in a straight line** by making small adjustments in the powers of the left and right motors, to make sure they rotate at the same average speed.
 2. **Drive for a specific distance** by calculating how far the wheels have traveled. \(This is typically combined with adjusting the left and right motor powers to drive straight.\)
-3. **Turn by a specific angle** by calculating how far a wheel has traveled while turning in a circle. This can be used for pivoting on both wheels or turning on one wheel.
+3. **Pivot \(turn\) by a specific angle** by calculating how far the wheels have traveled while pivoting in a circle. This can be used for pivoting on both wheels or turning on one wheel.
 
 ### How to Use the Wheel Encoders in a Program:
 

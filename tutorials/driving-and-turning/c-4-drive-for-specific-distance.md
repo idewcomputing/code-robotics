@@ -1,10 +1,36 @@
 # C-4 Drive for Specific Distance
 
-**STILL IN PROGRESS**
-
 Next, you'll code an app that uses the wheel encoders to make your robot drive straight for a specific distance \(measured in inches\).
 
-explain conceptually how wheel encoders can be used to make robot drive straight and to measure distance driven
+## Using Wheel Encoder Counts for Driving and Pivoting
+
+The ring magnet attached to each motor shaft has 4 pairs of N-S poles, similar to the diagram below.
+
+![](../../.gitbook/assets/ring-magnet.jpg)
+
+As the motor shaft and its attached ring magnet complete one full rotation, the wheel encoder detects 4 changes \(or "ticks"\) in the magnetic field as the magnetic poles pass by the sensor. Each wheel encoder keeps a running count of the number of ticks it has detected.
+
+However, each rotation of the motor shaft only turns the wheel a certain number of degrees. The RedBot motors have a gearbox ratio of 48:1, which means it actually takes 48 rotations of the motor shaft to make the wheel complete one full revolution.
+
+We can use this information to calculate how many "ticks" counted by the wheel encoder would represent one revolution of the wheel:
+
+**4 ticks per motor rotation × 48 motor rotations per wheel revolution = 192 ticks per wheel revolution**
+
+Based on the size of the RedBot's wheels, we can also calculate the distance that the RedBot travels during one wheel revolution. The distance is equal to the circumference of the wheel \(i.e., the distance around the outer edge of the wheel\). The circumference of a circle is its diameter multiplied by pi \(approximately 3.14\).
+
+Since the RedBot's wheels have a diameter of 65 mm \(2.56 inches\), the distance traveled per wheel revolution is:
+
+**C = 𝛑 × d = 3.14 × 2.56 inches = 8.04 inches per wheel revolution**
+
+So for your RedBot's wheel encoders, the following is true:
+
+**192 ticks counted by wheel encoder = 1 wheel revolution = 8.04 inches traveled**
+
+By keeping track of the total number of magnetic "ticks" counted for each motor, you can use the wheel encoders to perform several useful robot behaviors:
+
+1. **Drive in a straight line** by making small adjustments in the individual motor powers applied to the left and right motors, to make sure they rotate at the same rate \(which is necessary for straight driving\).
+2. **Drive for a specific distance** by calculating how far the wheels have traveled while driving. \(This is typically combined with adjusting the left and right motor powers to drive straight.\)
+3. **Pivot \(or turn\) by a specific angle** by calculating how far the wheels have traveled while pivoting \(or turning\) in a circle. This can be used for pivoting on both wheels or turning on one wheel.
 
 ## Create New App
 
@@ -183,6 +209,8 @@ The `driveDistance()` function could also be used to make your robot **drive bac
 Follow the steps to connect your robot to your computer, and upload the app.
 
 Unplug the USB cable from the robot, and place the robot on the floor. Create a "start line" on the floor \(using masking tape, etc.\). Line up the front edge of the robot with the front edge of the start line. Be sure a path of at least 3 feet in front of the robot is clear of any obstacles.
+
+![](../../.gitbook/assets/robot-start-line.jpg)
 
 Press the D12 button on your robot's circuit board. Your robot should beep and then drive forward in a straight line for 36 inches.
 
