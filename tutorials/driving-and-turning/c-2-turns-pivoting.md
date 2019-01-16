@@ -20,7 +20,7 @@ There are other ways to turn your robot, but the `pivot()` method results in a p
 
 When the `motors.pivot()` method is used in your code, the motors will start and will keep pivoting continuously. You'll use a `delay()` statement to allow the motors to pivot for a certain amount of time before turning the motors off with the `motors.brake()` method.
 
-First, modify the "Push to Start" code **within** the `if` statement in the `loop()` function to **remove** the existing code statements that make the robot drive forward and then backward.
+First, modify the "Press to Start" code **within** the `if` statement in the `loop()` function to **remove** the existing code statements that make the robot drive forward and then backward.
 
 Next, you'll add new code so that when the robot's button is pressed, the robot will drive forward for 1.5 seconds \(about 2 feet\), turn 90° right, and then drive forward for another 1.5 seconds. Add this new code **within** the `if` statement in the `loop()` function \(**after** the `noTone()` statement\):
 
