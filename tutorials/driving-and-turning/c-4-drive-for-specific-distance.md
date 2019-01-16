@@ -46,6 +46,12 @@ Teacher - Class Period
 */
 ```
 
+## Rename App
+
+Rename the the new app as:  `drive_distance_test`
+
+If you need a reminder, here are [instructions for how to rename an app](../../references/arduino-code-editor/save-and-rename-app.md).
+
 ## Include RedBot Library
 
 [Follow the steps to include the SparkFun RedBot Library in your app](../../references/arduino-code-editor/include-redbot-library.md#include-redbot-library-in-app). \(You **don't** need to add the library to your code editor again — just include the library in this new app.\)
@@ -62,7 +68,7 @@ RedBotEncoder encoder(A2, 10);
 
 ## Add Code for "Press to Start"
 
-Create global variables for the LED pin and speaker pin by adding this code **before** the `setup()` function: 
+Create global variables for the LED pin and speaker pin by adding this code **before** the `setup()` function:
 
 ```cpp
 int LED = 13;
@@ -87,7 +93,7 @@ Check whether the button has been pressed by adding this code **within** the `lo
     digitalWrite(LED, LOW);
     noTone(speaker);
     // add code for other robot actions (driving, etc.)
-    
+
   }
 ```
 
@@ -200,7 +206,7 @@ driveDistance(36);
 
 By listing the name of the custom function, the custom function is "called" — so the code within that custom function will be performed one time. By listing `36` inside the parentheses, the robot will drive straight for 36 inches.
 
-The `driveDistance()` function could also be used to make your robot **drive backward**  — just pass in a **negative** number when calling the function.
+The `driveDistance()` function could also be used to make your robot **drive backward** — just pass in a **negative** number when calling the function.
 
 ## Upload App to Robot
 
@@ -224,3 +230,4 @@ If your robot is driving too far \(or not far enough\), you'll want to change th
 * If your robot is **not driving far enough**, make the correction a smaller negative number. For example, if your robot is driving about 0.5 inch too little \(35.5 inches\), change the value of `correction` from `-1.5` to `-1.0`.
 
 If you do adjust the `correction` value, upload the modified app to your robot, and test again to ensure the driving distance is accurate \(within 0.5 inch of the intended distance\).
+

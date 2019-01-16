@@ -40,6 +40,12 @@ Teacher - Class Period
 */
 ```
 
+## Rename App
+
+Rename the the new app as:  `wheel_encoder_test`
+
+If you need a reminder, here are [instructions for how to rename an app](../../references/arduino-code-editor/save-and-rename-app.md).
+
 ## Include RedBot Library
 
 [Follow the steps to include the SparkFun RedBot Library in your app](../../references/arduino-code-editor/include-redbot-library.md#include-redbot-library-in-app). \(You **don't** need to add the library to your code editor again — just include the library in this new app.\)
