@@ -96,7 +96,7 @@ The robot's LED and speaker should briefly blink and beep \(in sync\) only when 
 
 If your teacher requires you to submit a file containing your completed "Hello World" app code, [follow these instruction to download a copy of your app](../../references/arduino-code-editor/download-copy-of-app.md).
 
-In the next tutorial, you'll program an app to make your robot drive around.
+In the next tutorial, you'll program apps to make your robot drive around and make turns.
 
 
 

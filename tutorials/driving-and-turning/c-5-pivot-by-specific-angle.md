@@ -159,6 +159,10 @@ Upload the modified app to your robot. Align the robot on the "plus sign," and p
 
 Finally, you'll modify the app to make your robot drive in a pattern using calls to the `driveDistance()`function and the `pivotAngle()` function.
 
+You'll make the robot follow the pattern shown in the diagram below. When the robot reaches the end, it will turn around and retrace its path back to the start.
+
+![](../../.gitbook/assets/robot-drive-pivot-pattern.png)
+
 First, **delete** the `pivotAngle(180);` code statement **within** the `loop()` function, and then replace it with this code instead:
 
 ```cpp
@@ -179,4 +183,6 @@ First, **delete** the `pivotAngle(180);` code statement **within** the `loop()` 
 ```
 
 Upload the modified app to your robot. Align the robot on the "plus sign," and press the D12 button to verify that your robot drives and pivots following the pattern. The robot should return back to its staring point \(though it probably won't be perfectly aligned back on the "plus sign"\).
+
+In the next tutorial, you'll program apps to make your robot detect objects in its path.
 
