@@ -1,13 +1,13 @@
 # Driving
 
-These custom functions use the [wheel encoders](../physical-inputs/wheel-encoders.md):
+These custom functions for driving the robot use the [wheel encoders](../physical-inputs/wheel-encoders.md):
 
-* [`driveStraight()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/wheel-encoders.md#drive-straight-continuously) — drive straight continuously
-* [`driveDistance()`](https://github.com/idewcomputing/code-robotics/tree/a64094b0d9c5c1da17c73efd3f8730c1ce974c2a/references/wheel-encoders.md#drive-straight-for-specific-distance) — drive straight for specific distance at specific motor power
+* `driveDistance()` — drive straight for specific distance
+* `driveStraight()` — drive straight continuously
 
 ## driveDistance\(\)
 
-A custom function named `driveDistance()` can be used to make your robot drive straight for a specified distance by using the wheel encoders.
+A custom function named `driveDistance()` uses the wheel encoders to make your robot drive straight for a specified distance.
 
 When calling this custom function, you must pass in a value for the **distance** \(inches\) by listing the value inside the parentheses after the function's name.
 
