@@ -340,7 +340,7 @@ void driveDistance(float distance) {
     // use wheel encoders to drive straight for specified distance at specified power
 
     // set initial power for left and right motors
-    int leftPower = 200;
+    int leftPower = 175;
     int rightPower = leftPower;
 
     // amount to offset motor powers to drive straight
@@ -423,7 +423,7 @@ void driveDistance(float distance) {
 }
 ```
 
-**NOTE:** You will notice that a variable named `correction` is used to adjust the distance. This is needed if your RedBot is consistently driving too far \(or not far enough\). During testing, our RedBot was consistently driving about 1.5 inch too far \(when using a motor power of 200\), which is why `correction` was assigned a value of `-1.5`.
+**NOTE:** You will notice that a variable named `correction` is used to adjust the distance. This is needed if your RedBot is consistently driving too far \(or not far enough\). During testing, our RedBot was consistently driving about 1.5 inch too far \(when using a motor power of 175\), which is why `correction` was assigned a value of `-1.5`.
 
 1. Start by changing the value of `correction` to zero \(`0.0`\).
 2. Conduct repeated tests using the custom function to drive your RedBot to various distances \(such as 12, 24, 36, etc.\). Use a ruler or tape measure to measure the actual distance your RedBot drives. What is the average amount of error \(in inches\)?
