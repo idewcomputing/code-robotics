@@ -226,8 +226,8 @@ The `driveDistance()` function contains a local variable named `correction` whic
 
 If your robot is driving too far \(or not far enough\), you'll want to change the value assigned to `correction` in the `driveDistance()` function:
 
-* If your robot is **driving too far**, make the correction a larger negative number. For example, if your robot is driving about 0.5 inch too far \(36.5 inches\), change the value of `correction` from `-1.5` to `-2.0`.
-* If your robot is **not driving far enough**, make the correction a smaller negative number. For example, if your robot is driving about 0.5 inch too little \(35.5 inches\), change the value of `correction` from `-1.5` to `-1.0`.
+* If your robot is **driving too far**, subtract from the correction value. For example, if your robot is driving 0.5 inch too far \(36.5 inches\), subtract 0.5 from `correction`, changing it from `-1.5` to `-2.0`.
+* If your robot is **not driving far enough**, add to the correction value. For example, if your robot is driving  0.5 inch too little \(35.5 inches\), add 0.5 to `correction`, changing it from `-1.5` to `-1.0`.
 
 If you do adjust the `correction` value, upload the modified app to your robot, and test again to ensure the driving distance is accurate \(within 0.5 inch of the intended distance\).
 

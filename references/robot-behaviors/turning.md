@@ -1,6 +1,6 @@
 # Turning
 
-These custom functions for pivoting \(or turning\) the robot use the [wheel encoders](../physical-inputs/wheel-encoders.md):
+These custom functions for pivoting or turning the robot use the [wheel encoders](../physical-inputs/wheel-encoders.md):
 
 * `pivotAngle()` — pivot on both wheels by specific angle
 * `turnAngle()` — turn on one wheel by specific angle
