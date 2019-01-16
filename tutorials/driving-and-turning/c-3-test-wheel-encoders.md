@@ -99,7 +99,7 @@ Add this custom function **after** the `loop()` function \(i.e., after its closi
 ```cpp
 void testWheelEncoders() {
 
-    // when button is pressed, reset encoder counters and start motors
+    // if button is pressed, reset encoder counters and start motors
     if (button.read() == true) {
         encoder.clearEnc(BOTH);
         motors.drive(150);

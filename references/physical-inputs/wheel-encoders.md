@@ -145,22 +145,24 @@ Add this custom function named `testWheelEncoders()` after your `loop()` functio
 ```cpp
 void testWheelEncoders() {
 
-    // wait for button press to start motors
+    // if button is pressed, reset encoder counters and start motors
     if (button.read() == true) {
-        encoder.clearEnc(BOTH); // reset counters
+        encoder.clearEnc(BOTH);
         motors.drive(150);
     }
-
+    
+    // get current encoder counts
     long leftCount = encoder.getTicks(LEFT);
     long rightCount = encoder.getTicks(RIGHT);
 
     // send data to serial monitor
-    Serial.print("L: ");
+    Serial.print("Left: ");
     Serial.print(leftCount);
-    Serial.print("\tR: ");
+    Serial.print("\t"); // insert tab
+    Serial.print("Right: ");
     Serial.println(rightCount);
 
-    // if either counter reaches 1000, brake motors
+    // if either count reaches 1000, brake motors
     if (leftCount >= 1000 || rightCount >= 1000) {
         motors.brake();
     }
@@ -174,8 +176,6 @@ void loop() {
     testWheelEncoders();
 }
 ```
-
-**NOTE:** Be sure that your program also contains the necessary code to create a `RedBotButton` object named `button`.
 
 ### 4. View Data in Serial Monitor
 
@@ -474,31 +474,32 @@ void pivotAngle(float angle) {
     // use wheel encoders to pivot (turn) by specified angle
 
     // set motor power for pivoting
-    int power = 100; // turn CW
-    if (angle < 0) power *= -1; // use negative power to turn CCW
+    int power = 100; // clockwise
+    if (angle < 0) power *= -1; // negative power for counter-clockwise
 
-    // adjust angle to improve accuracy
-    float correction = -5.0; // change value based on test results
+    // use correction to improve angle accuracy
+    // adjust correction value based on test results
+    float correction = -5.0; // need decimal point for float value
     if (angle > 0) angle += correction;
     else if (angle < 0) angle -= correction;
 
     // variable for tracking wheel encoder counts
     long rightCount = 0;
 
-    // RedBot values based on encoders, motors & wheels
+    // values based on RedBot's encoders, motors & wheels
     float countsPerRev = 192.0; // 192 encoder ticks per wheel revolution
     float wheelDiam = 2.56; // wheel diameter = 65 mm = 2.56 in
     float wheelCirc = PI * wheelDiam; // wheel circumference = 3.14 x 2.56 in = 8.04 in
     float pivotDiam = 6.125; // pivot diameter = distance between centers of wheel treads = 6.125 in
     float pivotCirc = PI * pivotDiam; // pivot circumference = 3.14 x 6.125 in = 19.23 in
 
-    // based on angle, calculate distance (arc length)
+    // based on angle, calculate distance (arc length) for pivot
     float distance = abs(angle) / 360 * pivotCirc;
 
     // based on distance, calculate number of wheel revolutions
     float numRev = distance / wheelCirc;
 
-    // calculate target encoder count
+    // based on number of revolutions, calculate target encoder count
     float targetCount = numRev * countsPerRev;
 
     // reset encoder counters and start pivoting
@@ -516,7 +517,9 @@ void pivotAngle(float angle) {
     // target count reached
     motors.brake();
     delay(250);
-    // clearEncoders(); // only needed if using driveStraight() or countLine()
+    
+    // uncomment next statement only if using driveStraight() or countLine() elsewhere in program
+    // clearEncoders();
 }
 ```
 
@@ -578,8 +581,9 @@ void turnAngle(float angle) {
     // set motor power for pivoting
     int power = 100;
 
-    // adjust angle to improve accuracy
-    float correction = 5.0; // change value based on test results
+    // use correction to improve angle accuracy
+    // adjust correction value based on test results
+    float correction = 5.0; // need decimal point for float value
     if (angle > 0) angle += correction;
     else if (angle < 0) angle -= correction;
 
@@ -587,28 +591,29 @@ void turnAngle(float angle) {
     long leftCount = 0;
     long rightCount = 0;
 
-    // RedBot values based on encoders, motors & wheels
+    // values based on RedBot's encoders, motors & wheels
     float countsPerRev = 192.0; // 192 encoder ticks per wheel revolution
     float wheelDiam = 2.56; // wheel diameter = 65 mm = 2.56 in
     float wheelCirc = PI * wheelDiam; // wheel circumference = 3.14 x 2.56 in = 8.04 in
     float turnDiam = 12.25; // turn diameter = 2 x distance between centers of wheel treads = 2 x 6.125 in
     float turnCirc = PI * turnDiam; // turn circumference = 3.14 x 12.25 in = 38.47 in
 
-    // based on angle, calculate distance (arc length)
+    // based on angle, calculate distance (arc length) for turn
     float distance = abs(angle) / 360 * turnCirc;
 
     // based on distance, calculate number of wheel revolutions
     float numRev = distance / wheelCirc;
 
-    // calculate target encoder count
+    // based on number of revolutions, calculate target encoder count
     float targetCount = numRev * countsPerRev;
 
     // reset encoder counters
     encoder.clearEnc(BOTH);
     delay(100);
 
+    // based on turn angle, turn using either left wheel or right wheel
     if (angle > 0) {
-        // turn clockwise using left wheel
+        // turn clockwise using left wheel only
         motors.rightStop();
         motors.leftDrive(power);
 
@@ -620,7 +625,7 @@ void turnAngle(float angle) {
         }
     }
     else {
-        // turn counter-clockwise using right wheel
+        // turn counter-clockwise using right wheel only
         motors.leftStop();
         motors.rightDrive(power);
 
@@ -636,7 +641,7 @@ void turnAngle(float angle) {
     motors.stop();
     delay(250);
 
-    // only if using driveStraight() or countLine() elsewhere in program
+    // uncomment next statement only if using driveStraight() or countLine() elsewhere in program
     // clearEncoders();
 }
 ```
