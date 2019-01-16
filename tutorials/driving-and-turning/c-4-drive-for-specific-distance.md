@@ -60,8 +60,6 @@ RedBotButton button;
 RedBotEncoder encoder(A2, 10);
 ```
 
-As you can see, the first code statement creates a `RedBotMotors` object named `motors`, which your app will use to control your left and right motors.
-
 ## Add Code for "Press to Start"
 
 Create global variables for the LED pin and speaker pin by adding this code **before** the `setup()` function: 
@@ -214,13 +212,13 @@ Unplug the USB cable from the robot, and place the robot on the floor. Create a 
 
 Press the D12 button on your robot's circuit board. Your robot should beep and then drive forward in a straight line for 36 inches.
 
-Then measure the distance from the front of the start line to the front of the robot, in order to see how close the distance traveled is to 36 inches.
+Then measure the distance from the front of the start line to the front of the robot, in order to measure the actual distance traveled and see how close it is to 36 inches.
 
 Line up the robot with the start line, and test again. Repeat the test several times to determine the average distance.
 
 The `driveDistance()` function contains a local variable named `correction` which has been set to `-1.5` because during our testing, our robot was driving about 1.5 inches **too far** when using a motor power of 175. The reason for this is because it takes a small amount of time for the robot to apply the brakes and come to a complete stop.
 
-If your robot is driving too far \(or not far enough\), you'll probably want to change the value assigned to `correction` in the `driveDistance()` function:
+If your robot is driving too far \(or not far enough\), you'll want to change the value assigned to `correction` in the `driveDistance()` function:
 
 * If your robot is **driving too far**, make the correction a larger negative number. For example, if your robot is driving about 0.5 inch too far \(36.5 inches\), change the value of `correction` from `-1.5` to `-2.0`.
 * If your robot is **not driving far enough**, make the correction a smaller negative number. For example, if your robot is driving about 0.5 inch too little \(35.5 inches\), change the value of `correction` from `-1.5` to `-1.0`.
