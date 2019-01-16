@@ -186,8 +186,6 @@ Follow the steps to connect your robot to your computer, and upload the app.
 
 Unplug the USB cable from the robot, and place the robot on the floor. Create a "start line" on the floor \(using masking tape, etc.\). Line up the front edge of the robot with the front edge of the start line. Be sure a path of at least 3 feet in front of the robot is clear of any obstacles.
 
-![](../../.gitbook/assets/robot-start-line.jpg)
-
 Press the D12 button on your robot's circuit board. Your robot should beep and then drive forward in a straight line for 36 inches.
 
 Then measure the distance from the front of the start line to the front of the robot, in order to see how close the distance traveled is to 36 inches.
