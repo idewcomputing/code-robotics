@@ -44,7 +44,7 @@ Teacher - Class Period
 
 [Follow the steps to include the SparkFun RedBot Library in your app](../../references/arduino-code-editor/include-redbot-library.md#include-redbot-library-in-app). \(You **don't** need to add the library to your code editor again — just include the library in this new app.\)
 
-## Create Objects for Motors, Encoders, and Button
+## Create Objects for Motors, Button, and Encoders
 
 There are three classes defined in the RedBot library that you'll use in this app:
 

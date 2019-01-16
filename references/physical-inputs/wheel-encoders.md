@@ -314,7 +314,7 @@ Again, you will probably want to add other code inside the `loop()` function to 
 
 You can also use the wheel encoder counts to stop the RedBot after it has driven for a specific distance.
 
-A custom function named `driveDistance()` can be used to make your RedBot drive straight for a specified distance at a specified average motor power.
+A custom function named `driveDistance()` can be used to make your RedBot drive straight for a specified distance by using the wheel encoders.
 
 When calling this custom function, you must pass in a value for the **distance** \(inches\). For example, to make your RedBot drive 24 inches:
 

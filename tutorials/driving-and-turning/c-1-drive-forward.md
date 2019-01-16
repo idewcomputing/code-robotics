@@ -98,6 +98,10 @@ Check whether the button has been pressed by adding this code **within** the `lo
 
 Basically, this code for "Press to Start" is the same as the final version of the "Hello World" app you completed in the previous tutorial — except the second `delay()` statement was removed \(because the code that will be added for "other robot actions" will act as a delay between each check of the button\).
 
+{% hint style="success" %}
+**HOW TO COPY CODE:** When using this IoT code guidebook, you can copy a code block simply by clicking the **copy icon** displayed in the upper right of the code block.
+{% endhint %}
+
 ## Drive Forward
 
 The `RedBotMotors` class defines a method named `drive()` that can be used to drive the motors either forward or backwards. The `RedBotMotors` class also defines a method named `brake()` that can be used to stop the motors.

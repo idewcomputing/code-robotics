@@ -8,3 +8,5 @@ use pivotAngle\(\) custom function - explain conceptually how it works
 
 upload app to robot, and confirm it works - may need to adjust correction value in function to get as close to intended angle as possible - test, adjust correction value, upload revised app, test again
 
+![](../../.gitbook/assets/robot-turn-lines.jpg)
+
