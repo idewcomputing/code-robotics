@@ -1,6 +1,8 @@
 # D-1 Test Mechanical Bumpers
 
-First, you'll code an app to test your mechanical bumpers. Be sure that you've first checked the positions of your mechanical bumpers and wire whiskers to make any necessary physical adjustments.
+First, you'll code an app to test your mechanical bumpers.
+
+Be sure that you've first checked the positions of your wire whiskers and bumper boards to make any necessary physical adjustments. \(If necessary, refer back to the introduction for this tutorial.\)
 
 ## Save Copy of App With New Name <a id="save-copy-of-app-with-new-name"></a>
 
@@ -63,6 +65,8 @@ You'll also notice that this function uses an alternate form of the `tone()` met
 * `200` represents the duration \(in milliseconds\) to play the tone. After the duration is over, the tone will automatically stop playing.
 
 By including a **third** parameter for the duration of the tone, you **don't** have to include the `delay()` and `noTone()` code statements, which is convenient.
+
+Later, you'll add other code within the function to make the robot perform additional actions \(such as backing up, etc.\) when a collision is detected.
 
 {% hint style="success" %}
 **KEEP OTHER CUSTOM FUNCTIONS:**  Be sure to keep the `driveDistance()` and `pivotAngle()` custom functions in your app code. You'll use these custom functions when you modify this app in the next step.
