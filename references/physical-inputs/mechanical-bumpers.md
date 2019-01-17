@@ -95,5 +95,5 @@ void checkBumpers() {
 
 You'll need to add code within the custom function to perform actions \(brake, back up, turn, etc.\) for each possible bumper collision.
 
-**NOTE:** The `checkBumpers()` function does **not** check for a simultaneous collision with both bumpers.  This is because it is highly unlikely to have both mechanical bumpers activated by an obstacle at the same time due to the physical design of the sensors and the front of the RedBot. If a simultaneous bumper collision did occur, the function will treat it as a left bumper collision. Instead, an ultrasonic sensor is better suited for detecting obstacles directly in front of the robot.
+**NOTE:** The `checkBumpers()` function does **not** check for a simultaneous collision with both bumpers due to an obstacle directly in front of the robot. It is highly unlikely to have both mechanical bumpers activated by an obstacle at the same time due to the physical design of the front of the RedBot and its "wire whisker" mechanical bumpers. If a simultaneous bumper collision did occur, the function will treat it as a left bumper collision. A better choice for avoiding obstacles directly in front of the robot is to use an [ultrasonic sensor](ultrasonic-sensor.md).
 
