@@ -78,22 +78,22 @@ You can either insert this code into your `loop()` function or into a custom fun
 
 ### checkBumpers\(\) function
 
-For example, here is a custom named named `checkBumpers()` that checks for a collision with the left bumper or right bumper:
+For example, here is a custom named named `checkBumpers()` that checks for a collision with the left bumper, right bumper, or both bumpers:
 
 ```cpp
 void checkBumpers() {
-    if (leftBumper.read() == LOW) {
-        // add code if left whisker collides: brake, back up, turn right
-
-    }
-    else if (rightBumper.read() == LOW) {
-        // add code if right whisker collides: brake, back up, turn left
-
-    }
+  if (leftBumper.read() == LOW) {
+    // add code if left whisker collides: brake, back up, turn right
+     
+  }
+  else if (rightBumper.read() == LOW) {
+    // add code if right whisker collides: brake, back up, turn left
+    
+  }
 }
 ```
 
 You'll need to add code within the custom function to perform actions \(brake, back up, turn, etc.\) for each possible bumper collision.
 
-**NOTE:** The `checkBumpers()` function does **not** check for a simultaneous collision with both bumpers due to an obstacle directly in front of the robot. It is highly unlikely to have both mechanical bumpers activated by an obstacle at the same time due to the physical design of the front of the RedBot and its "wire whisker" mechanical bumpers. If a simultaneous bumper collision did occur, the function will treat it as a left bumper collision. A better choice for avoiding obstacles directly in front of the robot is to use an [ultrasonic sensor](ultrasonic-sensor.md).
+**NOTE:** The `checkBumpers()` function does **not** check for a simultaneous collision with both bumpers. If a simultaneous bumper collision did occur, the function will treat it as a left bumper collision \(because that's the first check performed in the `if` statement\). However, you could modify the function to check for all three possibilities:  left bumper only, right bumper only, or both bumpers.
 
