@@ -1,6 +1,6 @@
 # Mechanical Bumpers
 
-The RedBot has left and right mechanical bumpers that act like "whiskers" to detect collisions with obstacles. Each "whisker" is a flexible metal wire that will bend during a collision. If the wire bends far enough to touch a metal screw on the bumper board, it acts like an electrical switch allowing current to flow through the bumper's circuit board.
+The RedBot has left and right mechanical bumpers with "whiskers" to detect collisions with obstacles. Each "whisker" is a flexible metal wire that will bend during a collision. If the wire bends far enough to touch a metal screw on the bumper board, it acts like an electrical switch allowing current to flow through the bumper's circuit board.
 
 **NOTE:** If your RedBot also has an [ultrasonic sensor](ultrasonic-sensor.md) \(which can detect obstacles before a collision happens\), it may be best to think of the mechanical bumpers as a fallback system that supplements the ultrasonic sensor. The ultrasonic sensor detects obstacles in a narrow cone of about 15° directly in front of the sensor. However, the ultrasonic sensor might not necessarily detect obstacles off to the side. Since the mechanical bumper whiskers extend outwards on both sides, they can detect a collision with an obstacle that the ultrasonic sensor might not have detected, as shown below.
 
@@ -19,11 +19,27 @@ To use the mechanical bumpers, you will need to: 1. Create `RedBotBumper` object
 * Create RedBotBumper Objects
 * Check Bumpers for Collision
 
-## Check Bumper Board Positions
+## Check Position of Wire Whiskers and Bumper Boards
 
-**NOTE:** The side struts at the front of the RedBot might prevent the bumper wires from making contact with the metal screws. To fix this, rotate the bumper boards slightly \(about 10°\) and secure them in place, so the metal screws are slightly further forward than the side struts. The left bumper board should be rotated clockwise, while the right bumper board should be rotated counter-clockwise. The picture shows the bumper boards already rotated \(about 10°\) into their final positions.
+In order for the bumpers to detect collisions accurately, you need to check the positions of the wire whiskers and the bumper boards. Otherwise, it simply may not be physically possible for the wire whiskers to make contact with the metal screw on the bumper boards.
 
-![](../../.gitbook/assets/bumper-rotation.jpg)
+### Wire Whiskers
+
+In the normal position \(no collision\), each wire whisker should be positioned very close to the metal screw on its bumper board.  There should only be about ⅛ inch between the wire and the screw. Otherwise, if the wire is too far away, it may not be physically possible for an obstacle to bend the wire far enough to make contact with the screw.
+
+![Mechanical Bumpers \(wire whiskers are actually longer\)](../../.gitbook/assets/redbot-bumpers.jpg)
+
+To adjust the position of a wire whisker, you have to loosen the plastic standoff screw on the **bottom** of the bumper board. In order to physically access this screw on an assembled robot, you may have to **remove the entire bumper** \(by removing the top screw of the plastic standoff, which attaches the bumper to the robot's front end\). You also might need to unplug the 3-wire cable that connects to the bumper. After adjusting the wire whisker, correctly reconnect the 3-wire cable, and then reattach the bumper to the robot's front end.
+
+### Bumper Boards
+
+Each bumper board should be rotated slightly so the metal screw on the bumper board is positioned slightly in front of the black plastic struts at the front corners of the RedBot chassis. Otherwise, it may not be physically possible for the wire whisker to make contact with the metal screw.
+
+The picture below shows the mechanical bumpers in the correct position. When looking down on the front of the robot, the metal screw of each bumper board \(where the wire whisker will make contact\) is visible. If you cannot see these metal screws, your bumpers might not be able to work.
+
+To adjust the position of a bumper board, you have to loosen the the top screw of the plastic standoff, which attaches the bumper to the robot's front end. Rotate the bumper board slightly, so the metal screw is further forward than the side strut. Then tighten the top screw of the plastic standoff to secure the bumper.
+
+![](../../.gitbook/assets/bumper-board-position.jpg)
 
 ## Create RedBotBumper Objects
 
@@ -84,10 +100,12 @@ For example, here is a custom named named `checkBumpers()` that checks for a col
 void checkBumpers() {
   if (leftBumper.read() == LOW) {
     // add code if left whisker collides: brake, back up, turn right
-     
+    motors.brake();
+    
   }
   else if (rightBumper.read() == LOW) {
     // add code if right whisker collides: brake, back up, turn left
+    motors.brake();
     
   }
 }
