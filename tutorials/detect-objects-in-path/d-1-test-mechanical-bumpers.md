@@ -93,9 +93,9 @@ void loop() {
 
 Follow the steps to connect your robot to your computer, and upload the app.
 
-You don't have to unplug the USB cable. You can also just keep the robot standing upright on its back end \(with its wheels in the air\).
+For this app, you don't have to unplug the USB cable. You can also just keep the robot standing upright on its back end \(with its wheels in the air\).
 
-Use your finger to press down on the wire whisker of the left bumper. When the wire has bent far enough to touch the metal screw on the bumper board, you should hear a tone. If you let go of the whisker, the tone should stop. Repeat this test for the right bumper.
+Use your finger to press down on the wire whisker of the left bumper. When the wire has bent far enough to touch the metal screw on the bumper board, you should hear a tone. If you release the whisker, the tone should stop. Repeat this test for the right bumper.
 
 
 
