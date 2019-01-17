@@ -78,28 +78,22 @@ You can either insert this code into your `loop()` function or into a custom fun
 
 ### checkBumpers\(\) function
 
-For example, here is a custom named named `checkBumpers()` that checks for a collision with the left bumper, right bumper, or both bumpers:
+For example, here is a custom named named `checkBumpers()` that checks for a collision with the left bumper or right bumper:
 
 ```cpp
 void checkBumpers() {
-
-    int leftWhisker = leftBumper.read();
-    int rightWhisker = rightBumper.read();
-
-    if (leftWhisker == LOW && rightWhisker == HIGH) {
-        // add code for when left whisker collides: brake, back up, turn right
+    if (leftBumper.read() == LOW) {
+        // add code if left whisker collides: brake, back up, turn right
 
     }
-    else if (leftWhisker == HIGH && rightWhisker == LOW) {
-        // add code for when right whisker collides: brake, back up, turn left
-
-    }
-    else if (leftWhisker == LOW && rightWhisker == LOW) {
-        // add code for when both whiskers collide: brake, back up, turn around
+    else if (rightBumper.read() == LOW) {
+        // add code if right whisker collides: brake, back up, turn left
 
     }
 }
 ```
 
-You'll need to add code within the custom function to perform actions \(brake, back up, turn, etc.\) for each of the possible bumper collisions \(left, right, or both\).
+You'll need to add code within the custom function to perform actions \(brake, back up, turn, etc.\) for each possible bumper collision.
+
+**NOTE:** The `checkBumpers()` function does **not** check for a simultaneous collision with both bumpers.  This is because it is highly unlikely to have both mechanical bumpers activated by an obstacle at the same time due to the physical design of the sensors and the front of the RedBot. If a simultaneous bumper collision did occur, the function will treat it as a left bumper collision. Instead, an ultrasonic sensor is better suited for detecting obstacles directly in front of the robot.
 
