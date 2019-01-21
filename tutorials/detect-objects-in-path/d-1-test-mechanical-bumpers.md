@@ -44,13 +44,13 @@ void checkBumpers() {
   if (leftBumper.read() == LOW) {
     // add code if left whisker collides: brake, back up, turn right
     motors.brake();
-    tone(speaker, 250, 200);
+    tone(speaker, 1000, 200);
     
   }
   else if (rightBumper.read() == LOW) {
     // add code if right whisker collides: brake, back up, turn left
     motors.brake();
-    tone(speaker, 250, 200);
+    tone(speaker, 1000, 200);
     
   }
 }

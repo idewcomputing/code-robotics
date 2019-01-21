@@ -2,7 +2,7 @@
 
 **STILL IN PROGRESS**
 
-As your last step of this tutorial, you'll code an app to make your robot drive and avoid collisions using its ultrasonic sensor.
+As your last step of this tutorial, you'll code an app to make your robot drive around and use its ultrasonic sensor to avoid collisions with obstacles.
 
 ## Save Copy of App With New Name <a id="save-copy-of-app-with-new-name"></a>
 
@@ -10,11 +10,47 @@ In your Arduino code editor, use the "Save As" command to save a copy of the `ul
 
 Once you saved the new app name, modify the block comment near the beginning of the app code to change `Ultrasonic Sensor Test` to `Avoid Collisions Test`.
 
-## Add Custom Function to Avoid Collisions
+## Add Custom Function to Avoid Collision
 
-use avoidCollisions\(\) custom function - need to add code
+You'll add another custom function named `avoidCollision()` which will contain code to use measurements from the ultrasonic sensor to avoid colliding with an obstacle.
 
-can modify code to perform other actions, such as trying to navigate around the object \(include diagram showing possible path\) - or checking both left and right for possible open path
+Add this custom function **after** the `loop()` function:
+
+```cpp
+void avoidCollision() {
+
+  // set minimum allowed distance between robot and obstacle
+  float minDist = 8.0; // change value as necessary (need decimal)
+
+  // measure distance to nearest obstacle
+  float sensorDist = measureDistance();
+
+  // if obstacle is too close, avoid collision
+  if (sensorDist <= minDist) {
+    // add code to perform (brake, change direction, etc.)
+    motors.brake();
+
+  }
+}
+```
+
+## Add Code to Perform Actions When Obstacle Too Close
+
+Right now, when the avoidCollision\(\) function detects that an obstacle in the robot's path is too close, it brakes the motors.
+
+Depending on the purpose of your robot and the environment in which it operates, there are different options for what you might want the robot to do when an obstacle is too close.
+
+In this case, you'll add code so the robot will randomly turn right or left \(pivot 90°\) by generating a random number \(either 0 or 1 – similar to flipping a coin\) to decide which direction to turn.
+
+Add this code **within** the `if` statement in the `avoidCollision()` function, so it will be performed when the **left bumper** detects a collision \(add this code **after** the `motors.brake()` statement\):
+
+```cpp
+    delay(1000);
+    // turn right or left based on random number
+    long randomNum = random(1); // generate random number of either 0 or 1
+    if (randomNum == 0) pivotAngle(-90); // turn right
+    else pivotAngle(-90); // turn left
+```
 
 ## Upload App to Robot
 
