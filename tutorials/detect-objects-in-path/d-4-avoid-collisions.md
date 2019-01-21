@@ -40,6 +40,8 @@ Depending on the purpose of your robot and the environment in which it operates,
 
 In this case, you'll add code so the robot will randomly turn right or left \(pivot 90°\) by generating a random number \(either 0 or 1 – similar to flipping a coin\) to decide which direction to turn.
 
+Arduino has a [`random()`](https://www.arduino.cc/reference/en/language/functions/random-numbers/random/) method which can be used to generate a random number \(integer\) within a specific range.
+
 Add this code **within** the `if` statement in the `avoidCollision()` function, so it will be performed when the **left bumper** detects a collision \(add this code **after** the `motors.brake()` statement\):
 
 ```cpp
