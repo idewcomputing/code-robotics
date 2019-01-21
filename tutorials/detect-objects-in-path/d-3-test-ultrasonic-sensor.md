@@ -1,7 +1,5 @@
 # D-3 Test Ultrasonic Sensor
 
-**STILL IN PROGRESS**
-
 Next, you'll code an app to test your ultrasonic sensor \(if your robot is equipped with one\).
 
 {% hint style="info" %}
@@ -97,9 +95,44 @@ float measureDistance() {
 }
 ```
 
+## Modify Code to Perform When Robot is Started
+
+When the D12 button is pressed to "start" the robot, we want the ultrasonic sensor to continously measure the distance to the closest object and send this data to the serial monitor.
+
+First, **delete** the existing code statements **within** the `if` statement in the `loop()` function that drive the motors and call the `checkBumpers()` custom function when `started` is `true`.
+
+Next, add this code **within** the `if` statement in the `loop()` function, so it will be performed when `started` is `true`:
+
+```cpp
+    float sensorDist = measureDistance();
+    Serial.print(sensorDist);
+    Serial.println(" inches");
+```
+
+## Upload App to Robot
+
+Connect your robot to your computer using the USB cable. Turn on your robot, and upload the app to your robot.
+
+After the upload is complete, do **not** unplug the USB cable. You have to keep the robot connected to your computer to allow the serial data communication.
+
+## View Data in Serial Monitor
+
+In your Arduino code editor, open the serial monitor, so you can view the serial data communication from your robot:
+
+* **Arduino Create \(Web Editor\):**  Click the **Monitor** menu link in the left navigation to display the serial monitor in the middle panel.
+* **Arduino IDE \(Desktop Editor\):**  Under the **Tools** menu, select "Serial Monitor." A new window will appear displaying the serial monitor.
+
+Press the D12 button on your robot's circuit board. Your robot's ultrasonic sensor will start measuring the distance to the closest object in front of the sensor. In the serial monitor, view the data showing the distance measurements.
+
+The sensor can accurately measure distances within a range from 2 cm up to 400 cm \(about 1 inch up to about 13 feet\).
+
+Place your hand \(or another object\) in front of the ultrasonic sensor, and move your hand \(or the object\) further or closer to confirm that the distance measurements change. If necessary, you can use a ruler or measuring tape to verify the accuracy of the distance measurements.
+
+Small objects \(such as your hand\) can be detected accurately if they are within about 24 inches of the sensor. For farther distances, the object may need to have a larger surface area to produce an accurate measurement \(large flat surfaces such as walls work really well\).
+
+When you're done testing the ultrasonic sensor, press the D12 button again to "pause" the robot \(and save battery power by stopping the ultrasonic sensor measurements\) – or you can turn off the robot's power.
 
 
-use testUltrasonicSensor\(\) custom function to use serial monitor to view distance measurements
 
 
 

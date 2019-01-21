@@ -159,7 +159,7 @@ By listing the name of the custom function, the custom function is "called" — 
 
 For this app, this will be only code statement listed within the `loop()` function. Since the `loop()` function repeats itself continuously, the `testWheelEncoders()` function will be called repeatedly.
 
-## Upload App
+## Upload App to Robot
 
 Connect your robot to your computer using the USB cable. Be sure the robot is standing upright on its back end \(with its wheels in the air\), so the robot won't drive way while it's connected to your computer.
 
