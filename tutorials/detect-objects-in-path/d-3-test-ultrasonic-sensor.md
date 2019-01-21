@@ -55,7 +55,9 @@ This starts the serial data communication and sets the data transfer rate to 960
 
 ## Add Custom Function to Measure Distance
 
-You'll add another custom function named `measureDistance()` which will contain code that uses the ultrasonic sensor to measure the distance between the sensor and the closest object ahead in the robot's path. The custom function will return this distance as a decimal value \(`float`\), which your app will store in a local variable.
+You'll add another custom function named `measureDistance()` which will contain code that uses the ultrasonic sensor to measure the distance between the sensor and the closest object ahead in the robot's path.
+
+When this custom function is called, it will return the distance measurement as a decimal value \(`float`\), which your app will need to store in a local variable.
 
 The comments embedded in the custom function help explain how it works.
 
@@ -97,7 +99,7 @@ float measureDistance() {
 
 ## Modify Code to Perform When Robot is Started
 
-When the D12 button is pressed to "start" the robot, we want the ultrasonic sensor to continously measure the distance to the closest object and send this data to the serial monitor.
+When the D12 button is pressed to "start" the robot, we want the ultrasonic sensor to continuously measure the distance to the closest object and send this data to the serial monitor.
 
 First, **delete** the existing code statements **within** the `if` statement in the `loop()` function that drive the motors and call the `checkBumpers()` custom function when `started` is `true`.
 
@@ -108,6 +110,10 @@ Next, add this code **within** the `if` statement in the `loop()` function, so i
     Serial.print(sensorDist);
     Serial.println(" inches");
 ```
+
+As you can see, this code declares a local variable named `sensorDist` which has a data type of `float`\(decimal number\). The `sensorDist` variable is assigned a value equal to the distance value returned by a call to the `measureDistance()` function.
+
+Next, the value of `sensorDist` is sent to the serial monitor, along with a text string \(`" inches"`\).
 
 ## Upload App to Robot
 
