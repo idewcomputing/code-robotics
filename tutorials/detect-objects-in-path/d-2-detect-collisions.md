@@ -1,10 +1,10 @@
 # D-2 Detect Collisions
 
-Next, you'll code an app to make your robot drive around and detect collisions using the mechanical bumpers. If a collision occurs, the robot will stop, back up, and then turn 90° right or left \(depending on which bumper detected the collision\).
+Next, you'll code an app to make your robot drive around and detect collisions using its mechanical bumpers.
 
 ## Save Copy of App With New Name <a id="save-copy-of-app-with-new-name"></a>
 
-In your Arduino code editor, use the "Save As" command to save a copy of the `mech_bumper_test` app as a different app named: `detect_collisions_test`
+In your Arduino code editor, use the "Save As" command to save a copy of the `mechanical_bumper_test` app as a different app named: `detect_collisions_test`
 
 Once you saved the new app name, modify the block comment near the beginning of the app code to change `Mechanical Bumper Test` to `Detect Collisions Test`.
 

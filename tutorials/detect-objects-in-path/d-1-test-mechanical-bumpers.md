@@ -6,7 +6,7 @@ Be sure that you've first checked the positions of your wire whiskers and bumper
 
 ## Save Copy of App With New Name <a id="save-copy-of-app-with-new-name"></a>
 
-In your Arduino code editor, open your existing app named `pivot_angle_test`. Use the "Save As" command to save a copy as a different app named:  `mech_bumper_test`
+In your Arduino code editor, open your existing app named `pivot_angle_test`. Use the "Save As" command to save a copy as a different app named:  `mechanical_bumper_test`
 
 Once you saved the new app name, modify the block comment near the beginning of the app code to change `Pivot Angle Test` to `Mechanical Bumper Test`.
 

@@ -2,6 +2,10 @@
 
 **STILL IN PROGRESS**
 
+As your last step of this tutorial, you'll code an app to make your robot drive around and avoid collisions using its ultrasonic sensor.
+
+##  <a id="save-copy-of-app-with-new-name"></a>
+
 use ultrasonic sensor to avoid collisions with objects, and change robot's path
 
 use avoidCollisions\(\) custom function - need to add code
