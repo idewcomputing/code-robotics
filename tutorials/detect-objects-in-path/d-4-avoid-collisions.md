@@ -1,7 +1,5 @@
 # D-4 Avoid Collisions
 
-**STILL IN PROGRESS**
-
 As your last step of this tutorial, you'll code an app to make your robot drive around and use its ultrasonic sensor to avoid collisions with obstacles.
 
 ## Save Copy of App With New Name <a id="save-copy-of-app-with-new-name"></a>
@@ -47,8 +45,8 @@ Add this code **within** the `if` statement in the `avoidCollision()` function, 
 ```cpp
     delay(1000);
     // turn right or left based on random number
-    long randomNum = random(1); // generate random number of either 0 or 1
-    if (randomNum == 0) pivotAngle(-90); // turn right
+    long randomNum = random(2); // generate random integer of either 0 or 1
+    if (randomNum == 0) pivotAngle(90); // turn right
     else pivotAngle(-90); // turn left
 ```
 
