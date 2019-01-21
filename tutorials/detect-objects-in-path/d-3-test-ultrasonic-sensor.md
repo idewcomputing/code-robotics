@@ -29,21 +29,75 @@ int ECHO_PIN = A1;
 
 ## Set Pin Modes for Sensor
 
-You'll need to set the pin modes for the ultrasonic sensor's transmitter \(Trig\) and receiver \(Echo\). The transmitter is an output because it will produces high-frequency sound. The receiver is an input because it will detect the echo of the high-frequency sound when it reflects back from nearby obstacles.
+You'll need to set the pin modes for the ultrasonic sensor's transmitter \(Trig\) and receiver \(Echo\). The transmitter is an output because it will produce high-frequency sound. The receiver is an input because it will detect the echo of the high-frequency sound when it reflects back from nearby obstacles.
 
 Add this code **within** the `setup()` function:
 
 ```cpp
-pinMode(TRIG_PIN, OUTPUT);
-pinMode(ECHO_PIN, INPUT);
-digitalWrite(TRIG_PIN, LOW);
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+  digitalWrite(TRIG_PIN, LOW);
 ```
 
 Notice that a `digitalWrite()` statement was included to ensure the transmitter is turned off \(`LOW`\) when the app first starts.
 
+## Begin Serial Communication
+
+When your robot and computer are connected with a USB cable, they can communicate with each other by transferring serial data.
+
+In this app, your robot will send data \(distance measurements\) to your computer. Your Arduino code editor has a serial monitor window that can be used to view this serial data communication.
+
+Add this code statement **within** the `setup()` function:
+
+```cpp
+Serial.begin(9600);
+```
+
+This starts the serial data communication and sets the data transfer rate to 9600 bits per second.
+
+## Add Custom Function to Measure Distance
+
+You'll add another custom function named `measureDistance()` which will contain code that uses the ultrasonic sensor to measure the distance between the sensor and the closest object ahead in the robot's path. The custom function will return this distance as a decimal value \(`float`\), which your app will store in a local variable.
+
+The comments embedded in the custom function help explain how it works.
+
+Add this custom function **after** the `loop()` function:
+
+```cpp
+float measureDistance() {
+  // uses HC-SR04 ultrasonic sensor
+  unsigned long start_time, end_time, pulse_time;
+
+  // trigger ultrasonic signal for 10 microseconds
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+
+  // wait until echo received
+  while (digitalRead(ECHO_PIN) == 0);
+
+  // measure how long echo lasts (pulse time)
+  start_time = micros(); // get start time in microseconds
+  while (digitalRead(ECHO_PIN) == 1); // wait until echo pulse ends
+  end_time = micros(); // get end time
+  pulse_time = end_time - start_time; // subtract to get duration
+
+  // pulse time of 23200 represents maximum distance for this sensor
+  if (pulse_time > 23200) pulse_time = 23200;
+
+  // calculate distance to object using pulse time
+  float dist_cm = pulse_time / 58.0;
+  float dist_in = pulse_time / 148.0;
+
+  // need 60 ms delay between ultrasonic sensor readings
+  delay(60);
+
+  // return distance value
+  return dist_in; // or can return dist_cm
+}
+```
 
 
-use measureDistance\(\) custom function - explain conceptually how it works
 
 use testUltrasonicSensor\(\) custom function to use serial monitor to view distance measurements
 

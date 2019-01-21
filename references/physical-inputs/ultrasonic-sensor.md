@@ -112,10 +112,8 @@ This could be done in your `loop()` function \(or in your own custom function\):
 void loop() {
 
     float sensorDist = measureDistance();
-
     // add code to do something based on value of sensorDist
 
-    delay(60); // need minimum 60 ms delay between sensor readings
 }
 ```
 
@@ -127,31 +125,35 @@ Be sure to include the custom function named `measureDistance()` after your `loo
 
 ```cpp
 float measureDistance() {
-    // HC-SR04 ultrasonic sensor   
-    unsigned long start_time, end_time, pulse_time;
+  // uses HC-SR04 ultrasonic sensor
+  unsigned long start_time, end_time, pulse_time;
 
-    // trigger ultrasonic signal for 10 microseconds
-    digitalWrite(TRIG_PIN, HIGH);
-    delayMicroseconds(10);
-    digitalWrite(TRIG_PIN, LOW);
+  // trigger ultrasonic signal for 10 microseconds
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
 
-    // wait until echo received
-    while (digitalRead(ECHO_PIN) == 0);
+  // wait until echo received
+  while (digitalRead(ECHO_PIN) == 0);
 
-    // measure how long echo lasts (pulse time)
-    start_time = micros(); // get start time in microseconds
-    while (digitalRead(ECHO_PIN) == 1); // wait until echo pulse ends
-    end_time = micros(); // get end time
-    pulse_time = end_time - start_time; // subtract to get duration
+  // measure how long echo lasts (pulse time)
+  start_time = micros(); // get start time in microseconds
+  while (digitalRead(ECHO_PIN) == 1); // wait until echo pulse ends
+  end_time = micros(); // get end time
+  pulse_time = end_time - start_time; // subtract to get duration
 
-    // pulse time of 23200 represents maximum distance for this sensor
-    if (pulse_time > 23200) pulse_time = 23200;
+  // pulse time of 23200 represents maximum distance for this sensor
+  if (pulse_time > 23200) pulse_time = 23200;
 
-    // calculate distance to object using pulse time
-    float dist_cm = pulse_time / 58.0;
-    float dist_in = pulse_time / 148.0;
+  // calculate distance to object using pulse time
+  float dist_cm = pulse_time / 58.0;
+  float dist_in = pulse_time / 148.0;
 
-    return dist_in; // or can return dist_cm
+  // need 60ms delay between ultrasonic sensor readings
+  delay(60);
+
+  // return distance value
+  return dist_in; // or can return dist_cm
 }
 ```
 
@@ -188,43 +190,42 @@ void setup() {
 }
 
 void loop() {
-
     float sensorDist = measureDistance();
-
-    // send data to serial monitor
     Serial.print(sensorDist);
     Serial.println(" inches");
-
-    delay(60); // need minimum 60 ms delay between sensor readings
 }
 
 // custom function
 float measureDistance() {
-    // HC-SR04 ultrasonic sensor   
-    unsigned long start_time, end_time, pulse_time;
+  // uses HC-SR04 ultrasonic sensor
+  unsigned long start_time, end_time, pulse_time;
 
-    // trigger ultrasonic signal for 10 microseconds
-    digitalWrite(TRIG_PIN, HIGH);
-    delayMicroseconds(10);
-    digitalWrite(TRIG_PIN, LOW);
+  // trigger ultrasonic signal for 10 microseconds
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
 
-    // wait until echo received
-    while (digitalRead(ECHO_PIN) == 0);
+  // wait until echo received
+  while (digitalRead(ECHO_PIN) == 0);
 
-    // measure how long echo lasts (pulse time)
-    start_time = micros(); // get start time in microseconds
-    while (digitalRead(ECHO_PIN) == 1); // wait until echo pulse ends
-    end_time = micros(); // get end time
-    pulse_time = end_time - start_time; // subtract to get duration
+  // measure how long echo lasts (pulse time)
+  start_time = micros(); // get start time in microseconds
+  while (digitalRead(ECHO_PIN) == 1); // wait until echo pulse ends
+  end_time = micros(); // get end time
+  pulse_time = end_time - start_time; // subtract to get duration
 
-    // pulse time of 23200 represents maximum distance for this sensor
-    if (pulse_time > 23200) pulse_time = 23200;
+  // pulse time of 23200 represents maximum distance for this sensor
+  if (pulse_time > 23200) pulse_time = 23200;
 
-    // calculate distance to object using pulse time
-    float dist_cm = pulse_time / 58.0;
-    float dist_in = pulse_time / 148.0;
+  // calculate distance to object using pulse time
+  float dist_cm = pulse_time / 58.0;
+  float dist_in = pulse_time / 148.0;
 
-    return dist_in; // or can return dist_cm
+  // need 60ms delay between ultrasonic sensor readings
+  delay(60);
+
+  // return distance value
+  return dist_in; // or can return dist_cm
 }
 ```
 
@@ -263,7 +264,6 @@ void avoidCollision() {
         motors.brake();
 
     }
-    delay(60); // need min 60ms between ultrasonic sensor readings
 }
 ```
 
@@ -336,7 +336,6 @@ void avoidCollision() {
         leftPower = 100;
         rightPower = 100; 
     }
-    delay(60); // need min 60ms between ultrasonic sensor readings
 }
 ```
 
@@ -420,8 +419,6 @@ void findClosestObject() {
             minCount = rightCount;
         }
 
-        delay(60); // need min 60ms between ultrasonic sensor readings
-
         // get current wheel encoder count
         rightCount = encoder.getTicks(RIGHT);
     }
@@ -431,11 +428,10 @@ void findClosestObject() {
     delay(500);
 
     // OPTIONAL: play sound to indicate scan complete
-    int soundPin = 9;
     for (int i=0; i < 3; i++) {
-        tone(soundPin, 4500);
+        tone(speaker, 4500);
         delay(100);
-        noTone(soundPin);
+        noTone(speaker);
         delay(100); // pause before next beep
     }
 
@@ -463,9 +459,7 @@ void findClosestObject() {
     if (minDist > buffer) driveDistance(minDist - buffer, 150);
 
     // OPTIONAL: play sound to indicate arrival at object
-    tone(soundPin, 3000);
-    delay(200);
-    noTone(soundPin);
+    tone(speaker, 3000, 500);
 }
 ```
 
