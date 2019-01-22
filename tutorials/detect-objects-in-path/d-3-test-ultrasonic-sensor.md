@@ -8,6 +8,14 @@ Next, you'll code an app to test your ultrasonic sensor \(if your robot is equip
 
 If necessary, follow these [instructions to attach an ultrasonic sensor to the robot](../../references/physical-inputs/ultrasonic-sensor.md#connect-ultrasonic-sensor-to-redbot-mainboard).
 
+## How Ultrasonic Sensor Works
+
+The ultrasonic sensor has a transmitter \(i.e., a speaker\) that can produce high-frequency sound, which cannot be heard by the human ear. The sensor also has a receiver \(i.e., a microphone\) that detects the echo of the high-frequency sound when it is reflected back from a nearby object. By measuring how much time it takes for the echo to arrive, you can calculate the distance between the sensor and the object.
+
+![Ultrasonic Sensor](../../.gitbook/assets/ultrasonic-sensor.jpg)
+
+This ultrasonic sensor measures distances in a narrow cone of about 15° in front of the sensor. This sensor can detect obstacles located up to 400 cm away \(about 13 feet\). The distance measurements from the sensor are very accurate, within about 3 mm \(about 0.1 inch\) of the actual distance.
+
 ## Save Copy of App With New Name <a id="save-copy-of-app-with-new-name"></a>
 
 In your Arduino code editor, open your existing app named `detect_collisions_test`. Use the "Save As" command to save a copy as a different app named:  `ultrasonic_sensor_test`
