@@ -25,7 +25,7 @@ Hopefully, the format for create new objects is starting to look familiar:
 
 * `RedBotBumper` declares the class for the new object.
 * `leftBumper` and `rightBumper` represent unique names for each object. Again, you decide what to name your objects. They should make sense to anyone reading the code.
-* `3` and `11` represent the I/O pin numbers that the left and right bumpers should be connected to. If your bumpers were connected to different pins, you'd change these numbers.
+* `3` and `11` represent the I/O pin numbers that the left and right bumpers should be connected to. If your bumpers were connected to different pins, you'd change these pin numbers.
 
 ## Add Custom Function to Check Bumpers
 

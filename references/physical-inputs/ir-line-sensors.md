@@ -166,7 +166,7 @@ Here is a custom function named `checkDropOff()` that will check the IR sensor r
 void checkDropOff() {
 
     // set IR threshold indicating drop-off (table edge, etc.)
-    int dropOff = 900; // change value if necessary
+    int dropOff = 950; // change value if necessary
 
     // get IR sensor readings
     int leftSensor = leftLine.read();
@@ -184,9 +184,9 @@ void checkDropOff() {
 
 You can call this custom function in your `loop()` function \(or within another custom function\).
 
-The custom function has a local variable named `dropOff` set to a value of `900`. Any IR sensor reading greater than this is treated as indicating a "cliff" drop-off.
+The custom function has a local variable named `dropOff` set to a value of `950`. Any IR sensor reading greater than this represents a drop-off.
 
-You should do a test with your RedBot to verify if this value \(`900`\) is accurate. Use the serial monitor to view the IR sensor data as you roll the front of your RedBot towards a drop-off \(such as a table edge\). If necessary, change the value of `dropOff` from `900` to whichever value is more accurate to indicate a drop-off has been detected.
+You should do a test with your RedBot to verify if this value \(`950`\) is accurate. Use the serial monitor to view the IR sensor data as you roll the front of your RedBot towards a drop-off \(such as a table edge\). If necessary, change the value of `dropOff` from `950` to whichever value is more accurate to indicate a drop-off has been detected.
 
 You will also need to decide what code to perform if the IR sensors detect a drop-off. Most likely, the first thing that you should do is make the RedBot motors brake.
 

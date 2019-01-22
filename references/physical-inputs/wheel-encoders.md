@@ -212,16 +212,11 @@ The `driveStraight()` custom function relies on several global variables that ar
 Add this code before your `setup()` function to declare these global variables:
 
 ```cpp
-// variables for wheel encoder counts and motor powers
-long leftCount, rightCount;
-long prevLeftCount, prevRightCount;
 int leftPower, rightPower;
-const int motorPower = 150; // change value if needed - used by driveStraight() function
+long prevLeftCount, prevRightCount;
 ```
 
-The code above sets the average motor power for the RedBot's driving to a value of `150`. If needed, change this value for your program.
-
-You'll also use another custom function named `clearEncoders()` that will reset the wheel encoder counters back to zero and reset the values of these global variables.
+You'll also use another custom function named `clearEncoders()` that will reset the wheel encoder counters back to zero and reset the values of these global variables. 
 
 ### clearEncoders\(\) function
 
@@ -231,24 +226,20 @@ Add the `clearEncoders()` function after your `loop()` function:
 void clearEncoders() {
     // call this function in setup() and after any turn or pivot
     encoder.clearEnc(BOTH);
-    leftCount = 0;
-    rightCount = 0;
     prevLeftCount = 0;
     prevRightCount = 0;
-    leftPower = motorPower;
-    rightPower = motorPower;
+    leftPower = 175;
+    rightPower = leftPower;
 }
 ```
 
-The `clearEncoders()` function will need to be called **before** you can start driving your RedBot in a straight line.
-
-Add this code inside your `setup()` function to call this function:
+The `clearEncoders()` function will need to be called **before** you can start driving your RedBot in a straight line.  Add this code inside your `setup()` function to call this function:
 
 ```cpp
 clearEncoders();
 ```
 
-**IMPORTANT:** If your RedBot needs to turn or pivot \(e.g., to avoid an obstacle, to change direction, etc.\), then you will need to call the `clearEncoders()` function again after the turn or pivot is complete.
+**IMPORTANT:** If your RedBot needs to turn or pivot \(e.g., to avoid an obstacle, to change direction, etc.\), then you will need to call the `clearEncoders()` function again after the turn or pivot is complete. You will add this call **within** the `pivotAngle()` function \(or **within** the `turnAngle()` function\) at the end after the pivot \(or turn\) is complete \(i.e., after the motors are braked\).
 
 ### driveStraight\(\) function
 

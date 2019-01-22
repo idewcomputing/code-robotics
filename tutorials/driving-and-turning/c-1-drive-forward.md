@@ -38,7 +38,7 @@ You will need to add a copy of the SparkFun RedBot Library to your code editor, 
 
 You should now have an `#include` statement for the RedBot library \(filename: `RedBot.h`\) listed at the beginning of your app code.
 
-## Create RedBotMotors Object
+## Create Object for Motors
 
 The `RedBot.h` library contains Arduino code that defines different classes of objects. Each class defines a set of **properties** \(variables\) and **methods** \(functions\) for a specific type of object.
 

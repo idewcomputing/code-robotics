@@ -65,7 +65,6 @@ Now add this new code **within** the `loop()` function:
     // add code to perform when "paused"
     
   }
-}
 ```
 
 As you can see, this code will call the `checkButton()` function. Then it uses an if-else statement to perform different code \(not added yet\) depending on whether `started` is `true` or `false`.
