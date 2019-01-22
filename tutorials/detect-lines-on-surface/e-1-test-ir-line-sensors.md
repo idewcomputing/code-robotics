@@ -67,7 +67,7 @@ The `RedBotSensor` class defines a method named `read()` which is used to read t
 * **Lower values** indicate **more** IR light was reflected back. This indicates a **lighter-colored surface**.
 * **Higher values** indicate **less** IR light was reflected back. This indicates a **darker-colored surface**.
 
-If the values are **very high** \(greater than 950\), this probably indicates a **surface drop-off** \(such as: a stair step leading down, the edge of a table, a hole in the surface, etc.\).
+If the values are **very high** \(greater than 1000\), this probably indicates a **surface drop-off** \(such as: a stair step leading down, the edge of a table, a hole in the surface, etc.\).
 
 Add this custom function **after** the `loop()` function:
 
@@ -122,11 +122,11 @@ Place the robot on a sheet of white paper on your desk or table. View the IR sen
 
 Next, use a black permanent marker to draw a line \(about 0.5 inch wide and about 3 inches long\) in the middle of the paper.  [Alternatively, you could print this test page](https://drive.google.com/open?id=1_mJCy-WdcnZ7QPPBrMELXCgFrpG-g6VV).
 
-Position the robot so only the **center** line sensor is above the dark line. View the IR sensor readings in the serial monitor. You should see that the center sensor reading is higher than the left and right sensors \(which are positioned above a white surface\). For a uniform black line, the center sensor reading should be around 800 \(or more\).
+Position the robot so only the **center** line sensor is above the dark line. View the IR sensor readings in the serial monitor. You should see that the center sensor reading is higher than the left and right sensors \(which are positioned above a white surface\). For a uniform black line, the center sensor reading should be at least 800 \(or higher\).
 
-Then rotate the robot so all three line sensors are "on" the dark line. View the sensor readings in the serial monitor. All three sensor readings should be around 800 \(or more\).
+Then rotate the robot so all three line sensors are "on" the dark line. View the sensor readings in the serial monitor. All three sensor readings should be at least 800 \(or higher\).
 
-Finally, position the robot near the edge of your desk or table. Then slowly roll the robot towards the edge until the IR line sensors are just hanging over the edge \(be sure the robot won't roll off\). View the sensor readings in the serial monitor. All three sensor readings should be around 1000 \(or more\).
+Finally, position the robot near the edge of your desk or table. Then slowly roll the robot towards the edge until the IR line sensors are just hanging over the edge \(be sure the robot won't roll off\). View the sensor readings in the serial monitor. All three sensor readings should be about 1000 \(or higher\).
 
 {% hint style="success" %}
 **POWER DOWN:**  When you're done testing the IR line sensors, turn off your robot's power to conserve battery power.
