@@ -2,7 +2,7 @@
 
 Next, you'll code an app to test your robot's wheel encoders by sending serial data to your computer.
 
-## Wheel Encoders
+## How Wheel Encoders Work
 
 Located directly behind each motor is a wheel encoder, which is a sensor that can count exactly how many times the motor has rotated. These left and right wheel encoder counts can be used to:
 
