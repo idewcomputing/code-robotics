@@ -1,7 +1,5 @@
 # E. Detect Lines on Surface
 
-**STILL IN PROGRESS**
-
 In this fifth tutorial, you'll learn how to make your robot detect lines on the surface by using its IR line sensors.
 
 ## Tutorial Goals <a id="tutorial-goals"></a>
@@ -33,13 +31,15 @@ Detecting lines with the IR sensors works best with a uniform dark line on a uni
 
 ### Making Lines with Tape
 
-If you have a light-colored hard surface \(such as tile floor, etc.\), black electrical tape works well for making lines.
+If you have a light-colored hard surface \(such as tile floor, etc.\), black electrical tape works very well for making lines.
 
 If you have a dark-colored hard surface, white electrical tape or white masking tape works well for making lines.
+
+If you are using large sheets of paper \(e.g., butcher paper, flip chart paper, etc.\) for your surface, you might be able to use tape to make lines on the paper. However, be aware that black electrical tape is elastic and can pull on the paper \(causing the paper to wrinkle, which interferes with line detection\). To minimize this, use short sections of electrical tape, and avoid stretching the electrical tape when applying it to the paper.
 
 ### Drawing Lines with Marker
 
 If you are drawing lines on large sheets of paper, be sure to use a black felt-tip permanent marker \(e.g., Sharpie\) to make lines. Dry erase markers generally do **not** work well \(pigment is not dark enough on paper\).
 
-Also be sure to keep the paper as flat as possible when using \(or when storing\). Wrinkles and folds in the paper can interfere with line detection.
+Also be sure to keep the paper as flat as possible when using \(or when storing\). Wrinkles and folds in the paper interfere with line detection.
 

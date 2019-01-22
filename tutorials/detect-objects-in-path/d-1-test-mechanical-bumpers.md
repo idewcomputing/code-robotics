@@ -21,7 +21,7 @@ RedBotBumper leftBumper(3);
 RedBotBumper rightBumper(11);
 ```
 
-Hopefully, the format for create new objects is starting to look familiar:
+Hopefully, the code syntax for creating new objects is starting to look familiar:
 
 * `RedBotBumper` declares the class for the new object.
 * `leftBumper` and `rightBumper` represent unique names for each object. Again, you decide what to name your objects. They should make sense to anyone reading the code.

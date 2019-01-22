@@ -38,7 +38,7 @@ RedBotSensor centerLine(A6);
 RedBotSensor rightLine(A7);
 ```
 
-Hopefully, the format for create new objects looks familiar by now:
+Hopefully, the code syntax for creating new objects looks familiar by now:
 
 * `RedBotSensor` declares the class for the new object.
 * `leftLine`, `centerLine`, and `rightLine` represent unique names for each object. Again, you decide what to name your objects. They should make sense to anyone reading the code.
