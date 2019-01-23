@@ -243,13 +243,13 @@ void followLine() {
         leftPower = power;
         rightPower = power;
     }
-    // when line under left sensor, curve slightly left to realign
+    // when line under left sensor, turn slightly left to realign
     else if (leftSensor > lineThreshold) {
         // decrease left motor, increase right motor
         leftPower = power - powerShift;
         rightPower = power + powerShift;
     } 
-    // when line under right sensor, curve slightly right to realign
+    // when line under right sensor, turn slightly right to realign
     else if (rightSensor > lineThreshold) {
         // increase left motor, decrease right motor
         leftPower = power + powerShift;
@@ -260,7 +260,7 @@ void followLine() {
     motors.leftDrive(leftPower);
     motors.rightDrive(rightPower);
 
-    delay(25);  // change delay to adjust line following sensitivity    
+    delay(25);  // can change delay to adjust line following sensitivity    
 }
 ```
 
