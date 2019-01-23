@@ -160,7 +160,7 @@ void followLine() {
 
 When the D12 button is pressed to "start" the robot, we want the robot to follow the line.
 
-Add this code **within** the `if` statement in the `loop()` function, so it will be performed when `started` is `true`:
+Add this code statement **within** the `if` statement in the `loop()` function, so it will be performed when `started` is `true`:
 
 ```cpp
     followLine();
@@ -172,7 +172,7 @@ Once the robot has been "started," the D12 button can be pressed again to "pause
 
 When the robot is "paused," we want make the robot stop driving.
 
-Add this code **within** the `else` statement in the `loop()` function, so it will be performed when `started` is `false`:
+Add this code statement **within** the `else` statement in the `loop()` function, so it will be performed when `started` is `false`:
 
 ```cpp
     motors.brake();
