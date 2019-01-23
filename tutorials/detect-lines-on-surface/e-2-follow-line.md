@@ -1,16 +1,14 @@
 # E-2 Follow Line
 
-**STILL IN PROGRESS**
-
 Next, you'll code an app that uses the IR line sensors to make your robot follow a line. The line determines the robot's path.
 
 ## Create Line on Surface
 
-Your teacher might have set up one or more line paths for the teams to use for this test.
+Your teacher might have set up one or more line paths for the class teams to use for this test.
 
-If not, then create a line on your floor or surface \(large sheet of paper, etc.\) that forms a closed path \(i.e., an oval or rounded rectangle\). The line should **not** have any "sharp" turns — instead, use a curved path to make any turns.
+If not, then create a line on your floor or surface \(e.g., large sheet of paper, etc.\) that forms a closed path \(i.e., an oval or rounded rectangle\). The line should **not** have any "sharp" turns — instead, use a curved path to make any turns.
 
-The diagram below represents a line enclosing an area about 3 feet by 4 feet in size.  You'll also use this same line for the next test \([E-3 Avoid Line](e-3-avoid-line.md)\), so be sure the enclosed area is at least 2 feet by 3 feet in size.
+The diagram below represents a line enclosing an area about 3 feet by 4 feet in size.  You'll also use your line for the next test \([E-3 Avoid Line](e-3-avoid-line.md)\), so be sure the area enclosed by the line is at least 2 feet by 3 feet.
 
 ![](../../.gitbook/assets/follow-line-diagram.png)
 
@@ -18,7 +16,7 @@ The diagram below represents a line enclosing an area about 3 feet by 4 feet in 
 
 The robot's goal during line following is to try stay centered on the line as the robot drives.
 
-Let's assume that the robot is trying to follow a dark line on a light-colored surface. When the robot is centered on the line, the center IR line sensor will have a high reading \(due to dark line\) while the left and right sensors will have low readings \(due to light-colored surface\).
+Let's assume that the robot is trying to follow a dark line on a light-colored surface. When the robot is centered on the line, the center IR line sensor will have a high reading \(due to the dark line\) while the left and right sensors will have low readings \(due to the light-colored surface on either side of the line\).
 
 ![](../../.gitbook/assets/follow-line-choices.jpg)
 
@@ -106,6 +104,10 @@ Later, you'll add the code to be performed when the robot is started or paused.
 ## Add Custom Function to Follow Line
 
 You'll add a custom function named `followLine()` which will contain code to use readings from the three IR line sensors to decide whether to drive straight, curve to the left, or curve to the right.
+
+Line following works best at slower speeds, so this function uses an initial value of `100` for the motor power \(but shifts each motor power up or down by `50` in order to curve left or right\).
+
+The function assumes that your robot will be following a dark line on a light-colored surface. However, you can modify this function to instead follow a light line on a dark surface.
 
 ```cpp
 void followLine() {
@@ -196,4 +198,8 @@ If your robot is unable to consistently follow the line, here are several things
 * Make sure your line is dark enough and the right width.  A uniform black line about 0.5–0.75 inch wide is ideal.
 * Make sure your surface is lighter in color than your line. A uniform white surface is ideal. However, the surface could be another color or have a pattern, as long as the IR sensor readings for the surface are consistently and significantly lower than the readings for the line.
 * You can use the `line_sensors_test` app to check the IR sensor readings for your line and surface. The readings for a dark line should be consistently high \(i.e., line readings of 800 or higher\). The readings for your surface should consistently be at least 100 less than your line readings. If necessary, you can modify the value assigned to `lineThreshold` in the `followLine()` function.
-* 
+
+{% hint style="warning" %}
+**LOW BATTERY:**  As your robot's battery power gets low, the IR line sensors will stop working — even though there still might be enough power to keep driving. If your robot was previously successful at line following and then starts having problems, try replacing the robot's batteries.
+{% endhint %}
+
