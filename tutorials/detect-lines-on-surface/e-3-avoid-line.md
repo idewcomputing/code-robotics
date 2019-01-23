@@ -4,6 +4,8 @@
 
 Next, you'll code an app that uses the IR line sensors to make your robot avoid a line. The line acts a border to keep the robot either inside \(or outside\) a certain area or path.
 
+## Use Existing Line on Surface
+
 ![](../../.gitbook/assets/avoid-line-diagram.png)
 
 same line and surface conditions required as for following line
