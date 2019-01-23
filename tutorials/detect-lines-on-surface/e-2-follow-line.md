@@ -22,6 +22,8 @@ get large sheet of paper \(such as: butcher paper, flip chart paper, etc.\), use
 
 The goal during line following is to try to keep the robot centered on the line as it drives. For this explanation, let's assume that the robot is trying to follow a dark line on a light-colored surface.
 
+![](../../.gitbook/assets/follow-line-choices.jpg)
+
 If the robot is centered on the line, the line will be under the center IR line sensor. The robot can detect this situation because the center IR line sensor will have a high reading \(dark line\) while the left and right sensors will have a low readings \(light surface\).  In order to keep following the line, the robot should drive straight to stay centered on the line.
 
 The IR sensors can be used to make the RedBot follow a line on the surface:
