@@ -2,6 +2,8 @@
 
 **STILL IN PROGRESS**
 
+Next, you'll code an app that uses the IR line sensors to make your robot count line markers that it crosses and then stop \(or turn\) when it reaches a specific line number.
+
 can either drive in straight line while counting line markers crossed
 
 OR

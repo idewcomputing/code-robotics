@@ -2,6 +2,12 @@
 
 **STILL IN PROGRESS**
 
+Next, you'll code an app that uses the IR line sensors to make your robot follow a line. The line determines the robot's path.
+
+## Create Line Path on Surface
+
+
+
 conditions required for accurate line following:
 
 * line should form a closed loop \(otherwise, robot will drive off end of line and get lost\)
@@ -11,6 +17,8 @@ conditions required for accurate line following:
 * surface must be relatively smooth \(may not work on uneven surface\)
 
 get large sheet of paper \(such as: butcher paper, flip chart paper, etc.\), use black permanent marker \(not dry erase marker\) to draw 0.5 inch wide line that forms an oval about 3 feet in diameter
+
+
 
 global variables for left and right motor powers
 
