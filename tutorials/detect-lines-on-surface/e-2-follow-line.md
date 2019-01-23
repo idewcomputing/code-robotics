@@ -18,6 +18,18 @@ conditions required for accurate line following:
 
 get large sheet of paper \(such as: butcher paper, flip chart paper, etc.\), use black permanent marker \(not dry erase marker\) to draw 0.5 inch wide line that forms an oval about 3 feet in diameter
 
+## How Line Following Works
+
+The goal during line following is to try to keep the robot centered on the line as it drives. For this explanation, let's assume that the robot is trying to follow a dark line on a light-colored surface.
+
+If the robot is centered on the line, the line will be under the center IR line sensor. The robot can detect this situation because the center IR line sensor will have a high reading \(dark line\) while the left and right sensors will have a low readings \(light surface\).  In order to keep following the line, the robot should drive straight to stay centered on the line.
+
+The IR sensors can be used to make the RedBot follow a line on the surface:
+
+* If the RedBot is **aligned with the line**, the line will be under the **center** IR sensor. The RedBot should **drive straight** to stay on the line.
+* If the RedBot has started to **move off the line towards the right**, the line will under the **left** IR sensor. The RedBot should **curve slightly to the left** to get back on the line.
+* If the RedBot has started to **move off the line towards the left**, the line will under the **right** IR sensor. The RedBot should **curve slightly to the right** to get back on the line.
+
 ## Save Copy of App With New Name <a id="save-copy-of-app-with-new-name"></a>
 
 In your Arduino code editor, use the "Save As" command to save a copy of the `line_sensors_test` app as a different app named: `follow_line_test`
@@ -27,6 +39,18 @@ Once you saved the new app name, modify the block comment near the beginning of 
 ## Global Variables for Motor Powers
 
 global variables for left and right motor powers
+
+
+
+In order to make the RedBot curve to the left or to the right, you can use different motor powers for the left and right motors. We'll use variables to keep track of each motor's power.
+
+Add this code statement **before** your `setup()` function:
+
+```cpp
+int leftPower, rightPower;
+```
+
+This code statement actually creates two variables at the same time. You can create multiple variables of the same data type with one code statement by using a comma to separate the variable names.
 
 ## Add Custom Function to Follow Line
 
