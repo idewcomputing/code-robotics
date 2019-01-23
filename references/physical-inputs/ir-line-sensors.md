@@ -204,11 +204,7 @@ The IR sensors can be used to make the RedBot follow a line on the surface:
 
 **NOTE:** Line following works best with a very dark line on a very light surface \(or vice versa\). The line also needs to be the right width: not too wide, but not too narrow. A line between 0.25—0.75 inch is ideal. Electrical tape \(traditionally black, but also available in colors like white\) works well — it can be easily applied \(and removed\) on a variety of surfaces.
 
-In order to make the RedBot curve to the left or to the right, you can use different motor powers for the left and right motors. We'll use variables to keep track of each motor's power. Add these global variables before your `setup()` function:
-
-```cpp
-int leftPower, rightPower;
-```
+In order to make the RedBot curve to the left or to the right, you can use different motor powers for the left and right motors. 
 
 ### followLine\(\) function
 
@@ -216,51 +212,48 @@ This custom function will use the IR sensors to adjust the `leftPower` and `righ
 
 ```cpp
 void followLine() {
+  /* FOLLOW LINE
+  To follow dark line on light surface:
+  Use high threshold & see if sensors greater than threshold
+  
+  To follow light line on dark surface:
+  Use low threshold & see if sensors less than threshold
+  */
 
-    /* FOLLOW LINE
-    To follow dark line on light surface:
-    Use high threshold & see if sensors greater than threshold
+  int leftPower, rightPower;
+  int power = 100;
+  int powerShift = 50;
+  int lineThreshold = 800; // change value if necessary
 
-    To follow light line on dark surface:
-    Use low threshold & see if sensors less than threshold
+  // get IR sensor readings
+  int leftSensor = leftLine.read();
+  int centerSensor = centerLine.read();
+  int rightSensor = rightLine.read();
 
-    Take test readings of line to determine best value for threshold
-    */
+  // when line under center sensor, drive straight to stay aligned
+  if (centerSensor > lineThreshold) {
+    // set both motors to same power
+    leftPower = power;
+    rightPower = power;
+  }
+  // when line under left sensor, curve left to realign
+  else if (leftSensor > lineThreshold) {
+    // decrease left motor, increase right motor
+    leftPower = power - powerShift;
+    rightPower = power + powerShift;
+  }
+  // when line under right sensor, curve right to realign
+  else if (rightSensor > lineThreshold) {
+    // increase left motor, decrease right motor
+    leftPower = power + powerShift;
+    rightPower = power - powerShift;
+  }
 
-    // change values if necessary
-    int lineThreshold = 800;
-    int power = 100;
-    int powerShift = 50;
+  // drive motors using power values from above
+  motors.leftDrive(leftPower);
+  motors.rightDrive(rightPower);
 
-    // get IR sensor readings
-    int leftSensor = leftLine.read();
-    int centerSensor = centerLine.read();
-    int rightSensor = rightLine.read();
-
-    // when line under center sensor, drive straight to stay aligned
-    if (centerSensor > lineThreshold) {
-        // set both motors to same power
-        leftPower = power;
-        rightPower = power;
-    }
-    // when line under left sensor, turn slightly left to realign
-    else if (leftSensor > lineThreshold) {
-        // decrease left motor, increase right motor
-        leftPower = power - powerShift;
-        rightPower = power + powerShift;
-    } 
-    // when line under right sensor, turn slightly right to realign
-    else if (rightSensor > lineThreshold) {
-        // increase left motor, decrease right motor
-        leftPower = power + powerShift;
-        rightPower = power - powerShift;
-    }
-
-    // drive motors using power values from above
-    motors.leftDrive(leftPower);
-    motors.rightDrive(rightPower);
-
-    delay(25);  // can change delay to adjust line following sensitivity    
+  delay(25);  // can change delay to adjust line following sensitivity    
 }
 ```
 

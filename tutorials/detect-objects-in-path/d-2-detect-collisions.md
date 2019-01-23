@@ -14,7 +14,7 @@ This app will use a **different** version of the "Press to Start" code.
 
 You'll press the D12 button to "start" the robot. Once the robot is "started," you can press the button again to "pause" the robot. \(Pressing the button yet again will "start" the robot again.\)
 
-You'll use a global variable to keep track of whether or not the robot has been "started." Add this code statement before the setup\(\) function:
+You'll use a global variable to keep track of whether or not the robot has been "started." Add this code statement **before** the `setup()` function:
 
 ```cpp
 bool started = false;
@@ -26,7 +26,7 @@ This code statement does three things \(in order\):
 2. **It declares the variable's name.** In this case, the variable will be called `started`. You get to decide what to name your variables. Choose names that will make sense to anyone reviewing your code.
 3. **It assigns a value to the variable.**  In this case, the variable's initial value will be equal to `false` because we don't want to "start" the robot until the D12 button is pressed.
 
-Next, you'll add a custom named `checkButton()` that will check whether the D12 button is pressed. If the button is pressed, the function will reverse the current value of `started` from `true` to `false` \(or from `false` to `true`\).
+Next, you'll add a custom function named `checkButton()` that will check whether the D12 button is pressed. If the button is pressed, the function will reverse the current value of `started` from `true` to `false` \(or from `false` to `true`\).
 
 Add this custom function **after** the `loop()` function \(i.e., after its closing curly brace\):
 

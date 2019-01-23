@@ -10,7 +10,7 @@ Each I/O pin on the RedBot circuit board is identified by a pin number \(such as
 
 When coding an Arduino app, you will typically create global variables to store the pin numbers for the inputs and outputs connected to your circuit board that you want to control. This will help make your code easier to understand because the variable names help identify each input or output.
 
-You'll need to create a global variable to store the pin number of the built-in LED. Add this code statement to your app by inserting it \(as a separate line of code\) **before** the `setup()` function:
+You'll need to "declare" \(create\) a global variable to store the pin number of the built-in LED. Add this code statement to your app by inserting it \(as a separate line of code\) **before** the `setup()` function:
 
 ```cpp
 int LED = 13;

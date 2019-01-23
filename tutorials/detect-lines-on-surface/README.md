@@ -27,7 +27,7 @@ The IR sensors can also be used to detect a surface drop-off \(such as a stair s
 
 ## Adding Lines to Surface
 
-Detecting lines with the IR sensors works best with a uniform dark line on a uniform light surface \(or vice versa\). The line also needs to be the right width:  not too wide – but not too narrow. A line width between 0.25—0.75 inch is ideal.
+Detecting lines with the IR sensors works best with a uniform dark line on a uniform light surface \(or vice versa\). The line also needs to be the right width:  not too wide – but not too narrow. The line must be at least 0.25 inch wide – but no more than 1 inch wide.
 
 ### Making Lines with Tape
 

@@ -6,31 +6,27 @@ Next, you'll code an app that uses the IR line sensors to make your robot follow
 
 ## Create Line on Surface
 
+Your teacher might have set up one or more line paths for the teams to use for this test.
+
+If not, then create a line on your floor or surface \(large sheet of paper, etc.\) that forms a closed path \(i.e., an oval or rounded rectangle\). The line should **not** have any "sharp" turns — instead, use a curved path to make any turns.
+
+The diagram below represents a line enclosing an area about 3 feet by 4 feet in size.  You'll also use this same line for the next test \([E-3 Avoid Line](e-3-avoid-line.md)\), so be sure the enclosed area is at least 2 feet by 3 feet in size.
+
 ![](../../.gitbook/assets/follow-line-diagram.png)
-
-conditions required for accurate line following:
-
-* line should form a closed loop \(otherwise, robot will drive off end of line and get lost\)
-* line should turn using gentle curves \(no sharp turns\)
-* line color should have high contrast compared to surface color:  typically you'll use a dark line \(black\) on a light surface \(white\), but you could use a light line on a dark surface
-* line should be as uniform in color as possible and should be 0.25 to 0.75 inches wide
-* surface must be relatively smooth \(may not work on uneven surface\)
-
-get large sheet of paper \(such as: butcher paper, flip chart paper, etc.\), use black permanent marker \(not dry erase marker\) to draw 0.5 inch wide line that forms an oval about 3 feet in diameter
 
 ## How Line Following Works
 
-The goal during line following is to try to keep the robot centered on the line as it drives. For this explanation, let's assume that the robot is trying to follow a dark line on a light-colored surface.
+The robot's goal during line following is to try stay centered on the line as the robot drives.
+
+Let's assume that the robot is trying to follow a dark line on a light-colored surface. When the robot is centered on the line, the center IR line sensor will have a high reading \(due to dark line\) while the left and right sensors will have low readings \(due to light-colored surface\).
 
 ![](../../.gitbook/assets/follow-line-choices.jpg)
 
-If the robot is centered on the line, the line will be under the center IR line sensor. The robot can detect this situation because the center IR line sensor will have a high reading \(dark line\) while the left and right sensors will have a low readings \(light surface\).  In order to keep following the line, the robot should drive straight to stay centered on the line.
+As the robot tries to follow the line, there are 3 possible situations at any given point:
 
-The IR sensors can be used to make the RedBot follow a line on the surface:
-
-* If the RedBot is **aligned with the line**, the line will be under the **center** IR sensor. The RedBot should **drive straight** to stay on the line.
-* If the RedBot has started to **move off the line towards the right**, the line will under the **left** IR sensor. The RedBot should **curve slightly to the left** to get back on the line.
-* If the RedBot has started to **move off the line towards the left**, the line will under the **right** IR sensor. The RedBot should **curve slightly to the right** to get back on the line.
+* **If only the center IR line sensor detects the line**, this means the robot is centered on the line. In this situation, the robot should drive straight to keep following the line.
+* **If only the left IR sensor detects the line**, this means the line has started to curve to the left. In this situation, the robot should adjust its motors to curve left and keep following the line.
+* **If only the right IR line sensor detects the line**, this means the line has started to curve to the right. In this situation, the robot should adjust its motors to curve right and keep following the line.
 
 ## Save Copy of App With New Name <a id="save-copy-of-app-with-new-name"></a>
 
@@ -38,74 +34,166 @@ In your Arduino code editor, use the "Save As" command to save a copy of the `li
 
 Once you saved the new app name, modify the block comment near the beginning of the app code to change `Line Sensors Test` to `Follow Line Test`.
 
-## Global Variables for Motor Powers
+## Create Objects for Motors and Button
 
-global variables for left and right motor powers
-
-
-
-In order to make the RedBot curve to the left or to the right, you can use different motor powers for the left and right motors. We'll use variables to keep track of each motor's power.
-
-Add this code statement **before** your `setup()` function:
+Your app will need to create new objects \(as global variables\) to represent the robot's motors and button. Add this code **before** the `setup()` function:
 
 ```cpp
-int leftPower, rightPower;
+RedBotMotors motors;
+RedBotButton button;
 ```
 
-This code statement actually creates two variables at the same time. You can create multiple variables of the same data type with one code statement by using a comma to separate the variable names.
+## Add Code for "Press to Start"
 
-## Add Custom Function to Follow Line
+This app will use the "Press to Start" code. You'll press the D12 button to "start" the robot. Once the robot is "started," you can press the button again to "pause" the robot. \(Pressing the button yet again will "start" the robot again.\)
+
+You need to declare global variables for the LED  pin and speaker pin. You also need a global variable to keep track of whether or not the robot has been "started."  Add this code **before** the `setup()` function:
 
 ```cpp
-void followLine() {
-    /* FOLLOW LINE
-    To follow dark line on light surface:
-    Use high threshold & see if sensors greater than threshold
+int LED = 13;
+int speaker = 9;
+bool started = false;
+```
 
-    To follow light line on dark surface:
-    Use low threshold & see if sensors less than threshold
-    */
+Set the pin modes for the LED and speaker by adding this code **within** the `setup()` function:
 
-    // change values if necessary
-    int lineThreshold = 800;
-    int power = 100;
-    int powerShift = 50;
+```cpp
+    pinMode(LED, OUTPUT);
+    pinMode(speaker, OUTPUT);
+```
 
-    // get IR sensor readings
-    int leftSensor = leftLine.read();
-    int centerSensor = centerLine.read();
-    int rightSensor = rightLine.read();
+This app does **not** need the `Serial.begin()` statement within the `setup()` function. You can turn this code statement into a **comment** by typing two forward slashes `//` at the beginning of the statement.
 
-    // when line under center sensor, drive straight to stay aligned
-    if (centerSensor > lineThreshold) {
-        // set both motors to same power
-        leftPower = power;
-        rightPower = power;
-    }
-    // when line under left sensor, turn slightly left to realign
-    else if (leftSensor > lineThreshold) {
-        // decrease left motor, increase right motor
-        leftPower = power - powerShift;
-        rightPower = power + powerShift;
-    } 
-    // when line under right sensor, turn slightly right to realign
-    else if (rightSensor > lineThreshold) {
-        // increase left motor, decrease right motor
-        leftPower = power + powerShift;
-        rightPower = power - powerShift;
-    }
+Next, you need to add the custom function named `checkButton()` that will check whether the D12 button is pressed, in order to "start" or "pause" the robot.
 
-    // drive motors using power values from above
-    motors.leftDrive(leftPower);
-    motors.rightDrive(rightPower);
+Add this custom function **after** the `loop()` function:
 
-    delay(25);  // change delay to adjust line following sensitivity    
+```cpp
+void checkButton() {
+  if (button.read() == true) {
+    // reverse value of started
+    started = !started;
+    
+    // beep and blink as feedback
+    digitalWrite(LED, HIGH);
+    tone(speaker, 2000);
+    delay(200);
+    digitalWrite(LED, LOW);
+    noTone(speaker);
+    delay(200);
+  }
 }
 ```
 
-use followLine\(\) custom function - explain conceptually how it works
+Next, **delete** the code statement that calls the `testLineSensors()` function **within** the `loop()` function. This will give you an "empty" `loop()` function.
+
+Now add this new code **within** the `loop()` function:
+
+```cpp
+  checkButton();
+  if (started == true) {
+    // add code to perform when "started"
+    
+  }
+  else {
+    // add code to perform when "paused"
+    
+  }
+```
+
+Later, you'll add the code to be performed when the robot is started or paused.
+
+## Add Custom Function to Follow Line
+
+You'll add a custom function named `followLine()` which will contain code to use readings from the three IR line sensors to decide whether to drive straight, curve to the left, or curve to the right.
+
+```cpp
+void followLine() {
+  /* FOLLOW LINE
+  To follow dark line on light surface:
+  Use high threshold & see if sensors greater than threshold
+  
+  To follow light line on dark surface:
+  Use low threshold & see if sensors less than threshold
+  */
+
+  int leftPower, rightPower;
+  int power = 100;
+  int powerShift = 50;
+  int lineThreshold = 800; // change value if necessary
+
+  // get IR sensor readings
+  int leftSensor = leftLine.read();
+  int centerSensor = centerLine.read();
+  int rightSensor = rightLine.read();
+
+  // when line under center sensor, drive straight to stay aligned
+  if (centerSensor > lineThreshold) {
+    // set both motors to same power
+    leftPower = power;
+    rightPower = power;
+  }
+  // when line under left sensor, curve left to realign
+  else if (leftSensor > lineThreshold) {
+    // decrease left motor, increase right motor
+    leftPower = power - powerShift;
+    rightPower = power + powerShift;
+  }
+  // when line under right sensor, curve right to realign
+  else if (rightSensor > lineThreshold) {
+    // increase left motor, decrease right motor
+    leftPower = power + powerShift;
+    rightPower = power - powerShift;
+  }
+
+  // drive motors using power values from above
+  motors.leftDrive(leftPower);
+  motors.rightDrive(rightPower);
+
+  delay(25);  // can change delay to adjust line following sensitivity    
+}
+```
+
+## Add Code to Perform When Robot is Started
+
+When the D12 button is pressed to "start" the robot, we want the robot to follow the line.
+
+Add this code **within** the `if` statement in the `loop()` function, so it will be performed when `started` is `true`:
+
+```cpp
+    followLine();
+```
+
+## Add Code to Perform When Robot is Paused
+
+Once the robot has been "started," the D12 button can be pressed again to "pause" the robot.
+
+When the robot is "paused," we want make the robot stop driving.
+
+Add this code **within** the `else` statement in the `loop()` function, so it will be performed when `started` is `false`:
+
+```cpp
+    motors.brake();
+```
 
 ## Upload App to Robot
 
-upload app to robot, and confirm it works - may need to adjust values in function \(such as: line threshold, etc.\) - test, adjust value, upload revised app, test again
+Follow the steps to connect your robot to your computer, and upload the app.
 
+Unplug the USB cable from the robot, and place the robot on your line, so only the robot's center IR line sensor is "on" the line.
+
+Press the D12 button to "start" the robot. The robot should \(hopefully\) follow the line.
+
+When you're done testing the robot, you can pick it up, and press the D12 button to "pause" the robot.
+
+If you want to test further, place the robot back on the line, and press the button to "start" the robot again.
+
+### TROUBLESHOOTING
+
+If your robot is unable to consistently follow the line, here are several things you could investigate:
+
+* Make sure your line path does **not** have sharp turns.
+* Make sure your line is dark enough and the right width.  A uniform black line about 0.5–0.75 inch wide is ideal.
+* Make sure your surface is lighter in color than your line. A uniform white surface is ideal. However, the surface could be another color or have a pattern, as long as the IR sensor readings for the surface are consistently and significantly lower than the readings for the line.
+* You can use the `line_sensors_test` app to check the IR sensor readings for your line and surface. The readings for a dark line should be consistently high \(i.e., line readings of 800 or higher\). The readings for your surface should consistently be at least 100 less than your line readings. If necessary, you can modify the value assigned to `lineThreshold` in the `followLine()` function.
+* 
