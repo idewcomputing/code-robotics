@@ -4,9 +4,9 @@
 
 Next, you'll code an app that uses the IR line sensors to make your robot follow a line. The line determines the robot's path.
 
-## Create Line Path on Surface
+## Create Line on Surface
 
-
+![](../../.gitbook/assets/follow-line-diagram.png)
 
 conditions required for accurate line following:
 
