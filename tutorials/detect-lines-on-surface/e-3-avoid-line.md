@@ -2,7 +2,7 @@
 
 **STILL IN PROGRESS**
 
-Next, you'll code an app that uses the IR line sensors to make your robot avoid a line. The line acts a border to keep the robot either inside \(or outside\) a certain area or path.
+Next, you'll code an app that uses the IR line sensors to make your robot avoid a line. The line acts a border to keep the robot inside \(or outside\) a certain area or path.
 
 ## Use Existing Line on Surface
 

@@ -129,19 +129,19 @@ void followLine() {
   int centerSensor = centerLine.read();
   int rightSensor = rightLine.read();
 
-  // when line under center sensor, drive straight to stay aligned
+  // if line under center sensor, drive straight to stay aligned
   if (centerSensor > lineThreshold) {
     // set both motors to same power
     leftPower = power;
     rightPower = power;
   }
-  // when line under left sensor, curve left to realign
+  // if line under left sensor, curve left to realign
   else if (leftSensor > lineThreshold) {
     // decrease left motor, increase right motor
     leftPower = power - powerShift;
     rightPower = power + powerShift;
   }
-  // when line under right sensor, curve right to realign
+  // if line under right sensor, curve right to realign
   else if (rightSensor > lineThreshold) {
     // increase left motor, decrease right motor
     leftPower = power + powerShift;
