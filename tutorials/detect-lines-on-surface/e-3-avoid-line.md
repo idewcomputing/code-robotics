@@ -1,7 +1,5 @@
 # E-3 Avoid Line
 
-**STILL IN PROGRESS**
-
 Next, you'll code an app that uses the IR line sensors to make your robot avoid a line. The line acts a border to keep the robot inside \(or outside\) a certain area or path.
 
 ## Use Existing Line on Surface
@@ -14,7 +12,15 @@ If you were to place the robot outside the area, then the line would act as a bo
 
 ## How Line Avoiding Works
 
-diagram and explanation
+The robot's goal when avoiding a line is to check for a line as the robot drives and then turn away from the line. To do this, we can just check the left and right IR line sensors \(rather than all three\).
+
+![](../../.gitbook/assets/avoid-line-choices.jpg)
+
+If the robot is trying to avoid a line, there are 3 possible situations when a line is detected:
+
+* **If both the left and right IR line sensors detect the line**, this means the robot has "hit" the line head-on. In this situation, the robot should turn around to avoid the line.
+* **If only the left IR sensor detects the line**, this means robot has "hit" the line at angle from the left. In this situation, the robot should turn right to avoid the line.
+* **If only the right IR line sensor detects the line**, this means robot has "hit" the line at angle from the right. In this situation, the robot should turn left to avoid the line.
 
 ## Add Custom Function to Avoid Line
 

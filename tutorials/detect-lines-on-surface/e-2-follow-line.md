@@ -20,7 +20,7 @@ Let's assume that the robot is trying to follow a dark line on a light-colored s
 
 ![](../../.gitbook/assets/follow-line-choices.jpg)
 
-As the robot tries to follow the line, there are 3 possible situations at any given point:
+If the robot is trying to follow a line, there are 3 possible situations at any given point:
 
 * **If only the center IR line sensor detects the line**, this means the robot is centered on the line. In this situation, the robot should drive straight to keep following the line.
 * **If only the left IR sensor detects the line**, this means the line has started to curve to the left. In this situation, the robot should adjust its motors to curve left and keep following the line.
