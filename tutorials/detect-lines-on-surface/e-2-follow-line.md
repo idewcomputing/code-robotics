@@ -107,7 +107,7 @@ You'll add a custom function named `followLine()` which will contain code to use
 
 Line following works best at slower speeds, so this function uses an initial value of `100` for the motor power \(but shifts each motor power up or down by `50` in order to curve left or right\).
 
-The function assumes that your robot will be following a dark line on a light-colored surface. However, you can modify this function to instead follow a light line on a dark surface.
+This function assumes that your robot will be following a dark line on a light-colored surface. However, you can modify the function to instead follow a light line on a dark surface.
 
 ```cpp
 void followLine() {

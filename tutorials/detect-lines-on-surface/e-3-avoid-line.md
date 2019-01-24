@@ -34,13 +34,15 @@ You'll add a custom function named `avoidLine()` which will contain code to use 
 
 Similar to following a line, avoiding a line works best at slower speeds \(otherwise the robot might drive past the line before detecting it\), so this function uses a value of `100` for the motor power.
 
-The function generates a random number for the amount of time \(in milliseconds\) for each turn \(pivot\) to produce some variation in the robot's new direction. The ranges for the random numbers were selected to make the pivot times close to a 90° turn or a 180° turn. However, you can modify this function to instead use fixed pivot times \(such as 650 ms for a 90° turn and 1300 ms for a 180° turn\).
+This function assumes that your robot will be avoiding a dark line on a light-colored surface. However, you can modify the function to instead avoid a light line on a dark surface.
+
+This function generates a **random** number for the amount of time \(in milliseconds\) for each turn \(pivot\) in order to produce variation in the robot's new direction. The ranges for the random numbers were selected to make the pivot times close to a 90° turn or a 180° turn. However, you can modify the function to instead use **fixed** pivot times \(such as 650 ms for a 90° turn and 1300 ms for a 180° turn\).
 
 {% hint style="success" %}
 **MINIMUM PIVOT:**  Be sure to make the robot turn at least 90° whenever it detects a line. If the robot were to "hit" a line at a nearly perpendicular angle \(almost head-on\), then a pivot of less than 90° might **not** be enough to turn away from the line.
 {% endhint %}
 
-The function assumes that your robot will be avoiding a dark line on a light-colored surface. However, you can modify this function to instead avoid a light line on a dark surface.
+Add this custom function **after** the `loop()` function:
 
 ```cpp
 void avoidLine() {
