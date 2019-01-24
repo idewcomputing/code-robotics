@@ -87,22 +87,22 @@ void avoidLine() {
 
   // if both sensors on line, turn around
   if (leftSensor > lineThreshold && rightSensor > lineThreshold) {
-    long randomNum = random(750, 1250);
+    long randomNum = random(975, 1625); // approx 145-225 degree pivot
     motors.pivot(100);
     delay(randomNum);
     motors.stop();
   }
   // if line under left sensor only, turn right
   else if (leftSensor > lineThreshold) {
-    long randomNum = random(500, 750);
-    motors.pivot(100);
+    long randomNum = random(325, 975); // approx 45-135 degree pivot
+    motors.pivot(100); // pivot clockwise to right
     delay(randomNum);
     motors.stop();
   }
   // if line under right sensor only, turn left
   else if (rightSensor > lineThreshold) {
-    long randomNum = random(500, 750);
-    motors.pivot(-100);
+    long randomNum = random(325, 975); // approx 45-135 degree pivot
+    motors.pivot(-100); // pivot counter-clockwise to left
     delay(randomNum);
     motors.stop();
   }

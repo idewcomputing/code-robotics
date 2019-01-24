@@ -4,15 +4,15 @@ Next, you'll code an app that uses the IR line sensors to make your robot avoid 
 
 ## Use Existing Line on Surface
 
-You'll use the same line as you did in the previous test — except for this test, the robot will be placed **inside** the area enclosed by the line. As the robot drives around, it will turn around whenever it detects the line. In this case, the line will act like a border to keep the robot inside the area.
+You'll use the same line as you did in the previous test — except for this test, the robot will be placed **inside** the area enclosed by the line. As the robot drives around, it will turn away from the line whenever the line is detected. In this case, the line will act like a border to keep the robot **inside** the area.
 
 ![](../../.gitbook/assets/avoid-line-diagram.png)
 
-If you were to place the robot outside the area, then the line would act as a border to keep the robot outside of the area.
+If you were to place the robot **outside** the area, then the line would act as a border to keep the robot **outside** of the area.
 
 ## How Line Avoiding Works
 
-The robot's goal when avoiding a line is to check for a line as the robot drives and then turn away from the line. To do this, we can just check the left and right IR line sensors \(rather than all three\).
+The robot's goal when avoiding a line is to check for a line as the robot drives and turn away when a line is detected. To do this, the robot can just check the left and right IR line sensors \(rather than all three\).
 
 ![](../../.gitbook/assets/avoid-line-choices.jpg)
 
@@ -63,22 +63,22 @@ void avoidLine() {
 
   // if both sensors on line, turn around
   if (leftSensor > lineThreshold && rightSensor > lineThreshold) {
-    long randomNum = random(1000, 1500);
+    long randomNum = random(975, 1625); // approx 145-225 degree pivot
     motors.pivot(100);
     delay(randomNum);
     motors.stop();
   }
   // if line under left sensor only, turn right
   else if (leftSensor > lineThreshold) {
-    long randomNum = random(500, 750);
-    motors.pivot(100);
+    long randomNum = random(325, 975); // approx 45-135 degree pivot
+    motors.pivot(100); // pivot clockwise to right
     delay(randomNum);
     motors.stop();
   }
   // if line under right sensor only, turn left
   else if (rightSensor > lineThreshold) {
-    long randomNum = random(500, 750);
-    motors.pivot(-100);
+    long randomNum = random(325, 975); // approx 45-135 degree pivot
+    motors.pivot(-100); // pivot counter-clockwise to left
     delay(randomNum);
     motors.stop();
   }

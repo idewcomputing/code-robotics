@@ -309,22 +309,22 @@ void avoidLine() {
 
   // if both sensors on line, turn around
   if (leftSensor > lineThreshold && rightSensor > lineThreshold) {
-    long randomNum = random(750, 1250);
+    long randomNum = random(975, 1625); // approx 145-225 degree pivot
     motors.pivot(100);
     delay(randomNum);
     motors.stop();
   }
   // if line under left sensor only, turn right
   else if (leftSensor > lineThreshold) {
-    long randomNum = random(500, 750);
-    motors.pivot(100);
+    long randomNum = random(325, 975); // approx 45-135 degree pivot
+    motors.pivot(100); // pivot clockwise to right
     delay(randomNum);
     motors.stop();
   }
   // if line under right sensor only, turn left
   else if (rightSensor > lineThreshold) {
-    long randomNum = random(500, 750);
-    motors.pivot(-100);
+    long randomNum = random(325, 975); // approx 45-135 degree pivot
+    motors.pivot(-100); // pivot counter-clockwise to left
     delay(randomNum);
     motors.stop();
   }
@@ -340,7 +340,7 @@ Although the concept of avoiding a line is similar to following a line, you can 
 * To follow a line, the left and right motor powers are adjusted to gently turn the RedBot so it will be centered on the line.
 * However, to avoid a line, the RedBot is stopped using the brakes and then pivoted away from the line, before it is allowed to drive forward again.
 
-When the IR sensors detect a line, the Arduino `random()` method is used to [generate a random number](https://www.arduino.cc/reference/en/language/functions/random-numbers/random/) that will become the delay time while the RedBot pivots. At a pivot power of 100, a delay between 500 ms to 750 ms will allow the RedBot to pivot about 90° to 135°, while a random delay between 750 ms to 1250 ms will allow the RedBot to pivot about 135° to 225°. If desired, you can change the range for the random numbers — but the RedBot should always pivot for at least 500 ms \(90°\) to ensure it will point away from the line.
+When the IR sensors detect a line, the Arduino `random()` method is used to [generate a random number](https://www.arduino.cc/reference/en/language/functions/random-numbers/random/) that will become the delay time while the RedBot pivots. At a pivot power of 100, a delay between 325 ms to 975 ms will allow the RedBot to pivot about 45° to 135°, while a random delay between 975 ms to 1625 ms will allow the RedBot to pivot about 135° to 225°. If desired, you can change the range for the random numbers — but the RedBot should always pivot for at least 500 ms \(90°\) to ensure it will point away from the line.
 
 ## Count Lines and Stop at Target Number
 
