@@ -1,6 +1,6 @@
 # C-5 Pivot By Specific Angle
 
-As your last step of this tutorial, you'll code an app that uses the wheel encoders to make your robot pivot by a specific angle \(measured in degrees\).
+Next, you'll code an app that uses the wheel encoders to make your robot pivot by a specific angle \(measured in degrees\).
 
 ## Using Wheel Encoder Counts to Calculate Pivot Angle
 
@@ -85,9 +85,6 @@ void pivotAngle(float angle) {
     // target count reached
     motors.brake();
     delay(250);
-    
-    // uncomment next statement only if using driveStraight() elsewhere in program
-    // clearEncoders();
 }
 ```
 

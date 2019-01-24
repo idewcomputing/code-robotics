@@ -1,7 +1,5 @@
 # C-6 Drive Straight Continuously
 
-**STILL IN PROGRESS - LAST MINUTE ADDITION**
-
 As your last step of this tutorial, you'll code an app that uses the wheel encoders to make your robot drive straight continuously \(rather than for a specific distance\).
 
 Driving straight continuously is usually combined with other robot behaviors that you'll learn about later, such as:  detecting collisions, avoiding collisions, avoiding a line, or counting lines crossed.
@@ -113,9 +111,9 @@ Now add this new code **within** the `loop()` function:
 
 As you can see, this code will call the `checkButton()` function. Then it uses an if-else statement to perform different code \(not added yet\) depending on whether `started` is `true` or `false`.
 
-## Add Custom to Drive Straight Continuously
+## Add Custom Function to Drive Straight
 
-You'll add another custom function named `driveStraight()` which will contain code to make your robot drive in a straight line continuously by using the wheel encoders.
+You'll add another custom function named `driveStraight()` which will contain code to use the wheel encoders to make your robot drive in a continuous straight line \(as long as this function is called continuously by the `loop()` function\).
 
 The `driveStraight()` function works similar to the `driveDistance()` function, except it **doesn't** stop the robot after a specific distance.
 
@@ -160,38 +158,55 @@ void driveStraight() {
 }
 ```
 
-The `driveStraight()` function checks to see whether the wheel encoder counts are increasing at the same rate \(by comparing how much their current counts increased from their previous counts\). If one of the wheel encoder counts is falling behind the other, the function adjusts the individual motor powers to try to keep them rotating at the same rate \(which makes the robot drive straight\).
+## Add Global Variables for Motor Powers and Encoder Counts
 
-The `driveStraight()` custom function relies on global variables used to track the wheel encoder counts, as well as the powers for the left and right motors. Add this code **before** the `setup()` function:
+The `driveStraight()` function checks to see whether the wheel encoder counts are increasing at the same rate \(by comparing how much their current counts increased from their previous counts\). If one of the wheel encoder counts is increasing at a faster rate, the function adjusts the individual motor powers to try to keep them rotating at the same rate \(which makes the robot drive straight\).
+
+In order to do this, the `driveStraight()` function relies on global variables to track the left and right motor powers, as well as the left and right encoder counts. Add this code **before** the `setup()` function:
 
 ```cpp
 // global variables needed for driveStraight() function
-int leftPower, rightPower;
-long prevLeftCount, prevRightCount;
+int leftPower = 175, rightPower = leftPower;
+long prevLeftCount = 0, prevRightCount = 0;
 ```
 
-## Add Custom Function to Clear Encoders
+## Reset Encoder Counters
 
-You'll add another custom function named `clearEncoders()` which will contain code to reset the wheel encoder counts and initialize the values for the global variables used to track the previous wheel encoder counts and the individual motor powers.
-
-Add this custom function **after** the `loop()` function:
+You'll also want to reset both wheel encoder counters to zero when the app first starts. Add this code statement **within** the `setup()` function:
 
 ```cpp
-void clearEncoders() {
-  // call this function in setup() and after any turn or pivot
   encoder.clearEnc(BOTH);
-  prevLeftCount = 0;
-  prevRightCount = 0;
-  leftPower = 175; // can change this value to adjust average speed
-  rightPower = leftPower;
-}
 ```
 
-You'll need to call the `clearEncoders()` function **before** your robot can use the `driveStraight()` function. Add this code statement **within** the `setup()` function:
+## Add Code to Perform When Robot is Started
+
+When the D12 button is pressed to "start" the robot, we want to make the robot drive straight continuously.
+
+Add this code **within** the `if` statement in the `loop()` function, so it will be performed when `started` is `true`:
 
 ```cpp
-  clearEncoders();
+    driveStraight();
 ```
 
-Later, if you create other apps that use the `driveStraight()` function along with other functions that make the robot turn or pivot, then you'll need to call the `clearEncoders()` function **within** the other custom functions that turn or pivot the robot, such as the `pivotAngle()` function, etc.
+## Add Code to Perform When Robot is Paused
+
+Once the robot has been "started," the D12 button can be pressed again to "pause" the robot.
+
+When the robot is "paused," we want to make sure the robot stops driving.
+
+Add this code **within** the `else` statement in the `loop()` function, so it will be performed when `started` is `false`:
+
+```cpp
+    motors.brake();
+```
+
+## Upload App to Robot
+
+Follow the steps to connect your robot to your computer, and upload the app.
+
+Unplug the USB cable from the robot, and place the robot on the floor. Be sure the robot has a clear path to drive forward for at least 6 feet.
+
+Press the D12 button to "start" the robot driving in a straight line. It should keep driving in a straight line continuously, so you'll have to pick up the robot at some point and "pause" it by pressing the D12 button \(or you can press the Reset button\).
+
+If you want to test further, place the robot on the floor, and press the button to "start" the robot again.
 

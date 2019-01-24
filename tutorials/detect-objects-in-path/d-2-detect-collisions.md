@@ -10,7 +10,7 @@ Once you saved the new app name, modify the block comment near the beginning of 
 
 ## Add Code for "Press to Start"
 
-This app will use a **different** version of the "Press to Start" code.
+This app will use a **different** version of the "Press to Start" code \(same version used in [C-6 Drive Straight Continuously](../driving-and-turning/c-6-drive-straight-continuously.md)\).
 
 You'll press the D12 button to "start" the robot. Once the robot is "started," you can press the button again to "pause" the robot. \(Pressing the button yet again will "start" the robot again.\)
 

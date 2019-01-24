@@ -509,9 +509,6 @@ void pivotAngle(float angle) {
     // target count reached
     motors.brake();
     delay(250);
-    
-    // uncomment next statement only if using driveStraight() or countLine() elsewhere in program
-    // clearEncoders();
 }
 ```
 
@@ -633,8 +630,10 @@ void turnAngle(float angle) {
     motors.stop();
     delay(250);
 
-    // uncomment next statement only if using driveStraight() or countLine() elsewhere in program
-    // clearEncoders();
+    // uncomment next statements only if using driveStraight() elsewhere in program
+    // encoder.clearEnc(BOTH);
+    // prevLeftCount = 0;
+    // prevRightCount = 0;
 }
 ```
 
