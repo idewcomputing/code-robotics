@@ -2,7 +2,7 @@
 
 As your last step of this tutorial, you'll code an app that uses the wheel encoders to make your robot drive straight continuously \(rather than for a specific distance\).
 
-Driving straight continuously is usually combined with other robot behaviors that you'll learn about in the next tutorials, such as:  detecting collisions, avoiding collisions, avoiding a line, or counting lines crossed.
+Driving straight continuously is usually combined with other robot behaviors that you'll learn about in the upcoming tutorials:  detecting collisions, avoiding collisions, avoiding a line, counting lines crossed, etc.
 
 ## Create New App
 
