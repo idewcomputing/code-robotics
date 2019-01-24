@@ -114,3 +114,66 @@ void driveDistance(float distance) {
 }
 ```
 
+## driveStraight\(\)
+
+A custom function named `driveDistance()` uses the wheel encoders to make your robot drive straight continuously \(rather than for a specific distance\).
+
+In order to work, the `driveDistance()` function must be continuously called by the `loop()` function.
+
+Driving straight continuously is usually combined with other robot behaviors, such as:  detecting collisions, avoiding collisions, avoiding a line, counting lines crossed, etc.
+
+The `driveStraight()` function relies on global variables to track the left and right motor powers, as well as the left and right encoder counts. Add this code **before** the `setup()` function:
+
+```cpp
+// global variables needed for driveStraight() function
+int leftPower = 175, rightPower = leftPower;
+long prevLeftCount = 0, prevRightCount = 0;
+```
+
+The wheel encoder counters should be reset back to zero when your app first starts. Add this code statement **within** the `setup()` function:
+
+```cpp
+  encoder.clearEnc(BOTH);
+```
+
+Add this `driveStraight()` custom function **after** the `loop()` function:
+
+```cpp
+void driveStraight() {
+
+  // use wheel encoders to drive straight continuously
+
+  // amount to offset motor powers to drive straight
+  int offset = 5;
+
+  // get current wheel encoder counts
+  leftCount = encoder.getTicks(LEFT);
+  rightCount = encoder.getTicks(RIGHT);
+  
+  // calculate increase in count from previous reading
+  long leftDiff = leftCount - prevLeftCount;
+  long rightDiff = rightCount - prevRightCount;
+
+  // store current counts as "previous" counts for next reading
+  prevLeftCount = leftCount;
+  prevRightCount = rightCount;
+
+  // adjust left & right motor powers to keep counts similar (drive straight)
+  // if left rotated more than right, slow down left & speed up right
+  if (leftDiff > rightDiff) {
+    leftPower = leftPower - offset;
+    rightPower = rightPower + offset;
+  }
+  // if right rotated more than left, speed up left & slow down right
+  else if (leftDiff < rightDiff) {
+    leftPower = leftPower + offset;
+    rightPower = rightPower - offset;
+  }
+
+  // apply adjusted motor powers
+  motors.leftDrive(leftPower);
+  motors.rightDrive(rightPower);
+  delay(10);  // short delay before next reading
+}
+```
+
