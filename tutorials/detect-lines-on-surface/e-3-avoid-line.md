@@ -22,11 +22,19 @@ If the robot is trying to avoid a line, there are 3 possible situations when a l
 * **If only the left IR sensor detects the line**, this means robot has "hit" the line at angle from the left. In this situation, the robot should turn right to avoid the line.
 * **If only the right IR line sensor detects the line**, this means robot has "hit" the line at angle from the right. In this situation, the robot should turn left to avoid the line.
 
+## Save Copy of App With New Name <a id="save-copy-of-app-with-new-name"></a>
+
+In your Arduino code editor, use the "Save As" command to save a copy of the `follow_line_test` app as a different app named: `avoid_line_test`
+
+Once you saved the new app name, modify the block comment near the beginning of the app code to change `Follow Line Test` to `Avoid Line Test`.
+
 ## Add Custom Function to Avoid Line
 
 You'll add a custom function named `avoidLine()` which will contain code to use readings from the left and right IR line sensors to decide whether to drive straight, turn left, turn right, or turn around the right.
 
 Similar to following a line, avoiding a line works best at slower speeds \(otherwise the robot might drive past the line before detecting it\), so this function uses a value of `100` for the motor power.
+
+The function generates a random number for the amount of time \(in milliseconds\) for each turn \(pivot\) to produce some variation in the robot's path. The ranges for the random numbers were selected to make the pivot times close to a 90° turn or a 180° turn. However, you can modify this function to instead use fixed pivot times \(such as 650 ms for a 90° turn and 1300 ms for a 180° turn\).
 
 The function assumes that your robot will be avoiding a dark line on a light-colored surface. However, you can modify this function to instead avoid a light line on a dark surface.
 
@@ -55,7 +63,7 @@ void avoidLine() {
 
   // if both sensors on line, turn around
   if (leftSensor > lineThreshold && rightSensor > lineThreshold) {
-    long randomNum = random(750, 1250);
+    long randomNum = random(1000, 1500);
     motors.pivot(100);
     delay(randomNum);
     motors.stop();
