@@ -115,7 +115,7 @@ Unplug the USB cable from the robot, and place the robot **inside** the area enc
 
 Press the D12 button to "start" the robot. The robot should start driving and should avoid the line by making turns to stay within the area enclosed by the line.
 
-When you're done testing the robot, you can pick it up, and press the D12 button to "pause" the robot.
+When you're done testing the robot, you can pick it up, and press the D12 button to "pause" the robot \(or you can press the Reset button\).
 
 If you want to test further, place the robot back on the line, and press the button to "start" the robot again.
 

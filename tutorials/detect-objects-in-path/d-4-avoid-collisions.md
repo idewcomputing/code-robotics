@@ -75,7 +75,7 @@ Unplug the USB cable from the robot, and place the robot on the floor.
 
 Press the D12 button to "start" the robot driving forward. You can use your leg as an obstacle in the robot's path. When the robot detects that it is too close to an obstacle, the robot should stop, back up, and then turn 90° right or left.
 
-When you're done testing the robot, you can pick it up, and press the D12 button to "pause" the robot.
+When you're done testing the robot, you can pick it up, and press the D12 button to "pause" the robot \(or you can press the Reset button\).
 
 If you want to test further, place the robot on the floor, and press the button to "start" the robot again.
 

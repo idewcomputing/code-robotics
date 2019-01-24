@@ -124,7 +124,7 @@ Unplug the USB cable from the robot, and place the robot on the floor.
 
 Press the D12 button to "start" the robot driving forward. You can use your hand as an obstacle to create collisions with the wire whiskers. When a collision is detected, the robot should stop, back up, and then turn 90° right or left \(depending on which bumper detected the collision\).
 
-When you're done testing the robot, you can pick it up, and press the D12 button to "pause" the robot.
+When you're done testing the robot, you can pick it up, and press the D12 button to "pause" the robot \(or you can press the Reset button\).
 
 If you want to test further, place the robot on the floor, and press the button to "start" the robot again.
 
