@@ -126,8 +126,8 @@ However, the ultrasonic sensor might **not** detect obstacles off to the left si
 
 The ultrasonic sensor should be connected to the RedBot circuit board by a 4-wire jumper cable \(will be different colors – two wires are for data, one is for power, and one is for ground\):
 
-* The transmitter data wire \(TRIG\) should be connected to I/O pin A0.
-* The receiver data wire \(ECHO\) should be connected to I/O pin A1.
+* The transmitter data wire \(Trig\) should be connected to I/O pin A0.
+* The receiver data wire \(Echo\) should be connected to I/O pin A1.
 
 
 

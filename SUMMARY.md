@@ -23,6 +23,7 @@
   * [C-3 Test Wheel Encoders](tutorials/driving-and-turning/c-3-test-wheel-encoders.md)
   * [C-4 Drive for Specific Distance](tutorials/driving-and-turning/c-4-drive-for-specific-distance.md)
   * [C-5 Pivot By Specific Angle](tutorials/driving-and-turning/c-5-pivot-by-specific-angle.md)
+  * [C-6 Drive Straight Continuously](tutorials/driving-and-turning/c-6-drive-straight-continuously.md)
 * [D. Detect Objects in Path](tutorials/detect-objects-in-path/README.md)
   * [D-1 Test Mechanical Bumpers](tutorials/detect-objects-in-path/d-1-test-mechanical-bumpers.md)
   * [D-2 Detect Collisions](tutorials/detect-objects-in-path/d-2-detect-collisions.md)

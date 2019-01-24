@@ -212,6 +212,7 @@ The `driveStraight()` custom function relies on several global variables that ar
 Add this code before your `setup()` function to declare these global variables:
 
 ```cpp
+// global variables needed for driveStraight() function
 int leftPower, rightPower;
 long prevLeftCount, prevRightCount;
 ```
@@ -224,12 +225,12 @@ Add the `clearEncoders()` function after your `loop()` function:
 
 ```cpp
 void clearEncoders() {
-    // call this function in setup() and after any turn or pivot
-    encoder.clearEnc(BOTH);
-    prevLeftCount = 0;
-    prevRightCount = 0;
-    leftPower = 175;
-    rightPower = leftPower;
+  // call this function in setup() and after any turn or pivot
+  encoder.clearEnc(BOTH);
+  prevLeftCount = 0;
+  prevRightCount = 0;
+  leftPower = 175; // can change this value to adjust average speed
+  rightPower = leftPower;
 }
 ```
 
@@ -248,40 +249,39 @@ Add the `driveStraight()` function after your `loop()` function:
 ```cpp
 void driveStraight() {
 
-    // use wheel encoders to drive straight continuously
+  // use wheel encoders to drive straight continuously
 
-    // amount to offset motor powers to drive straight
-    int offset = 5;
+  // amount to offset motor powers to drive straight
+  int offset = 5;
 
-    // get current wheel encoder counts
-    leftCount = encoder.getTicks(LEFT);
-    rightCount = encoder.getTicks(RIGHT);
+  // get current wheel encoder counts
+  leftCount = encoder.getTicks(LEFT);
+  rightCount = encoder.getTicks(RIGHT);
+  
+  // calculate increase in count from previous reading
+  long leftDiff = leftCount - prevLeftCount;
+  long rightDiff = rightCount - prevRightCount;
 
-    // calculate increase in count from previous reading
-    long leftDiff = leftCount - prevLeftCount;
-    long rightDiff = rightCount - prevRightCount;
+  // store current counts as "previous" counts for next reading
+  prevLeftCount = leftCount;
+  prevRightCount = rightCount;
 
-    // store current counts as "previous" counts for next reading
-    prevLeftCount = leftCount;
-    prevRightCount = rightCount;
+  // adjust left & right motor powers to keep counts similar (drive straight)
+  // if left rotated more than right, slow down left & speed up right
+  if (leftDiff > rightDiff) {
+    leftPower = leftPower - offset;
+    rightPower = rightPower + offset;
+  }
+  // if right rotated more than left, speed up left & slow down right
+  else if (leftDiff < rightDiff) {
+    leftPower = leftPower + offset;
+    rightPower = rightPower - offset;
+  }
 
-    // adjust left & right motor powers to keep counts similar (drive straight)
-
-    // if left rotated more than right, slow down left & speed up right
-    if (leftDiff > rightDiff) {
-        leftPower = leftPower - offset;
-        rightPower = rightPower + offset;
-    }
-    // else if right rotated more than left, speed up left & slow down right
-    else if (leftDiff < rightDiff) {
-        leftPower = leftPower + offset;
-        rightPower = rightPower - offset;
-    }
-
-    // apply adjusted motor powers
-    motors.leftDrive(leftPower);
-    motors.rightDrive(rightPower);
-    delay(10);  // short delay before next reading
+  // apply adjusted motor powers
+  motors.leftDrive(leftPower);
+  motors.rightDrive(rightPower);
+  delay(10);  // short delay before next reading
 }
 ```
 

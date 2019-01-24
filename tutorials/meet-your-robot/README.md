@@ -3,7 +3,7 @@
 In this first tutorial, you'll become familiar with your team's robotics kit. Your team might receive a new robotics kit that needs to be assembled – or you might receive an existing robot that is ready to use.
 
 {% hint style="success" %}
-**NEW ROBOT:**  If you need to assemble a new SparkFun RedBot robotics kit, carefully follow the instructions in the [SparkFun Assembly Guide for RedBot](https://learn.sparkfun.com/tutorials/assembly-guide-for-redbot-with-shadow-chassis). If your teacher added an ultrasonic sensor to your kit, follow these [instructions to connect the ultrasonic sensor](../../references/physical-inputs/ultrasonic-sensor.md) to your assembled robot.
+**NEW ROBOT:**  If you need to assemble a new SparkFun RedBot kit, follow the instructions in the [SparkFun Assembly Guide for RedBot](https://learn.sparkfun.com/tutorials/assembly-guide-for-redbot-with-shadow-chassis). If your teacher added an ultrasonic sensor to your kit, follow these [instructions to connect the ultrasonic sensor](../../references/physical-inputs/ultrasonic-sensor.md) to your assembled robot.
 {% endhint %}
 
 {% hint style="danger" %}

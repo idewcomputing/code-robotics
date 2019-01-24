@@ -86,7 +86,7 @@ void pivotAngle(float angle) {
     motors.brake();
     delay(250);
     
-    // uncomment next statement only if using driveStraight() or countLine() elsewhere in program
+    // uncomment next statement only if using driveStraight() elsewhere in program
     // clearEncoders();
 }
 ```
