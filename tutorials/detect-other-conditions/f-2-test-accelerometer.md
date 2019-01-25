@@ -43,6 +43,8 @@ Hopefully, the code syntax for creating new objects looks familiar:
 * `RedBotAccel` declares the class for the new object.
 * `accel` represents a name for the object. Again, you decide what to name your objects and variables, as long as the names are unique and will make sense to anyone reading the code.
 
+You may have noticed that you didn't have to indicate which I/O pins the accelerometer is connected to on the RedBot circuit board. This is because the RedBot library assumes the accelerometer is connected to pins A4 and A5.
+
 ## Begin Serial Communication
 
 When your robot and computer are connected with a USB cable, they can communicate with each other by transferring serial data.
@@ -71,6 +73,10 @@ Here are the different properties for a `RedBotAccel` object named `accel`:
 * `accel.angleXZ` – calculated angle between the X and Z axes of the accelerometer \(represents the front-to-back rotation on the device's Y axis, which is also called **pitch**\)
 * `accel.angleYZ` – calculated angle between the Y and Z axes of the accelerometer \(represents the side-to-side rotation on the device's X axis, which is also called **roll**\)
 * `accel.angleXY` – calculated angle between the X and Y axes of the accelerometer \(represents the left-to-right rotation on the device's Z axis, which is also called **yaw**\)
+
+For your apps, you probably won't use the raw accelerometer measurements. Instead, you'll most likely want to know the calculated angles for the XZ, YZ, and XY planes.
+
+This diagram shows how the accelerometer's X, Y, and Z axes are oriented on the RedBot and what the XZ, YZ, and XY angles represent. These angles are also referred to as pitch, roll, and yaw.
 
 Add this custom function **after** the `loop()` function:
 
