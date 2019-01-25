@@ -41,7 +41,7 @@ Hopefully, the code syntax for creating new objects looks familiar:
 * `RedBotAccel` declares the class for the new object.
 * `accel` represents a name for the object. Again, you decide what to name your objects and variables, as long as the names are unique and will make sense to anyone reading the code.
 
-You may have noticed that you didn't have to indicate which I/O pins the accelerometer is connected to on the RedBot circuit board. This is because the RedBot library assumes the accelerometer is connected to pins A4 and A5.
+You may have noticed that you **didn't** have to indicate which I/O pins the accelerometer is connected to. This is because the RedBot library assumes the accelerometer is connected to pins A4 and A5 on the RedBot circuit board.
 
 ## Begin Serial Communication
 
@@ -128,7 +128,7 @@ In your Arduino code editor, open the serial monitor, so you can view the serial
 
 Place the robot on a level surface, such as your desk or table. View the accelerometer readings in the serial monitor. If the surface is perfectly level, the values for pitch \(angle XZ\) and roll \(angle YZ\) will be zero. However, you may discover that your values are close to zero \(instead of exactly zero\).
 
-Follow the steps below to test pitch, roll, and yaw.
+Follow the steps below to test pitch, roll, and yaw by rotating your robot's body in different directions.
 
 #### PITCH
 
