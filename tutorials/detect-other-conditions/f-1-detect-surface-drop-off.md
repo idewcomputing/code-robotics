@@ -1,8 +1,8 @@
 # F-1 Detect Surface Drop-Off
 
-**STILL IN PROGRESS**
-
 First, you'll code an app that allow your robot to detect a surface drop-off \(such as:  the edge of a table, a stair step leading down, a hole in the surface, etc.\). This will allow your robot to protect itself from a fall by braking, reversing, changing direction, etc.
+
+A surface drop-off can be easily detected using the IR line sensors. When the front edge of the robot is hanging over a surface drop-off, the IR sensor readings will be very high \(typically 1000 or higher\).
 
 ## Save Copy of App With New Name <a id="save-copy-of-app-with-new-name"></a>
 
