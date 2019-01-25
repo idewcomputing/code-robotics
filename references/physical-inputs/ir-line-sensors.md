@@ -165,20 +165,20 @@ Here is a custom function named `checkDropOff()` that will check the IR sensor r
 ```cpp
 void checkDropOff() {
 
-    // set IR threshold indicating drop-off (table edge, etc.)
-    int dropOff = 950; // change value if necessary
+  // IR threshold indicating drop-off (table edge, hole, etc.)
+  int dropOff = 950; // adjust value if necessary
 
-    // get IR sensor readings
-    int leftSensor = leftLine.read();
-    int centerSensor = centerLine.read();
-    int rightSensor = rightLine.read();
+  // get IR sensor readings
+  int leftSensor = leftLine.read();
+  int centerSensor = centerLine.read();
+  int rightSensor = rightLine.read();
 
-    // see if any IR sensors detect drop-off
-    if (leftSensor > dropOff || centerSensor > dropOff || rightSensor > dropOff) {
-        // add code to perform (brake, reverse, change direction, etc.)
-        motors.brake();
-
-    }
+  // see if any IR sensors detect drop-off
+  if (leftSensor > dropOff || centerSensor > dropOff || rightSensor > dropOff) {
+    // add code to perform (brake, reverse, change direction, etc.)
+    motors.brake();
+    
+  }
 }
 ```
 

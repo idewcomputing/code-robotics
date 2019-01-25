@@ -109,6 +109,8 @@ Line following works best at slower speeds, so this function uses an initial val
 
 This function assumes that your robot will be following a dark line on a light-colored surface. However, you can modify the function to instead follow a light line on a dark surface.
 
+Add this custom function **after** the `loop()` function:
+
 ```cpp
 void followLine() {
   /* FOLLOW LINE
