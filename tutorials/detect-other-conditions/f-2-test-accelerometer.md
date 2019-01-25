@@ -1,7 +1,5 @@
 # F-2 Test Accelerometer
 
-**STILL IN PROGRESS**
-
 Next, you'll code an app to test your robot's accelerometer by sending serial data to your computer.
 
 ## Create New App
@@ -74,9 +72,11 @@ Here are the different properties for a `RedBotAccel` object named `accel`:
 * `accel.angleYZ` – calculated angle between the Y and Z axes of the accelerometer \(represents the side-to-side rotation on the device's X axis, which is also called **roll**\)
 * `accel.angleXY` – calculated angle between the X and Y axes of the accelerometer \(represents the left-to-right rotation on the device's Z axis, which is also called **yaw**\)
 
-For your apps, you probably won't use the raw accelerometer measurements. Instead, you'll most likely want to know the calculated angles for the XZ, YZ, and XY planes.
+For your apps, you probably **won't** use the raw accelerometer measurements. Instead, you'll most likely want to know the calculated angles for the XZ, YZ, and XY planes.
 
-This diagram shows how the accelerometer's X, Y, and Z axes are oriented on the RedBot and what the XZ, YZ, and XY angles represent. These angles are also referred to as pitch, roll, and yaw.
+This diagram shows how the accelerometer's X, Y, and Z axes are oriented on the RedBot and what the XZ, YZ, and XY angles represent.
+
+![](../../.gitbook/assets/redbot-pitch-roll-yaw.jpg)
 
 Add this custom function **after** the `loop()` function:
 
