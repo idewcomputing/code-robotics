@@ -87,25 +87,15 @@ void testAccelerometer() {
   accel.read();
 
   // send data to serial monitor
-  // raw measurements for X, Y, and Z axes
-  Serial.print("X: ");
-  Serial.println(accel.x);
-  Serial.print("Y: ");
-  Serial.println(accel.y);
-  Serial.print("Z: ");
-  Serial.println(accel.z);
-
-  // angles for X-Z (pitch), Y-Z (roll), and X-Y (yaw)
-  Serial.print("Angle XZ (pitch): ");
-  Serial.println(accel.angleXZ);
-  Serial.print("Angle YZ (roll): ");
-  Serial.println(accel.angleYZ);
-  Serial.print("Angle XY (yaw): ");
+  Serial.print("Pitch: ");
+  Serial.print(accel.angleXZ);
+  Serial.print("\tRoll: ");
+  Serial.print(accel.angleYZ);
+  Serial.print("\tYaw: ");
   Serial.println(accel.angleXY);
-  Serial.println();
 
   // brief delay before next reading
-  delay(250);  
+  delay(100);
 }
 ```
 
@@ -136,7 +126,41 @@ In your Arduino code editor, open the serial monitor, so you can view the serial
 * **Arduino Create \(Web Editor\):**  Click the **Monitor** menu link in the left navigation to display the serial monitor in the middle panel.
 * **Arduino IDE \(Desktop Editor\):**  Under the **Tools** menu, select "Serial Monitor." A new window will appear displaying the serial monitor.
 
-Place the robot on a level surface, such as your desk or table. View the accelerometer readings in the serial monitor. If the surface is perfectly level, the values for angle XZ \(pitch\) and angle YZ \(roll\) will be zero \(though you may notice your surface is not perfectly level\).
+Place the robot on a level surface, such as your desk or table. View the accelerometer readings in the serial monitor. If the surface is perfectly level, the values for pitch \(angle XZ\) and roll \(angle YZ\) will be zero. However, you may discover that your values are close to zero \(instead of exactly zero\).
+
+Follow the steps below to test pitch, roll, and yaw.
+
+#### PITCH
+
+Pitch \(angle XZ\) is the front-to-back rotation on the device's Y axis. Pitch can range from -180° to 180°.
+
+1. Hold the robot in the air, and slowly rotate the robot from front-to-back to tilt the front end up. Watch the pitch value change in the serial monitor as you change the tilt. When the robot's front end is tilted straight up, the pitch will be 90°.
+2. Rotate the robot so it is level from front-to-back. When it is level, the pitch will be 0°.
+3. Rotate the robot so its front end is tilts down. When the robot's front end is tilted straight down, the pitch will be -90°.
+
+#### ROLL
+
+Roll \(angle YZ\) is the side-to-side rotation on the device's X axis. Roll can range from -180° to 180°.
+
+1. Hold the robot in the air, and slowly rotate the robot from side-to-side, so the left side is tilted up. Watch the pitch change in the serial monitor as you change the tilt. When the robot's left side is tilted straight up, the roll will be 90°.
+2. Rotate the robot so it is level from side-to-side. When it is level, the roll will be 0°.
+3. Rotate the robot so its left side is tilted down. When the robot's left side is tilted straight down, the roll will be -90°.
+
+#### YAW
+
+Yaw \(angle XY\) is the right-to-left rotation on the device's Z axis. Yaw can range from -180° to 180°.
+
+However, when the RedBot is on a level surface, the yaw value **cannot** be accurately determined because the acceleration due to Earth's gravity is acting in the same direction \(i.e., downward\) as the Z axis.
+
+1. Place the robot back down on a level surface, such as your desk or table. Check the yaw value in the serial monitor.
+2. Rotate the robot clockwise to the right, while checking the yaw value in the serial monitor. You'll notice that the yaw value changes **randomly** – and does **not** represent which direction the robot is pointed \(i.e., the robot's rotation on the Z axis\).
+3. Rotate the robot counter-clockwise to the left, while checking the yaw value in the serial monitor. Again, the yaw value changes randomly – and does **not** represent the robot's direction.
+
+This is why your robot apps will probably **not** use yaw values from the accelerometer. \(However, there are other types of sensors – not included in this kit – which can be used to accurately measure yaw.\)
+
+{% hint style="success" %}
+**POWER DOWN:** When you're done testing the accelerometer, turn off your robot's power to conserve battery power.
+{% endhint %}
 
 
 
