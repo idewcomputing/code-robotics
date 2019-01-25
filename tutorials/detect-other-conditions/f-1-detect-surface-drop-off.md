@@ -1,6 +1,6 @@
 # F-1 Detect Surface Drop-Off
 
-First, you'll code an app that allow your robot to detect a surface drop-off \(such as:  the edge of a table, a stair step leading down, a hole in the surface, etc.\). This will allow your robot to protect itself from a fall by braking, reversing, changing direction, etc.
+First, you'll code an app that allows your robot to detect a surface drop-off \(such as:  a table edge, a stair step leading down, a hole in the surface, etc.\). This will allow your robot to take actions to protect itself from a fall \(by braking, reversing, changing direction, etc.\).
 
 A surface drop-off can be easily detected using the IR line sensors. When the front edge of the robot is hanging over a surface drop-off, the IR sensor readings will be very high \(typically 1000 or higher\).
 
@@ -81,14 +81,14 @@ Later, you'll add the code to be performed when the robot is started or paused.
 
 ## Add Custom Function to Check for Surface Drop-Off
 
-You'll add a custom function named `checkDropOff()` which will contain code to use readings from the IR line sensors to detect a surface drop-off and avoid it.
+You'll add a custom function named `checkDropOff()` which will contain code to use readings from the IR line sensors to detect a surface drop-off and avoid driving over the drop-off.
 
 Add this custom function **after** the `loop()` function:
 
 ```cpp
 void checkDropOff() {
 
-  // IR threshold indicating drop-off (table edge, hole, etc.)
+  // IR threshold indicating surface drop-off (table edge, hole, etc.)
   int dropOff = 950; // adjust value if necessary
 
   // get IR sensor readings
