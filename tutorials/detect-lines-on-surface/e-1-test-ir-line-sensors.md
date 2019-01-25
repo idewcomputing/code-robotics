@@ -41,7 +41,7 @@ RedBotSensor rightLine(A7);
 Hopefully, the code syntax for creating new objects looks familiar by now:
 
 * `RedBotSensor` declares the class for the new object.
-* `leftLine`, `centerLine`, and `rightLine` represent unique names for each object. Again, you decide what to name your objects. They should make sense to anyone reading the code.
+* `leftLine`, `centerLine`, and `rightLine` represent unique names for each object. Again, you decide what to name your objects. The names should make sense to anyone reading the code.
 * `A3`, `A6`, and `A7` represent the I/O pin numbers that the left, center, and right line sensors should be connected to. If your sensors were connected to different pins, you'd change these pin numbers.
 
 ## Begin Serial Communication

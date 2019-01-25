@@ -2,7 +2,7 @@
 
 **STILL IN PROGRESS**
 
-In this sixth tutorial, you'll learn how to make your robot detect other environmental conditions \(e.g., drop-offs, bumps, etc.\) using its IR line sensors and accelerometer.
+In this sixth tutorial, you'll learn how to make your robot detect other conditions \(e.g., surface drop-offs, bumps, etc.\) using its IR line sensors and accelerometer.
 
 ## Tutorial Goals <a id="tutorial-goals"></a>
 

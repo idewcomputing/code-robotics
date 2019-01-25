@@ -117,26 +117,29 @@ Add this custom function named `testAccelerometer()` after your `loop()` functio
 ```cpp
 void testAccelerometer() {
 
-    accel.read(); // get new accelerometer data
+  // get new accelerometer data
+  accel.read();
 
-    // raw measurements for X, Y, and Z axes
-    Serial.print("X: ");
-    Serial.println(accel.x);
-    Serial.print("Y: ");
-    Serial.println(accel.y);
-    Serial.print("Z: ");
-    Serial.println(accel.z);
+  // send data to serial monitor
+  // raw measurements for X, Y, and Z axes
+  Serial.print("X: ");
+  Serial.println(accel.x);
+  Serial.print("Y: ");
+  Serial.println(accel.y);
+  Serial.print("Z: ");
+  Serial.println(accel.z);
 
-    // angles for X-Z (pitch), Y-Z (roll), and X-Y (yaw)
-    Serial.print("Angle XZ (pitch): ");
-    Serial.println(accel.angleXZ);
-    Serial.print("Angle YZ (roll): ");
-    Serial.println(accel.angleYZ);
-    Serial.print("Angle XY (yaw): ");
-    Serial.println(accel.angleXY);
-    Serial.println();
+  // angles for X-Z (pitch), Y-Z (roll), and X-Y (yaw)
+  Serial.print("Angle XZ (pitch): ");
+  Serial.println(accel.angleXZ);
+  Serial.print("Angle YZ (roll): ");
+  Serial.println(accel.angleYZ);
+  Serial.print("Angle XY (yaw): ");
+  Serial.println(accel.angleXY);
+  Serial.println();
 
-    delay(250); // make it easier to read data  
+  // brief delay before next reading
+  delay(250);  
 }
 ```
 
