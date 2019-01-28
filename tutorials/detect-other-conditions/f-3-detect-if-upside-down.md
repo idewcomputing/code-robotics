@@ -1,6 +1,6 @@
 # F-3 Detect If Upside-Down
 
-Next, you'll code an app that uses the accelerometer to detect if the robot is upside-down.
+Next, you'll code an app that uses the accelerometer to detect if the robot is upside-down by measuring its pitch and roll. If the robot is upside-down, it will stop its motors and make a distress sound.
 
 ## Create New App
 
@@ -10,7 +10,7 @@ Add a block comment at the beginning of the app code to identify your new app:
 
 ```cpp
 /*
-Upside-Down Test
+Detect Upside-Down Test
 Team Info
 Teacher - Class Period
 */
@@ -131,9 +131,14 @@ In this case, `bool` is listed before the `checkUpsideDown()` function's name be
 
 ## Add Code to Perform When Robot is Started
 
-When the D12 button is pressed to "start" the robot, we want the robot to start driving forward and checking for a surface drop-off.
+When the D12 button is pressed to "start" the robot, we want the robot to check whether it is upside-down by calling the `checkUpsideDown()` function and then performing appropriate actions based on the result:
 
-Add this code statement **within** the `if` statement in the `loop()` function, so it will be performed when `started` is `true`:
+* If the robot is upside-down, it should brake its motors and make a distress sound.
+* Otherwise, the robot should drive forward.
+
+The boolean value returned by the `checkUpsideDown()` function will be stored in a local variable named `upsideDown`.
+
+Add this code **within** the `if` statement in the `loop()` function, so it will be performed when `started` is `true`:
 
 ```cpp
     bool upsideDown = checkUpsideDown();
