@@ -166,7 +166,7 @@ In order to do this, the `driveStraight()` function relies on global variables t
 
 ```cpp
 // global variables needed for driveStraight() function
-int leftPower = 175, rightPower = leftPower;
+int leftPower = 150, rightPower = leftPower;
 long prevLeftCount = 0, prevRightCount = 0;
 ```
 

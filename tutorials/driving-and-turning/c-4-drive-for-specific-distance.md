@@ -109,7 +109,7 @@ void driveDistance(float distance) {
     // use wheel encoders to drive straight for specified distance at specified power
 
     // set initial power for left and right motors
-    int leftPower = 175;
+    int leftPower = 150;
     int rightPower = leftPower;
 
     // amount to offset motor powers to drive straight
@@ -124,7 +124,7 @@ void driveDistance(float distance) {
 
     // use correction to improve distance accuracy
     // adjust correction value based on test results
-    float correction = -1.5; // need decimal point for float value
+    float correction = -1.0; // need decimal point for float value
     if (distance > 0) distance += correction;
     else if (distance < 0) distance -= correction;
 
@@ -222,12 +222,12 @@ Then measure the distance from the front of the start line to the front of the r
 
 Line up the robot with the start line, and test again. Repeat the test several times to determine the average distance.
 
-The `driveDistance()` function contains a local variable named `correction` which has been set to `-1.5` because during our testing, our robot was driving about 1.5 inches **too far** when using a motor power of 175. The reason for this is because it takes a small amount of time for the robot to apply the brakes and come to a complete stop.
+The `driveDistance()` function contains a local variable named `correction` which has been set to `-1.0` because during our testing, our robot was driving about 1 inch **too far** when using a motor power of 150. The reason for this is because it takes a small amount of time for the robot to apply the brakes and come to a complete stop.
 
 If your robot is driving too far \(or not far enough\), you'll want to change the value assigned to `correction` in the `driveDistance()` function:
 
-* If your robot is **driving too far**, subtract from the correction value. For example, if your robot is driving 0.5 inch too far \(36.5 inches\), subtract 0.5 from `correction`, changing it from `-1.5` to `-2.0`.
-* If your robot is **not driving far enough**, add to the correction value. For example, if your robot is driving  0.5 inch too little \(35.5 inches\), add 0.5 to `correction`, changing it from `-1.5` to `-1.0`.
+* If your robot is **driving too far**, subtract from the correction value. For example, if your robot is driving 0.5 inch too far \(36.5 inches\), subtract 0.5 from `correction`, changing it from `-1.0` to `-1.5`.
+* If your robot is **not driving far enough**, add to the correction value. For example, if your robot is driving  0.5 inch too little \(35.5 inches\), add 0.5 to `correction`, changing it from `-1.0` to `-0.5`.
 
 If you do adjust the `correction` value, upload the modified app to your robot, and test again to ensure the driving distance is accurate \(within 0.5 inch of the intended distance\).
 
