@@ -4,10 +4,43 @@ These custom functions use the push button, IR line sensors, or accelerometer:
 
 * `checkButton()` — check if button is being pressed
 * `checkDropOff()` — check for surface drop-off \(e.g., stair step, etc.\)
-* `checkBump()` — check if robot has been bumped
-* `measurePitch()` — measure pitch angle \(robot tilted up or down\)
-* `measureRoll()` — measure roll angle \(robot tilted left or right\)
 * `checkUpsideDown()` — check if robot is upside down \(pitch or roll greater than 90°\)
+* `checkBump()` — check if robot has been bumped
+
+## checkButton\(\)
+
+A custom function named `checkButton()` checks whether the built-in D12 button is being pressed. If the button is pressed, the function will toggle the value of a global variable named `started` from `false` to `true` \(or vice versa\).
+
+```cpp
+void checkButton() {
+  if (button.read() == true) {
+    // reverse value of started
+    started = !started;
+    
+    // beep and blink as feedback
+    digitalWrite(LED, HIGH);
+    tone(speaker, 2000);
+    delay(200);
+    digitalWrite(LED, LOW);
+    noTone(speaker);
+    delay(200);
+  }
+}
+```
+
+This can be combined with code contained in the `loop()` function to perform different actions based on whether the robot is "started" \(`started == true`\) or "paused" \(`started == false`\):
+
+```cpp
+  checkButton();
+  if (started == true) {
+    // add code to perform when "started"
+    
+  }
+  else {
+    // add code to perform when "paused"
+    
+  }
+```
 
 ## checkDropOff\(\)
 
