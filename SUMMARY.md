@@ -37,8 +37,8 @@
 * [F. Detect Other Conditions](tutorials/detect-other-conditions/README.md)
   * [F-1 Detect Surface Drop-Off](tutorials/detect-other-conditions/f-1-detect-surface-drop-off.md)
   * [F-2 Test Accelerometer](tutorials/detect-other-conditions/f-2-test-accelerometer.md)
-  * [F-3 Detect If Bumped](tutorials/detect-other-conditions/f-3-detect-if-bumped.md)
-  * [F-4 Detect If Upside-Down](tutorials/detect-other-conditions/f-4-detect-if-upside-down.md)
+  * [F-3 Detect If Upside-Down](tutorials/detect-other-conditions/f-3-detect-if-upside-down.md)
+  * [F-4 Detect If Bumped](tutorials/detect-other-conditions/f-4-detect-if-bumped.md)
 
 ## REFERENCES
 

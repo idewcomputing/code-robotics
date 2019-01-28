@@ -1,6 +1,6 @@
 # F-2 Test Accelerometer
 
-Next, you'll code an app to test your robot's accelerometer by sending serial data to your computer.
+Next, you'll code an app to test your robot's accelerometer by measuring the robot's pitch \(front-to-back tilt\) and roll \(side-to-side tilt\) and sending these measurements to your computer as serial data.
 
 ## Create New App
 
