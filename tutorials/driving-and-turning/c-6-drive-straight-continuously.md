@@ -128,8 +128,8 @@ void driveStraight() {
   int offset = 5;
 
   // get current wheel encoder counts
-  leftCount = encoder.getTicks(LEFT);
-  rightCount = encoder.getTicks(RIGHT);
+  int leftCount = encoder.getTicks(LEFT);
+  int rightCount = encoder.getTicks(RIGHT);
   
   // calculate increase in count from previous reading
   long leftDiff = leftCount - prevLeftCount;
