@@ -76,7 +76,7 @@ void checkButton() {
 }
 ```
 
-Now add this new code **within** the `loop()` function:
+Now add this code **within** the `loop()` function:
 
 ```cpp
   checkButton();
