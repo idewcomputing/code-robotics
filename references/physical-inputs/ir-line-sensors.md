@@ -356,15 +356,12 @@ This custom function will use the IR sensors to count lines and then stop at a s
 
 ```cpp
 void countLine(int target) {
-
     /* COUNT LINES
     To count dark lines on light surface:
     Use high threshold & see if sensors greater than threshold
 
     To count light lines on dark surface:
     Use low threshold & see if sensors less than threshold
-
-    Use test readings from line to determine best value for threshold
     */
 
     int lineThreshold = 800;  // adjust value as necessary
@@ -392,14 +389,14 @@ void countLine(int target) {
                 lineDetected = true;
             }
         }
-        else if (lineDetected) {
+        else if (lineDetected == true) {
             // when all 3 sensors detect no line, toggle back to checking for line
             if (leftSensor < lineThreshold && centerSensor < lineThreshold && rightSensor < lineThreshold) {
                 lineDetected = false;
             }
         }
     }
-    // line count target reached
+    // target line count reached
     motors.brake();
     delay(250);
     driveDistance(3.5, 100); // drive forward to be centered on target line
