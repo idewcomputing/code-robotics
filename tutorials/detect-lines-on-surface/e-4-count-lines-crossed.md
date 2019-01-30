@@ -1,14 +1,23 @@
 # E-4 Count Lines Crossed
 
-**STILL IN PROGRESS**
-
 Next, you'll code an app that uses the IR line sensors to make your robot count line markers it crosses as it drives straight. The robot will stop driving when it reaches a specific line number. You can then make the robot turn and start driving in a new direction.
+
+The **advantage** of counting line markers while driving straight is that you can map out the robot's path by simply marking each point where the robot might stop or turn — **without** needing to create a continuous line to follow. You can also create complex patterns with intersecting paths.
+
+The **limitation** of counting line markers while driving straight is that each specific path must be straight, and different paths must intersect each other at 90° angles.
 
 ## Create Line Markers on Surface
 
-get large sheet of paper \(such as: butcher paper, flip chart paper, etc.\), use black permanent marker \(not dry erase marker\) to draw 0.5 inch wide lines that form pattern shown in diagram \(4 lines in a row, perpendicular to robot's path, spaced about 18-24 inches apart\)
+Your teacher might have set up one or more sets of line markers for the class to use.
+
+If not, then create a set of 4 line markers on your floor or surface \(e.g., large sheet of paper, etc.\) similar to the diagram below:
 
 ![](../../.gitbook/assets/count-line-diagram1.png)
+
+* Each line marker should be about 0.5 inch wide and about 6-10 inches long. \(In theory, the line markers could be only 3 inches long if the robot always drives perfectly straight and makes perfect turns, but make them at least 6 inches long to account for the fact that the robot won't be perfect.\)
+* The set of line markers should be arranged in a straight row along the robot's path. Each line marker should be perpendicular to the robot's path.
+* For this test, make the total distance from the 1st line to the 4th line about 48 inches \(4 feet\). This means you could space the line markers about 18 inches apart \(though they do **not** have to be even spaced for line counting to work\).
+* If you are drawing the lines on a large sheet of paper \(approximately 3 feet wide by 6 feet long\), be sure to draw the lines along the **top** of the paper, so later you'll be able to add another set of lines along the bottom of the paper.
 
 ## Save Copy of App With New Name <a id="save-copy-of-app-with-new-name"></a>
 
@@ -104,40 +113,95 @@ Copy the `pivotAngle()` function from [tutorial C-5](../driving-and-turning/c-5-
 
 ## Modify Code to Perform When Robot is Started
 
-When the D12 button is pressed to "start" the robot, we want to make the robot drive straight until it has counted 3 line markers. Then we'll make the robot turn around \(180°\) and return by driving straight until it has counted another 3 line markers. Finally, the robot will turn around again \(180°\), so it's back in its starting position.
+When the D12 button is pressed to "start" the robot, we want to make the robot drive straight until it has counted 3 line markers. Then we'll make the robot turn around \(180°\) and return by driving straight until it has counted another 3 line markers. Finally, the robot will turn around again \(180°\) and "pause" itself, so it's back in its starting position.
 
 First, **delete** the existing code statement **within** the `if` statement in the `loop()` function that calls the `driveStraight()` function  when `started` is `true`.
 
-Then add this code statement **within** the `if` statement in the `loop()` function, so it will be performed when `started` is `true`:
+Then add these code statements **within** the `if` statement in the `loop()` function, so they will be performed when `started` is `true`:
 
 ```cpp
     countLine(3); // drive until 3 line markers counted
     pivotAngle(180); // turn around
     countLine(3); // drive until 3 line markers counted
     pivotAngle(180); // turn around again
+    started = false; // pause robot
 ```
 
 ## Upload App to Robot
 
 Follow the steps to connect your robot to your computer, and upload the app.
 
-Unplug the USB cable from the robot, and place the robot at the "start" line, so the robot's IR line sensors are in **front** of the line \(so the start line will **not** be counted as the first line\).
+Unplug the USB cable from the robot, and place the robot centered on the "start" line, so the robot's IR line sensors are in **front** of the line \(so the start line will **not** be counted as the first line\).
 
 ![](../../.gitbook/assets/count-line-diagram1.png)
 
-Press the D12 button to "start" the robot. The robot should start driving straight. After the robot has counted 3 line markers \(meaning it has reached the 3rd line after the start line\), the robot should stop, turn around, and then drive back. After counting another 3 line markers \(meaning the robot has returned to the start line\), the robot should stop and turn around again \(facing its original direction\).
+Press the D12 button to "start" the robot. The robot should start driving straight. After the robot has counted 3 line markers \(meaning it has reached the 3rd line after the start line\), the robot should stop, turn around, and then drive back. After counting another 3 line markers \(meaning the robot has returned to the start line\), the robot should stop and turn around again \(facing its original direction\). The robot will "pause" itself automatically.
 
 If you want to test the robot again, press the D12 button to "start" the robot again.
 
 ## Modify Line Pattern
 
-modify pattern & app
+Next, you're going to modify the line maker pattern by adding more line markers to create a pattern similar to the diagram below:
 
 ![](../../.gitbook/assets/count-line-diagram2.png)
 
+1. Convert the 2nd line into a "plus sign" by creating another line \(same length\) at 90° to the original line.  A "plus sign" line marker indicates where two \(or more\) paths intersect each other.
+2. Create a 2nd "plus sign" below the first "plus sign," so they are aligned with each other, and their centers are about 18 inches apart \(though the exact distance is not important\).
+3. Create 2 more line markers that are aligned with the 2nd "plus sign" to form another straight path for the robot.
+
+The diagram below has red lines to show you the possible paths that the robot can take using this new line marker pattern. \(Do **not** add the red lines to your line marker pattern.\) As you can see, the robot's possible path has multiple branches. Each line marker represents a possible stopping point or turning point along a specific path.
+
+![](../../.gitbook/assets/count-line-diagram3.png)
+
+For example, maybe this pattern represents a set of paths for a warehouse robot to drive down two different aisles of shelving to deliver \(or pick up\) boxes.
+
+#### GUIDELINES FOR LINE MARKER PATTERNS
+
+Here are guidelines to use when creating your own line marker patterns:
+
+* Line markers that are part of the same path should be **aligned to form a straight path**. Each line marker should be perpendicular to the robot's path.
+* Line markers must be used to indicate the **beginning** and the **end** of a specific straight path.
+* Line markers can be used in the **middle** of a path to represent places where the robot might stop or turn around. However, it is **not** required to have line markers in the middle.
+* Line markers that form a **"plus sign"** indicate where two \(or more\) paths **intersect at a 90° angle**.
+
 ## Modify App to Drive in Specific Pattern
 
+You'll modify the app so the robot will drive from the "start" line to the end of the 2nd path that was added.
 
+To do this, robot must drive to the 1st intersection \("plus sign"\) by counting 1 line marker. Then it should turn 90° right and drive to the 2nd intersection by counting 1 line marker. There it should turn 90° left and drive to the end of that path by counting 2 more line markers. Then it will turn 180° around and drive back to the "start" line again by counting lines and making turns.
 
- 
+First, **delete** the existing code statements  **within** the `if` statement in the `loop()` function that are performed when `started` is `true`.
+
+Then add these code statements **within** the `if` statement in the `loop()` function, so they will be performed when `started` is `true`:
+
+```cpp
+    countLine(1); // drive until 1 line marker counted (1st intersection)
+    pivotAngle(90); // turn right
+    countLine(1); // drive until 1 line marker counted (2nd intersection)
+    pivotAngle(-90); // turn left
+    countLine(2); // drive until 2 line markers counted (end of path)
+    pivotAngle(180); // turn around
+    
+    // return trip
+    countLine(2); // drive until 2 line markers counted (back to 2nd intersection)
+    pivotAngle(90); // turn right
+    countLine(1) // drive until 1 line marker counted (back to 1st intersection)
+    pivotAngle(-90); // turn left
+    countLine(1); // drive until 1 line marker counted (back to start line)
+    pivotAngle(180); // turn around (to face starting direction)
+
+    started = false; // pause robot
+```
+
+## Upload Modified App to Robot
+
+Follow the steps to connect your robot to your computer, and upload the modified app.
+
+Unplug the USB cable from the robot, and place the robot centered on the "start" line, so the robot's IR line sensors are in **front** of the line \(so the start line will **not** be counted as the first line\).
+
+Press the D12 button to "start" the robot. It should drive from the "start" line to the end of the 2nd path that you added and then return back to the "start" line again.
+
+If you want to test the robot again, press the D12 button to "start" the robot again.
+
+As further practice, you could modify the app to make the robot drive in different patterns using this same set of line markers.
 

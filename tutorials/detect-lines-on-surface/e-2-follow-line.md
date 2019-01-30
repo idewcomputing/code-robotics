@@ -4,7 +4,7 @@ Next, you'll code an app that uses the IR line sensors to make your robot follow
 
 ## Create Line on Surface
 
-Your teacher might have set up one or more line paths for the class teams to use for this test.
+Your teacher might have set up one or more line paths for the class to use for this test.
 
 If not, then create a line on your floor or surface \(e.g., large sheet of paper, etc.\) that forms a closed path \(i.e., an oval or rounded rectangle\). The line should **not** have any "sharp" turns — instead, use a curved path to make any turns.
 
