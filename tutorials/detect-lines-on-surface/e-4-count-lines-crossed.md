@@ -149,11 +149,11 @@ Next, you're going to modify the line maker pattern by adding more line markers 
 2. Create a 2nd "plus sign" below the first "plus sign," so they are aligned with each other, and their centers are about 18 inches apart \(though the exact distance is not important\).
 3. Create 2 more line markers that are aligned with the 2nd "plus sign" to form another straight path for the robot.
 
-The diagram below has red lines to show you the possible paths that the robot can take using this new line marker pattern. \(Do **not** add the red lines to your line marker pattern.\) As you can see, the robot's possible path has multiple branches. Each line marker represents a possible stopping point or turning point along a specific path.
+The diagram below has red lines to show you the possible paths that the robot can take using this new line marker pattern. Each of the line markers has been labeled with a letter \(A-F\). \(Do **not** add the red lines to your line marker pattern.\) As you can see, the robot's possible path has multiple branches. Each line marker represents a possible stopping point or turning point along a specific path.
 
 ![](../../.gitbook/assets/count-line-diagram3.png)
 
-For example, maybe this pattern represents a set of paths for a warehouse robot to drive down two different aisles of shelving to deliver \(or pick up\) boxes.
+For example, maybe this pattern represents a set of paths for a warehouse robot to drive down two different aisles of shelving to deliver \(or pick up\) boxes.  Path A-B-C represents the first aisle, while path D-E-F represent a second aisle. Path A-D connects the two aisles.
 
 #### GUIDELINES FOR LINE MARKER PATTERNS
 
@@ -167,7 +167,7 @@ Here are guidelines to use when creating your own line marker patterns:
 
 ## Modify App to Drive in Specific Pattern
 
-You'll modify the app so the robot will drive from the "start" line to the end of the 2nd path that was added.
+You'll modify the app so the robot will drive from the "start" line to line marker F \(see previous diagram\) and then back again.
 
 To do this, robot must drive to the 1st intersection \("plus sign"\) by counting 1 line marker. Then it should turn 90° right and drive to the 2nd intersection by counting 1 line marker. There it should turn 90° left and drive to the end of that path by counting 2 more line markers. Then it will turn 180° around and drive back to the "start" line again by counting lines and making turns.
 
@@ -204,5 +204,5 @@ Press the D12 button to "start" the robot. It should drive from the "start" line
 
 If you want to test the robot again, press the D12 button to "start" the robot again.
 
-As further practice, you could modify the app to make the robot drive in different patterns using this same set of line markers.
+As further practice, you could modify the app to make the robot drive in different patterns using this same set of line markers.  For example, you could make the robot drive from the "start" line to line marker B, then turn around and drive to line marker E, and finally turn around and return to the start again.
 
