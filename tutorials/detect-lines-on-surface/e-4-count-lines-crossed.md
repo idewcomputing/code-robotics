@@ -185,7 +185,7 @@ Then add these code statements **within** the `if` statement in the `loop()` fun
     // return trip
     countLine(2); // drive until 2 line markers counted (back to 2nd intersection)
     pivotAngle(90); // turn right
-    countLine(1) // drive until 1 line marker counted (back to 1st intersection)
+    countLine(1); // drive until 1 line marker counted (back to 1st intersection)
     pivotAngle(-90); // turn left
     countLine(1); // drive until 1 line marker counted (back to start line)
     pivotAngle(180); // turn around (to face starting direction)
