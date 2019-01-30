@@ -8,7 +8,7 @@ The **limitation** of counting line markers while driving straight is that each 
 
 ## Create Line Markers on Surface
 
-Your teacher might have set up one or more sets of line markers for the class to use.
+Your teacher might have set up one or more sets of line markers for the class to use for this tutorial.
 
 If not, then create a set of 4 line markers on your floor or surface \(e.g., large sheet of paper, etc.\) similar to the diagram below:
 
@@ -35,15 +35,15 @@ RedBotSensor centerLine(A6);
 RedBotSensor rightLine(A7);
 ```
 
-## Add Custom Function to Count Lines
+## Add Custom Function to Count Lines While Driving Straight
 
-You'll add a custom function named `countLine()` which will contain code to make your robot drive straight continuously while using readings from the IR line sensors to count each line marker that it crosses. The robot will stop when it reaches a specified line number.
+You'll add a custom function named `countLine()` which will contain code to make your robot drive straight continuously while using readings from the IR line sensors to count each line marker that it crosses. The robot will stop when it reaches a specified line number. You can then make the robot turn and start driving straight in a new direction.
 
 Add this custom function **after** the `loop()` function:
 
 ```cpp
 void countLine(int target) {
-  /* COUNT LINES
+  /* DRIVE STRAIGHT WHILE COUNTING LINES CROSSED
   To count dark lines on light surface:
   Use high threshold & see if sensors greater than threshold
 
@@ -88,9 +88,9 @@ void countLine(int target) {
 }
 ```
 
-**IMPORTANT:**  The `countLine()` function requires two other custom functions to complete its task:
+**IMPORTANT:**  The `countLine()` function requires two other custom functions, in order to work:
 
-* `driveStraight()` function — used to make robot drive straight while counting line markers
+* `driveStraight()` function — used to make the robot drive straight
 * `driveDistance()` function — used to center the robot on the target line marker
 
 So your app will also need to have both of these custom functions. Luckily, the saved app that you re-used for this current app already has the `driveStraight()` function.
@@ -105,7 +105,7 @@ Copy the `driveDistance()` function from [tutorial C-4](../driving-and-turning/c
 
 ## Add Custom Function to Pivot Specific Angle
 
-Once your robot reaches a specific line marker using the `countLine()` function, you'll usually turn the robot to drive in a new direction. Typically, you'll pivot the robot 90° right, 90° left, or 180° around.
+Once your robot reaches a specific line marker using the `countLine()` function, you'll usually turn the robot to start driving in a new direction. Typically, you'll pivot the robot 90° right, 90° left, or 180° around.
 
 So you'll also need to add the `pivotAngle()` custom function, which contains code to make your robot pivot by a specified angle by using the wheel encoders.
 
