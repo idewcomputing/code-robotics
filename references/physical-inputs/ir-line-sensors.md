@@ -356,50 +356,49 @@ This custom function will use the IR sensors to count lines and then stop at a s
 
 ```cpp
 void countLine(int target) {
-    /* COUNT LINES
-    To count dark lines on light surface:
-    Use high threshold & see if sensors greater than threshold
+  /* DRIVE STRAIGHT WHILE COUNTING LINES CROSSED
+  To count dark lines on light surface:
+  Use high threshold & see if sensors greater than threshold
 
-    To count light lines on dark surface:
-    Use low threshold & see if sensors less than threshold
-    */
+  To count light lines on dark surface:
+  Use low threshold & see if sensors less than threshold
+  */
 
-    int lineThreshold = 800;  // adjust value as necessary
+  int lineThreshold = 800; // change value if necessary
 
-    // variables for IR sensor readings and line counting
-    int leftSensor, centerSensor, rightSensor;
-    int lineCount = 0;
-    boolean lineDetected = false;
+  // variables for counting lines
+  int lineCount = 0;
+  boolean lineDetected = false;
 
-    // keeps looping while line count is less than target
-    while (lineCount < target) {
+  // keeps looping while line count is less than target
+  while (lineCount < target) {
 
-        driveStraight();
+    driveStraight();
 
-        // get IR sensor readings
-        leftSensor = leftLine.read();
-        centerSensor = centerLine.read();
-        rightSensor = rightLine.read();
+    // get IR sensor readings
+    int leftSensor = leftLine.read();
+    int centerSensor = centerLine.read();
+    int rightSensor = rightLine.read();
 
-        // toggle between checking for line vs. checking for no line
-        if (lineDetected == false) {
-            // when all 3 sensors detect line, increase line count and toggle to checking for no line
-            if (leftSensor > lineThreshold && centerSensor > lineThreshold && rightSensor > lineThreshold) {
-                lineCount++;
-                lineDetected = true;
-            }
-        }
-        else if (lineDetected == true) {
-            // when all 3 sensors detect no line, toggle back to checking for line
-            if (leftSensor < lineThreshold && centerSensor < lineThreshold && rightSensor < lineThreshold) {
-                lineDetected = false;
-            }
-        }
+    // toggle between checking for line vs. checking for no line
+    if (lineDetected == false) {
+      // if all 3 sensors detect line, increase line count and toggle to checking for no line
+      if (leftSensor > lineThreshold && centerSensor > lineThreshold && rightSensor > lineThreshold) {
+        lineCount++;
+        lineDetected = true;
+      }
     }
-    // target line count reached
-    motors.brake();
-    delay(250);
-    driveDistance(3.5, 100); // drive forward to be centered on target line
+    else if (lineDetected == true) {
+      // if all 3 sensors detect no line, toggle back to checking for line
+      if (leftSensor < lineThreshold && centerSensor < lineThreshold && rightSensor < lineThreshold) {
+        lineDetected = false;
+      }
+    }
+  }
+  // target line count reached
+  motors.brake();
+  delay(250);
+  driveDistance(3.5); // drive forward to center robot on target line
 }
 ```
 
@@ -470,24 +469,17 @@ This custom function will use the IR sensors to follow a line while counting oth
 
 ```cpp
 void followCountLine(int target) {
-
-    /* NOTES
-    Follow line while counting lines that are crossed while driving
-    Will stop once target line count has been reached
-
+    /* FOLLOW LINE WHILE COUNTING LINES CROSSED
     To follow and count dark lines on light surface:
     Use high threshold & see if sensors greater than threshold
 
     To follow and count light lines on dark surface:
     Use low threshold & see if sensors less than threshold
-
-    Use test readings from line to determine best value for threshold
     */
 
-    int lineThreshold = 800;  // adjust value as necessary
+    int lineThreshold = 800;  // change value if necessary
 
-    // variables for IR sensor readings and line counting
-    int leftSensor, centerSensor, rightSensor;
+    // variables for counting lines
     int lineCount = 0;
     boolean lineDetected = false;
 
@@ -497,9 +489,9 @@ void followCountLine(int target) {
         followLine();
 
         // get IR sensor readings
-        leftSensor = leftLine.read();
-        centerSensor = centerLine.read();
-        rightSensor = rightLine.read();
+        int leftSensor = leftLine.read();
+        int centerSensor = centerLine.read();
+        int rightSensor = rightLine.read();
 
         // toggle between checking for line versus checking for no line
         if (lineDetected == false) {
@@ -516,10 +508,10 @@ void followCountLine(int target) {
             }
         }
     }
-    // line count goal reached
+    // target line count reached
     motors.brake();
     delay(250);
-    driveDistance(3.5, 100); // drive forward to be centered on target line
+    driveDistance(3.5); // drive forward to center robot on target line
 }
 ```
 
