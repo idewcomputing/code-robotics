@@ -6,7 +6,7 @@ Next, you'll code an app that uses the IR line sensors to make your robot count 
 
 ## Create Line Markers on Surface
 
-get large sheet of paper \(such as: butcher paper, flip chart paper, etc.\), use black permanent marker \(not dry erase marker\) to draw 0.5 inch wide lines that form pattern shown in diagram \(main path with two side paths\)
+get large sheet of paper \(such as: butcher paper, flip chart paper, etc.\), use black permanent marker \(not dry erase marker\) to draw 0.5 inch wide lines that form pattern shown in diagram \(4 lines in a row, perpendicular to robot's path, spaced about 18-24 inches apart\)
 
 ![](../../.gitbook/assets/count-line-diagram1.png)
 
@@ -50,7 +50,6 @@ void countLine(int target) {
 
   // keeps looping while line count is less than target
   while (lineCount < target) {
-
     driveStraight();
 
     // get IR sensor readings
@@ -76,19 +75,69 @@ void countLine(int target) {
   // target line count reached
   motors.brake();
   delay(250);
-  driveDistance(3.5); // drive forward to center robot on target line
+  driveDistance(3.5); // drive 3.5 inches to center robot on target line
 }
 ```
 
-use countLine\(\) custom function - explain conceptually how it works
+**IMPORTANT:**  The `countLine()` function requires two other custom functions to complete its task:
 
-also need driveStraight\(\) - plus global variables for left and right motor powers and previous left and right wheel encoder counts - used to make robot drive straight continuously while it counts lines crossed
+* `driveStraight()` function — used to make robot drive straight while counting line markers
+* `driveDistance()` function — used to center the robot on the target line marker
 
-also need driveDistance\(\) function - used to align center of robot with target line number
+So your app will also need to have both of these custom functions. Luckily, the saved app that you re-used for this current app already has the `driveStraight()` function.
 
-upload app to robot, and confirm it works - may need to adjust values in function \(such as: line threshold, etc.\) - test, adjust value, upload revised app, test again
+## Add Custom Function to Drive Specific Distance
+
+The `countLine()` function calls the `driveDistance()` function once the target line count is reached. The robot drives forward 3.5 inches, in order to center the robot's wheels on the target line marker.
+
+So you'll need to add the `driveDistance()` custom function, which contains code to make your robot drive in a straight line for a specified distance by using the wheel encoders.
+
+Copy the `driveDistance()` function from [tutorial C-4](../driving-and-turning/c-4-drive-for-specific-distance.md#add-custom-function-to-drive-specific-distance), and add this function **after** the `loop()` function.
+
+## Add Custom Function to Pivot Specific Angle
+
+Once your robot reaches a specific line marker using the `countLine()` function, you'll usually turn the robot to drive in a new direction. Typically, you'll pivot the robot 90° right, 90° left, or 180° around.
+
+So you'll also need to add the `pivotAngle()` custom function, which contains code to make your robot pivot by a specified angle by using the wheel encoders.
+
+Copy the `pivotAngle()` function from [tutorial C-5](../driving-and-turning/c-5-pivot-by-specific-angle.md#add-custom-function-to-pivot-specific-angle), and add this function **after** the `loop()` function.
+
+## Modify Code to Perform When Robot is Started
+
+When the D12 button is pressed to "start" the robot, we want to make the robot drive straight until it has counted 3 line markers. Then we'll make the robot turn around \(180°\) and return by driving straight until it has counted another 3 line markers. Finally, the robot will turn around again \(180°\), so it's back in its starting position.
+
+First, **delete** the existing code statement **within** the `if` statement in the `loop()` function that calls the `driveStraight()` function  when `started` is `true`.
+
+Then add this code statement **within** the `if` statement in the `loop()` function, so it will be performed when `started` is `true`:
+
+```cpp
+    countLine(3); // drive until 3 line markers counted
+    pivotAngle(180); // turn around
+    countLine(3); // drive until 3 line markers counted
+    pivotAngle(180); // turn around again
+```
+
+## Upload App to Robot
+
+Follow the steps to connect your robot to your computer, and upload the app.
+
+Unplug the USB cable from the robot, and place the robot at the "start" line, so the robot's IR line sensors are in **front** of the line \(so the start line will **not** be counted as the first line\).
+
+![](../../.gitbook/assets/count-line-diagram1.png)
+
+Press the D12 button to "start" the robot. The robot should start driving straight. After the robot has counted 3 line markers \(meaning it has reached the 3rd line after the start line\), the robot should stop, turn around, and then drive back. After counting another 3 line markers \(meaning the robot has returned to the start line\), the robot should stop and turn around again \(facing its original direction\).
+
+If you want to test the robot again, press the D12 button to "start" the robot again.
+
+## Modify Line Pattern
 
 modify pattern & app
 
 ![](../../.gitbook/assets/count-line-diagram2.png)
+
+## Modify App to Drive in Specific Pattern
+
+
+
+ 
 
