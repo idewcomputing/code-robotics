@@ -86,7 +86,7 @@ void followCountLine(int target) {
 
 So your app will also need to have both of these custom functions. Luckily, the saved app that you re-used for this current app already has the `driveDistance()` function.
 
-Furthermore, once your robot reaches a specific line marker using the `followCountLine()` function, you'll usually turn the robot to start following a new line. Typically, you'll pivot the robot 90° right, 90° left, or 180° around.
+Furthermore, once your robot reaches a specific line marker, you'll usually turn the robot to start following a new line. Typically, you'll pivot the robot 90° right, 90° left, or 180° around.
 
 So you'll also want to have the `pivotAngle()` custom function, which contains code to make your robot pivot by a specified angle by using the wheel encoders. Luckily, the saved app that you re-used for this current app already has the `pivotAngle()` function.
 
