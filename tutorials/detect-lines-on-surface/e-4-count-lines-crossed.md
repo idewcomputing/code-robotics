@@ -101,7 +101,7 @@ The `countLine()` function calls the `driveDistance()` function once the target 
 
 So you'll need to add the `driveDistance()` custom function, which contains code to make your robot drive in a straight line for a specified distance by using the wheel encoders.
 
-Copy the `driveDistance()` function from [tutorial C-4](../driving-and-turning/c-4-drive-for-specific-distance.md#add-custom-function-to-drive-specific-distance), and add this function **after** the `loop()` function.
+Copy the `driveDistance()` function from [tutorial C-4](../driving-and-turning/c-4-drive-for-specific-distance.md#add-custom-function-to-drive-specific-distance) \(use your browser's back button to return this page after copying\), and add this function **after** the `loop()` function.
 
 ## Add Custom Function to Pivot Specific Angle
 
@@ -109,7 +109,7 @@ Once your robot reaches a specific line marker using the `countLine()` function,
 
 So you'll also need to add the `pivotAngle()` custom function, which contains code to make your robot pivot by a specified angle by using the wheel encoders.
 
-Copy the `pivotAngle()` function from [tutorial C-5](../driving-and-turning/c-5-pivot-by-specific-angle.md#add-custom-function-to-pivot-specific-angle), and add this function **after** the `loop()` function.
+Copy the `pivotAngle()` function from [tutorial C-5](../driving-and-turning/c-5-pivot-by-specific-angle.md#add-custom-function-to-pivot-specific-angle) \(use your browser's back button to return this page after copying\), and add this function **after** the `loop()` function.
 
 ## Modify Code to Perform When Robot is Started
 

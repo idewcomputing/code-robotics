@@ -92,15 +92,25 @@ The `followCountLine()` function calls the `driveDistance()` function once the t
 
 So you'll need to add the `driveDistance()` custom function, which contains code to make your robot drive in a straight line for a specified distance by using the wheel encoders.
 
-Copy the `driveDistance()` function from [tutorial C-4](../driving-and-turning/c-4-drive-for-specific-distance.md#add-custom-function-to-drive-specific-distance), and add this function **after** the `loop()` function.
+Copy the `driveDistance()` function from [tutorial C-4](../driving-and-turning/c-4-drive-for-specific-distance.md#add-custom-function-to-drive-specific-distance) \(use your browser's back button to return this page after copying\), and add the function **after** the `loop()` function.
 
 ## Add Custom Function to Pivot Specific Angle
 
-Once your robot reaches a specific line marker using the `followCountLine()` function, you'll usually turn the robot to start driving in a new direction. Typically, you'll pivot the robot 90° right, 90° left, or 180° around.
+Once your robot reaches a specific line marker using the `followCountLine()` function, you'll usually turn the robot to start following a new line. Typically, you'll pivot the robot 90° right, 90° left, or 180° around.
 
 So you'll also need to add the `pivotAngle()` custom function, which contains code to make your robot pivot by a specified angle by using the wheel encoders.
 
-Copy the `pivotAngle()` function from [tutorial C-5](../driving-and-turning/c-5-pivot-by-specific-angle.md#add-custom-function-to-pivot-specific-angle), and add this function **after** the `loop()` function.
+Copy the `pivotAngle()` function from [tutorial C-5](../driving-and-turning/c-5-pivot-by-specific-angle.md#add-custom-function-to-pivot-specific-angle) \(use your browser's back button to return to this page after copying\), and add the function **after** the `loop()` function.
+
+## Create Object for Encoders
+
+Your app will need to create a new object \(as a global variable\) to represent the robot's wheel encoders, which are used by the `driveDistance()` and `pivotAngle()` functions.
+
+Add this code statement **before** the `setup()` function:
+
+```cpp
+RedBotEncoder encoder(A2, 10);
+```
 
 ## Modify Code to Perform When Robot is Started
 
