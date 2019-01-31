@@ -8,7 +8,11 @@ The RedBot has left and right mechanical bumpers with "whiskers" to detect colli
 
 ### How to Use the Mechanical Bumpers in a Program:
 
-To use the mechanical bumpers, you will need to: 1. Create `RedBotBumper` objects for each mechanical bumper 2. Use each object's `read()` method to detect whether a collision has occurred 3. Add code to perform an action when a bumper collision is detected
+To use the mechanical bumpers, you will need to:
+
+1. Create `RedBotBumper` objects for each mechanical bumper
+2. Use each object's `read()` method to detect whether a collision has occurred
+3. Add code to perform an action when a bumper collision is detected
 
 ### Assembly Instructions in this Section:
 

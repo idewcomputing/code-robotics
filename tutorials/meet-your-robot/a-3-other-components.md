@@ -4,7 +4,7 @@ Your RedBot robot has other useful components, which can be categorized as eithe
 
 **Physical inputs** \(such as sensors, etc.\) are components that gather data from the physical environment. The D12 push button on the circuit board and the wheel encoders are both examples of physical inputs. Most of the other components on your RedBot are physical inputs that help the robot sense its environment.
 
-**Physical outputs** \(such as motors, etc.\) are components that can something in the physical environment. The D13 LED light on the circuit board and the motors are both examples of physical outputs. The only other component on your RedBot that is a physical output is its speaker.
+**Physical outputs** \(such as motors, etc.\) are components that can perform some action in the physical environment. The D13 LED light on the circuit board and the motors are both examples of physical outputs. The only other component on your RedBot that is a physical output is its speaker.
 
 ## Speaker
 
@@ -47,7 +47,7 @@ There are several robot behaviors that can be performed using the IR sensors:
 * The IR sensors can be used to **count line markers** that the robot crosses while driving and then make the robot stop or turn once it reaches a desired line number.
 * The IR sensors can be used to **avoid driving over a drop-off** by stopping the motors if the IR sensor measurements are too high \(which may indicate the front edge of the robot is hanging over a drop-off, such as the edge of a table, a stair step leading down, a hole in the surface, etc.\).
 
-Detecting lines with the IR sensors works best with a dark line on a uniform light surface \(or vice versa\). The line also needs to be the right width:  not too wide – but not too narrow. A line width between 0.25—0.75 inch is ideal.
+Detecting lines with the IR sensors works best with a dark line on a uniform light surface \(or vice versa\). The line also needs to be the right width:  not too wide – but not too narrow. A line width between 0.5—0.75 inch is ideal.
 
 Each IR line sensor is connected to the RedBot circuit board by a 3-wire jumper cable \(white, red, and black wires for data, power, and ground\):
 
@@ -72,7 +72,7 @@ Although you can measure the robot's acceleration, you **won't** use the acceler
 
 However, you can use the accelerometer to detect when the robot is physically bumped – this type of change in motion is a "pulse" acceleration that is detectable by the accelerometer.
 
-The accelerometer can also detect the orientation of a device by measuring the acceleration due to Earth's gravity, which is a constant downward force acting on all objects. The accelerometer can determine if the device is parallel to Earth's surface or if the device is tilted at an angle.
+You can also use the accelerometer to detect the orientation of a device by measuring the acceleration due to Earth's gravity, which is a constant downward force acting on all objects. The accelerometer can determine if the device is parallel to Earth's surface or if the device is tilted at an angle. For example, smartphones use accelerometers to detect the phone's orientation, and then the phone changes the screen orientation to match how the phone is being held.
 
 ![](../../.gitbook/assets/accelerometer-axes.jpg)
 
