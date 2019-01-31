@@ -12,12 +12,16 @@ The **limitation** of counting line markers while following a line is that you h
 
 Your teacher might have set up one or more sets of line paths for the class to use for this tutorial.
 
-If not, then create a set of lines and line markers on your floor or surface \(e.g., large sheet of paper, etc.\) similar to the diagram below:
+If not, then create a set of lines and line markers on your floor or surface \(e.g., large sheet of paper, etc.\) similar to the diagram below, which represents an area about 3 feet by 4 feet in size.
 
-INSERT DIAGRAM
+{% hint style="success" %}
+**REUSE LINE PATH:**  If you still have your line path created in tutorial E-2, modify it by adding lines to match the diagram below.
+{% endhint %}
+
+![](../../.gitbook/assets/follow-count-line-diagram1.png)
 
 * Each line or line marker should be about 0.5 inch wide.
-* Any line markers along another line should be about 3-6 inches long.
+* Any line markers that intersect another line should be about 3-6 inches long.
 * Any lines or line markers that intersect should cross at a 90° angle.
 
 ## Save Copy of App With New Name <a id="save-copy-of-app-with-new-name"></a>
