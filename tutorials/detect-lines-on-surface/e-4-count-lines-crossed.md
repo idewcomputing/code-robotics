@@ -14,7 +14,7 @@ If not, then create a set of 4 line markers on your floor or surface \(e.g., lar
 
 ![](../../.gitbook/assets/count-line-diagram1.png)
 
-* Each line marker should be about 0.5 inch wide and about 6-12 inches long. \(In theory, the line markers could be only 3 inches long if the robot always drives perfectly straight and makes perfect turns, but you'll make the lines longer to account for the fact that the robot won't be perfect.\)
+* Each line marker should be about 0.5—0.75 inch wide and about 6—12 inches long. \(In theory, the line markers could be only 3 inches long if the robot always drives perfectly straight and makes perfect turns, but you'll make the lines longer to account for the fact that the robot won't be perfect.\)
 * The set of line markers should be arranged in a straight row along the robot's path. Each line marker should be perpendicular to the robot's path.
 * For this test, make the total distance from the 1st line to the 4th line about 48 inches \(4 feet\). This means you could space the line markers about 18 inches apart \(though they do **not** have to be even spaced for line counting to work\).
 * If you are drawing the lines on a large sheet of paper \(approximately 3 feet wide by 6 feet long\), be sure to draw the lines along the **top** of the paper, so later you'll be able to add another set of lines along the bottom of the paper.
@@ -159,7 +159,7 @@ For example, maybe this pattern represents a set of paths for a warehouse robot 
 
 Here are guidelines to use when creating your own line marker patterns:
 
-* Each line marker should be about 0.5 inch wide and about 6-12 inches long. 
+* Each line marker should be about 0.5—0.75 inch wide and about 6—12 inches long. 
 * Line markers that are part of the same path should be **aligned to form a straight path**. Each line marker should be perpendicular to the robot's path.
 * Line markers must be used to indicate the **beginning** and the **end** of a specific straight path.
 * Line markers can be used in the **middle** of a path to represent places where the robot might stop or turn around. However, it is **not** required to have line markers in the middle of a path.
@@ -204,5 +204,5 @@ Press the D12 button to "start" the robot. It should drive from the "start" line
 
 If you want to test the robot again, press the D12 button to "start" the robot again.
 
-As further practice, you could modify the app to make the robot drive in different patterns using this same set of line markers. For example, you could make the robot drive from the "start" line to line marker B, then turn around and drive to line marker E, and finally turn around and return to the start again.
+As further practice, you could modify the app to make the robot drive in different patterns using this same set of line markers. For example, you could try to make the robot drive from the "start" line to line marker B, then turn around and drive to line marker E, and finally turn around and return to the start again.
 

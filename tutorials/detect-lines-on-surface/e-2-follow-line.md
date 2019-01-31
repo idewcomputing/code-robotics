@@ -6,11 +6,13 @@ Next, you'll code an app that uses the IR line sensors to make your robot follow
 
 Your teacher might have set up one or more line paths for the class to use for this tutorial
 
-If not, then create a line on your floor or surface \(e.g., large sheet of paper, etc.\) that forms a closed path \(i.e., an oval or rounded rectangle\). The line should **not** have any "sharp" turns — instead, use a curved path to make any turns.
+If not, then create a line on your floor or surface \(e.g., large sheet of paper, etc.\) that forms a closed path \(i.e., an oval or rounded rectangle\). The line should be about 0.5—0.75 inch wide. The line should **not** have any "sharp" turns — instead, use a curved path to make any turns.
 
 The diagram below represents a line enclosing an area about 3 feet by 4 feet in size.  You'll also use your line for the next test \([E-3 Avoid Line](e-3-avoid-line.md)\), so be sure the area enclosed by the line is at least 2 feet by 3 feet.
 
 ![](../../.gitbook/assets/follow-line-diagram.png)
+
+
 
 ## How Line Following Works
 

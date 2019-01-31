@@ -13,13 +13,13 @@ Your teacher might have set up one or more sets of line paths for the class to u
 If not, then create a set of lines and line markers on your floor or surface \(e.g., large sheet of paper, etc.\) similar to the diagram below, which represents an area about 3 feet by 4 feet in size.
 
 {% hint style="success" %}
-**REUSE LINE PATH:**  If you still have your line path created in [tutorial E-2](e-2-follow-line.md#create-line-on-surface), you could modify it by adding lines to match the diagram below.
+**REUSE LINE PATH:**  If you still have the line path that was created in [tutorial E-2](e-2-follow-line.md#create-line-on-surface), you could modify it by adding lines to match the diagram below.
 {% endhint %}
 
 ![](../../.gitbook/assets/follow-count-line-diagram1.png)
 
-* Each line or line marker should be about 0.5 inch wide.
-* Any line markers that intersect another line should be about 3-6 inches long.
+* Each line or line marker should be about 0.5—0.75 inch wide.
+* Any line markers that intersect another line should be about 4—6 inches long.
 * Any lines or line markers that intersect should cross at a 90° angle.
 
 ## Save Copy of App With New Name <a id="save-copy-of-app-with-new-name"></a>
@@ -140,9 +140,9 @@ Follow the steps to connect your robot to your computer, and upload the app.
 
 Unplug the USB cable from the robot, and place the robot on the inner line with the robot's IR line sensors in **front** of the "start" line marker \(so it will **not** be counted as the first line marker\).
 
-Press the D12 button to "start" the robot. The robot should follow the inner line. After the robot has reached the outer line, the robot should turn right and follow the line clockwise around one complete loop before turning right and returning to its starting position.
+Press the D12 button to "start" the robot. The robot should follow the inner line. After the robot has reached the outer line, the robot should turn right and follow the outer line clockwise around one complete loop before turning right and returning to its starting position.
 
 If you want to test the robot again, press the D12 button to "start" the robot again.
 
-As further practice, you could modify the app to make the robot drive in different patterns using this same set of lines and line markers. For example, you could make the robot drive from the "start" line to line marker A, then turn left and drive to line marker D, then turn around \(180°\) and return to the start.
+As further practice, you could modify the app to make the robot drive in different patterns using this same set of lines and line markers. For example, you could try to make the robot drive from the "start" line to line marker A, then turn left and drive to line marker D, then turn around \(180°\) and return to the start.
 
