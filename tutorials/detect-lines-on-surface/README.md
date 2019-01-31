@@ -39,7 +39,7 @@ If you are using large sheets of paper \(e.g., butcher paper, flip chart paper, 
 
 ### Drawing Lines with Marker
 
-If you are drawing lines on large sheets of paper, be sure to use a black felt-tip permanent marker \(e.g., Sharpie\) to make lines. Dry erase markers generally do **not** work well \(pigment is not dark enough on paper\).
+If you are drawing lines on large sheets of paper, be sure to use a black felt-tip permanent marker \(e.g., Sharpie\) to make lines. Dry erase markers generally do **not** work well \(pigment is not dark enough\).
 
-Also be sure to keep the paper as flat as possible when using \(or when storing\). Wrinkles and folds in the paper interfere with line detection.
+Also be sure to keep the paper as flat and smooth as possible when using \(or when storing\). Wrinkles or folds in the paper interfere with line detection. Paper can be rolled for storage, but roll carefully to avoid wrinkling.
 
