@@ -1,7 +1,5 @@
 # E-5 Follow and Count Lines
 
-**STILL IN PROGRESS**
-
 Finally, you'll code an app that uses the IR line sensors to make your robot count line markers it crosses as it follows a line. The robot will stop driving when it reaches a specific line number. You can then make the robot turn and start following a new line.
 
 The **advantage** of counting line markers while following a line is that the robot will follow the path more reliably \(even if the robot's turns aren't perfect\), and the path doesn't necessarily have to form a closed loop. You can also create complex patterns with curved paths, loops, and intersecting paths.
@@ -15,7 +13,7 @@ Your teacher might have set up one or more sets of line paths for the class to u
 If not, then create a set of lines and line markers on your floor or surface \(e.g., large sheet of paper, etc.\) similar to the diagram below, which represents an area about 3 feet by 4 feet in size.
 
 {% hint style="success" %}
-**REUSE LINE PATH:**  If you still have your line path created in tutorial E-2, modify it by adding lines to match the diagram below.
+**REUSE LINE PATH:**  If you still have your line path created in [tutorial E-2](e-2-follow-line.md#create-line-on-surface), you could modify it by adding lines to match the diagram below.
 {% endhint %}
 
 ![](../../.gitbook/assets/follow-count-line-diagram1.png)
@@ -118,27 +116,33 @@ RedBotEncoder encoder(A2, 10);
 
 ## Modify Code to Perform When Robot is Started
 
-When the D12 button is pressed to "start" the robot, we want to make the robot follow the current line until it has counted X line markers. Then we'll make the robot ... ADD DESCRIPTION
+The robot will start on the inner line inside the loop. When the D12 button is pressed to "start" the robot, we want to make the robot follow the current line until it has counted 1 line marker \(i.e., reached marker A in the diagram\). Then we'll make the robot turn 90° right and follow the outer loop line until it has counted 4 line markers \(which will bring it back to marker A\). Then the robot will turn 90° right again, and follow the inner line until it has counted 1 line marker \(i.e., returned to the start\). Finally, the robot will turn around \(180°\) and "pause" itself, so it's back in its starting position.
+
+![](../../.gitbook/assets/follow-count-line-diagram2.png)
 
 First, **delete** the existing code statement **within** the `if` statement in the `loop()` function that calls the `followLine()` function  when `started` is `true`.
 
 Then add these code statements **within** the `if` statement in the `loop()` function, so they will be performed when `started` is `true`:
 
 ```cpp
-// code to be added
+    followCountLine(1); // follow line until 1 line marker counted
+    pivotAngle(90); // turn right
+    followCountLine(4); // follow line until 4 line markers counted
+    pivotAngle(90); // turn right
+    followCountLine(1); // follow line until 1 line marker counted
+    pivotAngle(180); // turn around
+    started = false; // pause robot
 ```
 
 ## Upload App to Robot
 
 Follow the steps to connect your robot to your computer, and upload the app.
 
-Unplug the USB cable from the robot, and place the robot on the main line with the robot's IR line sensors in **front** of the "start" line marker \(so it will **not** be counted as the first line marker\).
+Unplug the USB cable from the robot, and place the robot on the inner line with the robot's IR line sensors in **front** of the "start" line marker \(so it will **not** be counted as the first line marker\).
 
-INSERT DIAGRAM
-
-Press the D12 button to "start" the robot. The robot should start following the line. After the robot has counted X line markers \(meaning it has reached the X line after the start line\), the robot should...ADD DESCRIPTION
+Press the D12 button to "start" the robot. The robot should follow the inner line. After the robot has reached the outer line, the robot should turn right and follow the line clockwise around one complete loop before turning right and returning to its starting position.
 
 If you want to test the robot again, press the D12 button to "start" the robot again.
 
-As further practice, you could modify the app to make the robot drive in different patterns using this same set of lines and line markers.
+As further practice, you could modify the app to make the robot drive in different patterns using this same set of lines and line markers. For example, you could make the robot drive from the "start" line to line marker A, then turn left and drive to line marker D, then turn around \(180°\) and return to the start.
 

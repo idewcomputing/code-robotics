@@ -204,5 +204,5 @@ Press the D12 button to "start" the robot. It should drive from the "start" line
 
 If you want to test the robot again, press the D12 button to "start" the robot again.
 
-As further practice, you could modify the app to make the robot drive in different patterns using this same set of line markers.  For example, you could make the robot drive from the "start" line to line marker B, then turn around and drive to line marker E, and finally turn around and return to the start again.
+As further practice, you could modify the app to make the robot drive in different patterns using this same set of line markers. For example, you could make the robot drive from the "start" line to line marker B, then turn around and drive to line marker E, and finally turn around and return to the start again.
 
