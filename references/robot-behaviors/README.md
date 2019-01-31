@@ -61,8 +61,8 @@ The robot behaviors in this table could be categorized into different types base
 | Turn by specific angle \(90° right, etc.\) | Wheel Encoders, Motors |
 | Follow a line | IR Line Sensors, Motors |
 | Avoid a line | IR Line Sensors, Motors |
-| Drive straight while counting lines crossed | Wheel Encoders, IR Line Sensors, Motors |
-| Follow a line while counting lines crossed | IR Line Sensors, Motors |
+| Drive straight while counting lines crossed | IR Line Sensors, Wheel Encoders, Motors |
+| Follow a line while counting lines crossed | IR Line Sensors, Wheel Encoders, Motors |
 | Detect bumper collision with object | Mechanical Bumpers |
 | Measure distance ahead to closest object | Ultrasonic Sensor |
 | Avoid collision with object in path | Ultrasonic Sensor, Wheel Encoders, Motors |
@@ -70,10 +70,10 @@ The robot behaviors in this table could be categorized into different types base
 | Find closest object \(360° scan\) and drive towards it | Ultrasonic Sensor, Wheel Encoders, Motors |
 | Check if button is pressed | Push Button |
 | Check for surface drop-off | IR Line Sensors |
-| Check if robot has been bumped | Accelerometer |
 | Measure pitch angle \(tilt up or down\) | Accelerometer |
 | Measure roll angle \(tilt left or right\) | Accelerometer |
 | Check if robot is upside down | Accelerometer |
+| Check if robot has been bumped | Accelerometer |
 
 {% hint style="success" %}
 **OTHER POSSIBLE BEHAVIORS:**  There are other possible behaviors **not** listed in the table \(such as:  solving a maze, etc.\) that you could program your robot to perform.
