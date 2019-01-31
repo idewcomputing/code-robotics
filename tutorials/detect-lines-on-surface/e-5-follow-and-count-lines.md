@@ -22,9 +22,9 @@ INSERT DIAGRAM
 
 ## Save Copy of App With New Name <a id="save-copy-of-app-with-new-name"></a>
 
-In your Arduino code editor, use the "Save As" command to save a copy of the `count_lines_test` app as a different app named: `follow_count_lines_test`
+In your Arduino code editor, use the "Save As" command to save a copy of the `follow_line_test` app as a different app named: `follow_count_lines_test`
 
-Once you saved the new app name, modify the block comment near the beginning of the app code to change `Count Lines Test` to `Follow and Count Lines Test`.
+Once you saved the new app name, modify the block comment near the beginning of the app code to change `Follow Line Test` to `Follow and Count Lines Test`.
 
 ## Add Custom Function to Count Lines While Following Line
 
@@ -84,21 +84,29 @@ void followCountLine(int target) {
 * `followLine()` function — used to make the robot follow the current line
 * `driveDistance()` function — used to center the robot on the target line marker
 
-So your app will also need to have both of these custom functions. Luckily, the saved app that you re-used for this current app already has the `driveDistance()` function.
+So your app will also need to have both of these custom functions. Luckily, the saved app that you re-used for this current app already has the `followLine()` function.
 
-Furthermore, once your robot reaches a specific line marker, you'll usually turn the robot to start following a new line. Typically, you'll pivot the robot 90° right, 90° left, or 180° around.
+## Add Custom Function to Drive Specific Distance
 
-So you'll also want to have the `pivotAngle()` custom function, which contains code to make your robot pivot by a specified angle by using the wheel encoders. Luckily, the saved app that you re-used for this current app already has the `pivotAngle()` function.
+The `followCountLine()` function calls the `driveDistance()` function once the target line count is reached. The robot drives forward 3.5 inches, in order to center the robot's wheels on the target line marker.
 
-## Add Custom Function to Follow Line
+So you'll need to add the `driveDistance()` custom function, which contains code to make your robot drive in a straight line for a specified distance by using the wheel encoders.
 
-Copy the `followLine()` function from [tutorial E-2](e-2-follow-line.md#add-custom-function-to-follow-line), and add this function **after** the `loop()` function.
+Copy the `driveDistance()` function from [tutorial C-4](../driving-and-turning/c-4-drive-for-specific-distance.md#add-custom-function-to-drive-specific-distance), and add this function **after** the `loop()` function.
+
+## Add Custom Function to Pivot Specific Angle
+
+Once your robot reaches a specific line marker using the `followCountLine()` function, you'll usually turn the robot to start driving in a new direction. Typically, you'll pivot the robot 90° right, 90° left, or 180° around.
+
+So you'll also need to add the `pivotAngle()` custom function, which contains code to make your robot pivot by a specified angle by using the wheel encoders.
+
+Copy the `pivotAngle()` function from [tutorial C-5](../driving-and-turning/c-5-pivot-by-specific-angle.md#add-custom-function-to-pivot-specific-angle), and add this function **after** the `loop()` function.
 
 ## Modify Code to Perform When Robot is Started
 
 When the D12 button is pressed to "start" the robot, we want to make the robot follow the current line until it has counted X line markers. Then we'll make the robot ... ADD DESCRIPTION
 
-First, **delete** the existing code statement **within** the `if` statement in the `loop()` function that are performed when `started` is `true`.
+First, **delete** the existing code statement **within** the `if` statement in the `loop()` function that calls the `followLine()` function  when `started` is `true`.
 
 Then add these code statements **within** the `if` statement in the `loop()` function, so they will be performed when `started` is `true`:
 
