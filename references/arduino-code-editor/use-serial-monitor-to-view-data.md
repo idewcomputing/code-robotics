@@ -1,8 +1,6 @@
 # Use Serial Monitor to View Data
 
-#### In progress
-
-How to use the serial monitor to view data transmitted from your robot \(such as measurements from one of its sensors\) - also covered in tutorials for specific sensors \(wheel encoders, etc.\)
+The Arduino code editor has a serial monitor which can be used to view data sent by your robot over a USB connection to your computer.
 
 ## Connect Robot to Computer
 
