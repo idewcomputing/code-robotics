@@ -2,7 +2,14 @@
 
 Here is a generic app template that can be used as "starter" code to program your team's robot demonstration.
 
-This app template has been designed to demonstrate 3 task scenarios. The `loop()` function checks to see whether the D12 button has been pressed to "start" the robot. If the robot is "started", it performs the next task \(represented by a number\) by calling a custom function for that task, such as `task1()`, `task2()`, etc. If necessary, you can easily modify the app code to demonstrate more \(or fewer\) tasks.
+This app template has been designed to demonstrate 3 task scenarios:
+
+* The `loop()` function checks to see if the button has been pressed to "start" the robot.
+* If the robot is "started", it performs the next task \(represented by a number\) by calling a custom function for that task, such as `task1()`, `task2()`, etc.
+* At the end of each task, the robot is "paused," and the next task number is changed \(so the robot will perform the tasks in order and start over once it reaches the last task\).
+* Pressing the button again will start the next task.
+
+If necessary, you can easily modify the app code to demonstrate more \(or fewer\) tasks.
 
 You'll need to add other code to complete your app:
 
