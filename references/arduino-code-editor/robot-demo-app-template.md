@@ -1,6 +1,6 @@
 # Robot Demo App Template
 
-Here is a generic app template that can be used as "starter" code to program your team's robot demonstration.
+Here is an app template that can be used as "starter" code to program your team's robot demonstration.
 
 This app template has been designed to demonstrate 3 task scenarios:
 
