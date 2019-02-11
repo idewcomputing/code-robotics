@@ -11,6 +11,19 @@ These custom functions use the [IR line sensors](../physical-inputs/ir-line-sens
 
 A custom function named `followLine()` uses the IR line sensors to make your robot follow a line. The line determines the robot's path.
 
+In order to work, the `followLine()` function must be continuously called by the `loop()` function \(or continuously called by a loop within another function\).
+
+The `followLine()` function requires these objects as part of your global variables before the `setup()` function:
+
+```cpp
+RedBotMotors motors;
+RedBotSensor leftLine(A3);
+RedBotSensor centerLine(A6);
+RedBotSensor rightLine(A7);
+```
+
+Add the `followLine()` custom function **after** the `loop()` function:
+
 ```cpp
 void followLine() {
   /* FOLLOW LINE
