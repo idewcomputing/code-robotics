@@ -13,6 +13,16 @@ A custom function named `followLine()` uses the IR line sensors to make your rob
 
 In order to work, the `followLine()` function must be continuously called by the `loop()` function \(or continuously called by a loop within another function\).
 
+The robot's goal during line following is to try stay centered on the line as the robot drives. To do this, the robot must check all three IR line sensors.
+
+![](../../.gitbook/assets/follow-line-choices.jpg)
+
+If the robot is trying to follow a line, there are 3 possible situations at any given point:
+
+* **If only the center IR line sensor detects the line**, this means the robot is centered on the line. In this situation, the robot should drive straight to keep following the line.
+* **If only the left IR sensor detects the line**, this means the line has started to curve to the left. In this situation, the robot should adjust its motors to curve left and keep following the line.
+* **If only the right IR line sensor detects the line**, this means the line has started to curve to the right. In this situation, the robot should adjust its motors to curve right and keep following the line.
+
 The `followLine()` function requires these objects as part of your global variables before the `setup()` function:
 
 ```cpp
@@ -76,6 +86,22 @@ void followLine() {
 A custom function named `avoidLine()` uses the IR line sensors to make your robot avoid a line. The line acts as a border to keep the robot inside \(or outside\) an area or path.
 
 In order to work, the `avoidLine()` function must be continuously called by the `loop()` function \(or continuously called by a loop within another function\).
+
+The robot's goal when avoiding a line is to check for a line as the robot drives and turn away when a line is detected. To do this, the robot can just check the left and right IR line sensors \(rather than all three\).
+
+![](../../.gitbook/assets/avoid-line-choices.jpg)
+
+If the robot is trying to avoid a line, there are 3 possible situations when a line is detected:
+
+* **If both the left and right IR line sensors detect the line**, this means the robot has "hit" the line head-on. In this situation, the robot should turn around to avoid the line.
+* **If only the left IR sensor detects the line**, this means robot has "hit" the line at angle from the left. In this situation, the robot should turn right to avoid the line.
+* **If only the right IR line sensor detects the line**, this means robot has "hit" the line at angle from the right. In this situation, the robot should turn left to avoid the line.
+
+The `avoidLine()` function generates a **random** number for the amount of time \(in milliseconds\) for each turn \(pivot\) in order to produce variation in the robot's new direction. The ranges for the random numbers were selected to make the pivot times close to a 90° turn or a 180° turn. However, you can modify the function to instead use **fixed** pivot times \(such as 650 ms for a 90° turn and 1300 ms for a 180° turn\).
+
+{% hint style="success" %}
+**MINIMUM PIVOT:**  Be sure to make the robot turn at least 90° whenever it detects a line. If the robot were to "hit" a line at a nearly perpendicular angle \(almost head-on\), then a pivot of less than 90° might **not** be enough to turn away from the line.
+{% endhint %}
 
 The `avoidLine()` function requires these objects as part of your global variables before the `setup()` function:
 
