@@ -116,6 +116,10 @@ The ultrasonic sensor has a transmitter \(i.e., a speaker\) that can produce hig
 
 ![Ultrasonic Sensor](../../.gitbook/assets/ultrasonic-sensor.jpg)
 
+{% hint style="info" %}
+**TRANSMITTER VS. RECEIVER:**  The ultrasonic sensor's transmitter and receiver both look like small speakers, even though the receiver acts as a microphone. This is because speakers and microphones use a similar physical design to perform opposite functions:  a speaker converts electrical energy into sound waves, and a microphone converts sound waves into electrical energy.
+{% endhint %}
+
 This ultrasonic sensor measures distances in a narrow cone of about 15° in front of the sensor. This sensor can detect obstacles located up to 400 cm away \(about 13 feet\). The distance measurements from the sensor are very accurate, within about 3 mm \(about 0.1 inch\) of the actual distance.
 
 The primary use of the ultrasonic sensor is to prevent collisions. If the sensor detects a nearby obstacle in the path ahead, the robot can be programmed to avoid the obstacle by stopping or turning. You could even use this sensor to program your robot to navigate a maze on its own.
