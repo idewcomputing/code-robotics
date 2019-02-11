@@ -62,7 +62,7 @@ void pivotAngle(float angle) {
     float pivotCirc = PI * pivotDiam; // pivot circumference = 3.14 x 6.125 in = 19.23 in
 
     // based on angle, calculate distance (arc length) for pivot
-    float distance = abs(angle) / 360 * pivotCirc;
+    float distance = abs(angle) / 360.0 * pivotCirc;
 
     // based on distance, calculate number of wheel revolutions
     float numRev = distance / wheelCirc;
