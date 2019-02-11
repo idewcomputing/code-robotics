@@ -37,6 +37,8 @@ Add this custom function **after** the `loop()` function:
 ```cpp
 void followCountLine(int target) {
   /* FOLLOW LINE WHILE COUNTING LINES CROSSED
+  Requires followLine() and driveDistance() functions
+  
   To follow and count dark lines on light surface:
   Use high threshold & see if sensors greater than threshold
   

@@ -44,6 +44,8 @@ Add this custom function **after** the `loop()` function:
 ```cpp
 void countLine(int target) {
   /* DRIVE STRAIGHT WHILE COUNTING LINES CROSSED
+  Requires driveStraight() and driveDistance() functions
+  
   To count dark lines on light surface:
   Use high threshold & see if sensors greater than threshold
 

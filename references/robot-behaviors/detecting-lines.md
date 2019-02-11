@@ -73,7 +73,7 @@ void followLine() {
 
 ## avoidLine\(\)
 
-A custom function named `avoidLine()` uses the IR line sensors to make your robot avoid a line. The line acts as a border to keep the robot inside \(or outside\) a certain area or path.
+A custom function named `avoidLine()` uses the IR line sensors to make your robot avoid a line. The line acts as a border to keep the robot inside \(or outside\) an area or path.
 
 In order to work, the `avoidLine()` function must be continuously called by the `loop()` function \(or continuously called by a loop within another function\).
 
@@ -141,9 +141,32 @@ void avoidLine() {
 
 ## countLine\(\)
 
+A custom function named `countLine()` uses the wheel encoders to make the robot drive straight while also using the IR line sensors to count line markers the robot crosses. The robot will stop driving when it reaches a specific line number. You can then make the robot turn and start driving in a new direction.
+
+The `countLine()` function requires two other custom functions, in order to work. Be sure to add these two functions **after** the `loop()` function:
+
+* `driveStraight()` function — used to make the robot drive straight
+* `driveDistance()` function — used to center the robot on the target line marker
+
+Once your robot reaches a specific line marker using the `countLine()` function, you'll usually turn the robot to start driving in a new direction. Typically, you'll pivot the robot 90° right, 90° left, or 180° around. So you'll also want to add the `pivotAngle()` custom function after the `loop()` function.
+
+The `countLine()` function requires these objects as part of your global variables before the `setup()` function:
+
+```cpp
+RedBotMotors motors;
+RedBotEncoder encoder(A2, 10);
+RedBotSensor leftLine(A3);
+RedBotSensor centerLine(A6);
+RedBotSensor rightLine(A7);
+```
+
+Add the `countLine()` custom function **after** the `loop()` function:
+
 ```cpp
 void countLine(int target) {
   /* DRIVE STRAIGHT WHILE COUNTING LINES CROSSED
+  Requires driveStraight() and driveDistance() functions
+  
   To count dark lines on light surface:
   Use high threshold & see if sensors greater than threshold
 
@@ -191,9 +214,32 @@ void countLine(int target) {
 
 ## followCountLine\(\)
 
+A custom function named `followCountLine()` uses IR line sensors to make the robot follow a line while also counting line markers the robot crosses. The robot will stop driving when it reaches a specific line number. You can then make the robot turn and start following a new line.
+
+The `followCountLine()` function requires two other custom functions, in order to work. Be sure to add these two functions **after** the `loop()` function:
+
+* `followLine()` function — used to make the robot follow the current line
+* `driveDistance()` function — used to center the robot on the target line marker
+
+Once your robot reaches a specific line marker using the `followCountLine()` function, you'll usually turn the robot to start following a new line. Typically, you'll pivot the robot 90° right, 90° left, or 180° around. So you'll also want to add the `pivotAngle()` custom function after the `loop()` function.
+
+The `followCountLine()` function requires these objects as part of your global variables before the `setup()` function:
+
+```cpp
+RedBotMotors motors;
+RedBotEncoder encoder(A2, 10);
+RedBotSensor leftLine(A3);
+RedBotSensor centerLine(A6);
+RedBotSensor rightLine(A7);
+```
+
+Add the `followCountLine()` custom function **after** the `loop()` function:
+
 ```cpp
 void followCountLine(int target) {
   /* FOLLOW LINE WHILE COUNTING LINES CROSSED
+  Requires followLine() and driveDistance() functions
+  
   To follow and count dark lines on light surface:
   Use high threshold & see if sensors greater than threshold
   
