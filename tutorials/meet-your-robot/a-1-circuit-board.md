@@ -41,7 +41,7 @@ The RedBot circuit board also has various pins, ports, buttons, switches, and LE
   * **XBee Serial Mode Switch \(HW/SW\):**  used to set XBee serial communication mode \(leave this set to HW – unless you're using an Xbee module\)
 * **XBee Port:**  used to plug in an optional XBee Wireless Antenna module \(which is not included in standard kit – and will **not** be used for this project\)
 
-{% hint style="warning" %}
+{% hint style="info" %}
 **XBEE:**  If you use an XBee wireless antenna module, pins A0 and A1 will be used as TX and RX for the XBee serial communication – which means you will **NOT** be able to use the A0 and A1 pins for another purpose, such as an ultrasonic sensor.
 {% endhint %}
 
