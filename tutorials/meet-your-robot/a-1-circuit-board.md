@@ -27,19 +27,19 @@ The RedBot circuit board also has various pins, ports, buttons, switches, and LE
   * There are also I/O pins connected directly to a LED light \(pin D13\) and push button \(pin D12\).
 * **Motor Pins:**  used to connect wires for left and right motors \(which are a type of output\)
 * **Power Supply Jack:**  used to provide power to robot \(by plugging in barrel jack from battery pack\)
-* **Mini USB Port:**  used to connect robot to computer \(to download new app from computer or to send serial data to computer\)
+* **Mini USB Port:**  used to connect robot to computer \(either to download new app from computer or to send serial data to computer\)
 * **LED Lights:**
-  * **Power LED:**  Green LED which indicates the robot is powered on
-  * **D13 LED:**  Green LED which can be controlled by your robot's app
-  * **TX and RX LEDs:**  Green LEDs which indicate data transfer between your robot and computer
+  * **Power LED:**  Green LED that indicates the robot is powered on
+  * **D13 LED:**  Green LED that can be controlled by your robot's app
+  * **TX and RX LEDs:**  Green LEDs indicating data transfer between robot and computer
 * **Buttons:**
-  * **Reset Button:**  Restarts your robot's app \(similar to turning robot off and then on again\)
-  * **D12 Button:**  Your robot's app can be programmed to detect when this button is pushed
+  * **Reset Button:**  Restarts your robot's app \(similar to turning robot off and back on\)
+  * **D12 Button:**  Robot's app can be coded to detect if this button is pressed
 * **Switches:**
   * **Power Switch \(OFF/ON\):**  used to turn robot off or on \(be sure to turn off robot before storing to conserve battery power\)
-  * **Motor Switch \(STOP/RUN\):** normally should be set to RUN, but can temporarily set to STOP to prevent motors from spinning \(but robot's app will still run if power is on\)
-  * **XBee Serial Mode Switch \(HW/SW\):**  used to determine XBee serial communication mode \(you should leave this set to HW\)
-* **XBee Port:**  used to plug in an optional XBee Wireless Antenna module \(not included in kit – will not be used for this project\)
+  * **Motor Switch \(STOP/RUN\):** normally should be set to RUN, but can temporarily set to STOP to stop motors \(but robot's app will continue to run if power is on\)
+  * **XBee Serial Mode Switch \(HW/SW\):**  used to set XBee serial communication mode \(leave this set to HW – unless you're using an Xbee module\)
+* **XBee Port:**  used to plug in an optional XBee Wireless Antenna module \(which is not included in standard kit – and will **not** be used for this project\)
 
 ## Robot Firmware and App
 
