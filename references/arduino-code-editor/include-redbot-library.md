@@ -82,7 +82,7 @@ The `#include` statements shown above actually add **two** RedBot libraries to y
 * The first library \(`RedBot.h`\) is the main RedBot library, which is what you need.
 * The second library is the RedBot Software Serial library, which you do **not** need.
 
-You can **delete** the **second** `#include` statement for the RedBot Software Serial library. This library is only used for the XBee Wireless Antenna module \(which is not included in a standard RedBot kit – and will not be used for this project\).
+You should **delete** the **second** `#include` statement for the RedBot Software Serial library. This library is only used for the XBee Wireless Antenna module \(which is **not** included in a standard RedBot kit – and will **not** be used for this project\).
 
 Arduino has a built-in `Serial` class that can be used to send serial data from your robot's sensors to your computer for viewing in the serial monitor \(so you **don't** need the RedBot Software Serial library\).
 
