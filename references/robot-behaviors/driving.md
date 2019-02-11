@@ -23,7 +23,14 @@ You can even drive backward by passing in a **negative** value for the distance:
 driveDistance(-12);
 ```
 
-Add this `driveDistance()` custom function **after** the `loop()` function:
+The `driveDistance()` function requires these objects as part of your global variables before the `setup()` function:
+
+```cpp
+RedBotMotors motors;
+RedBotEncoder encoder(A2, 10);
+```
+
+Add the `driveDistance()` custom function **after** the `loop()` function:
 
 ```cpp
 void driveDistance(float distance) {
@@ -118,11 +125,18 @@ void driveDistance(float distance) {
 
 A custom function named `driveDistance()` uses the wheel encoders to make your robot drive straight continuously \(rather than for a specific distance\).
 
-In order to work, the `driveDistance()` function must be continuously called by the `loop()` function.
+In order to work, the `driveDistance()` function must be continuously called by the `loop()` function \(or continuously called by a loop within another function\).
 
 Driving straight continuously is usually combined with other robot behaviors, such as:  detecting collisions, avoiding collisions, avoiding a line, counting lines crossed, etc.
 
-The `driveStraight()` function relies on global variables to track the left and right motor powers, as well as the left and right encoder counts. Add this code **before** the `setup()` function:
+The `driveStraight()` function requires these objects as part of your global variables before the `setup()` function:
+
+```cpp
+RedBotMotors motors;
+RedBotEncoder encoder(A2, 10);
+```
+
+The `driveStraight()` function uses global variables to track the left and right motor powers, as well as the left and right encoder counts. Add this code **before** the `setup()` function:
 
 ```cpp
 // global variables needed for driveStraight() function
@@ -130,13 +144,13 @@ int leftPower = 175, rightPower = leftPower;
 long prevLeftCount = 0, prevRightCount = 0;
 ```
 
-The wheel encoder counters should be reset back to zero when your app first starts. Add this code statement **within** the `setup()` function:
+The wheel encoder counters should be reset to zero when your app first starts. Add this code statement **within** the `setup()` function:
 
 ```cpp
   encoder.clearEnc(BOTH);
 ```
 
-Add this `driveStraight()` custom function **after** the `loop()` function:
+Add the `driveStraight()` custom function **after** the `loop()` function:
 
 ```cpp
 void driveStraight() {
@@ -175,5 +189,12 @@ void driveStraight() {
   motors.rightDrive(rightPower);
   delay(10);  // short delay before next reading
 }
+```
+
+The `driveStraight()` function requires these objects as global variables in your app:
+
+```cpp
+RedBotMotors motors;
+RedBotEncoder encoder(A2, 10);
 ```
 
