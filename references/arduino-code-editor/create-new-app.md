@@ -2,7 +2,7 @@
 
 An Arduino program \(or app\) is also referred to as a "sketch" because the Arduino language is designed to allow you to quickly create a program — just like a sketch is a quick drawing.
 
-This guidebook will primarily use the term "app" but just keep in mind that **program**, **app**, and **sketch** all mean the same thing:  a set of coded software instructions to control the operation of a computing device \(which is your robot, in this case\).
+This guidebook will primarily use the term "app" but just keep in mind that **program**, **app**, and **sketch** all mean the same thing in Arduino:  a set of coded software instructions to control the operation of a computing device \(which is your robot, in this case\).
 
 ## Create New App
 
@@ -48,9 +48,11 @@ void loop() {
 }
 ```
 
+In both cases, the starter code contains a `setup()` function and a `loop()` function. You'll need to add code within these functions to complete your app.
+
 ## Add Comment Block to Identify App
 
-It is recommended to add a comment block at the very top of your code to list a title for your app and any other information that might be helpful to you or to anyone else reviewing the program code.
+It is recommended to add a comment block at the beginning of your code to list a title for your app and any other information that might be helpful to you or anyone reviewing the program code.
 
 A blank comment block is created with slashes and asterisks like this:
 

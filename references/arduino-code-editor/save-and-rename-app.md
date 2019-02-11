@@ -2,7 +2,7 @@
 
 ## Save Your App Code
 
-The Arduino code editor does **NOT** autosave as you type \(though you can turn this feature on in the web editor\), so be sure to periodically save your code as you work.
+The Arduino code editor does **NOT** autosave as you type \(though you can turn this feature on in the web editor\), so be sure to periodically save your code as you work. However, the Arduino code editor will save your code when verifying or uploading it.
 
 ### Arduino Create \(Web Editor\)
 

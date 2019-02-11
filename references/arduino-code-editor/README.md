@@ -26,7 +26,7 @@ Here is the page with links to [download the Arduino IDE](https://www.arduino.cc
 1. Click the appropriate download link for your computer platform \(Windows, Mac, Linux\). If you're using a Windows computer and do **not** have Administrator access, download the Windows ZIP file for non-admin install. \(The Mac download is a different ZIP file.\)
 2. The download page asks for a donation – however, you can click the free link to "just download."
 3. After the download is complete, locate the ZIP file in the Downloads folder on your computer, and uncompress the ZIP file:
-   * On a **Windows** computer, right-click the ZIP file, and select "Extract All." Browse to the destination  where you want to save the Arduino application \(choose the Desktop if you don't have Administrator privileges to install in the Programs folder\), and click "Extract."
+   * On a **Windows** computer, right-click the ZIP file, and select "Extract All." Browse to the destination where you want to save the Arduino application \(choose Desktop if you don't have Administrator privileges to install in the Programs folder\), and click "Extract."
    * On a **Mac** computer, just double-click the ZIP file. Then drag-and-drop the Arduino application to your Desktop \(or to your Applications folder if you have Administrator privileges\).
 4. Double-click the Arduino application icon to start the code editor.
 
