@@ -107,7 +107,11 @@ void pivotAngle(float angle) {
 
 A custom function named `turnAngle()` uses the wheel encoders to make your robot turn on one wheel by a specified angle.
 
-When turning on one wheel, the robot turns in a circle centered on the stopped wheel. The distance between the centers of the RedBot wheel treads is 6.125 inches, which represents the radius of the robot's turn circle, so the diameter of the turn circle is twice its radius - i.e., 12.25 inches. If the robot turned 360° on one wheel, the distance traveled by the driving wheel would be equal to the circumference of this turn circle:
+Turning on one wheel is less tight than pivoting \(which has a zero turn radius\):
+
+![](../../.gitbook/assets/pivot-vs-turn.png)
+
+When turning on one wheel, the robot turns in a circle centered on the stopped wheel. The distance between the centers of the RedBot wheel treads is 6.125 inches, which represents the radius of the robot's turn circle, so the diameter of this turn circle is 12.25 inches. If the robot turned 360° on one wheel, the distance traveled by the driving wheel would be equal to the circumference of this turn circle:
 
 **C = 𝛑 × d = 3.14 × 12.25 = 38.47 inches**
 
