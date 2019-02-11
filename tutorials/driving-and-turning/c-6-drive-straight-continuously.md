@@ -30,11 +30,11 @@ If you need a reminder, here are [instructions for how to rename an app](../../r
 
 ## Create Objects for Motors, Button, and Encoders
 
-Your app will need to create new objects \(as global variables\) to represent the robot's motors, button, and wheel encoders. Add this code **before** the `setup()` function:
+Your app will need to create new objects \(as global variables\) to represent the robot's button, motors, and wheel encoders. Add this code **before** the `setup()` function:
 
 ```cpp
-RedBotMotors motors;
 RedBotButton button;
+RedBotMotors motors;
 RedBotEncoder encoder(A2, 10);
 ```
 

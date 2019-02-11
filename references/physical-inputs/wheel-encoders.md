@@ -588,7 +588,7 @@ void turnAngle(float angle) {
     float turnCirc = PI * turnDiam; // turn circumference = 3.14 x 12.25 in = 38.47 in
 
     // based on angle, calculate distance (arc length) for turn
-    float distance = abs(angle) / 360 * turnCirc;
+    float distance = abs(angle) / 360.0 * turnCirc;
 
     // based on distance, calculate number of wheel revolutions
     float numRev = distance / wheelCirc;
@@ -630,7 +630,7 @@ void turnAngle(float angle) {
     motors.stop();
     delay(250);
 
-    // uncomment next statements only if using driveStraight() elsewhere in program
+    // uncomment following statements only if using driveStraight() elsewhere in program
     // encoder.clearEnc(BOTH);
     // prevLeftCount = 0;
     // prevRightCount = 0;
