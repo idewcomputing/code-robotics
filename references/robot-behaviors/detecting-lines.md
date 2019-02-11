@@ -73,7 +73,20 @@ void followLine() {
 
 ## avoidLine\(\)
 
-A custom function named `followLine()` uses the IR line sensors to make your robot avoid a line. The line acts as a border to keep the robot inside \(or outside\) a certain area or path.
+A custom function named `avoidLine()` uses the IR line sensors to make your robot avoid a line. The line acts as a border to keep the robot inside \(or outside\) a certain area or path.
+
+In order to work, the `avoidLine()` function must be continuously called by the `loop()` function \(or continuously called by a loop within another function\).
+
+The `avoidLine()` function requires these objects as part of your global variables before the `setup()` function:
+
+```cpp
+RedBotMotors motors;
+RedBotSensor leftLine(A3);
+RedBotSensor centerLine(A6);
+RedBotSensor rightLine(A7);
+```
+
+Add the `avoidLine()` custom function **after** the `loop()` function:
 
 ```cpp
 void avoidLine() {
