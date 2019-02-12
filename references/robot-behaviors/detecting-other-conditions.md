@@ -68,3 +68,70 @@ void checkDropOff() {
 }
 ```
 
+## checkUpsideDown\(\)
+
+A custom function named `checkUpsideDown()` uses the accelerometer to detect whether the robot's pitch or roll is greater than 90° \(which indicates the robot has flipped over\).
+
+The `checkUpsideDown()` function requires these objects as part of your global variables before the `setup()` function:
+
+```cpp
+RedBotMotors motors;
+RedBotAccel accel;
+```
+
+Add the `checkUpsideDown()` custom function **after** the `loop()` function:
+
+```cpp
+bool checkUpsideDown() {
+  // if robot is upside-down, returns value of true
+  // otherwise returns value of false
+
+  // get new accelerometer data
+  accel.read(); 
+
+  // get absolute values for pitch and roll
+  float pitch = abs(accel.angleXZ);
+  float roll = abs(accel.angleYZ);
+
+  // see if pitch or roll is greater than 90 degrees & return value
+  if (pitch > 90 || roll > 90) return true;
+  else return false;
+}
+```
+
+## checkBump\(\)
+
+A custom function named `checkBump()` uses the accelerometer to detect when the robot is physically bumped as the result of a collision or other force.
+
+The `checkBump()` function requires these objects as part of your global variables before the `setup()` function:
+
+```cpp
+RedBotMotors motors;
+RedBotAccel accel;
+```
+
+To enable bump detection, add this code statement **within** the `setup()` function:
+
+```cpp
+accel.enableBump();
+```
+
+Add the `checkBump()` custom function **after** the `loop()` function:
+
+```cpp
+void checkBump() {
+
+  bool bump = accel.checkBump();
+  
+  if (bump == true) {
+    // add code to perform special actions: brake, distress signal, etc.
+    motors.brake();
+    
+  }
+}
+```
+
+{% hint style="success" %}
+**ADD CODE TO FUNCTION:**  You need to add code within the `checkBump()` function to perform actions \(brake, distress signal, etc.\) when a bump occurs.
+{% endhint %}
+
