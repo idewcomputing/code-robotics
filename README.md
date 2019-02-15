@@ -1,7 +1,7 @@
 # Code Introduction
 
 {% hint style="danger" %}
-**UPDATE IN PROGRESS:** This code guidebook is being revised and will be ready for use in January 2019.
+**UPDATE IN PROGRESS:** Portions of this code guidebook are being revised.
 {% endhint %}
 
 This Robotics Code Guidebook is a supplement to the [Robotics Project Guidebook](https://docs.idew.org/project-robotics/).
