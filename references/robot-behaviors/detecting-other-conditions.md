@@ -1,6 +1,6 @@
 # Detecting Other Conditions
 
-These custom functions use the push button, IR line sensors, or accelerometer:
+These custom functions use the [push button](../physical-inputs/push-button.md), [IR line sensors](../physical-inputs/ir-line-sensors.md), or [accelerometer](../physical-inputs/accelerometer.md):
 
 * `checkButton()` — check if button is being pressed
 * `checkDropOff()` — check for surface drop-off \(e.g., stair step, etc.\)
@@ -9,7 +9,24 @@ These custom functions use the push button, IR line sensors, or accelerometer:
 
 ## checkButton\(\)
 
-A custom function named `checkButton()` checks whether the built-in D12 button is being pressed. If the button is pressed, the function will toggle the value of a global variable named `started` from `false` to `true` \(or vice versa\).
+A custom function named `checkButton()` checks whether the built-in D12 button is being pressed. If the button is pressed, the function will toggle the value of a global variable named `started` from `false` to `true` \(or vice versa\). The function will also provide feedback by blinking the built-in D13 LED light and beeping with the speaker.
+
+The `checkButton()` function uses global variables to store the pin numbers for the LED and speaker and to track whether the robot is "started" \(`true`\) or "paused" \(`false`\). Add this code **before** the `setup()` function:
+
+```cpp
+int LED = 13;
+int speaker = 9;
+bool started = false;
+```
+
+Set the pin modes for the LED and speaker by adding this code **within** the `setup()` function:
+
+```cpp
+    pinMode(LED, OUTPUT);
+    pinMode(speaker, OUTPUT);
+```
+
+Add the `checkButton()` custom function **after** the `loop()` function:
 
 ```cpp
 void checkButton() {
@@ -28,7 +45,7 @@ void checkButton() {
 }
 ```
 
-This can be combined with code contained in the `loop()` function to perform different actions based on whether the robot is "started" \(`started == true`\) or "paused" \(`started == false`\):
+You can add this code **within** the `loop()` function to perform different actions based on whether the robot is "started" \(`started == true`\) or "paused":
 
 ```cpp
   checkButton();
@@ -47,6 +64,17 @@ This can be combined with code contained in the `loop()` function to perform dif
 A custom function named `checkDropOff()` uses the IR line sensors to allow your robot to detect a surface drop-off \(such as:  the edge of a table, a stair step leading down, a hole in the surface, etc.\).
 
 When a surface drop-off is detected, the motors will be braked. You can add code to perform additional actions \(such as backing up, changing direction, etc.\). 
+
+The `checkDropOff()` function requires these objects as part of your global variables **before** the `setup()` function:
+
+```cpp
+RedBotMotors motors;
+RedBotSensor leftLine(A3);
+RedBotSensor centerLine(A6);
+RedBotSensor rightLine(A7);
+```
+
+Add the `checkDropOff()` custom function **after** the `loop()` function:
 
 ```cpp
 void checkDropOff() {
@@ -68,9 +96,21 @@ void checkDropOff() {
 }
 ```
 
+{% hint style="success" %}
+**ADD CODE TO FUNCTION:**  You need to add code within the `checkDropOff()` function to perform actions \(brake, back up, etc.\) when a drop-off is detected.
+{% endhint %}
+
 ## checkUpsideDown\(\)
 
 A custom function named `checkUpsideDown()` uses the accelerometer to detect whether the robot's pitch or roll is greater than 90° \(which indicates the robot has flipped over\).
+
+When the `checkUpsideDown()` function is called, it will return a `bool` value \(boolean\) of either `true` or `false`. Your app will typically store this value in a local variable, and then do something with the value.
+
+For example, this code statement declares a local variable named `upsideDown` to store the `bool` value returned by calling the `checkUpsideDown()` function:
+
+```cpp
+bool upsideDown = checkUpsideDown();
+```
 
 The `checkUpsideDown()` function requires these objects as part of your global variables before the `setup()` function:
 
@@ -98,6 +138,25 @@ bool checkUpsideDown() {
   else return false;
 }
 ```
+
+Add this code **within** the `loop()` function \(if you are using the `started` variable, add this code within the `if` statement, so it will be performed when `started` is `true`\):
+
+```cpp
+    bool upsideDown = checkUpsideDown();
+    if (upsideDown == true) {
+      // add code to perform special actions: brake, distress signal, etc.
+        motors.brake();
+
+    }
+    else {
+        // add code to perform normal actions: drive, turn, etc.
+        
+    }
+```
+
+{% hint style="success" %}
+**ADD CODE:**  You need to add code to perform special actions \(brake, etc.\) when the robot is upside-down, as well as to perform normal actions \(drive, etc.\) when the robot isn't upside-down.
+{% endhint %}
 
 ## checkBump\(\)
 

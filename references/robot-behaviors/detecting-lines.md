@@ -23,7 +23,7 @@ If the robot is trying to follow a line, there are 3 possible situations at any 
 * **If only the left IR sensor detects the line**, this means the line has started to curve to the left. In this situation, the robot should adjust its motors to curve left and keep following the line.
 * **If only the right IR line sensor detects the line**, this means the line has started to curve to the right. In this situation, the robot should adjust its motors to curve right and keep following the line.
 
-The `followLine()` function requires these objects as part of your global variables before the `setup()` function:
+The `followLine()` function requires these objects as part of your global variables **before** the `setup()` function:
 
 ```cpp
 RedBotMotors motors;
@@ -103,7 +103,7 @@ The `avoidLine()` function generates a **random** number for the amount of time 
 **MINIMUM PIVOT:**  Be sure to make the robot turn at least 90° whenever it detects a line. If the robot were to "hit" a line at a nearly perpendicular angle \(almost head-on\), then a pivot of less than 90° might **not** be enough to turn away from the line.
 {% endhint %}
 
-The `avoidLine()` function requires these objects as part of your global variables before the `setup()` function:
+The `avoidLine()` function requires these objects as part of your global variables **before** the `setup()` function:
 
 ```cpp
 RedBotMotors motors;
@@ -176,7 +176,7 @@ The `countLine()` function requires two other custom functions, in order to work
 
 Once your robot reaches a specific line marker using the `countLine()` function, you'll usually turn the robot to start driving in a new direction. Typically, you'll pivot the robot 90° right, 90° left, or 180° around. So you'll also want to add the `pivotAngle()` custom function after the `loop()` function.
 
-The `countLine()` function requires these objects as part of your global variables before the `setup()` function:
+The `countLine()` function requires these objects as part of your global variables **before** the `setup()` function:
 
 ```cpp
 RedBotMotors motors;
@@ -249,7 +249,7 @@ The `followCountLine()` function requires two other custom functions, in order t
 
 Once your robot reaches a specific line marker using the `followCountLine()` function, you'll usually turn the robot to start following a new line. Typically, you'll pivot the robot 90° right, 90° left, or 180° around. So you'll also want to add the `pivotAngle()` custom function after the `loop()` function.
 
-The `followCountLine()` function requires these objects as part of your global variables before the `setup()` function:
+The `followCountLine()` function requires these objects as part of your global variables **before** the `setup()` function:
 
 ```cpp
 RedBotMotors motors;
