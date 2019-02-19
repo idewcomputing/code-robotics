@@ -15,7 +15,7 @@ The RedBot has left and right mechanical bumpers with "whiskers" to detect colli
 
 ![Mechanical Bumpers \(wire whiskers are actually longer\)](../../.gitbook/assets/redbot-bumpers.jpg)
 
-## Check Position of Bumpers and Whiskers
+## Check Positions of Whiskers and Bumpers
 
 In order for the bumpers to detect collisions accurately, you need to check the positions of the wire whiskers and the bumper boards. Otherwise, it simply may not be physically possible for the wire whiskers to make contact with the metal screw on the bumper boards.
 
