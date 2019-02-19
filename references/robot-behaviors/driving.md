@@ -191,10 +191,3 @@ void driveStraight() {
 }
 ```
 
-The `driveStraight()` function requires these objects as global variables in your app:
-
-```cpp
-RedBotMotors motors;
-RedBotEncoder encoder(A2, 10);
-```
-
