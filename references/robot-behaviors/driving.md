@@ -38,7 +38,7 @@ void driveDistance(float distance) {
     // use wheel encoders to drive straight for specified distance at specified power
 
     // set initial power for left and right motors
-    int leftPower = 175;
+    int leftPower = 150;
     int rightPower = leftPower;
 
     // amount to offset motor powers to drive straight
@@ -53,7 +53,7 @@ void driveDistance(float distance) {
 
     // use correction to improve distance accuracy
     // adjust correction value based on test results
-    float correction = -1.5; // need decimal point for float value
+    float correction = -1.0; // need decimal point for float value
     if (distance > 0) distance += correction;
     else if (distance < 0) distance -= correction;
 
@@ -140,7 +140,7 @@ The `driveStraight()` function uses global variables to track the left and right
 
 ```cpp
 // global variables needed for driveStraight() function
-int leftPower = 175, rightPower = leftPower;
+int leftPower = 150, rightPower = leftPower;
 long prevLeftCount = 0, prevRightCount = 0;
 ```
 
