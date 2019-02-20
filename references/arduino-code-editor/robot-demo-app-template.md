@@ -20,6 +20,8 @@ You'll need to add other code to complete your app:
 * You will need to add other custom functions depending on the navigation mode\(s\) and other behaviors that your robot will use to complete its tasks. For example, you'll most likely need to add the `driveDistance()` and `pivotAngle()` functions — as well other custom functions.
 * You may want or need to create some of your own custom functions to perform specific actions or decisions. This is especially helpful if the same set of actions will be performed multiple times within your robot tasks.
 
+**APP TEMPLATE FOR ROBOT DEMO**
+
 ```cpp
 #include <RedBot.h>
 
