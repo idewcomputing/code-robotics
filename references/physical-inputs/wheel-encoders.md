@@ -63,8 +63,6 @@ To use the wheel encoders, you will need to:
 
 The SparkFun `RedBot` library has a class named `RedBotEncoder` which contains methods \(functions\) to control the wheel encoders.
 
-**IMPORTANT:** Be sure that your program includes a copy of the SparkFun `RedBot` library. If necessary, see the instructions for [how to include the RedBot library](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/references/physical-inputs/redbot-library.md).
-
 Before your `setup()` function, create a `RedBotEncoder` object by assigning it to a variable and indicating the pin numbers for the encoders:
 
 ```cpp
@@ -74,6 +72,10 @@ RedBotEncoder encoder(A2, 10);
 * `RedBotEncoder` indicates the class of object being created \(this class is part of the `RedBot` library\)
 * `encoder` represents the variable name for the `RedBotEncoder` object. If desired, you could use a different variable name.
 * `A2` and `10` indicate the pin numbers \(in order\) that the left and right wheel encoders are connected to.
+
+{% hint style="success" %}
+**REDBOT LIBRARY:**  Be sure your robot app has an `#include` statement for the SparkFun RedBot library. [Here's how to include the RedBot library](../arduino-code-editor/include-redbot-library.md).
+{% endhint %}
 
 ## Clear Encoder Counters
 

@@ -24,8 +24,6 @@ To use the motors, you will need to: 1. Create `RedBotMotors` object for the mot
 
 In order to use the methods that control the motors, you must first create a `RedBotMotors` object.
 
-**IMPORTANT:** Be sure that your program includes a copy of the SparkFun `RedBot` library. If necessary, see the instructions for [how to include the RedBot library](https://github.com/idewcomputing/code-robotics/tree/64cdad2dc649e653442a139dd557784bf73edac0/references/physical-outputs/redbot-library.md).
-
 Before your `setup()` function, create a `RedBotMotors` object by assigning it to a variable name:
 
 ```cpp
@@ -36,6 +34,10 @@ RedBotMotors motors;
 * `motors` represents the variable name of the `RedBotMotors` object. If desired, you could use a different variable name.
 
 **NOTE:** All the code examples for the `RedBotMotors` methods will use `motors` as the name of this object variable. If necessary, just substitute your variable name wherever you see `motors` listed in the code examples.
+
+{% hint style="success" %}
+**REDBOT LIBRARY:**  Be sure your robot app has an `#include` statement for the SparkFun RedBot library. [Here's how to include the RedBot library](../arduino-code-editor/include-redbot-library.md).
+{% endhint %}
 
 ## Drive Forwards \(or Backwards\)
 

@@ -77,11 +77,7 @@ Another way to read the button is to use a `RedBotButton` object created from th
 
 To read the button this way, you will need to: 1. Include the `RedBot` library in your program 2. Create a `RedBotButton` object assigned to a variable 3. Use the object's `read()` method to detect whether the button is being pushed
 
-### 1. Include RedBot Library
-
-Be sure that your program includes a copy of the SparkFun `RedBot` library. If necessary, see the instructions for [how to include the RedBot library](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/references/physical-inputs/redbot-library.md).
-
-### 2. Create RedBotButton Object
+### 1. Create RedBotButton Object
 
 Before your `setup()` function, create a `RedBotButton` object by assigning it to a variable:
 
@@ -94,7 +90,11 @@ RedBotButton button;
 
 Creating a `RedBotButton` object will automatically set the pin number \(`12`\) and pin mode \(`INPUT_PULLUP`\) for the button.
 
-### 3. Use `button.read()` to Detect Button Push
+{% hint style="success" %}
+**REDBOT LIBRARY:**  Be sure your robot app has an `#include` statement for the SparkFun RedBot library. [Here's how to include the RedBot library](../arduino-code-editor/include-redbot-library.md).
+{% endhint %}
+
+### 2. Use `button.read()` to Detect Button Push
 
 To read the button, use the `RedBotButton` object's `read()` method to detect whether or not the button is being pushed: `button.read()`
 

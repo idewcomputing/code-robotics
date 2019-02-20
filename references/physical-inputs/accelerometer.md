@@ -29,8 +29,6 @@ To use the accelerometer, you will need to: 1. Create `RedBotAccel` object 2. Us
 
 The SparkFun `RedBot` library has a class named `RedBotAccel` which contains methods \(functions\) to control the accelerometer.
 
-**IMPORTANT:** Be sure that your program includes a copy of the SparkFun `RedBot` library. If necessary, see the instructions for [how to include the RedBot library](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/references/physical-inputs/redbot-library.md).
-
 Before your `setup()` function, create a `RedBotAccel` object by assigning it to a variable:
 
 ```cpp
@@ -39,6 +37,10 @@ RedBotAccel accel;
 
 * `RedBotAccel` indicates the class of object being created \(this class is part of the `RedBot` library\)
 * `accel` represents the variable name for the `RedBotAccel` object. If desired, you could use a different variable name.
+
+{% hint style="success" %}
+**REDBOT LIBRARY:**  Be sure your robot app has an `#include` statement for the SparkFun RedBot library. [Here's how to include the RedBot library](../arduino-code-editor/include-redbot-library.md).
+{% endhint %}
 
 ## Check Accelerometer Measurements
 

@@ -37,12 +37,9 @@ To use the IR sensors, you will need to: 1. Create `RedBotSensor` objects for ea
 
 The SparkFun `RedBot` library has a class named `RedBotSensor` which contains methods \(functions\) to control analog sensors, such as the IR line following sensors.
 
-**IMPORTANT:** Be sure that your program includes a copy of the SparkFun `RedBot` library. If necessary, see the instructions for [how to include the RedBot library](https://github.com/idewcomputing/code-robotics/tree/6a889855a7a17e6bb068a630f00b76568fad2e2b/references/physical-inputs/redbot-library.md).
-
 Before your `setup()` function, create a `RedBotSensor` object for each of line following sensor by assigning each to a variable and indicating its pin number:
 
 ```cpp
-// IR line following sensors
 RedBotSensor leftLine(A3);
 RedBotSensor centerLine(A6);
 RedBotSensor rightLine(A7);
@@ -52,6 +49,10 @@ RedBotSensor rightLine(A7);
 * `leftLine` represents a variable name for a `RedBotSensor` object, and `A3` indicates the pin number this sensor is connected to. If desired, you could use a different variable name.
 * `centerLine` represents a variable name for a `RedBotSensor` object, and `A6` indicates the pin number this sensor is connected to. If desired, you could use a different variable name.
 * `rightLine` represents a variable name for a `RedBotSensor` object, and `A7` indicates the pin number this sensor is connected to. If desired, you could use a different variable name.
+
+{% hint style="success" %}
+**REDBOT LIBRARY:**  Be sure your robot app has an `#include` statement for the SparkFun RedBot library. [Here's how to include the RedBot library](../arduino-code-editor/include-redbot-library.md).
+{% endhint %}
 
 ## Check IR Sensor Measurements
 

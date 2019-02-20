@@ -11,31 +11,31 @@ Each mechanical bumper is connected to the RedBot circuit board by a 3-wire jump
 * The left mechanical bumper data wire should be connected to I/O pin 3
 * The right mechanical bumper data wire should be connected to I/O pin 11
 
-## How to Use the Mechanical Bumpers:
+## How to Use the Mechanical Bumpers
 
-To use the mechanical bumpers, you will need to:
+To use the mechanical bumpers in your robot app, you will need to:
 
 1. Create `RedBotBumper` objects for each mechanical bumper
 2. Use each object's `read()` method to detect whether a collision has occurred
-3. Add code to perform an action when a bumper collision is detected
+3. Add code statement\(s\) to perform action\(s\) when a bumper collision is detected
 
 ## Check Positions of Whiskers and Bumpers
 
-In order for the bumpers to detect collisions accurately, you need to check the positions of the wire whiskers and the bumper boards. Otherwise, it simply may not be physically possible for the wire whiskers to make contact with the metal screw on the bumper boards.
+In order for the bumpers to detect collisions accurately, you may need to adjust the positions of the wire whiskers and bumper boards. Otherwise, it may not be physically possible for the whiskers to make contact with the metal screw on the bumper boards.
 
 ### Wire Whiskers
 
 In the normal position \(no collision\), each wire whisker should be positioned very close to the metal screw on its bumper board.  There should only be about ⅛ inch between the wire and the screw. Otherwise, if the wire is too far away, it may not be physically possible for an obstacle to bend the wire far enough to make contact with the screw.
 
-To adjust the position of a wire whisker, you have to loosen the plastic standoff screw on the **bottom** of the bumper board. In order to physically access this screw on an assembled robot, you may have to **remove the entire bumper** \(by removing the top screw of the plastic standoff, which attaches the bumper to the robot's front end\). You also might need to unplug the 3-wire cable that connects to the bumper. After adjusting the wire whisker, correctly reconnect the 3-wire cable, and then reattach the bumper to the robot's front end.
+To adjust the position of a wire whisker, you have to loosen the plastic standoff screw on the **bottom** of the bumper board. In order to physically access this screw on an assembled robot, you may have to **remove the entire bumper** \(by removing the top screw of the plastic standoff, which attaches the bumper to the front of the RedBot chassis\). You might need to also unplug the 3-wire cable connected to the bumper. After adjusting the wire whisker, correctly reconnect the 3-wire cable, and then reattach the bumper to the robot chassis.
 
 ### Bumper Boards
 
-Each bumper board should be rotated slightly so the metal screw on the bumper board is positioned slightly in front of the black plastic struts at the front corners of the RedBot chassis. Otherwise, it may not be physically possible for the wire whisker to make contact with the metal screw.
+Each bumper board should be rotated slightly so the metal screw on the bumper board is positioned slightly in front of the black plastic struts at the front corners of the RedBot chassis. Otherwise, the struts might physically block the wire whisker from making contact with the metal screw on the bumper board.
 
-The picture below shows the mechanical bumpers in the correct position. When looking down on the front of the robot, the metal screw of each bumper board \(where the wire whisker will make contact\) is visible. If you cannot see these metal screws, your bumpers might not be able to work.
+The photo below shows the mechanical bumpers in the correct position. When looking down on the front of the robot, the metal screw of each bumper board \(where the wire whisker will make contact\) is visible. If you cannot see these metal screws, your bumpers might not be able to work.
 
-To adjust the position of a bumper board, you have to loosen the the top screw of the plastic standoff, which attaches the bumper to the robot's front end. Rotate the bumper board slightly, so the metal screw is further forward than the side strut. Then tighten the top screw of the plastic standoff to secure the bumper.
+To adjust the position of a bumper board, you have to loosen the the top screw of the plastic standoff, which attaches the bumper to the robot chassis. Rotate the bumper board slightly, so the metal screw is further forward than the side strut. Then tighten the top screw of the plastic standoff to secure the bumper in place.
 
 ![](../../.gitbook/assets/bumper-board-position.jpg)
 
@@ -43,14 +43,16 @@ To adjust the position of a bumper board, you have to loosen the the top screw o
 
 The SparkFun `RedBot` library has a class named `RedBotBumper` which contains methods \(functions\) to control the RedBot's mechanical bumpers.
 
-**IMPORTANT:** Be sure that your app includes a copy of the SparkFun `RedBot` library. If necessary, see the instructions for [how to include the RedBot library](../arduino-code-editor/include-redbot-library.md).
-
 As part of your global variables before the `setup()` function, create a `RedBotBumper` object for each bumper by assigning each to a variable and indicating its pin number:
 
 ```cpp
 RedBotBumper leftBumper(3);
 RedBotBumper rightBumper(11);
 ```
+
+{% hint style="success" %}
+**REDBOT LIBRARY:**  Be sure your robot app has an `#include` statement for the SparkFun RedBot library. [Here's how to include the RedBot library](../arduino-code-editor/include-redbot-library.md).
+{% endhint %}
 
 ## Check Bumpers for Collisions
 
