@@ -156,7 +156,7 @@ void followLine() {
   motors.leftDrive(leftPower);
   motors.rightDrive(rightPower);
 
-  delay(25);  // can change delay to adjust line following sensitivity    
+  delay(25);  // can change delay to adjust line detection sensitivity    
 }
 ```
 

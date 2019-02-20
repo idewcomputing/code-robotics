@@ -91,7 +91,7 @@ void avoidLine() {
   // otherwise, keep driving straight
   else motors.drive(100);
 
-  delay(25);  // can change delay to adjust line following sensitivity    
+  delay(25);  // can change delay to adjust line detection sensitivity    
 }
 ```
 
