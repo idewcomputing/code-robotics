@@ -9,12 +9,12 @@ The amount of reflected IR light that is detected depends on several factors, in
 * A light-colored surface will reflect more IR light, while a dark-colored surface will reflect less IR light.
 * If the surface is farther away, the IR light will become more scattered, and less IR light will be reflected back to the detector.
 
-The IR sensors can help the RedBot perform several useful tasks by comparing the measurements from the three IR sensors:
+Measurements from the IR sensors can be used to perform different robot behaviors:
 
-1. The RedBot can **follow a line** by adjusting the left and right motor powers to steer the robot and keep it centered on the line as it drives.
-2. The RedBot can **avoid a line** by turning away from a line that it detects. In this case, the line acts as a border to keep the robot inside \(or outside\) a certain path or area.
-3. The RedBot can **count lines** that it crosses while driving and then stop once it reaches a desired line number.
-4. The RedBot can **detect a surface drop-off** \(such as:  stair step leading down, hole, etc.\) and take actions to protect itself \(brake, reverse, change direction, etc.\).
+1. The robot can **follow a line** by adjusting the left and right motor powers to steer the robot and keep it centered on the line as it drives.
+2. The robot can **avoid a line** by turning away from a line that it detects. In this case, the line acts as a border to keep the robot inside \(or outside\) a certain path or area.
+3. The robot can **count lines** that it crosses while driving and then stop once it reaches a desired line number. This allows the robot to navigate using a line pattern.
+4. The robot can **detect a surface drop-off** \(such as:  stair step leading down, hole, etc.\) and take actions to protect itself \(brake, reverse, change direction, etc.\).
 
 ## How to Use IR Sensors in App
 
@@ -126,129 +126,6 @@ You can try the following tests to see how the sensor measurements change:
 * Create a dark line on a sheet of white paper. Position the robot's IR sensors on the dark line to view the measurements. Then position the IR sensors on the white paper to compare the measurements. Try testing other surface colors.
 * Try slowly lifting the front edge of the robot off the table to see how the sensor measurements change with distance from the surface.
 * Manually roll the robot towards the edge of a table to see how the measurements change when the sensors are hanging over a surface drop-off.
-
-## Follow Line While Counting Lines Crossed
-
-You can also use the IR sensors to make your RedBot follow a line while also counting the number of lines that the RedBot crosses as it drives. You can make the RedBot automatically stop once it reaches a specific line number \(such as the 1st line, 2nd line, 3rd line, 4th line, etc.\).
-
-This will allow you to create a more complex line pattern that has different paths for the RedBot to follow. The key is to make sure the lines cross each other at **perpendicular** angles \(90° right angles\).
-
-![](../../.gitbook/assets/follow-count-lines-ex1.png)
-
-### followCountLine\(\) function
-
-This custom function will use the IR sensors to follow a line while counting other lines crossed and then stop at a specific line number:
-
-```cpp
-void followCountLine(int target) {
-  /* FOLLOW LINE WHILE COUNTING LINES CROSSED
-  To follow and count dark lines on light surface:
-  Use high threshold & see if sensors greater than threshold
-  
-  To follow and count light lines on dark surface:
-  Use low threshold & see if sensors less than threshold
-  */
-
-  int lineThreshold = 800;  // change value if necessary
-
-  // variables for counting lines
-  int lineCount = 0;
-  boolean lineDetected = false;
-
-  // while line count is less than target, follow current line and count lines crossed
-  while (lineCount < target) {
-    followLine();
-    
-    // get IR sensor readings
-    int leftSensor = leftLine.read();
-    int centerSensor = centerLine.read();
-    int rightSensor = rightLine.read();
-    
-    // toggle between checking for line versus checking for no line
-    if (lineDetected == false) {
-      // when all 3 sensors detect line, increase line count and toggle to checking for no line
-      if (leftSensor > lineThreshold && centerSensor > lineThreshold && rightSensor > lineThreshold) {
-        lineCount++;
-        lineDetected = true;
-      }
-    }
-    else if (lineDetected) {
-      // when all 3 sensors detect no line, toggle back to checking for line
-      if (leftSensor < lineThreshold && centerSensor < lineThreshold && rightSensor < lineThreshold) {
-        lineDetected = false;
-      }
-    }
-  }
-  // target line count reached
-  motors.brake();
-  delay(250);
-  driveDistance(3.5); // drive forward to center robot on target line
-}
-```
-
-You can call this custom function in your `loop()` function \(or within another custom function\).
-
-When calling this function, you will need to pass in a number representing the target line number where the RedBot should stop. For example, to make the RedBot follow its current line until it reaches the 3rd cross line:
-
-```cpp
-followCountLine(3);
-```
-
-The custom function uses a `while` loop to keep following the current line and counting lines it crosses as long as the total number of detected lines is less than the target number of lines. Once the line count reaches the target number, the `while` loop ends and the motors are stopped. Then the RedBot drives forward a short distance \(3.5 inches\) in order to center itself on the stopped line.
-
-You will notice that within this `while` loop, the value of a variable named `lineDetected` is toggled back and forth between `true` and `false`. The reason for this is to ensure accurate line counting, so the code doesn't accidentally count the same line more than once:
-
-* Once a line has been detected, the code will increase the line count and immediately start checking for no line \(i.e., giving the RedBot time to drive past the current line\).
-* Once it detects that the RedBot has completely crossed the current line \(i.e., once **no** line is detected\), the code will start checking again for a new line.
-
-**IMPORTANT:** This `followCountLine()` function uses two other custom functions: `followLine()` and `driveDistance()`. Be sure to include the necessary code \(listed in a previous section above\) for the `followLine()` function. Be sure to [follow the instructions in the Wheel Encoder section](https://cxd.gitbooks.io/robotics-project/content/redbot-code-references/wheel-encoders.html) to include the necessary code for the `driveDistance()` function.
-
-### Complex Line Patterns
-
-You can create more complex line patterns that have multiple paths intersecting each other. You can even have a path form a loop and cross itself. You can also add short lines as "markers" for specific destinations along a path. Again, the key is to make sure the lines always cross each other at **perpendicular** angles \(90° right angles\).
-
-![](../../.gitbook/assets/follow-count-lines-ex2.png)
-
-Based on the diagram above, how could the RedBot travel from the starting location to Destination 2, pause at Destination 2 \(perhaps for a simulated step\), and then head back to the Start?
-
-There are actually multiple ways to accomplish this. Here's one possible way:
-
-```cpp
-// possible way to travel from Start to Destination 2
-followCountLine(1); // stop at 1st line (Side Path 1)
-pivotAngle(-90); // turn 90 degrees counter-clockwise
-followCountLine(2); // 2nd line will be Destination 2
-
-// pause at Destination 2 for simulated step
-doubleBeep(); // make sound
-delay(3000); // wait 3 seconds
-
-// travel back to Start
-followCountLine(1); // next line will be Main Path
-pivotAngle(90); // turn 90 degrees clockwise
-followCountLine(3); // 3rd line will be Start
-pivotAngle(180); // turn around to be ready for next task
-```
-
-How could the RedBot travel from the starting location, loop around Destination 3, and then head back to the Start?
-
-Here's a possible way:
-
-```cpp
-// possible way to travel from Start to Destination 3 loop
-followCountLine(2); // stop at 2nd line (Side Path 2)
-pivotAngle(90); // turn 90 degrees clockwise
-followCountLine(1); // top of loop
-pivotAngle(90);
-followCountLine(1); // travel once around loop
-
-// turn and travel back to Start
-pivotAngle(90); // turn 90 degrees counter-clockwise
-followCountLine(1); // next line will be Main Path
-pivotAngle(-90);
-followCountLine(2); // 2nd line will be Start
-pivotAngle(180); // turn around to be ready for next task
-```
 
 
 

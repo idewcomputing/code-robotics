@@ -2,7 +2,6 @@
 
 These custom functions use the [IR line sensors](../physical-inputs/ir-line-sensors.md):
 
-* `testLineSensors()` — test the IR sensors by sending serial data
 * `followLine()` — follow a line automatically
 * `avoidLine()` — avoid a line automatically \(acts like border to contain robot\)
 * `countLine()` — drive straight while counting lines crossed and stop at specific line number
@@ -10,7 +9,7 @@ These custom functions use the [IR line sensors](../physical-inputs/ir-line-sens
 
 ## followLine\(\)
 
-A custom function named `followLine()` uses the IR line sensors to make your robot follow a line. The line determines the robot's path.
+A custom function named `followLine()` uses the IR line sensors to make your robot follow a line. Normally, the line must form a closed path.
 
 In order to work, the `followLine()` function must be continuously called by the `loop()` function \(or continuously called by a loop within another function\).
 
@@ -278,6 +277,13 @@ countLine(1); // next line will be location E
 ## followCountLine\(\)
 
 A custom function named `followCountLine()` uses IR line sensors to make the robot follow a line while also counting line markers the robot crosses. The robot will stop driving when it reaches a specific line number. You can then make the robot turn and start following a new line.
+
+In this case, your line path doesn't necessarily have to form a single, closed path. You can create complex line patterns with different branching paths. Each individual path can be straight, curved, or form a loop. You can also add lines markers for specific destinations along a path. There are two requirements:
+
+* Lines should always cross each other at **perpendicular** angles \(90° right angles\).
+* The end of each path should have a perpendicular line marker.
+
+![](../../.gitbook/assets/follow-count-lines-ex1.png)
 
 The `followCountLine()` function requires two other custom functions, in order to work. Be sure to add these two functions **after** the `loop()` function:
 
