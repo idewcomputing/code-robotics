@@ -251,7 +251,16 @@ void countLine(int target) {
 }
 ```
 
-### Grid-Like Line Marker Patterns
+The `countLine()` function uses a `while` loop to keep driving straight and counting lines as long as the total number of detected lines is less than the target number.
+
+Inside this `while` loop, the value of a variable named `lineDetected` is toggled back and forth between `true` and `false`. The reason for this is to ensure accurate line counting, so the code doesn't accidentally count the same line more than once:
+
+* Once a line has been detected, the code will increase the line count and immediately start checking for **no** line \(i.e., giving the robot time to drive past the current line\).
+* Once it detects that the robot has completely crossed the current line \(i.e., once **no** line is detected\), the code will start checking again for a new line.
+
+Once the line count reaches the target number, the `while` loop ends. The robot's motors are braked, and then the robot drives forward a short distance \(3.5 inches\) to center itself on the target line.
+
+#### GRID-LIKE LINE MARKER PATTERNS
 
 If necessary, you can also place line markers in a "grid-like" pattern, in order to allow your robot to travel between different locations. For example, this diagram shows a series of line markers with a starting location plus a set of locations labeled with letters A-I:
 
@@ -263,27 +272,8 @@ Imagine this diagram represents a top-down view of a grocery store layout with t
 // travel from Start to location E
 countLine(3); // start line + line A + line B
 pivotAngle(90); // turn 90 degrees clockwise
-// note: after turning, IR sensors no longer on line B
 countLine(1); // next line will be location E
 ```
-
-Note that after making a turn \(i.e., rotating\), the IR sensors at the front of the RedBot will no longer be directly on the line that the RedBot stopped at. \(Try this out with your RedBot to visually understand why this is true.\)
-
-How could the RedBot then travel from location E to location G?
-
-```cpp
-// travel from location E to location G
-pivotAngle(180); // turn around 180 degrees to face towards B
-countLine(1); // next line will be line B
-pivotAngle(-90); // turn 90 degrees counter-clockwise
-countLine(1); // next line will be line A
-pivotAngle(-90); // turn 90 degrees counter-clockwise
-countLine(2); // line D + line G
-```
-
-So how could the RedBot get from location G back to the Start?
-
-The line markers make it easy to create flexible pathways for your RedBot to travel to and from different locations. Of course, your team would design your line marker pattern to best fit the specific needs of your robot's testing scenarios.
 
 ## followCountLine\(\)
 

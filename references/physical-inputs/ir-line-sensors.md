@@ -68,73 +68,66 @@ int rightSensor = rightLine.read();
 
 You will need to add code to do something based on the sensor readings. For example, you might use `if` statements to perform certain actions if one or more sensor readings are greater than \(or less than\) a specific value.
 
-## Use Serial Monitor to View IR Sensor Measurements
+## Test IR Sensors
 
 To test out your IR sensors, you can view the sensor measurements using the serial monitor in the Arduino code editor.
 
-### 1. Start Serial Connection
-
-Add this code into your `setup()` function to start a serial connection between your RedBot and the code editor:
+Add this code statement **within** the `setup()` function:
 
 ```cpp
-// start serial connection to view sensor data
 Serial.begin(9600);
 ```
 
-### 2. Send Data Over Serial Connection
+This starts a serial data connection between your robot and your computer and sets the data transfer rate to 9600 bits per second.
 
-Add this custom function named `testLineSensors()` after your `loop()` function. This custom function will send \(print\) the sensor measurements over the serial connection:
+A custom function named `testLineSensors()` can be used to read each IR sensor and send \(`print`\) the measurements to your computer as serial data.
 
-### testLineSensors\(\) function
+Add the `testLineSensors()` function **after** the `loop()` function:
 
 ```cpp
 void testLineSensors() {
-    // get IR sensor readings
-    int leftSensor = leftLine.read();
-    int centerSensor = centerLine.read();
-    int rightSensor = rightLine.read();
+  // get IR sensor readings
+  int leftSensor = leftLine.read();
+  int centerSensor = centerLine.read();
+  int rightSensor = rightLine.read();
 
-    // send data to serial monitor
-    Serial.print("L: ");
-    Serial.print(leftSensor);
-    Serial.print("\tC: ");
-    Serial.print(centerSensor);
-    Serial.print("\tR:");
-    Serial.println(rightSensor);
+  // send data to serial monitor
+  Serial.print("L: ");
+  Serial.print(leftSensor);
+  Serial.print("\tC: ");
+  Serial.print(centerSensor);
+  Serial.print("\tR:");
+  Serial.println(rightSensor);
 
-    // small delay before next test reading
-    delay(100);
+  // brief delay before next reading
+  delay(100);
 }
 ```
 
-Then be sure to call this custom function in your `loop()` function:
+Add this code statement **within** the `loop()` function:
 
 ```cpp
-void loop() {
-    testLineSensors();
-}
+testLineSensors();
 ```
 
-**NOTE:** Be sure that your program also contains the necessary code to create the `RedBotSensor` objects named `leftLine`, `centerLine`, and `rightLine`.
+This should be only code statement listed within the `loop()` function.
 
-### 3. View Data in Serial Monitor
+After uploading the app to your robot, do **not** unplug the USB cable. You have to keep the robot connected to your computer to allow the serial data communication.
 
-After uploading the program to the RedBot, **keep the RedBot connected to your computer using the USB cable** \(because the serial data is transferred over USB\).
+After uploading the app to the robot, **keep the robot connected to your computer with the USB cable** \(because the serial data is transferred over USB\).
 
-Open the Serial Monitor window in your Arduino code editor:
+In your Arduino code editor, open the serial monitor, so you can view the serial data communication from your robot:
 
-* **Arduino Create Web Editor**: Click the "Monitor" menu in the left navigation panel.
-* **Arduino IDE Desktop Editor:** Under the "Tools" menu, select "Serial Monitor".
+* **Arduino Create \(Web Editor\):**  Click the **Monitor** menu link in the left navigation to display the serial monitor in the middle panel.
+* **Arduino IDE \(Desktop Editor\):**  Under the **Tools** menu, select "Serial Monitor." A new window will appear displaying the serial monitor.
 
 It may take a few seconds for the serial connection to be detected by the editor. Then you should see the sensor measurements being displayed in the serial monitor window.
 
-Try the following tests to see how the sensor measurements change:
+You can try the following tests to see how the sensor measurements change:
 
-* Place the RedBot on a light-colored surface \(e.g., place a white sheet of paper on a table\) to see what the measurements are. Then place the RedBot on a dark-colored surface to see how the measurements change. Try different colors to compare the measurements.
-* Use a marker to draw a thick dark line on a white sheet of paper. Then manually roll the RedBot over the line to see how the sensor measurements change. See if you can position the RedBot so that only one sensor detects the line. Then see if you can adjust the position so a different sensor detects the line. Make the line wider to see how this affects the measurements.
-* Use opaque tape \(masking tape, painting tape, electrical tape, etc.\) to make a "line" on a surface \(such as a table or floor\). Ideally, the colors of the tape and the surface should contrast: either use light-colored tape on a dark-colored surface, or use dark-colored tape on a light-colored surface. Then manually roll the RedBot over the line to see how the sensor measurements change.
-* Try slowly lifting the front edge of the RedBot off the table to see how the sensor measurements change with distance.
-* Manually roll the RedBot towards the edge of a table to see how the measurements change when the sensors are hanging over the edge.
+* Create a dark line on a sheet of white paper. Compare the IR sensor measurements for the dark line versus the white paper. Try testing different surfaces with different colors.
+* Try slowly lifting the front edge of the robot off the table to see how the sensor measurements change with distance from the surface.
+* Manually roll the robot towards the edge of a table to see how the measurements change when the sensors are hanging over a surface drop-off.
 
 ## Count Lines and Stop at Target Number
 
