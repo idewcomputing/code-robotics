@@ -1,54 +1,40 @@
 # IR Line Sensors
 
-The RedBot has three "line following" sensors \(left, center, and right\). The bottom of each sensor has an LED that transmits infrared \(IR\) light, which is invisible to the human eye. The bottom of each sensor also has an IR detector, which measures how much of the IR light is reflected back by the surface that the RedBot is driving on.
+The RedBot has three "line following" sensors \(left, center, and right\). The bottom of each sensor has an LED that transmits infrared \(IR\) light, which is invisible to the human eye. The bottom of each sensor also has an IR detector, which measures how much of the IR light is reflected back by the surface that the robot is driving on.
 
 ![Bottom View of IR Line Sensor](../../.gitbook/assets/line-sensor.jpg)
 
 The amount of reflected IR light that is detected depends on several factors, including the color of the surface, as well as the distance between the sensor and the surface:
 
 * A light-colored surface will reflect more IR light, while a dark-colored surface will reflect less IR light.
-* If the surface is farther away, the IR light will become more scattered, and less IR light will be reflected back to the detector. Even a small increase in the distance between the sensor and the surface \(as little as 0.25 inch\) will greatly reduce the amount of reflected IR light.
+* If the surface is farther away, the IR light will become more scattered, and less IR light will be reflected back to the detector.
 
-The IR sensors can help the RedBot perform several useful tasks by comparing the measurements from the three IR sensors, in order to detect a line \(or other change in the surface\):
+The IR sensors can help the RedBot perform several useful tasks by comparing the measurements from the three IR sensors:
 
-1. The RedBot can **follow a line** by adjusting the left and right motor powers to steer the RedBot and keep it centered on the line as it drives.
-2. The RedBot can **avoid a line** by turning away from a line that it detects. In this case, lines act as "borders" to keep the RedBot inside \(or outside\) a certain path or area.
+1. The RedBot can **follow a line** by adjusting the left and right motor powers to steer the robot and keep it centered on the line as it drives.
+2. The RedBot can **avoid a line** by turning away from a line that it detects. In this case, the line acts as a border to keep the robot inside \(or outside\) a certain path or area.
 3. The RedBot can **count lines** that it crosses while driving and then stop once it reaches a desired line number.
-4. The RedBot can **avoid driving over a drop-off** by stopping the motors if the IR sensor measurements are too high \(which may indicate the front of the RedBot is hanging over a table edge, stair step, or other drop-off\).
-5. The RedBot can **detect different types of flat objects** on the surface by detecting their unique IR measurement range.
+4. The RedBot can **detect a surface drop-off** \(such as:  stair step leading down, hole, etc.\) and take actions to protect itself \(brake, reverse, change direction, etc.\).
 
-### How to Use the IR Sensors in a Program:
+## How to Use IR Sensors in App
 
-To use the IR sensors, you will need to: 1. Create `RedBotSensor` objects for each IR sensor 2. Use each sensor object's `read()` method to get a measurement 3. Add code to perform an action based on the IR sensor measurements
+To use the IR sensors in your robot app, you will need to:
 
-### Coding References in this Section:
-
-* Create RedBotSensor Objects
-* Check IR Sensor Measurements
-* Use Serial Monitor to View IR Sensor Measurements
-* Avoid Driving Over Drop-Off
-* Follow Line Automatically
-* Avoid Line Automatically
-* Count Lines and Stop at Target Number
-* Follow Line While Counting Lines Crossed
-* Detect Flat Objects on Surface
+1. Create a `RedBotSensor` object for each IR sensor \(left, center, and right\)
+2. Use each IR sensor object's `read()` method to get a measurement
+3. Add code statement\(s\) to perform action\(s\) based on the IR sensor measurements
 
 ## Create RedBotSensor Objects
 
 The SparkFun `RedBot` library has a class named `RedBotSensor` which contains methods \(functions\) to control analog sensors, such as the IR line following sensors.
 
-Before your `setup()` function, create a `RedBotSensor` object for each of line following sensor by assigning each to a variable and indicating its pin number:
+Before your `setup()` function, create a `RedBotSensor` object for each IR sensor by assigning each object a variable name and indicating its pin number within parentheses:
 
 ```cpp
 RedBotSensor leftLine(A3);
 RedBotSensor centerLine(A6);
 RedBotSensor rightLine(A7);
 ```
-
-* `RedBotSensor` indicates the class of object being created \(this class is part of the `RedBot` library\)
-* `leftLine` represents a variable name for a `RedBotSensor` object, and `A3` indicates the pin number this sensor is connected to. If desired, you could use a different variable name.
-* `centerLine` represents a variable name for a `RedBotSensor` object, and `A6` indicates the pin number this sensor is connected to. If desired, you could use a different variable name.
-* `rightLine` represents a variable name for a `RedBotSensor` object, and `A7` indicates the pin number this sensor is connected to. If desired, you could use a different variable name.
 
 {% hint style="success" %}
 **REDBOT LIBRARY:**  Be sure your robot app has an `#include` statement for the SparkFun RedBot library. [Here's how to include the RedBot library](../arduino-code-editor/include-redbot-library.md).
@@ -62,13 +48,14 @@ To check the measurements from the IR line following sensors, use the `RedBotSen
 * `centerLine.read()`
 * `rightLine.read()`
 
-The `read()` method will return an analog value between 0-1023 that represents a measurement of how much reflected IR light was detected:
+The `read()` method will return an `int` value \(integer\) between 0-1023 that represents a measurement of how much reflected IR light was detected:
 
-* **Lower values** actually indicate **more** IR light was reflected back. This indicates a lighter-colored surface.
-* **Higher values** actually indicate **less** IR light was reflected back. This indicates a darker-colored surface.
-* **Very high values** may indicate the sensors are hanging over a "cliff" — i.e., the surface is too far away \(so very little IR light is reflected back\).
+* **Lower values** indicate **more** IR light was reflected back. This indicates a **lighter-colored** surface.
+* **Higher values** indicate **less** IR light was reflected back. This indicates a **darker-colored** surface.
 
-Since you will typically want to compare the readings from all 3 sensors at the same time, your program should store the sensor readings in local variables, and then use the readings to perform an action:
+If the values are **very high**, this probably indicates a **surface drop-off** \(such as: a stair step leading down, the edge of a table, a hole in the surface, etc.\).
+
+Since you will typically want to compare the readings from all 3 sensors at the same time, your code could assign the sensor readings to local variables, and then perform actions based on the values stored in those variables:
 
 ```cpp
 // get IR sensor readings
@@ -79,11 +66,7 @@ int rightSensor = rightLine.read();
 // add code to do something based on sensor readings
 ```
 
-You will need to add code to do something with the sensor readings. For example, you might use `if` statements to perform certain actions if one or more sensor readings are greater than \(or less than\) a specific value.
-
-**NOTE:** If you used different variable names for your `RedBotSensor` objects, then change `leftLine`, `centerLine`, and `rightLine` to match the names of your variables. For example, if you used `rSensor` as your object variable name for the right sensor, your code should use `rSensor.read()` to get that sensor's measurement.
-
-You can either insert this code into your `loop()` function or into a custom function that is called by your `loop()` function.
+You will need to add code to do something based on the sensor readings. For example, you might use `if` statements to perform certain actions if one or more sensor readings are greater than \(or less than\) a specific value.
 
 ## Use Serial Monitor to View IR Sensor Measurements
 

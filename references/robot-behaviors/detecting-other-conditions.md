@@ -61,9 +61,13 @@ You can add this code **within** the `loop()` function to perform different acti
 
 ## checkDropOff\(\)
 
-A custom function named `checkDropOff()` uses the IR line sensors to allow your robot to detect a surface drop-off \(such as:  the edge of a table, a stair step leading down, a hole in the surface, etc.\).
+A custom function named `checkDropOff()` uses the IR sensors to allow your robot to detect a surface drop-off \(such as:  the edge of a table, a stair step leading down, a hole in the surface, etc.\).
 
-When a surface drop-off is detected, the motors will be braked. You can add code to perform additional actions \(such as backing up, changing direction, etc.\). 
+Even a small increase in the distance between the IR sensors and the surface \(as little as 0.25 inch\) will greatly reduce the amount of reflected IR light that is detected.
+
+When a surface drop-off is detected, the motors will be braked. You can add code to perform additional actions \(such as backing up, changing direction, etc.\).
+
+In order to work, the `checkDropOff()` function must be continuously called by the `loop()` function \(or continuously called by a loop within another function\).
 
 The `checkDropOff()` function requires these objects as part of your global variables **before** the `setup()` function:
 

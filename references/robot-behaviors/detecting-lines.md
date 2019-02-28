@@ -2,6 +2,7 @@
 
 These custom functions use the [IR line sensors](../physical-inputs/ir-line-sensors.md):
 
+* `testLineSensors()` — test the IR sensors by sending serial data
 * `followLine()` — follow a line automatically
 * `avoidLine()` — avoid a line automatically \(acts like border to contain robot\)
 * `countLine()` — drive straight while counting lines crossed and stop at specific line number
