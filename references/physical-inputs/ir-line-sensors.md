@@ -114,9 +114,7 @@ This should be only code statement listed within the `loop()` function.
 
 After uploading the app to your robot, do **not** unplug the USB cable. You have to keep the robot connected to your computer to allow the serial data communication.
 
-After uploading the app to the robot, **keep the robot connected to your computer with the USB cable** \(because the serial data is transferred over USB\).
-
-In your Arduino code editor, open the serial monitor, so you can view the serial data communication from your robot:
+In your Arduino code editor, open the serial monitor, so you can view the serial data:
 
 * **Arduino Create \(Web Editor\):**  Click the **Monitor** menu link in the left navigation to display the serial monitor in the middle panel.
 * **Arduino IDE \(Desktop Editor\):**  Under the **Tools** menu, select "Serial Monitor." A new window will appear displaying the serial monitor.
@@ -125,7 +123,7 @@ It may take a few seconds for the serial connection to be detected by the editor
 
 You can try the following tests to see how the sensor measurements change:
 
-* Create a dark line on a sheet of white paper. Compare the IR sensor measurements for the dark line versus the white paper. Try testing different surfaces with different colors.
+* Create a dark line on a sheet of white paper. Position the robot's IR sensors on the dark line to view the measurements. Then position the IR sensors on the white paper to compare the measurements. Try testing other surface colors.
 * Try slowly lifting the front edge of the robot off the table to see how the sensor measurements change with distance from the surface.
 * Manually roll the robot towards the edge of a table to see how the measurements change when the sensors are hanging over a surface drop-off.
 
