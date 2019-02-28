@@ -40,7 +40,7 @@ RedBotSensor rightLine(A7);
 **REDBOT LIBRARY:**  Be sure your robot app has an `#include` statement for the SparkFun RedBot library. [Here's how to include the RedBot library](../arduino-code-editor/include-redbot-library.md).
 {% endhint %}
 
-## Check IR Sensor Measurements
+## Read IR Sensors
 
 To check the measurements from the IR line following sensors, use the `RedBotSensor` object's `read()` method to get a measurement from each sensor:
 
@@ -128,119 +128,6 @@ You can try the following tests to see how the sensor measurements change:
 * Create a dark line on a sheet of white paper. Compare the IR sensor measurements for the dark line versus the white paper. Try testing different surfaces with different colors.
 * Try slowly lifting the front edge of the robot off the table to see how the sensor measurements change with distance from the surface.
 * Manually roll the robot towards the edge of a table to see how the measurements change when the sensors are hanging over a surface drop-off.
-
-## Count Lines and Stop at Target Number
-
-You can also use the IR sensors to count the number of lines that the RedBot crosses as it drives. You can make the RedBot automatically stop once it reaches a specific line number \(such as the 1st line, 2nd line, 3rd line, 4th line, etc.\).
-
-In this case, you use short lines as "markers" to indicate possible stopping points along a path. The lines should be placed **perpendicular** to the RedBot's path. The lines do not have to be spaced out evenly — just place the lines wherever you need a possible stopping \(or turning\) point. Once the RedBot reaches the desired line number, it will stop. Then you can perform other desired actions, such as turning, etc.
-
-![](../../.gitbook/assets/line-counting.png)
-
-### countLine\(\) function
-
-This custom function will use the IR sensors to count lines and then stop at a specific line number:
-
-```cpp
-void countLine(int target) {
-  /* DRIVE STRAIGHT WHILE COUNTING LINES CROSSED
-  To count dark lines on light surface:
-  Use high threshold & see if sensors greater than threshold
-
-  To count light lines on dark surface:
-  Use low threshold & see if sensors less than threshold
-  */
-
-  int lineThreshold = 800; // change value if necessary
-
-  // variables for counting lines
-  int lineCount = 0;
-  boolean lineDetected = false;
-
-  // keeps looping while line count is less than target
-  while (lineCount < target) {
-
-    driveStraight();
-
-    // get IR sensor readings
-    int leftSensor = leftLine.read();
-    int centerSensor = centerLine.read();
-    int rightSensor = rightLine.read();
-
-    // toggle between checking for line vs. checking for no line
-    if (lineDetected == false) {
-      // if all 3 sensors detect line, increase line count and toggle to checking for no line
-      if (leftSensor > lineThreshold && centerSensor > lineThreshold && rightSensor > lineThreshold) {
-        lineCount++;
-        lineDetected = true;
-      }
-    }
-    else if (lineDetected == true) {
-      // if all 3 sensors detect no line, toggle back to checking for line
-      if (leftSensor < lineThreshold && centerSensor < lineThreshold && rightSensor < lineThreshold) {
-        lineDetected = false;
-      }
-    }
-  }
-  // target line count reached
-  motors.brake();
-  delay(250);
-  driveDistance(3.5); // drive forward to center robot on target line
-}
-```
-
-You can call this custom function in your `loop()` function \(or within another custom function\).
-
-When calling this function, you will need to pass in a number representing the target line number where the RedBot should stop. For example, to make the RedBot drive straight until it reaches the 3rd line:
-
-```cpp
-countLine(3);
-```
-
-The custom function uses a `while` loop to keep driving straight and counting lines as long as the total number of detected lines is less than the target number of lines. Once the line count reaches the target number, the `while` loop ends and the motors are stopped. Then the RedBot drives forward a short distance \(3.5 inches\) in order to center itself on the stopped line.
-
-You will notice that within this `while` loop, the value of a variable named `lineDetected` is toggled back and forth between `true` and `false`. The reason for this is to ensure accurate line counting, so the code doesn't accidentally count the same line more than once:
-
-* Once a line has been detected, the code will increase the line count and immediately start checking for no line \(i.e., giving the RedBot time to drive past the current line\).
-* Once it detects that the RedBot has completely crossed the current line \(i.e., once **no** line is detected\), the code will start checking again for a new line.
-
-**IMPORTANT:** This `countLine()` function uses two other custom functions: `driveStraight()` and `driveDistance()`. Be sure to [follow the instructions in the Wheel Encoder section](https://cxd.gitbooks.io/robotics-project/content/redbot-code-references/wheel-encoders.html) to include the necessary code for the `driveStraight()` and `driveDistance()` functions.
-
-### Grid-Like Line Marker Patterns
-
-If necessary, you can also place line markers in a "grid-like" pattern, in order to allow your RedBot to travel between different locations. For example, this diagram shows a series of line markers with a starting location plus a set of locations labeled with letters A-I:
-
-![](../../.gitbook/assets/line-counting-grid.png)
-
-Imagine this diagram represents a top-down view of a grocery store layout with three aisles of food \(i.e., the three vertical columns of markers\). The top horizontal row \(i.e., with the "plus" markers\) is used to travel from one aisle to another. How could the RedBot travel from the starting location to location E?
-
-```cpp
-// travel from Start to location E
-countLine(3); // start line + line A + line B
-pivotAngle(90); // turn 90 degrees clockwise
-// note: after turning, IR sensors no longer on line B
-countLine(1); // next line will be location E
-```
-
-Note that after making a turn \(i.e., rotating\), the IR sensors at the front of the RedBot will no longer be directly on the line that the RedBot stopped at. \(Try this out with your RedBot to visually understand why this is true.\)
-
-How could the RedBot then travel from location E to location G?
-
-```cpp
-// travel from location E to location G
-pivotAngle(180); // turn around 180 degrees to face towards B
-countLine(1); // next line will be line B
-pivotAngle(-90); // turn 90 degrees counter-clockwise
-countLine(1); // next line will be line A
-pivotAngle(-90); // turn 90 degrees counter-clockwise
-countLine(2); // line D + line G
-```
-
-So how could the RedBot get from location G back to the Start?
-
-The line markers make it easy to create flexible pathways for your RedBot to travel to and from different locations. Of course, your team would design your line marker pattern to best fit the specific needs of your robot's testing scenarios.
-
-**NOTE:** Another way to create flexible pathways for your RedBot is to program it to drive specific distances \(instead of counting a specific number of lines\). What might be the advantages \(or disadvantages\) of counting numbers of lines versus driving specific distances?
 
 ## Follow Line While Counting Lines Crossed
 
