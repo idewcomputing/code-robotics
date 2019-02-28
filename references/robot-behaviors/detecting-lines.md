@@ -82,6 +82,16 @@ void followLine() {
 }
 ```
 
+Sometimes it can be challenging to get your robot to follow a line consistently. Here are some troubleshooting tips:
+
+* You may need to change the value for `power`. A lower motor power \(such as `100`\) generally works better for line following. However, you may need to try different powers to find the value that works best.
+* You may need to change the value for `powerShift`, which is used to adjust the left and right motor powers in order to steer the robot back towards the line.
+* You may need to change the value for `lineThreshold` based on your line color. Use the serial monitor to view IR sensor measurements for your line. Be sure there is sufficient difference between the readings for the line vs. the surface.
+* You may need to change the `delay()` value at the end of the function to adjust the sensitivity. This delay determines how long the robot is allowed to drive before the IR sensors are checked again \(and the motor powers are potentially adjusted again\).
+* You may need to try different types of lines and surfaces to find the right combination that works effectively. You need high contrast between the line and the surface:  either a dark line on a light surface \(or the opposite\).
+* You may need to adjust the line path. Lines that have sharp angles or turns are difficult for the robot to follow closely.
+* If your robot was previously successful at line following but starts to have problems, you may need to replace the robot's batteries. As the battery power depletes, the IR sensors will stop working properly \(even though there might be enough power for the motors to still work\).
+
 ## avoidLine\(\)
 
 A custom function named `avoidLine()` uses the IR line sensors to make your robot avoid a line. The line acts as a border to keep the robot inside \(or outside\) an area or path.
@@ -170,6 +180,8 @@ void avoidLine() {
 
 A custom function named `countLine()` uses the wheel encoders to make the robot drive straight while also using the IR line sensors to count line markers the robot crosses. The robot will stop driving when it reaches a specific line number. You can then make the robot turn and start driving in a new direction.
 
+![](../../.gitbook/assets/line-counting.png)
+
 The `countLine()` function requires two other custom functions, in order to work. Be sure to add these two functions **after** the `loop()` function:
 
 * `driveStraight()` function — used to make the robot drive straight
@@ -238,6 +250,40 @@ void countLine(int target) {
   driveDistance(3.5); // drive forward to center robot on target line
 }
 ```
+
+### Grid-Like Line Marker Patterns
+
+If necessary, you can also place line markers in a "grid-like" pattern, in order to allow your robot to travel between different locations. For example, this diagram shows a series of line markers with a starting location plus a set of locations labeled with letters A-I:
+
+![](../../.gitbook/assets/line-counting-grid.png)
+
+Imagine this diagram represents a top-down view of a grocery store layout with three aisles of food \(i.e., the three vertical columns of markers\). The top horizontal row \(i.e., with the "plus" markers\) is used to travel from one aisle to another. How could the RedBot travel from the starting location to location E?
+
+```cpp
+// travel from Start to location E
+countLine(3); // start line + line A + line B
+pivotAngle(90); // turn 90 degrees clockwise
+// note: after turning, IR sensors no longer on line B
+countLine(1); // next line will be location E
+```
+
+Note that after making a turn \(i.e., rotating\), the IR sensors at the front of the RedBot will no longer be directly on the line that the RedBot stopped at. \(Try this out with your RedBot to visually understand why this is true.\)
+
+How could the RedBot then travel from location E to location G?
+
+```cpp
+// travel from location E to location G
+pivotAngle(180); // turn around 180 degrees to face towards B
+countLine(1); // next line will be line B
+pivotAngle(-90); // turn 90 degrees counter-clockwise
+countLine(1); // next line will be line A
+pivotAngle(-90); // turn 90 degrees counter-clockwise
+countLine(2); // line D + line G
+```
+
+So how could the RedBot get from location G back to the Start?
+
+The line markers make it easy to create flexible pathways for your RedBot to travel to and from different locations. Of course, your team would design your line marker pattern to best fit the specific needs of your robot's testing scenarios.
 
 ## followCountLine\(\)
 
