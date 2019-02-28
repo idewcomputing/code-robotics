@@ -11,10 +11,11 @@ The amount of reflected IR light that is detected depends on several factors, in
 
 Measurements from the IR sensors can be used to perform different robot behaviors:
 
-1. The robot can **follow a line** by adjusting the left and right motor powers to steer the robot and keep it centered on the line as it drives.
-2. The robot can **avoid a line** by turning away from a line that it detects. In this case, the line acts as a border to keep the robot inside \(or outside\) a certain path or area.
-3. The robot can **count lines** that it crosses while driving and then stop once it reaches a desired line number. This allows the robot to navigate using a line pattern.
-4. The robot can **detect a surface drop-off** \(such as:  stair step leading down, hole, etc.\) and take actions to protect itself \(brake, reverse, change direction, etc.\).
+1. The robot can [**follow a line**](../robot-behaviors/detecting-lines.md#followline) by adjusting the left and right motor powers to steer the robot and keep it centered on the line as it drives.
+2. The robot can [**avoid a line**](../robot-behaviors/detecting-lines.md#avoidline) by turning away from a line that it detects. In this case, the line acts as a border to keep the robot inside \(or outside\) a certain path or area.
+3. The robot can [**count lines**](../robot-behaviors/detecting-lines.md#countline) that it crosses while driving and then stop once it reaches a desired line number. This allows the robot to navigate using a pattern of line markers.
+4. The robot can [**follow a line while counting lines**](../robot-behaviors/detecting-lines.md#followcountline) that it crosses and then stop once it reaches a desired line number. This allows the robot to navigate using a pattern of intersecting line paths.
+5. The robot can [**detect a surface drop-off**](../robot-behaviors/detecting-other-conditions.md#checkdropoff) ****\(such as:  stair step leading down, hole, etc.\) and take actions to protect itself \(brake, reverse, change direction, etc.\).
 
 ## How to Use IR Sensors in App
 
