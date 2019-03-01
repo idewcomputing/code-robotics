@@ -83,7 +83,13 @@ void driveStraight() {
 
 A custom function named `driveDistance()` uses the wheel encoders to make your robot drive straight for a specified distance.
 
-When calling this custom function, you must pass in a value for the **distance** \(inches\) by listing the value inside the parentheses after the function's name.
+[Remember that for the RedBot](../physical-inputs/wheel-encoders.md#calculate-distance-with-encoders), the following is true:
+
+**192 ticks of wheel encoder = 1 wheel revolution = 8.04 inches traveled**
+
+This information can be used to convert any encoder count into distance traveled — or to convert a desired distance into a target encoder count. The `driveDistance()` function uses the encoder counters to control how long the motors are allow to drive.
+
+When calling the `driveDistance()` function, you must pass in a value for the desired **distance** \(inches\) by listing the value inside the parentheses after the function's name.
 
 For example, to make your robot drive 24 inches:
 

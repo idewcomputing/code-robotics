@@ -25,7 +25,7 @@ L = 90° / 360° × 𝛑 × d = 0.25 × 3.14 × 6.125 = 4.81 inches
 
 Once this arc length is calculated for a specific angle, the wheel encoders can be used to control how long the wheels are pivoted. This is what the `pivotAngle()` function does.
 
-When calling the `pivotAngle()` function, you must pass in a value for the **angle** \(degrees\) by listing the value inside the parentheses after the function's name.:
+When calling the `pivotAngle()` function, you must pass in a value for the desired **angle** \(degrees\) by listing the value inside the parentheses after the function's name.:
 
 * A **positive** angle will pivot the robot **clockwise** to the right.
 * A **negative** angle will pivot the robot **counter-clockwise** to the left.
@@ -127,7 +127,7 @@ L = 90° / 360° × 𝛑 × d = 0.25 × 3.14 × 12.25 = 9.62 inches
 
 Once this arc length is calculated for a specific angle, the wheel encoders can be used to control how long the driving wheel travels. This is what the `turnAngle()` function does.
 
-When calling the `turnAngle()` function, you must pass in a value for the **angle** \(degrees\) by listing the value inside the parentheses after the function's name.:
+When calling the `turnAngle()` function, you must pass in a value for the desired **angle** \(degrees\) by listing the value inside the parentheses after the function's name.:
 
 * A **positive** angle will turn the robot **clockwise** to the right.
 * A **negative** angle will turn the robot **counter-clockwise** to the left.
