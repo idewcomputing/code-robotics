@@ -166,6 +166,8 @@ Add this code **within** the `loop()` function \(if you are using the `started` 
 
 A custom function named `checkBump()` uses the accelerometer to detect when the robot is physically bumped as the result of a collision or other force.
 
+The accelerometer detects a bump by checking for a "pulse" acceleration.
+
 The `checkBump()` function requires these objects as part of your global variables before the `setup()` function:
 
 ```cpp

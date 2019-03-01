@@ -59,7 +59,7 @@ Visually check the position of the left and right encoder sensors. If necessary,
 **CHECK ENCODERS AFTER CHANGING BATTERIES:**  Whenever you change the robot's batteries, be sure to check the encoder sensor positions **afterwards**. It's  common to accidentally move the encoder sensors when changing the batteries.
 {% endhint %}
 
-## How to Use Encoders in App
+## How to Use Encoders
 
 To use the wheel encoders in your robot app, you will need to:
 
@@ -164,7 +164,7 @@ void testWheelEncoders() {
 }
 ```
 
-Add this code statement **within** the `loop()` function:
+Add this code statement **within** the `loop()` function to call the custom function:
 
 ```cpp
 testWheelEncoders();

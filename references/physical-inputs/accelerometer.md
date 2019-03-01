@@ -1,50 +1,58 @@
 # Accelerometer
 
-The RedBot has an accelerometer can measure changes in motion or orientation in 3 dimensions \(X, Y, Z\). Accelerometers are used in a variety of devices, including smartphones, fitness trackers, etc.
+The RedBot has an accelerometer that can be used to measure changes in motion or orientation along 3 axes \(X, Y, Z\). Accelerometers are used in a variety of devices, including smartphones, fitness trackers, etc.
 
-Accelerometer readings are affected by:
+The accelerometer is a small circuit board that should be connected to I/O pins A4 and A5 on the main RedBot circuit board.
 
-* acceleration of the device \(i.e., the device speeding up or slowing down\)
-* acceleration due to Earth's gravity \(i.e., the orientation of the device\)
+![Accelerometer](../../.gitbook/assets/redbot-accelerometer.jpg)
+
+The accelerometer can measure:
+
+* the acceleration of the device \(i.e., the device speeding up or slowing down\)
+* the acceleration due to Earth's gravity \(i.e., the orientation of the device\)
+
+Although you can measure the robot's acceleration, you **won't** use the accelerometer to measure the robot's speed. This is because when an object is traveling at a constant speed, its acceleration is actually **zero**. An object is only accelerating if its speed is changing \(i.e., speeding up or slowing down\). Besides you will be able to directly control your robot's speed by adjusting its motor power.
+
+However, you can use the accelerometer to detect when the robot is physically bumped – this type of change in motion is a "pulse" acceleration that is detectable by the accelerometer.
+
+You can also use the accelerometer to detect the orientation of a device by measuring the acceleration due to Earth's gravity, which is a constant downward force acting on all objects. The accelerometer can determine if the device is parallel to Earth's surface or if the device is tilted at an angle.
 
 ![](../../.gitbook/assets/accelerometer-axes.jpg)
 
-Even if a device with an accelerometer is **not** moving, the accelerometer can detect the orientation of the device by measuring the acceleration due to Earth's gravity, which is a constant downward force acting on all objects. The accelerometer can determine if the device is parallel to the Earth's surface or if it is tilted at an angle.
+The accelerometer measures the acceleration along each axis \(X, Y, Z\) and then uses these measurements to calculate the robot's angle in the XZ plane, YZ plane, and XY plane.
 
-For example, smartphones have accelerometers that detect the device's orientation in order to change the screen view to match the phone orientation \(e.g., changing from portrait view to landscape view, etc.\).
+The accelerometer measurements can be used to perform these useful robot behaviors:
 
-### How to Use the Accelerometer in a Program:
+1. The robot can [**detect when it is upside-down**](../robot-behaviors/detecting-other-conditions.md#checkupsidedown) by measuring its tilt from front-to-back \(pitch\) and from side-to-side \(roll\).
+2. The robot can [**detect when it has been bumped**](../robot-behaviors/detecting-other-conditions.md#checkbump) by detecting a "pulse" acceleration.
 
-To use the accelerometer, you will need to: 1. Create `RedBotAccel` object 2. Use the object's `read()` method to get measurements 3. Add code to perform an action based on the accelerometer measurements
+## How to Code Accelerometer
 
-### Coding References in this Section:
+To use the accelerometer in your robot app, you will need to:
 
-* Create RedBotAccel Object
-* Check Accelerometer Measurements
-* Use Serial Monitor to View Accelerometer Measurements
-* Detect Tip Over
-* Detect Bump
+1. Create a `RedBotAccel` object
+2. Use the object's `read()` method to get accelerometer measurements
+3. Add code statement\(s\) to perform action\(s\) based on the measurements
 
 ## Create RedBotAccel Object
 
 The SparkFun `RedBot` library has a class named `RedBotAccel` which contains methods \(functions\) to control the accelerometer.
 
-Before your `setup()` function, create a `RedBotAccel` object by assigning it to a variable:
+Before the `setup()` function, create a `RedBotAccel` object by assigning it to a variable:
 
-```cpp
+```
 RedBotAccel accel;
 ```
 
-* `RedBotAccel` indicates the class of object being created \(this class is part of the `RedBot` library\)
-* `accel` represents the variable name for the `RedBotAccel` object. If desired, you could use a different variable name.
+You may have noticed that you **didn't** have to indicate which I/O pins the accelerometer is connected to. This is because the RedBot library assumes the accelerometer is connected to pins A4 and A5 on the RedBot circuit board.
 
 {% hint style="success" %}
 **REDBOT LIBRARY:**  Be sure your robot app has an `#include` statement for the SparkFun RedBot library. [Here's how to include the RedBot library](../arduino-code-editor/include-redbot-library.md).
 {% endhint %}
 
-## Check Accelerometer Measurements
+## Read Accelerometer
 
-To check the measurements from the accelerometer, use the `RedBotAccel` object's `read()` method to get new measurements for each of the 3 axes \(X, Y, Z\):
+The `RedBotAccel` object has a `read()` method which is used to get new accelerometer measurements for each of the 3 axes \(X, Y, Z\):
 
 ```cpp
 accel.read();
@@ -59,62 +67,53 @@ The new measurements are stored as properties of the object:
 * `accel.angleYZ` — device's angle in YZ plane \(roll\)
 * `accel.angleXY` — device's angle in XY plane \(yaw\)
 
-This diagram shows how the X, Y, and Z axes are oriented on your RedBot and what the XZ, YZ, and XY angles represent. These angles are also referred to as **pitch**, **roll**, and **yaw**.
+The accelerometer measures the acceleration along each axis \(X, Y, Z\) and then uses these measurements to calculate the device's angle in the XZ plane, YZ plane, and XY plane.
+
+This diagram shows how the accelerometer's X, Y, and Z axes are oriented on the RedBot and what the XZ, YZ, and XY angles represent. These angles are also referred to as **pitch**, **roll**, and **yaw**.
 
 ![](../../.gitbook/assets/redbot-pitch-roll-yaw.jpg)
 
-For a wheeled vehicle, pitch and roll are the most important angles to measure as they indicate the tilt of the vehicle from front-to-back and side-to-side.
+For a wheeled vehicle, pitch and roll are the most important angles to measure as they indicate the tilt of the vehicle from front-to-back and from side-to-side.
 
-### Pitch
+#### PITCH \(Angle XZ\)
 
-Angle XZ represents **pitch**. Pitch is the front-to-back rotation on the device's Y axis. Pitch \(angle XZ\) can range from -180° to 180°.
+Angle XZ represents **pitch**. Pitch is the front-to-back rotation on the robot's Y axis. The pitch angle can range from -180° to 180°.
 
-* If the RedBot is perfectly level from front-to-back, the pitch is zero \(angle XZ = 0\).
-* If the front of the RedBot is rotated up, the pitch is a positive value \(angle XZ &gt; 0\). For example, if the front of the RedBot were pointing straight up, the pitch would be 90°.
-* If the front of the RedBot is rotated down, the pitch is a negative value \(angle XZ &lt; 0\). For example, if the front of the RedBot were pointing straight down, the pitch would be -90°.
+* If the robot is perfectly level from front-to-back, the pitch is zero \(angle XZ = 0\).
+* If the front of the robot is tilted up, the pitch is a positive value \(angle XZ &gt; 0\). For example, if the front of the RedBot were pointing straight up, the pitch would be 90°.
+* If the front of the robot is tilted down, the pitch is a negative value \(angle XZ &lt; 0\). For example, if the front of the robot were pointing straight down, the pitch would be -90°.
 
-### Roll
+#### ROLL \(Angle YZ\)
 
-Angle YZ represents **roll**. Roll is the side-to-side rotation on the device's X axis. Roll \(angle YZ\) can range from -180° to 180°.
+Angle YZ represents **roll**. Roll is the side-to-side rotation on the robot's X axis. The roll angle can range from -180° to 180°.
 
-* If the RedBot is perfectly level from side-to-side, the roll is zero \(angle YZ = 0\).
-* If the left side of the RedBot is rotated up, the roll is a positive value \(angle YZ &gt; 0\). For example, if the left side of the RedBot were pointing straight up, the roll would be 90°.
-* If the left side of the RedBot is rotated down, the roll is a negative value \(angle XZ &lt; 0\). For example, if the left side of the RedBot were pointing straight down, the roll would be -90°.
+* If the robot is perfectly level from side-to-side, the roll is zero \(angle YZ = 0\).
+* If the left side of the robot is tilted up, the roll is a positive value \(angle YZ &gt; 0\). For example, if the left side of the robot were pointing straight up, the roll would be 90°.
+* If the left side of the robot is tilted down, the roll is a negative value \(angle XZ &lt; 0\). For example, if the left side of the robot were pointing straight down, the roll would be -90°.
 
-### Yaw
+#### YAW \(Angle XY\)
 
-Angle XY represents **yaw**. Yaw is the right-to-left rotation on the device's Z axis. Yaw \(angle XY\) can range from -180° to 180°.
+Angle XY represents **yaw**. Yaw is the right-to-left rotation on the robot's Z axis. The yaw angle can range from -180° to 180°.
 
-However, when the RedBot is sitting on a level surface, the yaw value **cannot** be accurately determined because the acceleration due to Earth's gravity is acting in the same direction \(i.e., downward\) as the Z axis.
+However, when the robot is on a level surface, the yaw value **cannot** be accurately determined because the acceleration due to Earth's gravity is acting in the same direction \(i.e., downward\) as the Z axis.
 
-### How can the values for pitch and roll be useful?
+Therefore, you **cannot** use the accelerometer's XY angle to determine which clockwise direction the robot is pointed. \(However, there are other sensors – not included in this kit – which can be used to accurately measure the yaw angle.\)
 
-If your RedBot is traveling over an uneven surface, then the values for pitch and roll will vary based on the slope of the surface.
-
-The values for pitch and roll could help identify when the RedBot is moving up a slope \(pitch &gt; 0°\), down a slope \(pitch &lt; 0°\), or along the side of a slope \(roll ≠ 0°\). This might be helpful for adjusting the motor power \(e.g., more power might be needed to travel uphill, etc.\).
-
-In fact, you could possibly use the pitch and roll angles from the RedBot's accelerometer to "map" the shape of the surface.
-
-If the RedBot were to tip over for some reason, then the values for pitch and/or roll would be higher than 90°. If the RedBot were completely upside down, the values for both would be close to 180°. If the Redbot were to tip over, it might be best to stop the motors and use the buzzer to produce a "distress" signal.
-
-## Use Serial Monitor to View Accelerometer Measurements
+## Test Accelerometer
 
 To test out your accelerometer, you can view the accelerometer measurements using the serial monitor in the Arduino code editor.
 
-### 1. Start Serial Connection
-
-Add this code into your `setup()` function to start a serial connection between your RedBot and the code editor:
+Add this code statement **within** the `setup()` function:
 
 ```cpp
-// start serial connection to view sensor data
 Serial.begin(9600);
 ```
 
-### 2. Send Data Over Serial Connection
+This starts a serial data connection between your robot and your computer and sets the data transfer rate to 9600 bits per second.
 
-Add this custom function named `testAccelerometer()` after your `loop()` function. This custom function will send \(print\) the accelerometer measurements over the serial connection:
+A custom function named `testAccelerometer()` can be used to read the accelerometer and send \(`print`\) the measurements to your computer as serial data.
 
-### testAccelerometer\(\) function
+Add the `testAccelerometer()` function **after** the `loop()` function:
 
 ```cpp
 void testAccelerometer() {
@@ -123,138 +122,62 @@ void testAccelerometer() {
   accel.read();
 
   // send data to serial monitor
-  // raw measurements for X, Y, and Z axes
-  Serial.print("X: ");
-  Serial.println(accel.x);
-  Serial.print("Y: ");
-  Serial.println(accel.y);
-  Serial.print("Z: ");
-  Serial.println(accel.z);
-
-  // angles for X-Z (pitch), Y-Z (roll), and X-Y (yaw)
-  Serial.print("Angle XZ (pitch): ");
-  Serial.println(accel.angleXZ);
-  Serial.print("Angle YZ (roll): ");
-  Serial.println(accel.angleYZ);
-  Serial.print("Angle XY (yaw): ");
+  Serial.print("Pitch: ");
+  Serial.print(accel.angleXZ);
+  Serial.print("\tRoll: ");
+  Serial.print(accel.angleYZ);
+  Serial.print("\tYaw: ");
   Serial.println(accel.angleXY);
-  Serial.println();
 
   // brief delay before next reading
-  delay(250);  
+  delay(100);
 }
 ```
 
-Then be sure to call this custom function in your `loop()` function:
+Add this code statement **within** the `loop()` function to call the custom function:
 
 ```cpp
-void loop() {
-    testAccelerometer();
-}
+testAccelerometer();
 ```
 
-**NOTE:** Be sure that your program also contains the necessary code to create a `RedBotAccel` object named `accel`.
+This should be only code statement listed within the `loop()` function.
 
-### 3. View Data in Serial Monitor
+After uploading the app to your robot, do **not** unplug the USB cable. You have to keep the robot connected to your computer to allow the serial data communication.
 
-After uploading the program to the RedBot, **keep the RedBot connected to your computer using the USB cable** \(because the serial data is transferred over USB\).
+In your Arduino code editor, open the serial monitor, so you can view the serial data:
 
-Open the Serial Monitor window in your Arduino code editor:
-
-* **Arduino Create Web Editor**: Click the "Monitor" menu in the left navigation panel.
-* **Arduino IDE Desktop Editor:** Under the "Tools" menu, select "Serial Monitor".
+* **Arduino Create \(Web Editor\):**  Click the **Monitor** menu link in the left navigation to display the serial monitor in the middle panel.
+* **Arduino IDE \(Desktop Editor\):**  Under the **Tools** menu, select "Serial Monitor." A new window will appear displaying the serial monitor.
 
 It may take a few seconds for the serial connection to be detected by the editor. Then you should see the accelerometer measurements being displayed in the serial monitor window.
 
-Try the following tests to see how the accelerometer measurements change:
+Place the robot on a level surface, such as your desk or table. If the surface is perfectly level, the values for pitch \(angle XZ\) and roll \(angle YZ\) will be zero. However, you may discover that your values are close to zero \(instead of exactly zero\).
 
-* Place the RedBot's wheels on a level surface, such as a table. If the RedBot is perfectly level, the measurements for both pitch and roll should be close to 0°. Even if the measurements are negative, they should be relatively close to zero.
-* Pick up the RedBot, and slowly tilt its front end upward. See how the values for **pitch** \(angle XZ\) change as you increase the upward tilt. Stand the RedBot on its back end, so its front end is pointing straight up. The pitch should be close to 90°. Pick the RedBot up again, and slowly tilt its front end downward. See how the values for pitch change as you increase the downward tilt. When the front end is pointing straight down, the pitch should be close to -90°.
-* Pick up the RedBot, and slowly tilt it sideways to the right. See how the values for **roll** \(angle YZ\) change as you increase the tilt. When the right side of the RedBot is pointing straight down, the roll should be close to 90°. Then see how the values for roll change as you tilt it sideways to the left. When the left side of the RedBot is pointing straight down, the roll should be close to -90°.
-* See what happens to the values for pitch and roll when the RedBot is tilted upside down.
+Follow the steps below to test your robot's pitch, roll, and yaw.
 
-## Detect Tip Over
+#### PITCH
 
-You could use the accelerometer to detect when the RedBot is upside down due to being tipped over.
+Pitch is the front-to-back rotation on the robot's Y axis. Pitch can range from -180° to 180°.
 
-If the RedBot were to tip over for some reason, then the values for pitch and/or roll would be higher than 90°. If the RedBot were completely upside down, the values for both would be close to 180°.
+1. Hold the robot in the air, and slowly rotate the robot from front-to-back to tilt the front end up. Watch the pitch value change in the serial monitor as you change the tilt. When the robot's front end is tilted straight up, the pitch will be 90°.
+2. Rotate the robot so it is level from front-to-back. When it is level, the pitch will be 0°.
+3. Rotate the robot so its front end is tilts down. When the robot's front end is tilted straight down, the pitch will be -90°.
 
-If the Redbot is upside down, it might be helpful to stop the motors and use the buzzer to produce a "distress" signal.
+#### ROLL
 
-For example, a custom function named `checkUpsideDown()` could be used to check whether or not the RedBot has tipped over:
+Roll is the side-to-side rotation on the robot's X axis. Roll can range from -180° to 180°.
 
-```cpp
-void loop() {
+1. Hold the robot in the air, and slowly rotate the robot from side-to-side, so the left side is tilted up. Watch the pitch change in the serial monitor as you change the tilt. When the robot's left side is tilted straight up, the roll will be 90°.
+2. Rotate the robot so it is level from side-to-side. When it is level, the roll will be 0°.
+3. Rotate the robot so its left side is tilted down. When the robot's left side is tilted straight down, the roll will be -90°.
 
-    boolean tippedOver = checkUpsideDown();
+#### YAW
 
-    if (tippedOver) {
-        // add code to perform special actions: brake, distress signal, etc.
-        motors.stop();
+Yaw is the right-to-left rotation on the device's Z axis. Yaw can range from -180° to 180°.
 
-    }
-    else {
-        // add code to perform normal actions: drive, turn, etc.
-        motors.drive(150);
+However, when the robot is on a level surface, the yaw value **cannot** be accurately determined because the acceleration due to Earth's gravity is acting in the same direction \(i.e., downward\) as the Z axis.
 
-    }
-}
-```
-
-### checkUpsideDown\(\) function
-
-Be sure to include the `checkUpsideDown()` function after your `loop()` function:
-
-```cpp
-boolean checkUpsideDown() {
-    // returns value of true if RedBot upside-down
-    // otherwise returns value of false
-
-    accel.read(); // get new accelerometer data
-
-    // get absolute values for pitch and roll
-    float pitch = abs(accel.angleXZ);
-    float roll = abs(accel.angleYZ);
-
-    // see if pitch or roll is greater than 90 degrees
-    if (pitch > 90 || roll > 90) return true;
-    else return false;
-}
-```
-
-You can test out this program by holding your RedBot in the air by its back end. When the RedBot is held in its "normal" level position, its wheels will drive forward. Once you've tilted the RedBot past 90° in any direction \(front end, back end, left side, or right side\), it should detect that it is "upside-down" and stop its motors.
-
-## Detect Bump
-
-The `RedBotAccel` object also has a method for using the accelerometer to detect a "bump" - i.e., to detect if the RedBot is physically hit. The bump could be the result of driving over a bump or a collision with an object.
-
-Your program must first turn on the "bump" detection by using the `RedBotAccel` object's `enableBump()` method. Since you only need to do this once at the start of your program, add this code into your `setup()` function:
-
-```cpp
-accel.enableBump();
-```
-
-Then you can check for a "bump" using the `RedBotAccel` object's `checkBump()` method, which will return a value of `true` or `false` based on whether or not a bump was detected. You can assign the function's returned value to a local variable, and then perform an action if the variable is `true` \(or an alternate action if it is `false`\).
-
-For example, you could check for a "bump" in your `loop()` function:
-
-```cpp
-void loop() {
-
-    boolean bump = accel.checkBump();
-
-    if (bump) {
-        // add code to perform when bump detected
-        tone(buzzer, 1000);
-        delay(200);
-        noTone(buzzer);
-    }
-
-    // add other code to perform
-}
-```
-
-In the example code above, the RedBot's buzzer will be used to produce a sound when a bump is detected. You can test this with your RedBot: upload the program, and then tap on the RedBot's body to see if it detects the "bump" and makes a sound.
-
-For example, if the RedBot were operating in an environment where it might be bumped by people, it might be helpful to detect these bumps and then alert people to the presence of the RedBot by making a sound.
+1. Place the robot back down on a level surface, such as your desk or table. Check the yaw value in the serial monitor.
+2. Rotate the robot clockwise to the right, while checking the yaw value in the serial monitor. You'll notice that the yaw value changes **randomly** – and does **not** represent which direction the robot is pointed \(i.e., the robot's rotation on the Z axis\).
+3. Rotate the robot counter-clockwise to the left, while checking the yaw value in the serial monitor. Again, the yaw value changes randomly – and does **not** represent the robot's direction.
 

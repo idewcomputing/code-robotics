@@ -31,7 +31,7 @@ To adjust the position of a bumper board, you have to loosen the the top screw o
 
 ![](../../.gitbook/assets/bumper-board-position.jpg)
 
-## How to Use Bumpers in App
+## How to Use Bumpers
 
 To use the mechanical bumpers in your robot app, you need to:
 
