@@ -23,13 +23,13 @@ To use the mechanical bumpers in your robot app, you need to:
 
 In order for the bumpers to detect collisions accurately, you may need to adjust the positions of the wire whiskers and the bumper boards. Otherwise, it may not be physically possible for the whiskers to make contact with the metal screw on the bumper boards.
 
-### Wire Whiskers
+#### WIRE WHISKERS
 
 In the normal position \(no collision\), each wire whisker should be positioned very close to the metal screw on its bumper board.  There should only be about ⅛ inch between the wire and the screw. Otherwise, if the wire is too far away, it may not be physically possible for an obstacle to bend the wire far enough to make contact with the screw.
 
 To adjust the position of a wire whisker, you have to loosen the plastic standoff screw on the **bottom** of the bumper board. In order to physically access this screw on an assembled robot, you may have to **remove the entire bumper** \(by removing the top screw of the plastic standoff, which attaches the bumper to the front of the RedBot chassis\). You might need to also unplug the 3-wire cable connected to the bumper. After adjusting the wire whisker, correctly reconnect the 3-wire cable, and then reattach the bumper to the robot chassis.
 
-### Bumper Boards
+#### BUMPER BOARDS
 
 Each bumper board should be rotated slightly so the metal screw on the bumper board is positioned slightly in front of the black plastic struts at the front corners of the RedBot chassis. Otherwise, the struts might physically block the wire whisker from making contact with the metal screw on the bumper board.
 
@@ -54,7 +54,7 @@ RedBotBumper rightBumper(11);
 **REDBOT LIBRARY:**  Be sure your robot app has an `#include` statement for the SparkFun RedBot library. [Here's how to include the RedBot library](../arduino-code-editor/include-redbot-library.md).
 {% endhint %}
 
-## Check Bumpers for Collisions
+## Read Bumpers
 
 To check the mechanical bumpers for collisions with obstacles, use the `RedBotBumper` object's `read()` method to detect whether or not a bumper has collided with an obstacle:
 
