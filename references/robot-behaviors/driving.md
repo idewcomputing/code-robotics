@@ -2,8 +2,82 @@
 
 These custom functions for driving the robot use the [wheel encoders](../physical-inputs/wheel-encoders.md):
 
-* `driveDistance()` — drive straight for specific distance
 * `driveStraight()` — drive straight continuously
+* `driveDistance()` — drive straight for specific distance
+
+## driveStraight\(\)
+
+A custom function named `driveStraight()` uses the wheel encoders to make your robot drive in a straight line.
+
+Driving perfectly straight requires the left and right motors to rotate at the same rate. It is common for a robot to drift slightly \(to the left or right\) when driving. This indicates the motors aren't rotating at the same rate, even though they're using the same motor power.
+
+You can compare the left and right wheel encoder counts as your robot drives to see whether they are the same or not. If they aren't the same, the left and right motor powers can be individually adjusted, so they rotate at similar rates, making the robot drive in a straight line.
+
+In order to work, the `driveStraight()` function must be continuously called by the `loop()` function \(or continuously called by a loop within another function\).
+
+Driving straight continuously is usually combined with other robot behaviors, such as:  detecting collisions, avoiding collisions, avoiding a line, counting lines crossed, etc.
+
+The `driveStraight()` function requires these objects as part of your global variables before the `setup()` function:
+
+```cpp
+RedBotMotors motors;
+RedBotEncoder encoder(A2, 10);
+```
+
+The `driveStraight()` function uses global variables to track the left and right motor powers, as well as the left and right encoder counts. Add this code **before** the `setup()` function:
+
+```cpp
+// global variables needed for driveStraight() function
+int leftPower = 150, rightPower = leftPower;
+long prevLeftCount = 0, prevRightCount = 0;
+```
+
+The wheel encoder counters should be reset to zero when your app first starts. Add this code statement **within** the `setup()` function:
+
+```cpp
+  encoder.clearEnc(BOTH);
+```
+
+Add the `driveStraight()` custom function **after** the `loop()` function:
+
+```cpp
+void driveStraight() {
+
+  // use wheel encoders to drive straight continuously
+
+  // amount to offset motor powers to drive straight
+  int offset = 5;
+
+  // get current wheel encoder counts
+  leftCount = encoder.getTicks(LEFT);
+  rightCount = encoder.getTicks(RIGHT);
+  
+  // calculate increase in count from previous reading
+  long leftDiff = leftCount - prevLeftCount;
+  long rightDiff = rightCount - prevRightCount;
+
+  // store current counts as "previous" counts for next reading
+  prevLeftCount = leftCount;
+  prevRightCount = rightCount;
+
+  // adjust left & right motor powers to keep counts similar (drive straight)
+  // if left rotated more than right, slow down left & speed up right
+  if (leftDiff > rightDiff) {
+    leftPower = leftPower - offset;
+    rightPower = rightPower + offset;
+  }
+  // if right rotated more than left, speed up left & slow down right
+  else if (leftDiff < rightDiff) {
+    leftPower = leftPower + offset;
+    rightPower = rightPower - offset;
+  }
+
+  // apply adjusted motor powers
+  motors.leftDrive(leftPower);
+  motors.rightDrive(rightPower);
+  delay(10);  // short delay before next reading
+}
+```
 
 ## driveDistance\(\)
 
@@ -121,73 +195,5 @@ void driveDistance(float distance) {
 }
 ```
 
-## driveStraight\(\)
 
-A custom function named `driveDistance()` uses the wheel encoders to make your robot drive straight continuously \(rather than for a specific distance\).
-
-In order to work, the `driveDistance()` function must be continuously called by the `loop()` function \(or continuously called by a loop within another function\).
-
-Driving straight continuously is usually combined with other robot behaviors, such as:  detecting collisions, avoiding collisions, avoiding a line, counting lines crossed, etc.
-
-The `driveStraight()` function requires these objects as part of your global variables before the `setup()` function:
-
-```cpp
-RedBotMotors motors;
-RedBotEncoder encoder(A2, 10);
-```
-
-The `driveStraight()` function uses global variables to track the left and right motor powers, as well as the left and right encoder counts. Add this code **before** the `setup()` function:
-
-```cpp
-// global variables needed for driveStraight() function
-int leftPower = 150, rightPower = leftPower;
-long prevLeftCount = 0, prevRightCount = 0;
-```
-
-The wheel encoder counters should be reset to zero when your app first starts. Add this code statement **within** the `setup()` function:
-
-```cpp
-  encoder.clearEnc(BOTH);
-```
-
-Add the `driveStraight()` custom function **after** the `loop()` function:
-
-```cpp
-void driveStraight() {
-
-  // use wheel encoders to drive straight continuously
-
-  // amount to offset motor powers to drive straight
-  int offset = 5;
-
-  // get current wheel encoder counts
-  leftCount = encoder.getTicks(LEFT);
-  rightCount = encoder.getTicks(RIGHT);
-  
-  // calculate increase in count from previous reading
-  long leftDiff = leftCount - prevLeftCount;
-  long rightDiff = rightCount - prevRightCount;
-
-  // store current counts as "previous" counts for next reading
-  prevLeftCount = leftCount;
-  prevRightCount = rightCount;
-
-  // adjust left & right motor powers to keep counts similar (drive straight)
-  // if left rotated more than right, slow down left & speed up right
-  if (leftDiff > rightDiff) {
-    leftPower = leftPower - offset;
-    rightPower = rightPower + offset;
-  }
-  // if right rotated more than left, speed up left & slow down right
-  else if (leftDiff < rightDiff) {
-    leftPower = leftPower + offset;
-    rightPower = rightPower - offset;
-  }
-
-  // apply adjusted motor powers
-  motors.leftDrive(leftPower);
-  motors.rightDrive(rightPower);
-  delay(10);  // short delay before next reading
-}
-```
 
