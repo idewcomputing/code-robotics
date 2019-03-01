@@ -1,22 +1,19 @@
 # Wheel Encoders
 
-If you were to drive the RedBot motors at the same power, you would expect them to rotate at the same speed. However, you might notice that your RedBot drifts slightly to the left \(or right\) when you use the `motors.drive()` method. This is because your left and right motors might rotate at slightly different speeds, even though are being given the same amount of power.
+Located directly behind each motor is a wheel encoder. Each wheel encoder is used to count the number of times the motor \(left or right\) has rotated. Each wheel encoder actually consists of two parts:
 
-The RedBot has wheel encoders that can measure exactly how many times the left and right motors have rotated. Over time, even a slight difference between the left and right motor rotations will add up and prevent the robot from traveling in a straight line. Fortunately, you can use the wheel encoders to help fix this issue \(by adjusting the power supplied to each motor\) and make your robot drive perfectly straight.
+* a **Hall Effect sensor** that can measure the strength of a magnetic field
+* a **ring magnet** \(looks like a metal washer\) attached to the motor shaft
 
 ![](../../.gitbook/assets/wheel-encoder.jpg)
 
-Each wheel encoder consists of a [Hall effect sensor](https://en.wikipedia.org/wiki/Hall_effect_sensor) that can measure the strength of a magnetic field. A ring magnet is attached to each RedBot motor. When the motor rotates the wheel, it also rotates the ring magnet. The Hall effect sensor positioned near the ring detects changes in the magnetic field as the ring rotates. This is how the sensor can measure how many times the motor has rotated.
-
-**IMPORTANT:** In order to function accurately, the wheel encoder sensor must be positioned correctly. The sensor tip must be centered within the silver band of the ring magnet \(not too far inward or outward\) and must be close to the ring magnet's surface \(about ⅛" inch away\). You may need to push \(or pull\) the sensor to position it correctly. Even a small adjustment can affect its accuracy.
-
-![](../../.gitbook/assets/encoder-position.png)
+When the motor rotates the wheel, it also rotates the ring magnet. The Hall effect sensor positioned near the ring detects changes in the magnetic field as the ring rotates. This is how the sensor can count how many times the motor has rotated.
 
 When you think of a magnet, you probably think of a magnet that has 2 poles: north and south. It is true that magnets have pairs of N-S poles. However, a magnet can be created with multiple pairs of N-S poles. The ring magnets attached to the RedBot motors each have 4 pairs of N-S poles, similar to the diagram below.
 
 ![](../../.gitbook/assets/ring-magnet.jpg)
 
-As the ring magnet completes one full rotation, the Hall effect sensor detects 4 changes \(or "ticks"\) in the magnetic field as the magnetic poles pass by the sensor.
+So as the ring magnet completes one full rotation, the Hall effect sensor detects 4 changes \(or "ticks"\) in the magnetic field as each magnetic pole passes by the sensor.
 
 Each rotation of the motor shaft only turns the wheel a certain number of degrees. The RedBot motors have a gearbox ratio of 48:1, which means it actually takes 48 rotations of the motor shaft to make the wheel complete one full revolution \(360°\).
 
@@ -24,7 +21,7 @@ We can use this information to calculate how many "ticks" of the wheel encoder r
 
 **4 ticks per motor rotation × 48 motor rotations per wheel revolution = 192 ticks per wheel revolution**
 
-Based on the size of the RedBot's wheels, we can also calculate the distance that the RedBot travels during one wheel revolution. The distance is equal to the circumference of the wheel \(i.e., the distance around the outer edge of the wheel\). The circumference of a circle is its diameter multiplied by pi \(approximately 3.14\). Since the RedBot's wheels have a diameter of 65 mm \(2.56 inches\), the distance traveled per wheel revolution is:
+Based on the size of the robot's wheels, we can also calculate the distance that the robot travels during one wheel revolution. The distance is equal to the circumference of the wheel \(i.e., the distance around the outer edge of the wheel\). The circumference of a circle is its diameter multiplied by pi \(approximately 3.14\). Since the RedBot's wheels have a diameter of 65 mm \(2.56 inches\), the distance traveled per wheel revolution is:
 
 **C = 𝛑 × d = 3.14 × 2.56 inches = 8.04 inches per wheel revolution**
 
@@ -32,46 +29,45 @@ So for your RedBot's wheel encoders, the following is true:
 
 **192 ticks of wheel encoder = 1 wheel revolution = 8.04 inches traveled**
 
-By keeping track of the total number of magnetic "ticks" for each motor, you can use the wheel encoders to help the RedBot perform several useful tasks:
+Each wheel encoder is connected to the RedBot circuit board by a 3-wire jumper cable \(white, red, and black wires for data, power, and ground\):
 
-1. **Drive in a straight line** by making small adjustments in the powers of the left and right motors, to make sure they rotate at the same average speed.
-2. **Drive for a specific distance** by calculating how far the wheels have traveled. \(This is typically combined with adjusting the left and right motor powers to drive straight.\)
-3. **Pivot \(turn\) by a specific angle** by calculating how far the wheels have traveled while pivoting in a circle. This can be used for pivoting on both wheels or turning on one wheel.
+* The left wheel encoder data wire should be connected to I/O pin A2
+* The right wheel encoder data wire should be connected to I/O pin 10
 
-### How to Use the Wheel Encoders in a Program:
+The wheel encoder counts can be used to perform to several useful robot behaviors:
 
-To use the wheel encoders, you will need to:
+1. The robot can [**drive in a straight line**](../robot-behaviors/driving.md#drivestraight) by making small adjustments in the left and right motor powers to make sure both motors rotate at the same average speed.
+2. The robot can [**drive for a specific distance**](../robot-behaviors/driving.md#drivedistance) by calculating how far the wheels have traveled. This is combined with adjusting the motor powers to drive straight.
+3. The robot can ****[**pivot on both wheels by a specific angle**](../robot-behaviors/turning.md#pivotangle) by calculating how far the wheels have traveled while pivoting in a circle.
+4. The robot can [**turn on one wheel by a specific angle**](../robot-behaviors/turning.md#turnangle) by calculating how far the driving wheel has traveled while turning in a circle
 
-1. Create `RedBotEncoder` object for the wheel encoders
+## Check Encoder Positions
+
+In order to function accurately, each wheel encoder sensor must be positioned correctly, relative to its ring magnet. The sensor tip must be centered within the silver band of the ring magnet \(not too far inward or outward\) and must be close to the ring magnet's surface \(about ⅛" inch away\).
+
+![How to Check Alignment of Wheel Encoder](../../.gitbook/assets/encoder-position.png)
+
+Visually check the alignment of the left and right wheel encoders. If necessary, you might need to push \(or pull\) the sensor to position it correctly.
+
+## How to Use Encoders in App
+
+To use the wheel encoders in your robot app, you will need to:
+
+1. Create a `RedBotEncoder` object for the wheel encoders
 2. Use the object's `clearEnc()` method to clear the encoder counters \(reset to zero\)
-3. Add code to drive one or both motors
+3. Add code statement\(s\) to drive one or both motors
 4. Use the object's `getTicks()` method to get the current encoder counts
-5. Add code to perform actions based on the encoder counts \(adjust motor powers, stop motors, etc.\)
-
-### Coding References in this Section:
-
-* Create RedBotEncoder Objects
-* Clear Encoder Counters
-* Get Current Encoder Counts
-* Use Serial Monitor to View Encoder Counts
-* Drive Straight Continuously
-* Drive Straight for Specific Distance
-* Pivot Both Wheels by Specific Angle
-* Turn on One Wheel by Specific Angle
+5. Add code statement\(s\) to perform action\(s\) based on the encoder counts
 
 ## Create RedBotEncoder Object
 
 The SparkFun `RedBot` library has a class named `RedBotEncoder` which contains methods \(functions\) to control the wheel encoders.
 
-Before your `setup()` function, create a `RedBotEncoder` object by assigning it to a variable and indicating the pin numbers for the encoders:
+Before the `setup()` function, create a `RedBotEncoder` object by assigning it to a variable name and indicating the pin numbers for the left and right encoders in parentheses:
 
 ```cpp
 RedBotEncoder encoder(A2, 10);
 ```
-
-* `RedBotEncoder` indicates the class of object being created \(this class is part of the `RedBot` library\)
-* `encoder` represents the variable name for the `RedBotEncoder` object. If desired, you could use a different variable name.
-* `A2` and `10` indicate the pin numbers \(in order\) that the left and right wheel encoders are connected to.
 
 {% hint style="success" %}
 **REDBOT LIBRARY:**  Be sure your robot app has an `#include` statement for the SparkFun RedBot library. [Here's how to include the RedBot library](../arduino-code-editor/include-redbot-library.md).
@@ -89,23 +85,22 @@ Use the `clearEnc()` function to clear the encoder counter:
 encoder.clearEnc(BOTH);
 ```
 
-* `encoder` represents the variable name of the `RedBotEncoder` object. If necessary, change this to the variable name you used.
-* `BOTH` indicates that the counters for both encoders should be cleared \(reset to zero\). If it were necessary, you could instead use `LEFT` or `RIGHT` to only clear the counter for a particular encoder.
+Using a value of `BOTH` will clear both encoder counters. If necessary, you can use a value of `LEFT` or `RIGHT` to only clear a specific encoder counter.
 
 ## Get Current Encoder Counts
 
-The `RedBotEncoder` object has a `getTicks()` method that returns the current number of magnetic "ticks" that have been detected by each wheel encoder, as the motors rotate.
+The `RedBotEncoder` object has a `getTicks()` method that returns the current number of magnetic "ticks" that have been detected by each wheel encoder as its motor rotates.
 
 Since you will typically want to compare the readings from both encoders at the same time, your program should store the sensor readings in local variables, and then use the readings to perform an action:
 
 ```cpp
 // add code to drive one or both motors
 
-// get current wheel encoder readings
+// get current wheel encoder counts
 long leftCount = encoder.getTicks(LEFT);
 long rightCount = encoder.getTicks(RIGHT);
 
-// add code to do something based on encoder readings
+// add code to do something based on encoder counts
 ```
 
 * `long` indicates the variable type, which is a **long integer** in this case.
@@ -114,7 +109,7 @@ long rightCount = encoder.getTicks(RIGHT);
 
 The count for each encoder represents the cumulative total number of "ticks" since that encoder was last cleared.
 
-**NOTE:** The wheel encoder counter will detect "ticks" whether the motor is driving forwards or backwards. If the motor is driving forwards, its encoder counter will increase. However, if the motor is driving backwards, its encoder counter will **decrease** \(each "tick" counts as -1\).
+**NOTE:** The wheel encoder counter will detect "ticks" whether the motor is driving forwards or backwards.
 
 ## Use Serial Monitor to View Encoder Counts
 

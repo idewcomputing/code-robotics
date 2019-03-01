@@ -9,7 +9,13 @@ The amount of reflected IR light that is detected depends on several factors, in
 * A light-colored surface will reflect more IR light, while a dark-colored surface will reflect less IR light.
 * If the surface is farther away, the IR light will become more scattered, and less IR light will be reflected back to the detector.
 
-Measurements from the IR sensors can be used to perform different robot behaviors:
+Each IR line sensor is connected to the RedBot circuit board by a 3-wire jumper cable \(white, red, and black wires for data, power, and ground\):
+
+* The left line sensor data wire should be connected to I/O pin A3
+* The center line sensor data wire should be connected to I/O pin A6
+* The right line sensor data wire should be connected to I/O pin A7
+
+Measurements from the IR sensors can be used to perform several useful robot behaviors:
 
 1. The robot can [**follow a line**](../robot-behaviors/detecting-lines.md#followline) by adjusting the left and right motor powers to steer the robot and keep it centered on the line as it drives.
 2. The robot can [**avoid a line**](../robot-behaviors/detecting-lines.md#avoidline) by turning away from a line that it detects. In this case, the line acts as a border to keep the robot inside \(or outside\) a certain path or area.
@@ -29,7 +35,7 @@ To use the IR sensors in your robot app, you will need to:
 
 The SparkFun `RedBot` library has a class named `RedBotSensor` which contains methods \(functions\) to control analog sensors, such as the IR line following sensors.
 
-Before your `setup()` function, create a `RedBotSensor` object for each IR sensor by assigning each object a variable name and indicating its pin number within parentheses:
+Before the `setup()` function, create a `RedBotSensor` object for each IR sensor by assigning each object a variable name and indicating its pin number within parentheses:
 
 ```cpp
 RedBotSensor leftLine(A3);

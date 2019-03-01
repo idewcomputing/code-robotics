@@ -11,14 +11,6 @@ Each mechanical bumper is connected to the RedBot circuit board by a 3-wire jump
 * The left mechanical bumper data wire should be connected to I/O pin 3
 * The right mechanical bumper data wire should be connected to I/O pin 11
 
-## How to Use Bumpers in App
-
-To use the mechanical bumpers in your robot app, you need to:
-
-1. Create a `RedBotBumper` object for each mechanical bumper \(left and right\)
-2. Use each object's `read()` method to detect whether a collision has occurred
-3. Add code statement\(s\) to perform action\(s\) when a bumper collision is detected
-
 ## Check Bumper Positions
 
 In order for the bumpers to detect collisions accurately, you may need to adjust the positions of the wire whiskers and the bumper boards. Otherwise, it may not be physically possible for the whiskers to make contact with the metal screw on the bumper boards.
@@ -35,9 +27,17 @@ Each bumper board should be rotated slightly so the metal screw on the bumper bo
 
 The photo below shows the mechanical bumpers in the correct position. When looking down on the front of the robot, the metal screw of each bumper board \(where the wire whisker will make contact\) is visible. If you cannot see these metal screws, your bumpers might not be able to work.
 
-To adjust the position of a bumper board, you have to loosen the the top screw of the plastic standoff, which attaches the bumper to the robot chassis. Rotate the bumper board slightly, so the metal screw is further forward than the side strut. Then tighten the top screw of the plastic standoff to secure the bumper in place.
+To adjust the position of a bumper board, you have to loosen the the top screw of the plastic standoff, which attaches the bumper to the robot chassis. Rotate the bumper board slightly, so the metal contact screw is further forward than the side strut. Then tighten the top screw of the plastic standoff to secure the bumper in place.
 
 ![](../../.gitbook/assets/bumper-board-position.jpg)
+
+## How to Use Bumpers in App
+
+To use the mechanical bumpers in your robot app, you need to:
+
+1. Create a `RedBotBumper` object for each mechanical bumper \(left and right\)
+2. Use each object's `read()` method to detect whether a collision has occurred
+3. Add code statement\(s\) to perform action\(s\) when a bumper collision is detected
 
 ## Create Objects for Bumpers
 
