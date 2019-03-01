@@ -181,11 +181,9 @@ In your Arduino code editor, open the serial monitor, so you can view the serial
 * **Arduino Create \(Web Editor\):**  Click the **Monitor** menu link in the left navigation to display the serial monitor in the middle panel.
 * **Arduino IDE \(Desktop Editor\):**  Under the **Tools** menu, select "Serial Monitor." A new window will appear displaying the serial monitor.
 
-Press the D12 button on your robot's circuit board. Your robot's wheels should start driving. In the serial monitor, view the data showing the wheel encoder counts.  When either one of the wheel encoder counts reaches 1000 \(which should take about 3-4 seconds\), the motors will brake.
+Press the D12 button on your robot's circuit board. Your robot's wheels will start driving. In the serial monitor, view the wheel encoder counts. When either one of the wheel encoder counts reaches 1000 \(which should take about 3-4 seconds\), the motors will brake.
 
-You'll probably notice that the wheel encoder counts do **not** stop exactly at 1000. This is normal —  it takes a brief amount of time for the braking to occur. The final counts should be less than 1050.
-
-You'll probably notice that your left and right wheel encoder counts are **not** exactly the same. This is normal — they should be close to each other \(within about 25\), but they probably won't be identical.
-
-If one or both wheel encoders are **not** working properly \(the count stays at zero\), then turn off the robot's power, and check the wheel encoder sensor position\(s\). After correcting the sensor position\(s\), turn the robot's power back on to restart the app and test again.
+* You'll notice that the wheel encoder counts do **not** stop exactly at 1000. This is normal because it takes a brief amount of time for the motors to brake. The final counts should probably be between 1000-1050.
+* You'll probably notice that your left and right wheel encoder counts are **not** exactly the same. This is normal — they should be close to each other \(within about 25\), but they probably won't be identical.
+* If one or both wheel encoders are **not** working properly \(the count stays at zero\), turn off the robot's power, and check the encoder sensor position\(s\). After correcting the sensor position\(s\), turn the robot's power back on and test again.
 
