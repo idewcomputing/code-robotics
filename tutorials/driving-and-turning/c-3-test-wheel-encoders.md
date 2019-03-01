@@ -18,7 +18,7 @@ The wheel encoder actually consists of two parts:
 
 When the motor rotates the wheel, it also rotates the ring magnet. The Hall effect sensor positioned near the ring detects changes in the magnetic field \(these are referred to as "ticks"\) as the ring rotates. This is how the wheel encoder can count how many times the motor has rotated.
 
-## Check Wheel Encoder Alignments
+## Check Encoder Positions
 
 In order to function accurately, each wheel encoder sensor must be positioned correctly, relative to its ring magnet. The sensor tip must be centered within the silver band of the ring magnet \(not too far inward or outward\) and must be close to the ring magnet's surface \(about ⅛" inch away\).
 
@@ -183,7 +183,7 @@ You'll probably notice that your left and right wheel encoder counts are **not**
 If one or both wheel encoders are **not** working properly \(the count stays at zero\), then turn off the robot's power, and check the wheel encoder alignment again. After correcting the alignment, turn the robot's power back on to restart the app.
 
 {% hint style="success" %}
-**CHECK ENCODERS AFTER CHANGING BATTERIES:**  Whenever you change the robot's batteries, be sure to check the wheel encoder alignments **afterwards**. It's very common to accidentally move the wheel encoder sensors when changing the battery pack.
+**CHECK ENCODERS AFTER CHANGING BATTERIES:**  Whenever you change the robot's batteries, be sure to check the encoder sensor positions **afterwards**. It's  common to accidentally move the encoder sensors when changing the batteries.
 {% endhint %}
 
 

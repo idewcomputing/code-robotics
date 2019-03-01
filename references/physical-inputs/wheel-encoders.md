@@ -1,6 +1,8 @@
 # Wheel Encoders
 
-Located directly behind each motor is a wheel encoder. Each wheel encoder is used to count the number of times the motor \(left or right\) has rotated. Each wheel encoder actually consists of two parts:
+Located directly behind each motor is a wheel encoder. Each wheel encoder is used to count the number of times the motor \(left or right\) has rotated. This can be used to calculate the distance that the robot has driven or turned.
+
+Each wheel encoder actually consists of two parts:
 
 * a **Hall Effect sensor** that can measure the strength of a magnetic field
 * a **ring magnet** \(looks like a metal washer\) attached to the motor shaft
@@ -12,22 +14,6 @@ When the motor rotates the wheel, it also rotates the ring magnet. The Hall effe
 When you think of a magnet, you probably think of a magnet that has 2 poles: north and south. It is true that magnets have pairs of N-S poles. However, a magnet can be created with multiple pairs of N-S poles. The ring magnets attached to the RedBot motors each have 4 pairs of N-S poles, similar to the diagram below.
 
 ![](../../.gitbook/assets/ring-magnet.jpg)
-
-So as the ring magnet completes one full rotation, the Hall effect sensor detects 4 changes \(or "ticks"\) in the magnetic field as each magnetic pole passes by the sensor.
-
-Each rotation of the motor shaft only turns the wheel a certain number of degrees. The RedBot motors have a gearbox ratio of 48:1, which means it actually takes 48 rotations of the motor shaft to make the wheel complete one full revolution \(360°\).
-
-We can use this information to calculate how many "ticks" of the wheel encoder represent one revolution of the wheel:
-
-**4 ticks per motor rotation × 48 motor rotations per wheel revolution = 192 ticks per wheel revolution**
-
-Based on the size of the robot's wheels, we can also calculate the distance that the robot travels during one wheel revolution. The distance is equal to the circumference of the wheel \(i.e., the distance around the outer edge of the wheel\). The circumference of a circle is its diameter multiplied by pi \(approximately 3.14\). Since the RedBot's wheels have a diameter of 65 mm \(2.56 inches\), the distance traveled per wheel revolution is:
-
-**C = 𝛑 × d = 3.14 × 2.56 inches = 8.04 inches per wheel revolution**
-
-So for your RedBot's wheel encoders, the following is true:
-
-**192 ticks of wheel encoder = 1 wheel revolution = 8.04 inches traveled**
 
 Each wheel encoder is connected to the RedBot circuit board by a 3-wire jumper cable \(white, red, and black wires for data, power, and ground\):
 
@@ -41,13 +27,37 @@ The wheel encoder counts can be used to perform to several useful robot behavior
 3. The robot can ****[**pivot on both wheels by a specific angle**](../robot-behaviors/turning.md#pivotangle) by calculating how far the wheels have traveled while pivoting in a circle.
 4. The robot can [**turn on one wheel by a specific angle**](../robot-behaviors/turning.md#turnangle) by calculating how far the driving wheel has traveled while turning in a circle
 
+## Calculate Distance with Encoders
+
+As the motor shaft rotates, it also rotates the attached ring magnet at the same rate. As the ring magnet completes one full rotation, the Hall effect sensor detects 4 changes \(or "ticks"\) in the magnetic field as each magnetic pole passes by the sensor.
+
+However, each rotation of the motor only turns the wheel a certain number of degrees. The RedBot motors have a gearbox ratio of 48:1, which means it takes 48 rotations of the motor to turn the wheel one complete revolution \(360°\).
+
+We can use this information to calculate how many "ticks" counted by the wheel encoder represent one revolution of the wheel:
+
+**4 ticks per motor rotation × 48 motor rotations per wheel revolution = 192 ticks per wheel revolution**
+
+Based on the size of the robot's wheels, we can also calculate the distance that the robot travels during one wheel revolution. This distance is equal to the circumference of the wheel \(i.e., the distance around the outer edge of the wheel\). The circumference of a circle is its diameter multiplied by pi \(approximately 3.14\). Since the RedBot's wheels have a diameter of 65 mm \(2.56 inches\), the distance traveled per wheel revolution is:
+
+**C = 𝛑 × d = 3.14 × 2.56 inches = 8.04 inches per wheel revolution**
+
+So for your RedBot's wheel encoders, the following is true:
+
+**192 ticks of wheel encoder = 1 wheel revolution = 8.04 inches traveled**
+
+This information can be used to convert any encoder count into distance traveled — or to convert a desired distance into a target encoder count.
+
 ## Check Encoder Positions
 
 In order to function accurately, each wheel encoder sensor must be positioned correctly, relative to its ring magnet. The sensor tip must be centered within the silver band of the ring magnet \(not too far inward or outward\) and must be close to the ring magnet's surface \(about ⅛" inch away\).
 
+Visually check the position of the left and right encoder sensors. If necessary, you might need to push \(or pull\) a sensor to position it correctly.
+
 ![How to Check Alignment of Wheel Encoder](../../.gitbook/assets/encoder-position.png)
 
-Visually check the alignment of the left and right wheel encoders. If necessary, you might need to push \(or pull\) the sensor to position it correctly.
+{% hint style="success" %}
+**CHECK ENCODERS AFTER CHANGING BATTERIES:**  Whenever you change the robot's batteries, be sure to check the encoder sensor positions **afterwards**. It's  common to accidentally move the encoder sensors when changing the batteries.
+{% endhint %}
 
 ## How to Use Encoders in App
 
@@ -87,15 +97,13 @@ encoder.clearEnc(BOTH);
 
 Using a value of `BOTH` will clear both encoder counters. If necessary, you can use a value of `LEFT` or `RIGHT` to only clear a specific encoder counter.
 
-## Get Current Encoder Counts
+## Get Encoder Counts
 
-The `RedBotEncoder` object has a `getTicks()` method that returns the current number of magnetic "ticks" that have been detected by each wheel encoder as its motor rotates.
+The `RedBotEncoder` object has a `getTicks()` method that returns a `long` value \(long integer\) representing the total number of magnetic "ticks" that have been counted by the wheel encoder as its motor rotates.
 
-Since you will typically want to compare the readings from both encoders at the same time, your program should store the sensor readings in local variables, and then use the readings to perform an action:
+Since you will typically want to compare the readings from both encoders at the same time, your code could assign the encoder counts to local variables, and then perform actions based on the values stored in those variables:
 
 ```cpp
-// add code to drive one or both motors
-
 // get current wheel encoder counts
 long leftCount = encoder.getTicks(LEFT);
 long rightCount = encoder.getTicks(RIGHT);
@@ -103,21 +111,13 @@ long rightCount = encoder.getTicks(RIGHT);
 // add code to do something based on encoder counts
 ```
 
-* `long` indicates the variable type, which is a **long integer** in this case.
-* `leftCount` and `rightCount` represent the variable names for the left and right encoder counts. If desired, you could use different variable names.
-* `LEFT` or `RIGHT` are used to get the current count for either the left or right encoder.
+**NOTE:** Each encoder will count "ticks" whether its motor is driving forwards or backwards.
 
-The count for each encoder represents the cumulative total number of "ticks" since that encoder was last cleared.
+## Test Wheel Encoders
 
-**NOTE:** The wheel encoder counter will detect "ticks" whether the motor is driving forwards or backwards.
+To test out your wheel encoders, you can view the encoder counts using the serial monitor in the Arduino code editor.
 
-## Use Serial Monitor to View Encoder Counts
-
-To test out your wheel encoders, you can view the encoder counts using the serial monitor in the Arduino code editor. This is also a good way to verify your wheel encoders are positioned correctly to accurately count the magnetic "ticks" as the motor rotates.
-
-### 1. Create Objects for Motors, Button, and Encoders
-
-Add this code before your setup\(\) function to create objects for the motors, the D12 button, and the wheel encoders:
+Your app will need to create new objects \(as global variables\) for these three classes. Add these code statements **before** the `setup()` function:
 
 ```cpp
 RedBotMotors motors;
@@ -125,19 +125,17 @@ RedBotButton button;
 RedBotEncoder encoder(A2, 10);
 ```
 
-### 2. Start Serial Connection
-
-Add this code into your `setup()` function to start a serial connection between your RedBot and the code editor:
+Add this code statement **within** the `setup()` function:
 
 ```cpp
 Serial.begin(9600);
 ```
 
-### 3. Send Data Over Serial Connection
+This starts a serial data connection between your robot and your computer and sets the data transfer rate to 9600 bits per second.
 
-Add this custom function named `testWheelEncoders()` after your `loop()` function. This custom function will send \(print\) the sensor measurements over the serial connection:
+A custom function named `testWheelEncoders()` can be used to get each encoder count and send \(`print`\) the counts to your computer as serial data.
 
-### testWheelEncoders\(\) function
+Add the `testWheelEncoders()` function **after** the `loop()` function:
 
 ```cpp
 void testWheelEncoders() {
@@ -166,35 +164,30 @@ void testWheelEncoders() {
 }
 ```
 
-Then be sure to call this custom function in your `loop()` function:
+Add this code statement **within** the `loop()` function:
 
 ```cpp
-void loop() {
-    testWheelEncoders();
-}
+testWheelEncoders();
 ```
 
-### 4. View Data in Serial Monitor
+This should be only code statement listed within the `loop()` function.
 
-After uploading the program to the RedBot, **keep the RedBot connected to your computer using the USB cable** \(because the serial data is transferred over USB\).
+After uploading the app to your robot, do **not** unplug the USB cable. You have to keep the robot connected to your computer to allow the serial data communication.
 
-Open the Serial Monitor window in your Arduino code editor:
+**IMPORTANT:**  Be sure the robot is standing upright on its back end \(with its wheels in the air\), so the robot won't drive way while it's connected to your computer.
 
-* **Arduino Create Web Editor**: Click the "Monitor" menu in the left navigation panel.
-* **Arduino IDE Desktop Editor:** Under the "Tools" menu, select "Serial Monitor".
+In your Arduino code editor, open the serial monitor, so you can view the serial data:
 
-It may take a few seconds for the serial connection to be detected by the editor. Then you should see the encoder counts being displayed in the serial monitor window.
+* **Arduino Create \(Web Editor\):**  Click the **Monitor** menu link in the left navigation to display the serial monitor in the middle panel.
+* **Arduino IDE \(Desktop Editor\):**  Under the **Tools** menu, select "Serial Monitor." A new window will appear displaying the serial monitor.
 
-Try the following tests to see how the encoder counts change:
+Press the D12 button on your robot's circuit board. Your robot's wheels should start driving. In the serial monitor, view the data showing the wheel encoder counts.  When either one of the wheel encoder counts reaches 1000 \(which should take about 3-4 seconds\), the motors will brake.
 
-* Place the RedBot's back end on a table, so that the RedBot stands vertically with its wheels in the air. Manually turn each wheel \(which will turn the motor\) to watch the wheel's encoder count change in the serial monitor. Remember that every 192 "ticks" should represent one complete revolution of the wheel.
-* While the RedBot is still standing vertically on the table, carefully press its push button \(next to the USB port\). The motors will start driving. Watch the wheel encoder counts change in the serial monitor. Once either encoder reaches a count of 1000 \(slightly more than 5 wheel revolutions\), the motors will brake. Notice that your left and right encoder counts might not match exactly. Also notice that your RedBot might overshoot a count of 1000, as it takes a small amount of time to actually brake the motors to stop the rotation. Push the button again to see how the counts compare to your previous trial. By how much do the motors "overshoot" the target count of 1000? How close are the left and right counts to each other? Does one motor rotate faster than the other? Push the button again to conduct another test trial. Conduct several trials to see how the counts vary.
-* When you manually turn the wheels, you will notice that the counter will increase whether you turn the wheel clockwise or counter-clockwise. However, when you drive the motors using your program, a wheel's encoder count will only increase if the motor is driving the wheel forwards. If the motor is driving the wheel backwards, its encoder count will decrease \(and can become a negative count\). To test this, modify your `testWheelEncoder()` function by changing `motors.drive(150);` to `motors.pivot(150);` which will make the left motor drive forwards, while the right motor drives backwards. Run the modified program to verify that the left count increases, while the right count decreases.
-* **TROUBLESHOOTING:** If either encoder count doesn't seem to be changing as the motor rotates, check the position of the wheel encoder sensor. The sensor tip must be centered within the silver band of the ring magnet \(not too far inward or outward\) and must be close to the ring magnet's surface \(about ⅛" inch away\). Otherwise, it may not detect the magnetic "ticks" accurately. You may need to push or pull the encoder to position it accurately. Even a small adjustment can affect its accuracy. If the encoder is pushed too far inward, use the flat-tipped screwdriver included in your RedBot kit to gently push the encoder back into the correct position.
+You'll probably notice that the wheel encoder counts do **not** stop exactly at 1000. This is normal —  it takes a brief amount of time for the braking to occur. The final counts should be less than 1050.
 
-![](../../.gitbook/assets/encoder-position.png)
+You'll probably notice that your left and right wheel encoder counts are **not** exactly the same. This is normal — they should be close to each other \(within about 25\), but they probably won't be identical.
 
-**NOTE:** When you change the batteries in your RedBot's battery pack, it is easy to accidentally push the wheel encoder wires. So every time after changing the batteries, check the positions of the wheel encoder sensors and adjust them if necessary.
+If one or both wheel encoders are **not** working properly \(the count stays at zero\), then turn off the robot's power, and check the wheel encoder sensor position\(s\). After correcting the sensor position\(s\), turn the robot's power back on to restart the app and test again.
 
 ## Drive Straight Continuously
 

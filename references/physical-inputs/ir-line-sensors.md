@@ -1,6 +1,8 @@
 # IR Line Sensors
 
-The RedBot has three "line following" sensors \(left, center, and right\). The bottom of each sensor has an LED that transmits infrared \(IR\) light, which is invisible to the human eye. The bottom of each sensor also has an IR detector, which measures how much of the IR light is reflected back by the surface that the robot is driving on.
+The RedBot has three "line following" sensors \(left, center, and right\) which can be used to detect lines on a surface.
+
+The bottom of each sensor has an LED that transmits infrared \(IR\) light, which is invisible to the human eye. The bottom of each sensor also has an IR detector, which measures how much of the IR light is reflected back by the surface that the robot is driving on.
 
 ![Bottom View of IR Line Sensor](../../.gitbook/assets/line-sensor.jpg)
 
@@ -15,7 +17,7 @@ Each IR line sensor is connected to the RedBot circuit board by a 3-wire jumper 
 * The center line sensor data wire should be connected to I/O pin A6
 * The right line sensor data wire should be connected to I/O pin A7
 
-Measurements from the IR sensors can be used to perform several useful robot behaviors:
+The IR sensors measurements can be used to perform several useful robot behaviors:
 
 1. The robot can [**follow a line**](../robot-behaviors/detecting-lines.md#followline) by adjusting the left and right motor powers to steer the robot and keep it centered on the line as it drives.
 2. The robot can [**avoid a line**](../robot-behaviors/detecting-lines.md#avoidline) by turning away from a line that it detects. In this case, the line acts as a border to keep the robot inside \(or outside\) a certain path or area.
