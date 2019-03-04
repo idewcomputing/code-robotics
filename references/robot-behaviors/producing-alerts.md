@@ -17,7 +17,7 @@ An alert can be used as feedback to a user when the robot's built-in D12 button 
 
 Alerts can also be useful as feedback to indicate when other events or conditions have occurred \(such as:  detecting an obstacle, reaching a destination, completing a task, etc.\).
 
-You can modify these custom functions and/or create your own alert functions.
+You can modify these custom functions \(e.g., change frequency and duration of sound, etc.\) and/or create your own alert functions for different situations \(e.g., alarm sound, distress signal, obstacle alert, success signal, etc.\).
 
 ## singleBeep\(\)
 
