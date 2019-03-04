@@ -66,6 +66,10 @@ You can add this code **within** the `loop()` function to perform different acti
   }
 ```
 
+{% hint style="info" %}
+**ONE BUTTON LIBRARY:**  Another option is to [use the OneButton library](../physical-inputs/push-button.md#use-onebutton-object) to detect different types of button presses \(single-press, double-press, or long-press\).
+{% endhint %}
+
 ## pauseRobot\(\)
 
 A custom function named `pauseRobot()` can be used to add "pauses" in a robot's task. The robot will wait until the built-in D12 button is pressed before performing the next step in the task. This could be useful in a robot task demonstration.
