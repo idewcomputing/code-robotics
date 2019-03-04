@@ -43,7 +43,7 @@ To use the mechanical bumpers in your robot app, you need to:
 
 The SparkFun `RedBot` library has a class named `RedBotBumper` which contains methods \(functions\) to control the RedBot's mechanical bumpers.
 
-As part of your global variables before the `setup()` function, create a `RedBotBumper` object for each bumper by assigning each to a variable and indicating its pin number:
+Before the `setup()` function, create a `RedBotBumper` object for each bumper by assigning each object to a variable and indicating its pin number within parentheses:
 
 ```cpp
 RedBotBumper leftBumper(3);

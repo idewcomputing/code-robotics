@@ -10,20 +10,20 @@ There are three different ways to use the D12 button in your robot app:
 
 * **Option 1:**  Read the button pin directly using the `digitalRead()` method
 * **Option 2:**  Read the button using a `RedBotButton` object and its `read()` method
-* **Option 3:**  Use the `OneButton` library to detect different types of button presses \(single-press, double-press, and long-press\)
+* **Option 3:**  Use a `OneButton` object and its `tick()` method to detect different types of button presses \(i.e., single-press, double-press, and long-press\)
 
 Option 1 and Option 2 are similar. They both detect when the button is pressed. It is primarily a matter of personal preference, in terms of which option to use. Most of the coding tutorials and references in this guidebook use the second option.
 
-Option 3 is useful if you want to detect up to 3 different types of button presses, so you can have the robot perform different actions or tasks based on the user's input.
+Option 3 is useful if you want to detect up to 3 different types of button presses, so you can have the robot perform different actions or tasks based on the user's input. This option requires you to include the `OneButton` library in your app. 
 
-## Read Button Pin Directly
+## Read Button Directly
 
-To read the button pin directly in your robot app, you will need to:
+To read the button pin directly, your robot app will need to:
 
 1. Declare a variable to store the button pin number
 2. Set the pin mode for the button
-3. Use the `digitalRead()` function to detect whether the button is being pressed
-4. Add code statement\(s\) to perform action\(s\) when the button is pressed
+3. Use the `digitalRead()` method to detect whether the button is being pressed
+4. Add code statement\(s\) to perform certain action\(s\) if the button is pressed
 
 You'll need to create a global variable to store the pin number of the RedBot's built-in button, which is connected to pin D12 \(via internal circuitry\)
 
@@ -45,10 +45,21 @@ pinMode(button, INPUT_PULLUP);
 
 The `digitalRead()` method can be used to detect whether or not the button is currently being pressed. It will return a value of either `HIGH` or `LOW`:
 
-* `HIGH` indicates the button is **NOT** currently pressed.
-* `LOW` indicates the button is currently pressed.
+* `HIGH` indicates the button is **NOT** being pressed
+* `LOW` indicates the button is being pressed
 
-An `if` statement is typically used to perform a set of actions when the button is pressed. Alternatively, you can also include an `else` statement to perform a different set of action when the button is **not** pressed.
+An `if` statement is typically used to perform a set of actions when the button is pressed.
+
+This code is typically added within the `loop()` function or a custom function:
+
+```cpp
+if (digitalRead(button) == LOW) {
+    // add code to perform if button is pressed
+
+}
+```
+
+**Alternatively**, you can also include an `else` statement to perform a different set of actions when the button is **not** pressed. In this case, use this code instead:
 
 ```cpp
 if (digitalRead(button) == LOW) {
@@ -61,256 +72,101 @@ else {
 }
 ```
 
-The `else` statement is **optional**. If you don't need to perform any special actions when the button is **not** pressed, then don't add any code inside the `else` statement — or just remove the `else` statement entirely.
+## Use RedBotButton Object
 
-## Read Button Using RedBotButton Object
+To read the button using a `RedBotButton` object, your robot app will need to:
 
-Another way to read the button is to use a `RedBotButton` object created from the class built into the SparkFun `RedBot` library.
+1. Create a `RedBotButton` object for the button
+2. Use the object's `read()` method to detect whether the button is being pressed
+3. Add code statement\(s\) to perform certain action\(s\) if the button is pressed
 
-To read the button this way, you will need to: 1. Include the `RedBot` library in your program 2. Create a `RedBotButton` object assigned to a variable 3. Use the object's `read()` method to detect whether the button is being pushed
+The SparkFun `RedBot` library has a class named `RedBotButton` which contains methods \(functions\) to control the RedBot's built-in D12 push button. This class will automatically set the pin number \(`12`\) and pin mode \(`INPUT_PULLUP`\) for the button.
 
-### 1. Create RedBotButton Object
+Before the `setup()` function, create a `RedBotButton` object for the button by assigning the object to a variable:
 
-Before your `setup()` function, create a `RedBotButton` object by assigning it to a variable:
-
-```cpp
+```
 RedBotButton button;
 ```
-
-* `RedBotButton` indicates the class of object being created \(this class is part of the `RedBot` library\)
-* `button` represents the variable name for the `RedBotButton` object. If desired, you could use a different variable name.
-
-Creating a `RedBotButton` object will automatically set the pin number \(`12`\) and pin mode \(`INPUT_PULLUP`\) for the button.
 
 {% hint style="success" %}
 **REDBOT LIBRARY:**  Be sure your robot app has an `#include` statement for the SparkFun RedBot library. [Here's how to include the RedBot library](../arduino-code-editor/include-redbot-library.md).
 {% endhint %}
 
-### 2. Use `button.read()` to Detect Button Push
+The `RedBotButton` object has a `read()` method that can be used to detect whether or not the button is currently being pressed. It will return a value of either `true` or `false`:
 
-To read the button, use the `RedBotButton` object's `read()` method to detect whether or not the button is being pushed: `button.read()`
+* `true` indicates the button is being pressed
+* `false` indicates the button is **NOT** being pressed
 
-If the method returns a value of `true`, it means the button is currently being pushed. \(A value of `false` means the button is currently not being pushed.\)
+An `if` statement is typically used to perform a set of actions when the button is pressed.
 
-This `button.read()` method is typically inserted within an `if` statement, so you can detect which condition is true \(`true` or `false`\):
+This code is typically added within the `loop()` function or a custom function:
 
 ```cpp
 if (button.read() == true) {
-    // add code to perform when button is pushed
+    // add code to perform if button is pressed
+
+}
+```
+
+**Alternatively**, you can also include an `else` statement to perform a different set of actions when the button is **not** pressed. In this case, use this code instead:
+
+```cpp
+if (button.read() == true) {
+    // add code to perform if button is pressed
 
 }
 else {
-    // OPTIONAL: add code to perform if button NOT pushed
-    // motors.brake();
+    // add code to perform if button NOT pressed
+    
 }
 ```
 
-**NOTE:** If you used a different name for your `RedBotButton` object, then change `button` to match the name of your variable. For example, if you used `switch` as your object variable name, your code should use `switch.read()` to detect a button push.
+## Use OneButton Object
 
-The `else` statement is **optional**. If your program doesn't need to perform any special actions when the button is not being pushed, then don't add any commands inside the `else` statement — or you can remove the `else` statement entirely, including its curly braces `{ }`.
+The RedBot mainboard only has one button, which normally can only be read as being pressed or not pressed. However, the `OneButton` library makes it possible to detect three different types of button input events:
 
-You can either insert this code into your `loop()` function or into a custom function that is called by your `loop()` function.
+* **Single-Press** = user presses the button once
+* **Double-Press** = user presses the button twice in rapid succession
+* **Long-Press** = user presses and holds the button down
 
-## Pause Robot Program Until Button Pressed
+To read the button using a `OneButton` object, your robot app will need to:
 
-You can also add "pauses" in your program that will make your RedBot wait until a person presses the button before going on to the next step in your program.
+1. Include the `OneButton` library
+2. Create a `OneButton` object for the button
+3. Designate custom functions for each type of button input
+4. Add the code to be performed in each custom function
+5. Use the object's `tick()` method to detect the type of button input
 
-This could be useful in your project demonstration:
+First, you must add a copy of the `OneButton.h` library to your code editor. This is a **one-time process**. [Follow the same steps that you did to add the RedBot library to your code editor](../arduino-code-editor/include-redbot-library.md#add-redbot-library-to-code-editor), except enter `onebutton` into the search field.
 
-* You could add a "pause" for a simulated step in the robot's task. The RedBot will "pause" while someone on your team completes or explains the simulated step. Then the RedBot will continue with the next step in the task when the button is pressed.
-* You could have the RedBot pause between tasks or scenarios. This will give your team time to introduce the next task/scenario and make any necessary changes in the testing environment \(such as moving objects, etc.\).
-
-The "pause" is created using a `while()` loop that will keep repeating itself until the button is pressed. The `while()` loop will simply contain a short delay before checking the button again.
-
-```cpp
-while (button.read() == false) delay(10); // pause until button pressed
-```
-
-Simply add this "pause" `while()` loop anywhere you want the RedBot to pause and wait for the button to be pressed before continuing with the program. You can add as many "pauses" as you need.
-
-For example, the following program `loop()` will start out by waiting until the button is pressed. Once the button is pressed, the RedBot will drive forward for 1 second and stop. Then the RedBot will "pause" and wait for the button to be pressed again. Once the button is pressed again, the RedBot will drive backwards for 1 second and stop. Then the program `loop()` will repeat itself \(by pausing again\).
-
-```cpp
-void loop() {
-    while (button.read() == false) delay(10); // pause until button pressed
-    // drive forward for 1 second and stop
-    motors.drive(150);
-    delay(1000);
-    motors.stop();
-    while (button.read() == false) delay(10); // pause until button pressed
-    // drive backwards for 1 second and stop
-    motors.drive(-150);
-    delay(1000);
-    motors.stop();
-}
-```
-
-**NOTE:** Be sure to include a command to stop your RedBot's motors before "pausing" it. Otherwise, if the RedBot was driving, it will continue to do so, even while waiting for the button to be pressed.
-
-## Use Button to Start \(and Stop\) Robot Program
-
-It can be helpful to use the button to "start" the RedBot's program — i.e., to prevent it from doing anything unless someone has "started" it by pushing the button. Once the button is pushed, the RedBot will perform its task \(such as driving in a specific pattern, etc.\). You can also "stop" the RedBot by picking it up and pressing the button again.
-
-To do this, the RedBot needs a way to keep track of whether it has been "started" — one way to do this is to create a variable to store the current state of the RedBot \(started vs. not started\).
-
-Add this global variable before your `setup()` function:
-
-```cpp
-boolean started = false;
-```
-
-* `boolean` indicates the variable type. A **boolean** variable can have a value of either `true` or `false`.
-* `started` represents the name of the variable that will be used to indicate whether or not the RedBot has been started. If desired, you could use a different variable name.
-* `false` is the initial value for the variable \(because we want the RedBot to be stopped when the program begins\).
-
-This variable will be used in your `loop()` function to decide whether or not to perform the RedBot's task:
-
-```cpp
-void loop() {
-
-    checkButton();
-
-    if (started) {
-        // add code for task to perform when device is started
-
-        started = false; // include to only perform task once
-    }
-    else {
-        // add code to stop device
-        motors.stop();
-    }
-}
-```
-
-Notice that the first command in the `loop()` is to call a custom function named `checkButton()`, which will check whether the button is being pushed, and if so, it will reverse the value of `started` \(e.g., changing `false` to `true`\).
-
-Notice that the second command in the `loop()` is an `if` statement that will only be performed when the value of `started` is `true`. You will need to add code inside the `if` statement to provide instructions for whatever task the RedBot should perform once it is started.
-
-Notice that inside the `if` statement, the value of `started` was changed back to `false` at the end of the task. This will ensure the task is performed only once per button press. However, if you want the task to keep being performed in a continuous loop, then just remove this line of code.
-
-An `else` statement is included that will only be performed when the value of `started` is `false`. It simply stops the motors. If you want, you could add other code. For example, you could make the LED blink as a signal to let the person know the robot is in "standby" mode, waiting to be started.
-
-### checkButton\(\) function
-
-Be sure to include the custom function named `checkButton()` after your `loop()` function:
-
-```cpp
-void checkButton() {
-    if (button.read() == true) {
-        // reverse value of "started"
-        started = !started;
-
-        // single-blink and single-beep as feedback
-        digitalWrite(led, HIGH);
-        tone(buzzer, 3000);
-        delay(200);
-        digitalWrite(led, LOW);
-        noTone(buzzer);
-    }
-}
-```
-
-If the button is pressed, the custom function will reverse the value of `started` by setting its value to `!started` \(which represents its opposite value\):
-
-* If the current value of `started` is `false`, it will change it to `true`, which will "start" the RedBot.
-* If the current value of `started` is `true`, it will change it to `false`, which will "stop" the RedBot.
-
-The `if` statement in the custom function uses a `RedBotButton` object to read the button. However, you could modify the `if` statement to read the button directly using a `digitalRead()` command.
-
-**NOTE:** In order to make the `led` blink and `buzzer` beep, you'll need to include additional code to declare these global variables, assign their pin numbers, and set their pin modes.
-
-## Detect Different Types of Button Presses Using OneButton Library
-
-The RedBot mainboard only has one button. However, it is possible to detect different types of input events using this one button. For example, you could detect the difference between a single-press, double-press, or long-press. Each input event could make your RedBot perform a different task.
-
-The easiest way to detect these different button input events is to use the `OneButton` library, which was created specifically for this purpose.
-
-To read the button this way, you will need to: 1. Include the `OneButton` library in your program 2. Create a `OneButton` object assigned to a variable 3. Designate custom functions for each button input event 4. Add the code for the custom functions 5. Use the object's `tick()` method to check for button input events
-
-### 1. Include OneButton Library
-
-In order to use the `OneButton` library, you must include a copy of the library at the beginning of your Arduino program.
-
-If necessary, you might need to first add the library to your code editor \(this is a one-time process\).
-
-### Add OneButton Library to Code Editor \(one-time process\)
-
-#### Arduino Create Web Editor
-
-If you're using the Arduino Create web editor, you should add the `OneButton` library to your "Favorites" tab in the "Libraries" menu. **You'll only need to do this once**, and then you'll be able to quickly and easily include a copy of this library in your programs: 1. In the Arduino Create web editor, click "Libraries" in the navigation menu on the left. 2. Click the "Library Manager" button near the top-left \(in order to search the libraries contributed by Arduino community members\). 3. In the pop-up, type `onebutton` into the "Search Libraries" field, and press enter. 4. In the search results, click the star icon to the right of "OneButton" in order to add this library to your Favorites. Then click the "Done" button to close the pop-up. 5. The "OneButton" library should now be listed in your "Favorites" tab of the "Libraries" menu.
-
-#### Arduino IDE Desktop Editor
-
-If you're using the desktop version of the Arduino IDE code editor, you need to download the `OneButton` library to your computer, which will add it to your list of libraries in the "Sketch" menu. **You only need to do this once**, and then you'll be able to quickly and easily include a copy of the `OneButton` library in your programs.
-
-1. Open the Arduino IDE application on your computer.
-2. Under the "Sketch" menu, select "Include Library" and then select "Manage Libraries" in the sub-menu.
-3. A pop-up will appear. It will list all the Arduino libraries available for downloading. \(If you have a slower Internet connection, it make take a few seconds for the full list to populate\). Type `onebutton` into the search field at the top-right, and press enter.
-4. In the search results, select the most recent version of the "OneButton" library and then click the "Install" button.
-5. After the library has downloaded and installed, click the "Close" button to close the pop-up.
-
-### Include OneButton Library in Program \(once per program\)
-
-#### Arduino Create Web Editor
-
-In your library "Favorites" tab, hover over "OneButton" and click the "Include" button.
-
-#### Arduino IDE Desktop Editor
-
-Under the "Sketch" menu, select "Include Library" and then select "OneButton" in the sub-menu \(the library will be listed toward the bottom under **Contributed Libraries**\).
-
-#### Both Editors
-
-The following code should have been **automatically** inserted at the top of your program:
+Next, you must include a copy of the `OneButton` library in your robot app. The following `#include` statement should be inserted at the beginning of your app code:
 
 ```cpp
 #include <OneButton.h>
 ```
 
-### 2. Create OneButton Object
-
-Before your `setup()` function, create a `OneButton` object by assigning it to a variable:
+Before the `setup()` function, create a `OneButton` object by assigning it to a variable and indicating its pin number and whether it will use a pull-up resistor in parentheses:
 
 ```cpp
 OneButton button(12, true);
 ```
 
-* `OneButton` indicates the class of object being created \(this class is part of the `OneButton` library\)
-* `button` represents the variable name for the `OneButton` object. If desired, you can use a different variable name.
-* `12` is the pin number for the button, which is hardwired to pin D12 on the RedBot mainboard.
-* `true` indicates that the button pin has a value of `LOW` when the button is pushed. This will be used to set the button's pin mode to `INPUT_PULLUP`.
-
-### 3. Designate Custom Functions for Button Input Events
-
-In your `setup()` function, you must designate the names of the custom functions you want to be called when the various button input events are detected \(single-press, double-press, or long-press\).
+Within the `setup()` function, you must designate the names of custom functions that will be called when the different button input events are detected \(single-press, double-press, or long-press\):
 
 ```cpp
-void setup() {
-
-    // add any other code needed in setup
-
-    // designate custom functions for button input events
-    button.attachClick(singlePress);
-    button.attachDoubleClick(doublePress);
-    button.attachPress(longPress);
-}
+  // designate custom functions for different button inputs
+  button.attachClick(singlePress);
+  button.attachDoubleClick(doublePress);
+  button.attachPress(longPress);
 ```
 
-* `singlePress` is the name of the custom function to call when a single-press is detected. If desired, you can change the name of this function.
-* `doublePress` is the name of the custom function to call when a double-press is detected. If desired, you can change the name of this function.
-* `longPress` is the name of the custom function to call when a long-press is detected. If desired, you can change the name of this function.
+If desired, you can use other names for the custom functions.
 
-**NOTE:** If you used a different name for your `OneButton` object, then change `button` to match the name of your variable. For example, if you used `switch` as your object variable name, your code should use `switch.attachClick()` to designate the name of the custom function for a single-press, etc.
+If you don't need to detect a specific type of button input, just leave it out \(or make it into a comment\). For example, if you don't need to detect a long-press, then simply exclude the code statement that attaches a custom function to that input event.
 
-If you don't want to detect a specific button input event, just exclude it \(either delete it or make it into a comment\). For example, if you don't want to detect a long-press, then simply exclude the line of code that attaches a custom function to that input event.
-
-### 4. Add Code for Custom Functions
-
-After your `loop()` function, add the code for each of the custom functions for the various button input events:
+After the `loop()` function, add the custom functions for each type of button input:
 
 ```cpp
-// custom functions for different button input events
-
 void singlePress() {
     // add code to perform when single-press detected
 
@@ -327,31 +183,13 @@ void longPress() {
 }
 ```
 
-Be sure the names of the custom functions match the names that you designated in the `setup()` function for the button input events.
+Be sure the names of the custom functions match the names that were designated in the `setup()` function.
 
-Inside each custom function, you need to add code for the specific actions you want performed for that input event.
+Inside each custom function, you need to add code for the specific actions you want performed when that type of button input is detected.
 
-**TIP:** You may want to include feedback for each input event to confirm to the person that the input was correctly detected. For example, the buzzer \(speaker\) and/or built-in LED light could be could be used to provide feedback by mimicking the button input pattern that was detected:
-
-* the buzzer could be made to produce a single-beep, double-beep, or long-beep
-* the LED light could be made to produce a single-blink, double-blink, or long-blink
-
-For example:
-
-```cpp
-void singlePress() {
-
-    // single-blink and single-beep as feedback
-    digitalWrite(led, HIGH);
-    tone(buzzer, 3000);
-    delay(200);
-    digitalWrite(led, LOW);
-    noTone(buzzer);
-
-    // add other code to perform when single-press detected
-
-}
-```
+{% hint style="success" %}
+**RECOMMENDED:** Provide feedback to confirm to the user which type of button input was detected. For example, the speaker \(and LED light\) could be could be used to mimic the input by producing a single-beep, double-beep, or long-beep.
+{% endhint %}
 
 ### 5. Use `button.tick()` to Detect Button Input Events
 

@@ -70,7 +70,7 @@ You must include a copy of the `RedBot.h` library in **each of your robot apps**
 
 ### Both Editors
 
-The following `#include` statements will be **automatically** inserted at the very top of your app code:
+The following `#include` statements will be **automatically** inserted at the beginning of your app code:
 
 ```cpp
 #include <RedBot.h>

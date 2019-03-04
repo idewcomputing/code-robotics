@@ -3,6 +3,7 @@
 These custom functions use the [push button](../physical-inputs/push-button.md), [IR line sensors](../physical-inputs/ir-line-sensors.md), or [accelerometer](../physical-inputs/accelerometer.md):
 
 * `checkButton()` — check if button is being pressed
+* `pauseRobot()` — wait until button is pressed before performing next step in task
 * `checkDropOff()` — check for surface drop-off \(e.g., stair step, etc.\)
 * `checkUpsideDown()` — check if robot is upside down \(pitch or roll greater than 90°\)
 * `checkBump()` — check if robot has been bumped
@@ -11,7 +12,13 @@ These custom functions use the [push button](../physical-inputs/push-button.md),
 
 A custom function named `checkButton()` checks whether the built-in D12 button is being pressed. If the button is pressed, the function will toggle the value of a global variable named `started` from `false` to `true` \(or vice versa\). The function will also provide feedback by blinking the built-in D13 LED light and beeping with the speaker.
 
-The `checkButton()` function uses global variables to store the pin numbers for the LED and speaker and to track whether the robot is "started" \(`true`\) or "paused" \(`false`\). Add this code **before** the `setup()` function:
+The `checkButton()` function uses a `RedBotButton` object to read the button. Create this object as part of your global variables **before** the `setup()` function:
+
+```cpp
+RedBotButton button;
+```
+
+The `checkButton()` function uses global variables that store the pin numbers for the LED and speaker and that track whether the robot is "started" \(`true`\) or "paused" \(`false`\). Add this code **before** the `setup()` function:
 
 ```cpp
 int LED = 13;
@@ -57,6 +64,41 @@ You can add this code **within** the `loop()` function to perform different acti
     // add code to perform when "paused"
     
   }
+```
+
+## pauseRobot\(\)
+
+A custom function named `pauseRobot()` can be used to add "pauses" in a robot's task. The robot will wait until the built-in D12 button is pressed before performing the next step in the task. This could be useful in a robot task demonstration.
+
+For example, you could add a "pause" for a simulated step in a task. The robot will "pause" while you complete or explain the simulated step. Once you press the button, the robot will continue with the next step in the task.
+
+This "pause" is created using a `while()` loop that keeps repeating itself until the button is pressed. The `while()` loop contains a short delay before it checks the button again.
+
+Add this code statement in the `loop()` function or a custom function wherever you want the robot to pause and wait for the button to be pressed:
+
+```cpp
+void pauseRobot() {
+  motors.stop(); // be sure robot is stopped
+  while (button.read() == false) delay(10); // wait until button pressed
+}
+```
+
+For example, the code below shows how the `pauseRobot()` function could be used within a task to add a "pause" for a simulated step. The robot will pause until the button is pressed.
+
+```cpp
+// drive to destination
+driveDistance(36);
+pivotAngle(90);
+driveDistance(24);
+
+// pause for simulated step
+pauseRobot();
+
+// drive back to start
+pivotAngle(180);
+driveDistance(24);
+pivotAngle(-90);
+driveDistance(36);
 ```
 
 ## checkDropOff\(\)
