@@ -14,7 +14,7 @@ There are three different ways to use the D12 button in your robot app:
 
 Option 1 and Option 2 are similar. They both detect when the button is pressed. It is primarily a matter of personal preference, in terms of which option to use. Most of the coding tutorials and references in this guidebook use the second option.
 
-Option 3 is useful if you want to detect up to 3 different types of button presses, so you can have the robot perform different actions or tasks based on the user's input. This option requires you to include the `OneButton` library in your app. 
+Option 3 allows your robot to detect up to 3 different types of button presses, so the robot performs different tasks based on the user's input. This option requires you to include the `OneButton` library in your robot app.
 
 ## Read Button Directly
 
@@ -142,10 +142,10 @@ To read the button using a `OneButton` object, your robot app will need to:
 1. Include the `OneButton` library
 2. Create a `OneButton` object for the button
 3. Designate custom functions for each type of button input
-4. Add the code to be performed in each custom function
+4. Add the code to be performed within each custom function
 5. Use the object's `tick()` method to detect the type of button input
 
-First, you must add a copy of the `OneButton.h` library to your code editor. This is a **one-time process**. [Follow the same steps that you did to add the RedBot library to your code editor](../arduino-code-editor/include-redbot-library.md#add-redbot-library-to-code-editor), except enter `onebutton` into the search field.
+First, you must add a copy of the `OneButton.h` library to your code editor. This is a **one-time process**. [Follow the same steps that you did to add the RedBot library to your code editor](../arduino-code-editor/include-redbot-library.md#add-redbot-library-to-code-editor), except type `onebutton` into the search field to find the library.
 
 Next, you must include a copy of the `OneButton` library in your robot app. The following `#include` statement should be inserted at the beginning of your app code:
 
@@ -159,7 +159,7 @@ Before the `setup()` function, create a `OneButton` object by assigning it to a 
 OneButton button(12, true);
 ```
 
-Within the `setup()` function, you must designate the names of custom functions that will be called when the different button input events are detected \(single-press, double-press, or long-press\):
+Add this code **within** the `setup()` function to designate the names of custom functions that will be called when the different button input events are detected \(single-press, double-press, or long-press\):
 
 ```cpp
   // designate custom functions for different button inputs
@@ -170,7 +170,7 @@ Within the `setup()` function, you must designate the names of custom functions 
 
 If desired, you can use other names for the custom functions. For example, you could name the functions as `task1`, `task2`, and `task3`.
 
-If you **don't** need to detect a particular type of button input, just leave it out \(or make it into a comment\). For example, if you don't need to detect a long-press, then simply exclude the code statement that attaches a custom function to that input event.
+If you **don't** need to detect a particular type of button input, just leave it out \(or make it into a comment\). For example, if you do **not** need to detect a long-press, then simply exclude the code statement that attaches a custom function to that input event.
 
 After the `loop()` function, add the custom functions for each type of button input:
 
@@ -191,12 +191,12 @@ void longPress() {
 }
 ```
 
-Be sure the names of the custom functions match the names that were designated in the `setup()` function.
+Be sure the names of the custom functions match the names that were designated in your `setup()` function.
 
-Inside each custom function, you need to add code for the specific actions you want performed when that type of button input is detected.
+Inside each custom function, you need to add code for the specific action\(s\) you want performed when that type of button input is detected.
 
 {% hint style="success" %}
-**USER FEEDBACK:**  It is recommended to [produce an alert sound](../robot-behaviors/producing-alerts.md) \(i.e., single-beep, double-beep, or long-beep\) to confirm which type of input was detected.
+**USER FEEDBACK:**  Within the custom functions, it is recommended to [produce an alert sound](../robot-behaviors/producing-alerts.md) \(i.e., single-beep, double-beep, or long-beep\) that confirms which type of input was detected.
 {% endhint %}
 
 Within the `loop()` function, use the `OneButton` object's `tick()` method to check for button input events. Whenever a specific button input event is detected, the custom function that was designated for that input event will automatically be called:
@@ -209,5 +209,5 @@ void loop() {
 }
 ```
 
-For example, the `button.tick()` statement might be the only code statement listed within your `loop()` function. You could put the code for your different robot tasks within the custom functions for `singlePress()`, `doublePress()`, and `longPress()`. This would allow you to use different button presses to start different robot tasks.
+For example, the `button.tick()` statement might be the only code statement listed within your `loop()` function. You could put the code for your different robot tasks within the custom functions for `singlePress()`, `doublePress()`, and `longPress()`. This would allow you to use different button presses to start the different robot tasks.
 
