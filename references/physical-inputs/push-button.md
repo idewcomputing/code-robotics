@@ -168,7 +168,7 @@ Add this code **within** the `setup()` function to designate the names of custom
   button.attachPress(longPress);
 ```
 
-If desired, you can use other names for the custom functions. For example, you could name the functions as `task1`, `task2`, and `task3`.
+If desired, you can use other names for the custom functions instead of `singlePress`, `doublePress`, and `longPress`. For example, you could name the functions as `task1`, `task2`, and `task3`.
 
 If you **don't** need to detect a particular type of button input, just leave it out \(or make it into a comment\). For example, if you do **not** need to detect a long-press, then simply exclude the code statement that attaches a custom function to that input event.
 
@@ -191,9 +191,9 @@ void longPress() {
 }
 ```
 
-Be sure the names of the custom functions match the names that were designated in your `setup()` function.
+Be sure the names of these custom functions match the names that were designated in your `setup()` function.
 
-Inside each custom function, you need to add code for the specific action\(s\) you want performed when that type of button input is detected.
+Inside each custom function, you need to add code statements for the specific actions you want performed when that type of button input is detected.
 
 {% hint style="success" %}
 **USER FEEDBACK:**  Within the custom functions, it is recommended to [produce an alert sound](../robot-behaviors/producing-alerts.md) \(i.e., single-beep, double-beep, or long-beep\) that confirms which type of input was detected.
