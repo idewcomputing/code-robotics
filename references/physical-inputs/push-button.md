@@ -59,6 +59,10 @@ if (digitalRead(button) == LOW) {
 }
 ```
 
+{% hint style="success" %}
+**USER FEEDBACK:**  It is recommended to [produce an alert sound](../robot-behaviors/producing-alerts.md) \(i.e., a beep\) as feedback to the user when the button is pressed.
+{% endhint %}
+
 **Alternatively**, you can also include an `else` statement to perform a different set of actions when the button is **not** pressed. In this case, use this code instead:
 
 ```cpp
@@ -107,6 +111,10 @@ if (button.read() == true) {
 
 }
 ```
+
+{% hint style="success" %}
+**USER FEEDBACK:**  It is recommended to [produce an alert sound](../robot-behaviors/producing-alerts.md) \(i.e., a beep\) as feedback to the user when the button is pressed.
+{% endhint %}
 
 **Alternatively**, you can also include an `else` statement to perform a different set of actions when the button is **not** pressed. In this case, use this code instead:
 
@@ -160,9 +168,9 @@ Within the `setup()` function, you must designate the names of custom functions 
   button.attachPress(longPress);
 ```
 
-If desired, you can use other names for the custom functions.
+If desired, you can use other names for the custom functions. For example, you could name the functions as `task1`, `task2`, and `task3`.
 
-If you don't need to detect a specific type of button input, just leave it out \(or make it into a comment\). For example, if you don't need to detect a long-press, then simply exclude the code statement that attaches a custom function to that input event.
+If you **don't** need to detect a particular type of button input, just leave it out \(or make it into a comment\). For example, if you don't need to detect a long-press, then simply exclude the code statement that attaches a custom function to that input event.
 
 After the `loop()` function, add the custom functions for each type of button input:
 
@@ -188,22 +196,18 @@ Be sure the names of the custom functions match the names that were designated i
 Inside each custom function, you need to add code for the specific actions you want performed when that type of button input is detected.
 
 {% hint style="success" %}
-**RECOMMENDED:** Provide feedback to confirm to the user which type of button input was detected. For example, the speaker \(and LED light\) could be could be used to mimic the input by producing a single-beep, double-beep, or long-beep.
+**USER FEEDBACK:**  It is recommended to [produce an alert sound](../robot-behaviors/producing-alerts.md) \(i.e., single-beep, double-beep, or long-beep\) to confirm which type of input was detected.
 {% endhint %}
 
-### 5. Use `button.tick()` to Detect Button Input Events
-
-In your `loop()` function, use the `OneButton` object's `tick()` method to check for button input events. Whenever a specific button input event is detected, the custom function that you previously designated will automatically be called.
+Within the `loop()` function, use the `OneButton` object's `tick()` method to check for button input events. Whenever a specific button input event is detected, the custom function that was designated for that input event will automatically be called:
 
 ```cpp
 void loop() {
-
     button.tick(); // check for button input events
-
     // OPTIONAL: can add other code to perform
 
 }
 ```
 
-**NOTE:** If you used a different name for your `OneButton` object, then change `button` to match the name of your variable. For example, if you used `switch` as your object variable name, your code should use `switch.tick()` to detect button input events.
+For example, the `button.tick()` statement might be the only code statement listed within your `loop()` function. You could put the code for your different robot tasks within the custom functions for `singlePress()`, `doublePress()`, and `longPress()`. This would allow you to use different button presses to start different robot tasks.
 

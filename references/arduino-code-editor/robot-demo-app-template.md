@@ -110,5 +110,7 @@ void checkButton() {
 
 ```
 
-
+{% hint style="info" %}
+**ONE BUTTON LIBRARY:**  If desired, you could modify this app template to [use the OneButton library](../physical-inputs/push-button.md#use-onebutton-object), so your robot will perform its different tasks based on different types of button presses \(single-press, double-press, or long-press\).
+{% endhint %}
 
