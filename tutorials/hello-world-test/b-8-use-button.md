@@ -24,7 +24,7 @@ Add this code statement **within** the `setup()` function:
 pinMode(button, INPUT_PULLUP);
 ```
 
-`INPUT_PULLUP` indicates that the button pin will be used for input and will also use a pull-up resistor \(which is something that buttons and switches typically require, but other inputs do not\).
+`INPUT_PULLUP` indicates the button pin will be used for input and will use a pull-up resistor \(which is something that buttons and switches typically use, but other inputs do not\).
 
 Your code should now have three separate code statements **within** the `setup()` function to set the pin mode for the LED,  set the pin mode for the speaker, and set the pin mode for the button.
 

@@ -2,74 +2,66 @@
 
 The RedBot mainboard has a built-in push button that can be detected by your program. The button is hardwired to pin D12 on the RedBot mainboard and is located next to the USB port.
 
-The button can be used as a way for a user to control the RedBot \(e.g., pushing the button to make the RedBot perform a specific task\).
+The button can be used as a way for a user to interact with the robot \(e.g., pressing the button to "start" the robot, etc.\).
 
-### How to Use the Push Button in a Program:
+## How to Use Button
 
-To detect input on the push button, choose one of the following approaches for your program:
+There are three different ways to use the D12 button in your robot app:
 
-* Read the button pin directly using a `digitalRead()` function
-* Read the button using a `RedBotButton` object
-* Use the `OneButton` library to detect different types of button presses \(single-press, double-press, or long-press\)
+* **Option 1:**  Read the button pin directly using the `digitalRead()` method
+* **Option 2:**  Read the button using a `RedBotButton` object and its `read()` method
+* **Option 3:**  Use the `OneButton` library to detect different types of button presses \(single-press, double-press, and long-press\)
 
-### Coding References in this Section:
+Option 1 and Option 2 are similar. They both detect when the button is pressed. It is primarily a matter of personal preference, in terms of which option to use. Most of the coding tutorials and references in this guidebook use the second option.
 
-* Read Button Pin Directly
-* Read Button Using RedBotButton Object
-* Pause Robot Program Until Button Pressed
-* Use Button to Start \(and Stop\) Robot Program
-* Detect Different Types of Button Presses Using OneButton Library
+Option 3 is useful if you want to detect up to 3 different types of button presses, so you can have the robot perform different actions or tasks based on the user's input.
 
 ## Read Button Pin Directly
 
-To directly detect button input, you will need to: 1. Declare a variable to store the button pin number 2. Set the pin mode for the button 3. Use the `digitalRead()` function to detect whether the button is being pushed
+To read the button pin directly in your robot app, you will need to:
 
-### 1. Declare Variable for Button Pin Number
+1. Declare a variable to store the button pin number
+2. Set the pin mode for the button
+3. Use the `digitalRead()` function to detect whether the button is being pressed
+4. Add code statement\(s\) to perform action\(s\) when the button is pressed
 
-Before your `setup()` function, declare a variable to store the push button pin number:
+You'll need to create a global variable to store the pin number of the RedBot's built-in button, which is connected to pin D12 \(via internal circuitry\)
+
+Add this code statement **before** the `setup()` function:
 
 ```cpp
-const int button = 12;
+int button = 12;
 ```
 
-* `const` indicates that the variable will be a constant, which means its value won't change during the program.
-* `int` indicates the variable type, which is an **integer** in this case. All Arduino pins are treated as integers \(even analog pins that have a letter in their pin number\).
-* `button` represents the name of the variable that stores the button's pin number. If desired, you could use a different variable name.
-* `12` is the pin number for the button, which is hardwired to pin D12 on the RedBot mainboard.
+Next, you need to set the button's pin mode to identify whether it will act as an input or output.
 
-### 2. Set Pin Mode for Button
-
-Before your program can use the button, you must set its pin mode \(so the Arduino program knows whether the part connected to the pin is an input or output\).
-
-Within your `setup()` function, use the `pinMode()` function to set the pin mode for the button pin:
+Add this code statement **within** the `setup()` function:
 
 ```cpp
 pinMode(button, INPUT_PULLUP);
 ```
 
-* `button` represents the variable that stores the button's pin number. If necessary, change this to the variable name you used for your button pin. \(You could list the pin number directly, instead of listing a variable that stores the number. However, your program will be easier to read and understand if you use a variable.\)
-* `INPUT_PULLUP` indicates the button pin will be used for input and will also use a pull-up resistor \(which is something that buttons and switches typically require, but other inputs do not\).
+`INPUT_PULLUP` indicates the button pin will be used for input and will use a pull-up resistor \(which is something that buttons and switches typically use, but other inputs do not\).
 
-### 3. Use `digitalRead()` to Detect Button Push
+The `digitalRead()` method can be used to detect whether or not the button is currently being pressed. It will return a value of either `HIGH` or `LOW`:
 
-To read the button, use a `digitalRead()` function to detect whether or not the button is being pushed: `digitalRead(button)`
+* `HIGH` indicates the button is **NOT** currently pressed.
+* `LOW` indicates the button is currently pressed.
 
-If the function returns a value of `LOW`, it means the button is currently being pushed. \(A value of `HIGH` means the button is currently not being pushed.\)
-
-This `digitalRead()` function is typically inserted within an `if` statement, so you can detect which condition is true \(`LOW` or `HIGH`\):
+An `if` statement is typically used to perform a set of actions when the button is pressed. Alternatively, you can also include an `else` statement to perform a different set of action when the button is **not** pressed.
 
 ```cpp
 if (digitalRead(button) == LOW) {
-    // add code to perform when button is pushed
+    // add code to perform if button is pressed
 
 }
 else {
-    // OPTIONAL: add code to perform if button NOT pushed
-    // motors.brake();
+    // add code to perform if button NOT pressed
+    
 }
 ```
 
-The `else` statement is **optional**. If your program doesn't need to perform any special actions when the button is not being pushed, then don't add any commands inside the `else` statement — or you can remove the `else` statement entirely, including its curly braces `{ }`.
+The `else` statement is **optional**. If you don't need to perform any special actions when the button is **not** pressed, then don't add any code inside the `else` statement — or just remove the `else` statement entirely.
 
 ## Read Button Using RedBotButton Object
 
