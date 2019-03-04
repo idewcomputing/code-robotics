@@ -10,7 +10,7 @@ These custom functions use the [push button](../physical-inputs/push-button.md),
 
 ## checkButton\(\)
 
-A custom function named `checkButton()` checks whether the built-in D12 button is being pressed. If the button is pressed, the function will toggle the value of a global variable named `started` from `false` to `true` \(or vice versa\). The function will also provide feedback by blinking the built-in D13 LED light and beeping with the speaker.
+A custom function named `checkButton()` checks whether the built-in D12 button is being pressed. If the button is pressed, the function will toggle the value of a global variable named `started` from `false` to `true` \(or vice versa\). The function will also provide feedback by blinking the built-in D13 LED light and producing a beep with the speaker.
 
 The `checkButton()` function uses a `RedBotButton` object to read the button. Create this object as part of your global variables **before** the `setup()` function:
 
