@@ -65,7 +65,7 @@
   * [Speaker \(Buzzer\)](references/physical-outputs/speaker-buzzer.md)
   * [Motors](references/physical-outputs/motors.md)
 * [Robot Behaviors](references/robot-behaviors/README.md)
-  * [Alerts](references/robot-behaviors/alerts.md)
+  * [Producing Alerts](references/robot-behaviors/producing-alerts.md)
   * [Driving](references/robot-behaviors/driving.md)
   * [Turning](references/robot-behaviors/turning.md)
   * [Detecting Objects](references/robot-behaviors/detecting-objects.md)

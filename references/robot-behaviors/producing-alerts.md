@@ -1,4 +1,4 @@
-# Alerts
+# Producing Alerts
 
 These custom functions for producing alerts use the [speaker](../physical-outputs/speaker-buzzer.md) and [LED light](../physical-outputs/led-light.md):
 
@@ -12,6 +12,12 @@ All of these functions use global variables that store the pin numbers for the L
 int LED = 13;
 int speaker = 9;
 ```
+
+An alert can be used as feedback to a user when the robot's built-in D12 button is pressed.
+
+Alerts can also be useful as feedback to indicate when other events or conditions have occurred \(such as:  detecting an obstacle, reaching a destination, completing a task, etc.\).
+
+You can modify these custom functions and/or create your own alert functions.
 
 ## singleBeep\(\)
 
