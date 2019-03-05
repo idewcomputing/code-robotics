@@ -1,7 +1,7 @@
 # Ultrasonic Sensor \*
 
 {% hint style="info" %}
-**ADD-ON COMPONENT:** The SparkFun RedBot Kit does **NOT** include an ultrasonic sensor. However, the [HC-SR04 Ultrasonic Sensor](https://www.sparkfun.com/products/13959) can be easily connected to a RedBot. Your teacher may have added this sensor to your RedBot kit.
+**ADD-ON COMPONENT:** The SparkFun RedBot Kit does **NOT** include an ultrasonic sensor. However, the [HC-SR04 Ultrasonic Sensor](https://www.sparkfun.com/products/13959) can be easily connected to a RedBot. Your teacher may have added this sensor to your robotics kit.
 {% endhint %}
 
 An ultrasonic sensor uses sound waves to measure distance. The sensor has a transmitter \(i.e., speaker\) that produces high-frequency sound \(beyond the range of human hearing\). The sensor has a receiver \(i.e., microphone\) that detects the echo of the high-frequency sound when it reflects back from an object. You can calculate the distance between the sensor and the closest object by measuring how much time it takes for the echo to arrive.
@@ -49,8 +49,8 @@ If necessary, use velcro tape or foam tape to mount the ultrasonic sensor at the
 
 To use the ultrasonic sensor in your robot app, you need to:
 
-1. Declare global variables to store the sensor's pin numbers
-2. Set the pin modes for the sensor pins, and turn the transmitter off
+1. Declare global variables to store the ultrasonic sensor's pin numbers
+2. Set the pin modes for the ultrasonic sensor, and turn its transmitter off
 3. Call a custom function to measure the distance to the closest object
 
 ## Add Variables for Sensor
