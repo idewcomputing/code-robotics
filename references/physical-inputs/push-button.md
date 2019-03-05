@@ -2,7 +2,10 @@
 
 The RedBot mainboard has a built-in push button that can be detected by your program. The button is hardwired to pin D12 on the RedBot mainboard and is located next to the USB port.
 
-The button can be used as a way for a user to interact with the robot \(e.g., pressing the button to "start" the robot, etc.\).
+The button can be used as a way for a user to control the robot:
+
+* The robot can [**check if the button is pressed**](../robot-behaviors/detecting-other-conditions.md#checkbutton) in order to "start" or "pause" its task.
+* The robot can [**pause until the button is pressed**](../robot-behaviors/detecting-other-conditions.md#pauserobot) before performing the next step in a task.
 
 ## How to Use Button
 

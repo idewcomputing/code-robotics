@@ -2,8 +2,8 @@
 
 These custom functions use the [push button](../physical-inputs/push-button.md), [IR line sensors](../physical-inputs/ir-line-sensors.md), or [accelerometer](../physical-inputs/accelerometer.md):
 
-* `checkButton()` — check if button is being pressed
-* `pauseRobot()` — wait until button is pressed before performing next step in task
+* `checkButton()` — check if button is pressed in order to "start" or "pause" robot
+* `pauseRobot()` — pause until button is pressed before performing next step in task
 * `checkDropOff()` — check for surface drop-off \(e.g., stair step, etc.\)
 * `checkUpsideDown()` — check if robot is upside down \(pitch or roll greater than 90°\)
 * `checkBump()` — check if robot has been bumped
@@ -78,14 +78,37 @@ For example, you could add a "pause" for a simulated step in a task. The robot w
 
 This "pause" is created using a `while()` loop that keeps repeating itself until the button is pressed. The `while()` loop contains a short delay before it checks the button again.
 
-Add this code statement in the `loop()` function or a custom function wherever you want the robot to pause and wait for the button to be pressed:
+The `pauseRobot()` function uses a `RedBotButton` object to read the button. Create this object as part of your global variables **before** the `setup()` function:
+
+```cpp
+RedBotButton button;
+```
+
+The `pauseRobot()` function will produce a "beep" as an alert when the robot is paused and produce another beep as feedback once the button is pressed. This uses a global variable that stores the pin number for the speaker. Add this code **before** the `setup()` function:
+
+```cpp
+int speaker = 9;
+```
+
+Set the pin mode for the speaker by adding this code **within** the `setup()` function:
+
+```cpp
+pinMode(speaker, OUTPUT);
+```
+
+Add the `pauseRobot()` custom function **after** the `loop()` function:
 
 ```cpp
 void pauseRobot() {
-  motors.stop(); // be sure robot is stopped
+  motors.stop(); // make sure robot is stopped
+  tone(speaker, 2000, 200); // beep as alert
   while (button.read() == false) delay(10); // wait until button pressed
+  tone(speaker, 2000, 200); // beep as feedback
+  delay(200); // allow button to be released
 }
 ```
+
+Then you can call the `pauseRobot()` function within the `loop()` function or within a custom function whenever you want the robot to pause its task until the button is pressed.
 
 For example, the code below shows how the `pauseRobot()` function could be used within a task to add a "pause" for a simulated step. The robot will pause until the button is pressed.
 
