@@ -16,11 +16,11 @@ If you want to add an ultrasonic sensor to the front of your RedBot, you will ne
 
 The HC-SR04 ultrasonic sensor measures distances in a narrow cone of about 15° in front of the sensor. This sensor can detect obstacles located up to 400 cm away \(about 13 feet\). The distances calculated from the sensor measurements are very accurate, within about 3 mm \(about 0.1 inch\) of the actual distance.
 
-![](../../.gitbook/assets/ultrasonic-plus-bumpers.png)
+The ultrasonic sensor can be used to perform several useful robot behaviors:
 
-The primary use of the ultrasonic sensor is to prevent collisions. If the sensor detects an obstacle nearby in the path ahead, the RedBot can be programmed to avoid the obstacle by stopping, turning, etc. This not only prevents collisions — it can allow the RedBot to navigate a "maze" of obstacles on its own.
-
-However, the ultrasonic sensor might **not** detect obstacles off to the left or right side — if those obstacles are outside the 15° detection cone directly in front of the sensor. For these situations, you may want to use the mechanical bumpers as a fallback system that supplements the ultrasonic sensor. Since the mechanical bumper whiskers extend outwards on both sides, they can detect a collision with an obstacle that the ultrasonic sensor might not have detected, as shown above.
+1. The robot can [**measure the distance to the nearest object**](../robot-behaviors/detecting-objects.md#measuredistance) in its path.
+2. The robot can [**avoid collisions with objects**](../robot-behaviors/detecting-objects.md#avoidcollision) in its path.
+3. The robot can [**find the closest object**](../robot-behaviors/detecting-objects.md#findclosestobject) in a 360° scan and drive towards it
 
 ## Connect Sensor Wires
 
@@ -128,74 +128,36 @@ float measureDistance() {
 
 ## Test Ultrasonic Sensor
 
-To test out your ultrasonic sensor, you can use the serial monitor to view the distance measurements calculated from the sensor readings.
+To test out your ultrasonic sensor, you can view distance measurements from the sensor using the serial monitor in the Arduino code editor.
 
-Here is the program you can use for this experiment:
+Add this code statement **within** the `setup()` function:
 
 ```cpp
-/*
-  Experiment: Test Ultrasonic Sensor Using Serial Monitor
-*/
-
-const int TRIG_PIN = A0;
-const int ECHO_PIN = A1;
-
-void setup() {
-    pinMode(TRIG_PIN, OUTPUT);
-    pinMode(ECHO_PIN, INPUT);
-    digitalWrite(TRIG_PIN, LOW);
-
-    // start serial connection to view sensor data
-    Serial.begin(9600);
-}
-
-void loop() {
-    float distance = measureDistance();
-    Serial.print(distance);
-    Serial.println(" inches");
-}
-
-// custom function
-float measureDistance() {
-  // uses HC-SR04 ultrasonic sensor
-  unsigned long start_time, end_time, pulse_time;
-
-  // trigger ultrasonic signal for 10 microseconds
-  digitalWrite(TRIG_PIN, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(TRIG_PIN, LOW);
-
-  // wait until echo received
-  while (digitalRead(ECHO_PIN) == 0);
-
-  // measure how long echo lasts (pulse time)
-  start_time = micros(); // get start time in microseconds
-  while (digitalRead(ECHO_PIN) == 1); // wait until echo pulse ends
-  end_time = micros(); // get end time
-  pulse_time = end_time - start_time; // subtract to get duration
-
-  // pulse time of 23200 represents maximum distance for this sensor
-  if (pulse_time > 23200) pulse_time = 23200;
-
-  // calculate distance to object using pulse time
-  float dist_cm = pulse_time / 58.0;
-  float dist_in = pulse_time / 148.0;
-
-  // need 60ms delay between ultrasonic sensor readings
-  delay(60);
-
-  // return distance value
-  return dist_in; // or can return dist_cm
-}
+Serial.begin(9600);
 ```
 
-1. Create and save a new program in your Arduino code editor using the code above. Then upload the program to your RedBot.
-2. After uploading the program to the RedBot, **keep the RedBot connected to your computer using the USB cable** \(because the serial data is transferred over USB\).
-3. Open the Serial Monitor window in your Arduino code editor.
-   * **Arduino Create Web Editor**: Click the "Monitor" menu in the left navigation panel.
-   * **Arduino IDE Desktop Editor:** Under the "Tools" menu, select "Serial Monitor".
-4. It may take a few seconds for the serial connection to be detected by the editor. Then you should see the distance measurements being displayed in the serial monitor window.
-5. Place your hand \(or an object\) in front of the ultrasonic sensor, and move your hand \(or the object\) further or closer to verify that the distance measurements change and seem to be accurate. If necessary, use a ruler or measuring tape to verify the accuracy of the distance measurements.
+This starts a serial data connection between your robot and your computer and sets the data transfer rate to 9600 bits per second.
 
-Small objects \(such as your hand\) can be detected accurately if they are within about 24 inches. For farther distances, the object needs to be have a larger surface area to produce an accurate measurement \(large flat surfaces such as walls work really well\).
+Add this code **within** the `loop()` function:
+
+```cpp
+  float distance = measureDistance();
+  Serial.print(distance);
+  Serial.println(" inches");
+```
+
+Be sure to add the `measureDistance()` custom function **after** the `loop()` function.
+
+After uploading the app to your robot, do **not** unplug the USB cable. You have to keep the robot connected to your computer to allow the serial data communication.
+
+In your Arduino code editor, open the serial monitor, so you can view the serial data:
+
+* **Arduino Create \(Web Editor\):**  Click the **Monitor** menu link in the left navigation to display the serial monitor in the middle panel.
+* **Arduino IDE \(Desktop Editor\):**  Under the **Tools** menu, select "Serial Monitor." A new window will appear displaying the serial monitor.
+
+It may take a few seconds for the serial connection to be detected by the editor. Then you should see the sensor measurements being displayed in the serial monitor window.
+
+Place your hand \(or an object\) in front of the ultrasonic sensor, and move your hand \(or the object\) further or closer to see how the distance measurements change. If desired, you can use a ruler or measuring tape to verify the accuracy of the distance measurements.
+
+Small objects \(such as your hand\) can be detected accurately if they are within about 24 inches. For farther distances, the object needs to be have a larger surface area to produce an accurate measurement.
 
