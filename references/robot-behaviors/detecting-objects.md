@@ -161,9 +161,9 @@ You'll need to decide what actions the robot should perform when an obstacle is 
 * Maybe the robot should navigate around the obstacle to maintain its original direction.
 * etc.
 
-### Avoid Collision While Following Line
+### While Following Line
 
-Avoiding obstacles while [following a line](detecting-lines.md#followline) is possible, but it presents a challenge:
+Avoiding collisions while [following a line](detecting-lines.md#followline) is possible, but it presents a challenge:
 
 * When the robot detects that an obstacle is nearby in the path ahead, the robot has to leave the line, detour around the obstacle, and then find the line again.
 
@@ -212,13 +212,9 @@ void avoidCollision() {
 }
 ```
 
-This version of the `avoidCollision()` function has a local variable named `detourDist` set to a value of `12.0` inches. This represents how far the RedBot will detour around an obstacle, so this value needs to be larger than the width or depth \(whichever is larger\) of the actual obstacle. As needed, adjust the value of `detourDist` based on the size of your obstacles. Just be sure to include a decimal point, since it is a `float` value.
+This version of the `avoidCollision()` function has a local variable named `detourDist` set to a value of `12.0` inches. This represents how far the robot will detour around an obstacle, so this value needs to be larger than the width or depth \(whichever is larger\) of the actual obstacle. As needed, adjust the value of `detourDist` based on the size of your obstacles. Just be sure to include a decimal point, since it is a `float` value.
 
-Be sure your program includes the other necessary code for the `followLine()`, `measureDistance()`, `pivotAngle()`, and `driveDistance()` custom functions.
-
-**IMPORTANT:** Since the end of the `avoidCollision()` function already includes a built-in delay of 60 ms \(which is required for the ultrasonic sensor\), you should **remove** the delay that is normally included at the end of your `followLine()` function. \(Otherwise, including both delays will make the line following behavior less sensitive and more likely to make mistakes.\)
-
-Again, the diagram and sample code shown above represent just one possible solution for avoiding obstacles while following a line. You might need to create a different solution that works better for your particular scenario.
+The diagram and sample code shown above represent just one possible solution for avoiding obstacles while following a line. You might need to create a different solution that works better for your particular task scenarios.
 
 ## findClosestObject\(\)
 
