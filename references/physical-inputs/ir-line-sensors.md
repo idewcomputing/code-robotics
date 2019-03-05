@@ -25,7 +25,7 @@ The IR sensors measurements can be used to perform several useful robot behavior
 4. The robot can [**follow a line while counting lines**](../robot-behaviors/detecting-lines.md#followcountline) that it crosses and then stop once it reaches a desired line number. This allows the robot to navigate using a pattern of intersecting line paths.
 5. The robot can [**detect a surface drop-off**](../robot-behaviors/detecting-other-conditions.md#checkdropoff) ****\(such as:  stair step leading down, hole, etc.\) and take actions to protect itself \(brake, reverse, change direction, etc.\).
 
-## How to Use IR Sensors
+## How to Code IR Sensors
 
 To use the IR sensors in your robot app, you will need to:
 

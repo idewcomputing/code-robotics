@@ -114,14 +114,14 @@ First, **delete** the existing code statements **within** the `if` statement in 
 Next, add this code **within** the `if` statement in the `loop()` function, so it will be performed when `started` is `true`:
 
 ```cpp
-    float sensorDist = measureDistance();
-    Serial.print(sensorDist);
+    float distance = measureDistance();
+    Serial.print(distance);
     Serial.println(" inches");
 ```
 
-As you can see, this code declares a local variable named `sensorDist` which has a data type of `float`\(decimal number\). The `sensorDist` variable is assigned a value equal to the distance value returned by a call to the `measureDistance()` function.
+As you can see, this code declares a local variable named `distance` which has a data type of `float`\(decimal number\). The `distance` variable is assigned a value equal to the value returned by calling the `measureDistance()` function.
 
-Next, the value of `sensorDist` is sent to the serial monitor, along with a text string \(`" inches"`\).
+Next, the value of `distance` is sent \(`print`\) to the serial monitor followed by a text string \(`" inches"`\).
 
 ## Upload App to Robot
 

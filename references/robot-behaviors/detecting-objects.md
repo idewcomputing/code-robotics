@@ -55,7 +55,7 @@ When the `measureDistance()` function is called, it will return the distance mea
 For example, this code statement declares a local variable named `sensorDist` to store the `float` value returned by calling the `measureDistance()` function:
 
 ```cpp
-float sensorDist = measureDistance();
+float distance = measureDistance();
 ```
 
 The `measureDistance()` function requires these global variables before the `setup()` function:
@@ -138,10 +138,10 @@ void avoidCollision() {
   float minDist = 8.0; // change value as necessary (need decimal)
 
   // measure distance to nearest obstacle
-  float sensorDist = measureDistance();
+  float distance = measureDistance();
 
   // if obstacle is too close, avoid collision
-  if (sensorDist <= minDist) {
+  if (distance <= minDist) {
     // add code to perform (brake, change direction, etc.)
     motors.brake();
 
@@ -196,10 +196,10 @@ void avoidCollision() {
   float detourDist = 12.0; // change value as necessary (need decimal)
 
   // measure distance to nearest obstacle
-  float sensorDist = measureDistance();
+  float distance = measureDistance();
 
   // if obstacle is too close, avoid collision
-  if (sensorDist <= minDist) {
+  if (distance <= minDist) {
     // add code to perform (brake, change direction, etc.)
     motors.brake();
     pivotAngle(-90);

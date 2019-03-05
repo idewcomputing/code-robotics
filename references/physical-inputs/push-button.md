@@ -7,9 +7,9 @@ The button can be used as a way for a user to control the robot:
 * The robot can [**check if the button is pressed**](../robot-behaviors/detecting-other-conditions.md#checkbutton) in order to "start" or "pause" its task.
 * The robot can [**pause until the button is pressed**](../robot-behaviors/detecting-other-conditions.md#pauserobot) before performing the next step in a task.
 
-## How to Use Button
+## How to Code Button
 
-There are three different ways to use the D12 button in your robot app:
+There are three different ways to use the button in your robot app:
 
 * **Option 1:**  Read the button pin directly using the `digitalRead()` method
 * **Option 2:**  Read the button using a `RedBotButton` object and its `read()` method

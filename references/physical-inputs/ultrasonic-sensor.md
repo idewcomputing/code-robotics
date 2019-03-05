@@ -45,7 +45,7 @@ If necessary, use velcro tape or foam tape to mount the ultrasonic sensor at the
 2. Place one piece of tape on the transmitter and the other piece of tape on the receiver \(on the opposite end from where the sensor wires come out\).
 3. Attach the sensor onto the front edge of the robot top chassis plate, so it is attached securely. Be sure the sensor is mounted "upside-down" and facing forward.
 
-## How to Use Sensor
+## How to Code Sensor
 
 To use the ultrasonic sensor in your robot app, you need to:
 
@@ -83,8 +83,8 @@ The `measureDistance()` function will return the distance as a `float` value \(d
 Your code should assign the returned distance value to a local variable, and then perform actions based on the value of the variable:
 
 ```cpp
-float sensorDist = measureDistance();
-// add code to perform action based on value of sensorDist
+float distance = measureDistance();
+// add code to perform action based on value of distance
 
 ```
 
@@ -150,8 +150,8 @@ void setup() {
 }
 
 void loop() {
-    float sensorDist = measureDistance();
-    Serial.print(sensorDist);
+    float distance = measureDistance();
+    Serial.print(distance);
     Serial.println(" inches");
 }
 

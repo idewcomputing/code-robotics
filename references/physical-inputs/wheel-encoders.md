@@ -27,7 +27,7 @@ The wheel encoder counts can be used to perform to several useful robot behavior
 3. The robot can ****[**pivot on both wheels by a specific angle**](../robot-behaviors/turning.md#pivotangle) by calculating how far the wheels have traveled while pivoting in a circle.
 4. The robot can [**turn on one wheel by a specific angle**](../robot-behaviors/turning.md#turnangle) by calculating how far the driving wheel has traveled while turning in a circle
 
-## Calculate Distance with Encoders
+## Find Distance with Encoders
 
 As each motor shaft rotates, it also rotates its attached ring magnet at the same rate. As the ring magnet completes one full rotation, the Hall effect sensor detects 4 changes \(or "ticks"\) in the magnetic field as each magnetic pole passes by the sensor.
 
@@ -59,7 +59,7 @@ Visually check the position of the left and right encoder sensors. If necessary,
 **CHECK ENCODERS AFTER CHANGING BATTERIES:**  Whenever you change the robot's batteries, be sure to check the encoder sensor positions **afterwards**. It's  common to accidentally move the encoder sensors when changing the batteries.
 {% endhint %}
 
-## How to Use Encoders
+## How to Code Encoders
 
 To use the wheel encoders in your robot app, you will need to:
 

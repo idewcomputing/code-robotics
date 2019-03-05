@@ -21,10 +21,10 @@ void avoidCollision() {
   float minDist = 8.0; // change value as necessary (need decimal)
 
   // measure distance to nearest obstacle
-  float sensorDist = measureDistance();
+  float distance = measureDistance();
 
   // if obstacle is too close, avoid collision
-  if (sensorDist <= minDist) {
+  if (distance <= minDist) {
     // add code to perform (brake, change direction, etc.)
     motors.brake();
 
