@@ -11,7 +11,7 @@ An ultrasonic sensor uses sound waves to measure distance. The sensor has a tran
 If you want to add an ultrasonic sensor to the front of your RedBot, you will need:
 
 * [Ultrasonic Sensor HC-SR04](https://www.sparkfun.com/products/13959)
-* [4 connected female-to-female jumper wires \(6" length\)](https://www.sparkfun.com/products/12796) — SparkFun sells these in packs of 20 connected wires, so one pack can be divided to provide wires for 5 sensors
+* [4 connected female-to-female jumper wires \(6" length\)](https://www.sparkfun.com/products/12796) — SparkFun sells these as a set of 20 connected wires, which can be divided to provide wires for 5 sensors \(if you're using a different robot, its circuit board might require [female-to-male jumper wires](https://www.sparkfun.com/products/12794)\)
 * [Velcro tape](https://www.walmart.com/ip/Self-Adhesive-Hook-Loop-Sticky-Back-Tape-Kit-From-5-to-50-Feet-Width-1-or-2/191948030) \(or double-sided foam tape\) to mount the sensor at the front of the robot 
 
 The HC-SR04 ultrasonic sensor measures distances in a narrow cone of about 15° in front of the sensor. This sensor can detect obstacles located up to 400 cm away \(about 13 feet\). The distances calculated from the sensor measurements are very accurate, within about 3 mm \(about 0.1 inch\) of the actual distance.
@@ -24,7 +24,7 @@ The ultrasonic sensor can be used to perform several useful robot behaviors:
 
 ## Connect Sensor Wires
 
-If necessary, use a set of 4 connected female-to-female jumper wires to connect the ultrasonic sensor pins to the open pins on the front-left corner of the RedBot mainboard:
+If necessary, use jumper wires to connect the ultrasonic sensor pins to the open pins on the front-left corner of the RedBot mainboard:
 
 | Ultrasonic Sensor Pin | RedBot Pin |
 | :--- | :--- |
@@ -42,8 +42,8 @@ If necessary, use velcro tape or foam tape to mount the ultrasonic sensor at the
 ![Ultrasonic Sensor mounted at front of RedBot](../../.gitbook/assets/ultrasonic-mounted.jpg)
 
 1. Take a section of velcro tape \("hook-and-loop"\) or double-sided foam tape about 1 inch × 0.5 inch, and cut it in half to form two pieces about 0.5 inch × 0.5 inch.
-2. Place one piece of tape on the transmitter and the other piece of tape on the receiver \(on the opposite end from where the sensor wires come out\).
-3. Attach the sensor onto the front edge of the robot top chassis plate, so it is attached securely. Be sure the sensor is mounted "upside-down" and facing forward.
+2. Place one piece of tape on the top side of the transmitter cylinder, and place the other piece of tape on the top side of the receiver cylinder.
+3. Press the sensor "upside-down" onto the front edge of the top of the robot chassis, so it is attached securely. Be sure the sensor is facing forward.
 
 ## How to Code Sensor
 
