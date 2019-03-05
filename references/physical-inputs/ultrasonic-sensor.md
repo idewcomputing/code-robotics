@@ -4,7 +4,7 @@
 **ADD-ON COMPONENT:** The SparkFun RedBot Kit does **NOT** include an ultrasonic sensor. However, the [HC-SR04 Ultrasonic Sensor](https://www.sparkfun.com/products/13959) can be easily connected to a RedBot. Your teacher may have added this sensor to your RedBot kit.
 {% endhint %}
 
-An ultrasonic sensor uses sound waves to measure the distance to an object. The sensor has a transmitter \(i.e., speaker\) that can produce high-frequency sound \(beyond the range of human hearing\). The sensor also has a receiver \(i.e., microphone\) that detects the echo of the high-frequency sound when it reflects back from a nearby object. By measuring how much time it takes for the echo to arrive, you can calculate the distance between the sensor and the closest object.
+An ultrasonic sensor uses sound waves to measure distance. The sensor has a transmitter \(i.e., speaker\) that produces high-frequency sound \(beyond the range of human hearing\). The sensor has a receiver \(i.e., microphone\) that detects the echo of the high-frequency sound when it reflects back from an object. You can calculate the distance between the sensor and the closest object by measuring how much time it takes for the echo to arrive.
 
 ![Ultrasonic Sensor \(HC-SR04\)](../../.gitbook/assets/ultrasonic-sensor.jpg)
 
