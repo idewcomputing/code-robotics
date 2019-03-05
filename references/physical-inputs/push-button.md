@@ -15,9 +15,9 @@ There are three different ways to use the D12 button in your robot app:
 * **Option 2:**  Read the button using a `RedBotButton` object and its `read()` method
 * **Option 3:**  Use a `OneButton` object and its `tick()` method to detect different types of button presses \(i.e., single-press, double-press, and long-press\)
 
-Option 1 and Option 2 are similar. They both detect when the button is pressed. It is primarily a matter of personal preference, in terms of which option to use. Most of the coding tutorials and references in this guidebook use the second option.
+Option 1 and Option 2 are similar. They both detect when the button is pressed. It is primarily a matter of personal preference, in terms of which option to use. Most of the coding tutorials and references in this guidebook use the **second** option.
 
-Option 3 allows your robot to detect up to 3 different types of button presses, so the robot performs different tasks based on the user's input. This option requires you to include the `OneButton` library in your robot app.
+Option 3 allows your robot to detect up to 3 different types of button presses, so the robot can perform different tasks based on the user's input. This option requires you to include the `OneButton` library in your robot app.
 
 ## Read Button Directly
 
@@ -28,17 +28,13 @@ To read the button pin directly, your robot app will need to:
 3. Use the `digitalRead()` method to detect whether the button is being pressed
 4. Add code statement\(s\) to perform certain action\(s\) if the button is pressed
 
-You'll need to create a global variable to store the pin number of the RedBot's built-in button, which is connected to pin D12 \(via internal circuitry\)
-
-Add this code statement **before** the `setup()` function:
+You'll need to create a global variable to store the pin number of the button, which is connected to pin D12. Add this code statement **before** the `setup()` function:
 
 ```cpp
 int button = 12;
 ```
 
-Next, you need to set the button's pin mode to identify whether it will act as an input or output.
-
-Add this code statement **within** the `setup()` function:
+Next, you'll need to set the button's pin mode. Add this code statement **within** the `setup()` function:
 
 ```cpp
 pinMode(button, INPUT_PULLUP);
@@ -53,7 +49,7 @@ The `digitalRead()` method can be used to detect whether or not the button is cu
 
 An `if` statement is typically used to perform a set of actions when the button is pressed.
 
-This code is typically added within the `loop()` function or a custom function:
+This code is typically added **within** the `loop()` function or within a custom function:
 
 ```cpp
 if (digitalRead(button) == LOW) {
@@ -61,6 +57,8 @@ if (digitalRead(button) == LOW) {
 
 }
 ```
+
+Inside the `if` statement, you need to add code statements for the specific actions you want performed when the button is pressed.
 
 {% hint style="success" %}
 **USER FEEDBACK:**  It is recommended to [produce an alert sound](../robot-behaviors/producing-alerts.md) \(i.e., a beep\) as feedback to the user when the button is pressed.
@@ -106,7 +104,7 @@ The `RedBotButton` object has a `read()` method that can be used to detect wheth
 
 An `if` statement is typically used to perform a set of actions when the button is pressed.
 
-This code is typically added within the `loop()` function or a custom function:
+This code is typically added **within** the `loop()` function or within a custom function:
 
 ```cpp
 if (button.read() == true) {
@@ -114,6 +112,8 @@ if (button.read() == true) {
 
 }
 ```
+
+Inside the `if` statement, you need to add code statements for the specific actions you want performed when the button is pressed.
 
 {% hint style="success" %}
 **USER FEEDBACK:**  It is recommended to [produce an alert sound](../robot-behaviors/producing-alerts.md) \(i.e., a beep\) as feedback to the user when the button is pressed.
