@@ -153,6 +153,73 @@ void avoidCollision() {
 **ADD CODE TO FUNCTION:**  You need to add code within the `avoidCollision()` function to perform actions \(brake, turn, etc.\) when an obstacle is too close.
 {% endhint %}
 
+You'll need to decide what actions the robot should perform when an obstacle is too close. Depending on the purpose and context of your robot, your solution will be different:
+
+* Maybe the robot should turn around and drive in the opposite direction.
+* Maybe the robot should turn 90° right \(or left\) and then continue driving.
+* Maybe the robot should scan left and right to check for a clear path.
+* Maybe the robot should navigate around the obstacle to maintain its original direction.
+* etc.
+
+### Avoid Collision While Following Line
+
+Avoiding obstacles while [following a line](detecting-lines.md#followline) is possible, but it presents a challenge:
+
+* When the robot detects that an obstacle is nearby in the path ahead, the robot has to leave the line, detour around the obstacle, and then find the line again.
+
+This diagram shows a possible solution to detour around an obstacle while following a line.
+
+![](../../.gitbook/assets/follow-line-avoid-obstacle.png)
+
+Notice in step 5 of the diagram that the robot makes a 45° turn to approach the line at an angle \(instead of making a 90° turn\). The reason for this is to ensure that one IR line sensor will detect the line first, so the `followLine()` function can steer the robot to center itself on the line again. \(Otherwise, if the robot approaches the line head-on at a 90° angle, the robot will simply drive over the line.\)
+
+The code for the `loop()` function could be as simple as:
+
+```cpp
+void loop() {
+    followLine();
+    avoidCollision();
+}
+```
+
+The code for detouring around an obstacle would be placed **within** the `avoidCollision()` custom function, which might look like this:
+
+```cpp
+void avoidCollision() {
+  // uses HC-SR04 ultrasonic sensor
+  // requires measureDistance() function
+  
+  // set minimum allowed distance between robot and obstacle
+  float minDist = 8.0; // change value as necessary (need decimal)
+
+  // set detour distance (should be larger than width and depth of obstacle)
+  float detourDist = 12.0; // change value as necessary (need decimal)
+
+  // measure distance to nearest obstacle
+  float sensorDist = measureDistance();
+
+  // if obstacle is too close, avoid collision
+  if (sensorDist <= minDist) {
+    // add code to perform (brake, change direction, etc.)
+    motors.brake();
+    pivotAngle(-90);
+    driveDistance(detourDist, 100);
+    pivotAngle(90);
+    driveDistance(minDist + detourDist, 100);
+    pivotAngle(45);
+    motors.drive(100);
+  }
+}
+```
+
+This version of the `avoidCollision()` function has a local variable named `detourDist` set to a value of `12.0` inches. This represents how far the RedBot will detour around an obstacle, so this value needs to be larger than the width or depth \(whichever is larger\) of the actual obstacle. As needed, adjust the value of `detourDist` based on the size of your obstacles. Just be sure to include a decimal point, since it is a `float` value.
+
+Be sure your program includes the other necessary code for the `followLine()`, `measureDistance()`, `pivotAngle()`, and `driveDistance()` custom functions.
+
+**IMPORTANT:** Since the end of the `avoidCollision()` function already includes a built-in delay of 60 ms \(which is required for the ultrasonic sensor\), you should **remove** the delay that is normally included at the end of your `followLine()` function. \(Otherwise, including both delays will make the line following behavior less sensitive and more likely to make mistakes.\)
+
+Again, the diagram and sample code shown above represent just one possible solution for avoiding obstacles while following a line. You might need to create a different solution that works better for your particular scenario.
+
 ## findClosestObject\(\)
 
 A custom function named `findClosestObject()` uses an ultrasonic sensor and the wheel encoders to perform a 360° scan of the environment to find the closest object and then drive towards it.

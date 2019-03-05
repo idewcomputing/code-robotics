@@ -22,7 +22,7 @@ In your Arduino code editor, open your existing app named `detect_collisions_tes
 
 Once you saved the new app name, modify the block comment near the beginning of the app code to change `Detect Collisions Test` to `Ultrasonic Sensor Test`.
 
-## Add Global Variables for Sensor
+## Add Variables for Sensor
 
 You'll need to create global variables to store the pin numbers of the ultrasonic sensor's transmitter \(Trig\) and receiver \(Echo\), which should be connected to I/O pins A0 and A1 on the RedBot's circuit board.
 

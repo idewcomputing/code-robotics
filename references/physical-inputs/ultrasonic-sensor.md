@@ -22,14 +22,6 @@ The primary use of the ultrasonic sensor is to prevent collisions. If the sensor
 
 However, the ultrasonic sensor might **not** detect obstacles off to the left or right side — if those obstacles are outside the 15° detection cone directly in front of the sensor. For these situations, you may want to use the mechanical bumpers as a fallback system that supplements the ultrasonic sensor. Since the mechanical bumper whiskers extend outwards on both sides, they can detect a collision with an obstacle that the ultrasonic sensor might not have detected, as shown above.
 
-### How to Use the Ultrasonic Sensor in a Program:
-
-To use the ultrasonic sensor to measure distance, you will need to:
-
-1. Declare variables to store the sensor's pin numbers
-2. Set the pin modes for the sensor pins and turn the transmitter off
-3. Use a custom function to measure the distance to the closest object
-
 ## Connect Sensor to Circuit Board
 
 If necessary, use a set of 4 connected female-to-female jumper wires to connect the ultrasonic sensor pins to the open pins on the front-left corner of the RedBot mainboard:
@@ -53,31 +45,34 @@ If necessary, use velcro tape or foam tape to mount the ultrasonic sensor at the
 2. Place one piece of tape on the transmitter and the other piece of tape on the receiver \(on the opposite end from where the sensor wires come out\).
 3. Attach the sensor onto the front edge of the robot top chassis plate, so it is attached securely. Be sure the sensor is mounted "upside-down" and facing forward.
 
-## Declare Variables for Sensor Pin Numbers
+## How to Use Sensor
 
-Before your `setup()` function, declare global variables to store the ultrasonic sensor's pin numbers:
+To use the ultrasonic sensor in your robot app, you need to:
 
-```cpp
-const int TRIG_PIN = A0;
-const int ECHO_PIN = A1;
-```
+1. Declare global variables to store the sensor's pin numbers
+2. Set the pin modes for the sensor pins, and turn the transmitter off
+3. Call a custom function to measure the distance to the closest object
 
-* `const` indicates that the variable will be a constant, which means its value won't change during the program.
-* `int` indicates the variable type, which is an **integer** in this case. All Arduino pins are treated as integers \(even analog pins that have a letter in their pin number\).
-* `TRIG_PIN` and `ECHO_PIN` represents the names of the variables that store the sensor's pin numbers.
-* `A0` and `A1` indicate the pin numbers for the sensor's transmitter \(Trig\) and receiver \(Echo\). If necessary, change these to match the pins that your sensor is connected to.
+## Add Variables for Sensor
 
-## Set Pin Modes for Ultrasonic Sensor
-
-Within your `setup()` function, use the `pinMode()` function to set the pin modes for the ultrasonic sensor's transmitter \(Trig\) and receiver \(Echo\):
+You'll need to create global variables to store the pin numbers of the ultrasonic sensor's transmitter \(Trig\) and receiver \(Echo\), which should be connected to I/O pins A0 and A1 on the RedBot's circuit board. Add this code **before** the `setup()` function:
 
 ```cpp
-pinMode(TRIG_PIN, OUTPUT);
-pinMode(ECHO_PIN, INPUT);
-digitalWrite(TRIG_PIN, LOW);
+int TRIG_PIN = A0;
+int ECHO_PIN = A1;
 ```
 
-Notice that a `digitalWrite()` statement was included to ensure the transmitter is turned off \(`LOW`\) when the program starts.
+## Set Pin Modes for Sensor
+
+You'll need to set the pin modes for the ultrasonic sensor's transmitter \(Trig\) and receiver \(Echo\). Add this code **within** the `setup()` function:
+
+```cpp
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+  digitalWrite(TRIG_PIN, LOW);
+```
+
+Notice that a `digitalWrite()` statement was included to ensure the transmitter is turned off \(`LOW`\) when the app first starts.
 
 ## Measure Distance to Object
 
@@ -145,7 +140,7 @@ Note that this custom function starts with `float` instead of `void`:
 
 If desired, you can modify the `return` statement at the end of the function to return the distance in units of centimeters \(instead of inches\).
 
-## EXPERIMENT: Test Ultrasonic Sensor Using Serial Monitor
+## Test Ultrasonic Sensor
 
 To test out your ultrasonic sensor, you can use the serial monitor to view the distance measurements calculated from the sensor readings.
 
@@ -219,52 +214,6 @@ float measureDistance() {
 Small objects \(such as your hand\) can be detected accurately if they are within about 24 inches. For farther distances, the object needs to be have a larger surface area to produce an accurate measurement \(large flat surfaces such as walls work really well\).
 
 The sensor can accurately measure distances within the range of 2 cm to 400 cm \(about 1 inch to about 13 feet\). The distance measurement starts from the back of the sensor \(its board\).
-
-## Avoid Collisions
-
-One of the primary uses of the ultrasonic sensor is to detect obstacles from a distance and prevent collisions. Besides preventing collisions, it can be used to allow the RedBot to navigate a "maze" of obstacles on its own.
-
-### avoidCollision\(\) function
-
-Here is a custom function named `avoidCollision()` that will check the ultrasonic sensor reading and then perform a set of actions \(brake, turn, etc.\) if it detects the RedBot is about to collide with an obstacle:
-
-```cpp
-void avoidCollision() {
-
-    // set minimum distance between RedBot and obstacle
-    float minDist = 8.0; // change value as necessary (need decimal)
-
-    // measure distance to nearest obstacle
-    float sensorDist = measureDistance();
-
-    // if obstacle is too close, avoid collision
-    if (sensorDist <= minDist) {
-        // add code to perform (brake, change direction, etc.)
-        motors.brake();
-
-    }
-}
-```
-
-**IMPORTANT:** Be sure to also include the custom function `measureDistance()` in your program.
-
-The custom function has a local variable named `minDist` set to a value of `8.0` inches. This is the minimum distance allowed between the RedBot and an obstacle. Once the minimum distance is reached, the RedBot needs to take action to avoid a collision.
-
-If desired, you can increase or decrease the value of `minDist`. Just be sure to include a decimal point, since it is a `float` value.
-
-**NOTE:** You will also need to decide what code to perform if the ultrasonic sensor detects a nearby obstacle. Most likely, the first thing that you should do is make the RedBot motors brake.
-
-You could also make the RedBot produce a sound as feedback. This would be useful for testing your code by driving \(or rolling\) the RedBot towards an obstacle. What type of sound \(frequency, duration, number of beeps, etc.\) would make the most sense for an "warning" event like approaching an obstacle?
-
-Finally, you will most likely need to make the RedBot change direction. Depending on the purpose of your RedBot, your solution to this problem will be different:
-
-* Maybe the RedBot needs to simply turn around and proceed in the opposite direction.
-* Maybe the RedBot will follow a simple rule such as always turn 90° and then proceed forward again.
-* Maybe the RedBot just needs to change direction slightly and try moving forward again.
-* Maybe the RedBot needs to navigate around the obstacle to try to maintain its original direction.
-* etc.
-
-In fact, you could pivot the RedBot and use the ultrasonic sensor to check the distance in different directions, in order to determine where there is an obstacle-free path.
 
 ## Avoid Collisions While Following Line
 
