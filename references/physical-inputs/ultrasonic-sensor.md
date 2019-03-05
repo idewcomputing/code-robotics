@@ -22,7 +22,7 @@ The primary use of the ultrasonic sensor is to prevent collisions. If the sensor
 
 However, the ultrasonic sensor might **not** detect obstacles off to the left or right side — if those obstacles are outside the 15° detection cone directly in front of the sensor. For these situations, you may want to use the mechanical bumpers as a fallback system that supplements the ultrasonic sensor. Since the mechanical bumper whiskers extend outwards on both sides, they can detect a collision with an obstacle that the ultrasonic sensor might not have detected, as shown above.
 
-## Connect Sensor to Circuit Board
+## Connect Sensor Wires
 
 If necessary, use a set of 4 connected female-to-female jumper wires to connect the ultrasonic sensor pins to the open pins on the front-left corner of the RedBot mainboard:
 
@@ -76,26 +76,21 @@ Notice that a `digitalWrite()` statement was included to ensure the transmitter 
 
 ## Measure Distance to Object
 
-Your program will have a custom function that uses readings from the ultrasonic sensor to measure the distance between the sensor and the closest object. The custom function will return the distance as a decimal value.
+A custom function named `measureDistance()` uses readings from the ultrasonic sensor to measure the distance between the sensor and the closest object.
 
-To get a distance measurement, your program will call this custom function named `measureDistance()` and assign the returned value to a local variable named `sensorDist`, which will have a data type of `float` \(i.e., a decimal number\).
+The `measureDistance()` function will return the distance as a `float` value \(decimal\). The function will return the distance in inches, but you can modify the `return` statement at the end of the function to return the distance in centimeters.
 
-This could be done in your `loop()` function \(or in your own custom function\):
+Your code should assign the returned distance value to a local variable, and then perform actions based on the value of the variable:
 
 ```cpp
-void loop() {
+float sensorDist = measureDistance();
+// add code to perform action based on value of sensorDist
 
-    float sensorDist = measureDistance();
-    // add code to do something based on value of sensorDist
-
-}
 ```
 
-You will need to decide what code to add that will do something with the sensor distance measurement. For example, if the distance is small \(such as less than 12 inches\), you most likely will want to make the RedBot motors brake. Then you may want to turn the RedBot left or right to see which direction might be obstacle-free \(by taking a new sensor measurement\) before driving forward again.
+You'll need to add code to perform actions based on the distance measurement. For example, if the distance is less than 12 inches, you may want to brake the robot's motors to avoid a collision. Then you may want to change the robot's direction before driving again.
 
-### measureDistance\(\) function
-
-Be sure to include the custom function named `measureDistance()` after your `loop()` function:
+Add the `measureDistance()` custom function **after** the `loop()` function:
 
 ```cpp
 float measureDistance() {
@@ -123,22 +118,13 @@ float measureDistance() {
   float dist_cm = pulse_time / 58.0;
   float dist_in = pulse_time / 148.0;
 
-  // need 60ms delay between ultrasonic sensor readings
+  // need 60 ms delay between ultrasonic sensor readings
   delay(60);
 
   // return distance value
   return dist_in; // or can return dist_cm
 }
 ```
-
-The comments in the custom function help explain how it works.
-
-Note that this custom function starts with `float` instead of `void`:
-
-* A function that does not return any value starts with `void`.  For example, the `setup()` and `loop()` functions start with `void` because they do not return values.
-* A function that does return a value needs to indicate the data type \(such as `int`, `float`, `boolean`, etc.\) for the value. This custom function will return a `float` value \(decimal number\) representing the distance measurement.
-
-If desired, you can modify the `return` statement at the end of the function to return the distance in units of centimeters \(instead of inches\).
 
 ## Test Ultrasonic Sensor
 
