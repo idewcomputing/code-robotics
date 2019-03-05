@@ -1,24 +1,20 @@
 # Ultrasonic Sensor \*
 
 {% hint style="info" %}
-**ADD-ON COMPONENT:** The SparkFun RedBot Kit does **NOT** include an ultrasonic sensor as a standard component. However, SparkFun sells the [HC-SR04 Ultrasonic Sensor](https://www.sparkfun.com/products/13959), which can be easily connected to a RedBot. Your teacher may have added this sensor to your kit.
+**ADD-ON COMPONENT:** The SparkFun RedBot Kit does **NOT** include an ultrasonic sensor. However, the [HC-SR04 Ultrasonic Sensor](https://www.sparkfun.com/products/13959) can be easily connected to a RedBot. Your teacher may have added this sensor to your RedBot kit.
 {% endhint %}
 
-You can add an ultrasonic sensor to your RedBot in order to detect obstacles from a distance \(before colliding with them\).
-
-An ultrasonic sensor uses sonar to measure the distance to an object. The sensor has a transmitter \(i.e., a speaker\) that can produce high-frequency sound, which cannot be heard by the human ear. The sensor also has a receiver \(i.e., a microphone\) that detects the echo of the high-frequency sound reflected back from a nearby object. By measuring how much time it takes for the echo to arrive, you can calculate the distance between the RedBot and the closest object.
-
-The way that the ultrasonic sensor works is similar to how certain types of animals, such as bats and dolphins, use [echolocation](https://en.wikipedia.org/wiki/Animal_echolocation) for navigation and hunting.
+An ultrasonic sensor uses sound waves to measure the distance to an object. The sensor has a transmitter \(i.e., speaker\) that can produce high-frequency sound \(beyond the range of human hearing\). The sensor also has a receiver \(i.e., microphone\) that detects the echo of the high-frequency sound when it reflects back from a nearby object. By measuring how much time it takes for the echo to arrive, you can calculate the distance between the sensor and the closest object.
 
 ![Ultrasonic Sensor \(HC-SR04\)](../../.gitbook/assets/ultrasonic-sensor.jpg)
 
 If you want to add an ultrasonic sensor to the front of your RedBot, you will need:
 
 * [Ultrasonic Sensor HC-SR04](https://www.sparkfun.com/products/13959)
-* [4 connected female-to-female jumper wires \(6" length\)](https://www.sparkfun.com/products/12796) — SparkFun sells these in packs of 20 connected wires, so one pack can be divided to provide sets of wires for 5 sensors \(5 teams\)
-* [Velcro tape](https://www.walmart.com/ip/Self-Adhesive-Hook-Loop-Sticky-Back-Tape-Kit-From-5-to-50-Feet-Width-1-or-2/191948030) \(or double-sided foam tape\) — to mount the ultrasonic sensor at the front of the RedBot 
+* [4 connected female-to-female jumper wires \(6" length\)](https://www.sparkfun.com/products/12796) — SparkFun sells these in packs of 20 connected wires, so one pack can be divided to provide wires for 5 sensors
+* [Velcro tape](https://www.walmart.com/ip/Self-Adhesive-Hook-Loop-Sticky-Back-Tape-Kit-From-5-to-50-Feet-Width-1-or-2/191948030) \(or double-sided foam tape\) to mount the sensor at the front of the robot 
 
-This ultrasonic sensor measures distances in a narrow cone of about 15° in front of the sensor. This sensor can detect obstacles located up to 400 cm away \(about 13 feet\). The distances calculated from the sensor measurements are very accurate, within about 3 mm \(about 0.1 inch\) of the actual distance.
+The HC-SR04 ultrasonic sensor measures distances in a narrow cone of about 15° in front of the sensor. This sensor can detect obstacles located up to 400 cm away \(about 13 feet\). The distances calculated from the sensor measurements are very accurate, within about 3 mm \(about 0.1 inch\) of the actual distance.
 
 ![](../../.gitbook/assets/ultrasonic-plus-bumpers.png)
 
@@ -28,28 +24,15 @@ However, the ultrasonic sensor might **not** detect obstacles off to the left or
 
 ### How to Use the Ultrasonic Sensor in a Program:
 
-To use the ultrasonic sensor to measure distance, you will need to: 1. Declare variables to store the sensor's pin numbers 2. Set the pin modes for the sensor pins 3. Use a custom function to measure the distance to the closest object.
+To use the ultrasonic sensor to measure distance, you will need to:
 
-However, first you will need to physically connect and mount the ultrasonic sensor to the RedBot.
+1. Declare variables to store the sensor's pin numbers
+2. Set the pin modes for the sensor pins and turn the transmitter off
+3. Use a custom function to measure the distance to the closest object
 
-### Assembly Instructions in this Section:
+## Connect Sensor to Circuit Board
 
-* Connect Ultrasonic Sensor to Redbot Mainboard
-* Mount Sensor to Front of RedBot Chassis
-
-### Coding References in this Section:
-
-* Declare Variables for Sensor Pin Numbers
-* Set Pin Modes for Ultrasonic Sensor
-* Measure Distance to Object
-* **EXPERIMENT:** Test Ultrasonic Sensor Using Serial Monitor
-* Avoid Collisions
-* Avoid Collisions While Following Line
-* Find Closest Object
-
-## Connect Ultrasonic Sensor to RedBot Mainboard
-
-Use a set of 4 connected female-to-female jumper wires to connect the ultrasonic sensor pins to the open pins in the front-left corner of the RedBot mainboard:
+If necessary, use a set of 4 connected female-to-female jumper wires to connect the ultrasonic sensor pins to the open pins on the front-left corner of the RedBot mainboard:
 
 | Ultrasonic Sensor Pin | RedBot Pin |
 | :--- | :--- |
@@ -58,21 +41,17 @@ Use a set of 4 connected female-to-female jumper wires to connect the ultrasonic
 | Echo | A1 |
 | GND | GND |
 
-For the 5V pin and GND pin on the RedBot, you can use the pins adjacent to A0 or A1 \(either side is fine\). This means that three wires will be connected on one side \(such as the A0 side\), while the other wire is connected to the analog pin on the other side \(such as A1\).
+For the 5V and GND pins on the RedBot mainboard, you can use the pins adjacent to A0 or A1 \(either side is fine\). This means three wires will be connected on one side \(such as the A0 side\), while the fourth wire is connected to the I/O pin on the other side \(such as A1\).
 
-Your wires will have different colors. Use the wire colors to help verify that you are connecting the pins correctly.
+## Mount Sensor to Robot
 
-## Mount Sensor to Front of RedBot Chassis
-
-Use small pieces of velcro tape or foam tape to mount the ultrasonic sensor on top of the RedBot chassis towards the front. The sensor's transmitter and receiver should be positioned to face forward, like a pair of eyes. The sensor's wires should be pointing up \(and then will connect back to the RedBot mainboard\).
-
-Velcro \("hook-and-loop"\) tape will allow you to remove the sensor if needed \(or to place it in a different position, such as the back of the RedBot\).
-
-1. Take a section of velcro or foam tape about 1 inch × 0.5 inch, and cut it in half to form two pieces about 0.5 inch × 0.5 inch.
-2. Attach one piece of tape under the sensor's transmitter and one piece of tape under the sensor's receiver. 
-3. Press the sensor onto the front edge of the RedBot's top mounting plate, so the other side of the tape pieces will attach securely to the RedBot. Be sure the sensor is mounted to face forward, like a pair of eyes.
+If necessary, use velcro tape or foam tape to mount the ultrasonic sensor at the front of the robot on top of its chassis. The sensor's transmitter and receiver should face forward, like a pair of eyes. The sensor will be mounted "upside-down" with its wires pointing up.
 
 ![Ultrasonic Sensor mounted at front of RedBot](../../.gitbook/assets/ultrasonic-mounted.jpg)
+
+1. Take a section of velcro tape \("hook-and-loop"\) or double-sided foam tape about 1 inch × 0.5 inch, and cut it in half to form two pieces about 0.5 inch × 0.5 inch.
+2. Place one piece of tape on the transmitter and the other piece of tape on the receiver \(on the opposite end from where the sensor wires come out\).
+3. Attach the sensor onto the front edge of the robot top chassis plate, so it is attached securely. Be sure the sensor is mounted "upside-down" and facing forward.
 
 ## Declare Variables for Sensor Pin Numbers
 
