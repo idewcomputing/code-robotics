@@ -53,7 +53,7 @@ To use the ultrasonic sensor in your robot app, you need to:
 2. Set the pin modes for the ultrasonic sensor, and turn its transmitter off
 3. Call a custom function to measure the distance to the closest object
 
-## Add Variables for Sensor
+## Declare Variables for Sensor
 
 You'll need to create global variables to store the pin numbers of the ultrasonic sensor's transmitter \(Trig\) and receiver \(Echo\), which should be connected to I/O pins A0 and A1 on the RedBot's circuit board. Add this code **before** the `setup()` function:
 

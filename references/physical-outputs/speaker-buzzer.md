@@ -1,176 +1,67 @@
 # Speaker \(Buzzer\)
 
-The RedBot kit includes a "buzzer" — a small speaker that can produce simple sounds. The speaker can only play one tone \(sound\) at a time, but you can create different sounds or sound patterns. You could even program it to play simple music by playing one note at a time.
+The RedBot kit includes a "buzzer" — a small speaker that can produce simple sounds. The speaker can only play one tone \(sound\) at a time, but you can create different sounds or sound patterns. You can even program it to play simple music by playing one note at a time.
 
-Sounds produced by the speaker could be useful as audio alerts or feedback to people interacting with your RedBot device.
+The speaker can be used to [provide alerts or feedback](../robot-behaviors/producing-alerts.md) to people interacting with your robot.
 
-### How to Use the Speaker in a Program:
+## How to Code Speaker
 
-To produce sounds with the speaker, you will need to:
+To use the speaker in your robot app, you will need to:
 
-1. Declare a variable to store the speaker pin number
+1. Declare a gloabl variable to store the speaker's pin number
 2. Set the pin mode for the speaker
-3. Use the `tone()`, `delay()`, and `noTone()` functions to produce a sound and then stop it
+3. Use the `tone()` method to produce a sound
 
-**NOTE:** The SparkFun RedBot library does not have a built-in class for the speaker.
+## Declare Variable for Speaker
 
-### Coding References in this Section:
-
-* Declare Variable for Speaker Pin Number
-* Set Pin Mode for Speaker
-* Produce Sound
-* Add Delay Before Stopping Sound
-* Stop Sound
-* Produce Different Sound Patterns
-* Play Song Note by Note
-
-## Declare Variable for Speaker Pin Number
-
-Before your `setup()` function, declare a variable to store the speaker pin number:
+You'll need to create a global variable to store the pin number of the speaker, which is normally connected to pin 9. Add this code statement **before** the `setup()` function:
 
 ```cpp
-const int speaker = 9;
+int speaker = 9;
 ```
-
-* `const` indicates that the variable will be a constant, which means its value won't change during the program.
-* `int` indicates the variable type, which is an **integer** in this case. All Arduino pins are treated as integers \(even analog pins that have a letter in their pin number\).
-* `speaker` represents the name of the variable that stores the buzzer's pin number. If desired, you could use a different variable name.
-* `9` is the pin number that the RedBot speaker is normally plugged into.
 
 ## Set Pin Mode for Speaker
 
-Before your program can control the speaker, you must set its pin mode \(so the Arduino program knows whether the part connected to the pin is an input or output\).
-
-Within your `setup()` function, use the `pinMode()` function to set the pin mode for the buzzer pin:
+You'll need to set the pin mode for the speaker. Add this code statement **within** the `setup()` function:
 
 ```cpp
 pinMode(speaker, OUTPUT);
 ```
 
-* `speaker` represents the variable that stores the speaker's pin number. If necessary, change this to the variable name you used for your speaker pin. \(You could list the pin number directly, instead of listing a variable that stores the number. However, your program will be easier to read and understand if you use a variable.\)
-* `OUTPUT` indicates that the speaker pin will be used for output \(instead of input\).
+## Produce Tone
 
-## Produce Tone \(Sound\)
+The `tone()` method is used to produce a sound of a specific frequency using the speaker.
 
-To produce a sound, use the `tone()` function:
+The frequency should be an integer value \(whole number\) between 20-20000 Hertz:
 
-```cpp
-tone(speaker, frequency);
-```
+* Lower values \(lower frequencies\) produce a lower pitched sound \(more bass\).
+* Higher values \(higher frequencies\) produce a higher pitched sound \(more treble\).
 
-* `speaker` represents the variable that stores the speaker's pin number. If necessary, change this to the variable name you used for your speaker pin number.
-* `frequency` represents the frequency \(in Hertz\) of the sound. For the frequency, list an integer value \(whole number\) between 20-20000. Lower values \(lower frequencies\) have a lower pitch, while higher values \(higher frequencies\) have a higher pitch.
+To produce a sound that most people can easily hear, use a frequency value between 50 and 8000 Hertz. Try using a value of 3000, and then decide whether you want the sound to have a higher or lower pitch.
 
-To produce sounds that most people can easily hear, use a frequency value between 50 and 8000. Try using a value of 3000, and then decide whether you want the sound to have a higher or lower pitch.
+Typically, you will only want to play a tone for a certain duration of time and then turn it off.
 
-**NOTE:** Once the `tone()` command is performed, the speaker will keep playing the sound. A separate command has to be used to stop the sound.
-
-{% hint style="info" %}
-**VOLUME:** There **isn't** a way to change the volume of a tone produced by the speaker. However, you will notice that certain frequencies will naturally seem louder to your ears.
-{% endhint %}
-
-## Add Delay Before Stopping Sound
-
-The `delay()` function can be used to add a waiting period \(in milliseconds\) before stopping the sound:
+For example, the following code will use the speaker to play a tone with a frequency of 2000 Hertz for 0.5 seconds and then turn it off:
 
 ```cpp
-delay(time);
-```
-
-* `time` represents the amount of time \(in milliseconds\) that the program should wait before performing the next command in the code. List the number of milliseconds for your delay \(1000 ms = 1 second\).
-
-Sounds will typically only need to play for a fraction of a second, so you'll typically use a delay value less than 1000 for sounds.
-
-## Stop Sound
-
-To stop the sound, use the `noTone()` function:
-
-```cpp
+tone(speaker, 2000);
+delay(500); // wait 0.5 seconds
 noTone(speaker);
 ```
 
-* `speaker` represents the variable that stores the speaker's pin number. If necessary, change this to the variable name you used for your speaker pin number.
+Notice that the `noTone()` method was used to turn the speaker off. Otherwise, the tone would keep playing continuously.
 
-The `noTone()` function is typically used after using the `delay()` function to allow the sound to play for a certain amount of time.
-
-## Produce Different Sound Patterns
-
-You can combine `tone()`, `delay()`, and `noTone()` functions to make the speaker produce different sounds or sound patterns.
-
-For example, to produce a brief "beep" sound, you would use the `tone()`, `delay()`, and `noTone()` functions in order, such as:
+**Alternatively**, you can include the duration of the sound \(in milliseconds\) when using the `tone()` method. In this case, the tone will **automatically turn off** once the duration is over:
 
 ```cpp
-tone(speaker, 3000); // turn on sound
-delay(200); // wait 0.2 seconds
-noTone(speaker); // turn off sound
+tone(speaker, 2000, 500); // frequency 2000 Hz, duration 500 ms
 ```
 
-You can modify your code to make the speaker produce different sound patterns, which might be useful as audio feedback:
+{% hint style="info" %}
+**VOLUME:** There is **NOT** a way to change the volume of the tone. However, you will notice that certain frequencies will naturally seem louder to your ears.
+{% endhint %}
 
-* You can change the frequency value used in the `tone()` function to modify the pitch of the sound.
-* You can change the `delay()` value to modify how long the sound stays on \(and how long it pauses between sounds\).
-* You can use multiple sets of commands — or a `for()` loop that runs a set of commands multiple times — to make the speaker "beep" a certain number of times in a row.
-
-For example, the speaker could be used to provide feedback when a person presses the built-in push button on the RedBot mainboard:
-
-```cpp
-if (button.read() == true) {
-    // single-beep
-    tone(speaker, 3000);
-    delay(200);
-    noTone(speaker);
-
-    // add other code to perform when button pushed
-
-}
-```
-
-As another example, you can use a `for` loop to make the buzzer beep three times rapidly:
-
-```cpp
-// triple-beep
-for (int i=0; i < 3; i++) {
-    tone(speaker, 4000);
-    delay(100);
-    noTone(speaker);
-    delay(100); // pause before next beep
-}
-```
-
-In fact, it would help to create your own custom functions for particular sounds that you use more than once in your program.
-
-### alertSound\(\) function
-
-For example, you could create a custom function named `alertSound()`:
-
-```cpp
-void alertSound() {
-    // modify code to play whatever sound pattern you want
-    for (int i=0; i < 3; i++) {
-        tone(speaker, 4000);
-        delay(100);
-        noTone(speaker);
-        delay(100); // pause before next beep
-    }
-}
-```
-
-Then anytime you want to play this particular sound in your program, you can run this custom function simply by "calling" its name:
-
-```cpp
-alertSound();
-```
-
-**TIP:** You can modify the code inside `alertSound()` to play whatever type of sound you want. The code shown above is simply an example. The instructions at the beginning of this section explain how you can modify the code to produce different types of sounds.
-
-**NOTE:** You can create multiple functions that each play a different type of sound. Just give each custom function its own unique name.
-
-You could program your RedBot to play different sounds or sound patterns as a way to provide feedback or communicate information to people. Some questions to think about:
-
-* When might it be useful for your device to use sound for feedback, alerts, notifications, etc.?
-* What kinds of sounds or sound patterns will be most easily heard and understood by people?
-
-## Play Song Note by Note
+## Play Music Note by Note
 
 You can use the speaker to play simple music by playing a song note by note. Each note corresponds to a specific frequency played for a specific duration \(such as: whole note, half note, quarter note, etc.\).
 
@@ -178,7 +69,7 @@ You can use the speaker to play simple music by playing a song note by note. Eac
 
 The example program uses a file named `notes.h` that defines the specific frequencies for each note on a piano keyboard. It also defines durations \(in milliseconds\) for a whole note, half note, quarter note, etc.
 
-**IMPORTANT:** You will need to include a copy of the `notes.h` file in your program, similar to including a library.
+**IMPORTANT:** You will need to include a copy of the `notes.h` file in your robot app, similar to including a library.
 
 The `notes.h` file should be located inside the SparkFun RedBot Library folder:  
 **examples &gt; Exp4\_2\_Music &gt; notes.h**
@@ -325,4 +216,162 @@ void playSong() {
 Upload this example program to your RedBot, and push the D12 button on the mainboard to play the song. [Do you recognize the song?](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 To speed up this particular example song to better match the beat of the original song, click the tab for the `notes.h` file, and change the value defined for `beatLength` from its default of `200` to `125` instead. Then re-upload the program to your RedBot, and test it.
+
+```cpp
+// NEEDED TO PLAY MUSIC NOTE BY NOTE
+// same code as "notes.h" file
+#define beatLength 200  // milliseconds per beat
+
+// Define length of each note
+#define WN   beatLength*4  // whole note
+#define HN   beatLength*2  // half note
+#define QN   beatLength    // quarter note
+#define EN   beatLength/2  // eighth note
+#define SN   beatLength/4  // sixteenth note
+
+// Define frequency for each note on a piano keyboard
+#define Rest 0
+#define noteC0 16
+#define noteCs0 17
+#define noteDb0 17
+#define noteD0 18
+#define noteDs0 19
+#define noteEb0 19
+#define noteE0 21
+#define noteF0 22
+#define noteFs0 23
+#define noteGb0 23
+#define noteG0 25
+#define noteGs0 26
+#define noteAb0 26
+#define noteA0 28
+#define noteAs0 29
+#define noteBb0 29
+#define noteB0 31
+#define noteC1 33
+#define noteCs1 35
+#define noteDb1 35
+#define noteD1 37
+#define noteDs1 39
+#define noteEb1 39
+#define noteE1 41
+#define noteF1 44
+#define noteFs1 46
+#define noteGb1 46
+#define noteG1 49
+#define noteGs1 52
+#define noteAb1 52
+#define noteA1 55
+#define noteAs1 58
+#define noteBb1 58
+#define noteB1 62
+#define noteC2 65
+#define noteCs2 69
+#define noteDb2 69
+#define noteD2 73
+#define noteDs2 78
+#define noteEb2 78
+#define noteE2 82
+#define noteF2 87
+#define noteFs2 93
+#define noteGb2 93
+#define noteG2 98
+#define noteGs2 104
+#define noteAb2 104
+#define noteA2 110
+#define noteAs2 117
+#define noteBb2 117
+#define noteB2 123
+#define noteC3 131
+#define noteCs3 139
+#define noteDb3 139
+#define noteD3 147
+#define noteDs3 156
+#define noteEb3 156
+#define noteE3 165
+#define noteF3 175
+#define noteFs3 185
+#define noteGb3 185
+#define noteG3 196
+#define noteGs3 208
+#define noteAb3 208
+#define noteA3 220
+#define noteAs3 233
+#define noteBb3 233
+#define noteB3 247
+#define noteC4 262
+#define noteCs4 277
+#define noteDb4 277
+#define noteD4 294
+#define noteDs4 311
+#define noteEb4 311
+#define noteE4 330
+#define noteF4 349
+#define noteFs4 370
+#define noteGb4 370
+#define noteG4 392
+#define noteGs4 415
+#define noteAb4 415
+#define noteA4 440
+#define noteAs4 466
+#define noteBb4 466
+#define noteB4 494
+#define noteC5 523
+#define noteCs5 554
+#define noteDb5 554
+#define noteD5 587
+#define noteDs5 622
+#define noteEb5 622
+#define noteE5 659
+#define noteF5 698
+#define noteFs5 740
+#define noteGb5 740
+#define noteG5 784
+#define noteGs5 831
+#define noteAb5 831
+#define noteA5 880
+#define noteAs5 932
+#define noteBb5 932
+#define noteB5 988
+#define noteC6 1047
+#define noteCs6 1109
+#define noteDb6 1109
+#define noteD6 1175
+#define noteDs6 1245
+#define noteEb6 1245
+#define noteE6 1319
+#define noteF6 1397
+#define noteFs6 1480
+#define noteGb6 1480
+#define noteG6 1568
+#define noteGs6 1661
+#define noteAb6 1661
+#define noteA6 1760
+#define noteAs6 1865
+#define noteBb6 1865
+#define noteB6 1976
+#define noteC7 2093
+#define noteCs7 2217
+#define noteDb7 2217
+#define noteD7 2349
+#define noteDs7 2489
+#define noteEb7 2489
+#define noteE7 2637
+#define noteF7 2794
+#define noteFs7 2960
+#define noteGb7 2960
+#define noteG7 3136
+#define noteGs7 3322
+#define noteAb7 3322
+#define noteA7 3520
+#define noteAs7 3729
+#define noteBb7 3729
+#define noteB7 3951
+#define noteC8 4186
+#define noteCs8 4435
+#define noteDb8 4435
+#define noteD8 4699
+#define noteDs8 4978
+#define noteEb8 4978
+```
 

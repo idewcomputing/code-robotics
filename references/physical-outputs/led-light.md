@@ -10,9 +10,9 @@ To use the LED light in your robot app, you will need to:
 
 1. Declare a global variable to store the LED's pin number
 2. Set the pin mode for the LED
-3. Use the `digitalWrite()` and `delay()` methods to turn the LED on and off
+3. Use the `digitalWrite()` method to turn the LED on and off
 
-## Declare Variable for LED Pin Number
+## Declare Variable for LED
 
 You'll need to create a global variable to store the pin number of the LED, which is connected to pin D13. Add this code statement **before** the `setup()` function:
 
