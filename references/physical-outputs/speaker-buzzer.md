@@ -65,35 +65,25 @@ tone(speaker, 2000, 500); // frequency 2000 Hz, duration 500 ms
 
 You can use the speaker to play simple music by playing a song note by note. Each note corresponds to a specific frequency played for a specific duration \(such as: whole note, half note, quarter note, etc.\).
 
-[RedBot Experiment 4.2](https://learn.sparkfun.com/tutorials/experiment-guide-for-redbot-with-shadow-chassis/experiment-4-push-to-start--making-sounds-sik) includes an example program that can play "Twinkle Twinkle Little Star" or "It's A Small World".
+Just be aware that while the song is playing, the robot will **NOT** be able to perform other behaviors such as checking sensors, etc.
 
-The example program uses a file named `notes.h` that defines the specific frequencies for each note on a piano keyboard. It also defines durations \(in milliseconds\) for a whole note, half note, quarter note, etc.
+Playing a song requires a file named `notes.h` that defines the specific frequencies for each note on a piano keyboard. It also defines durations \(in milliseconds\) for a whole note, half note, quarter note, etc. based on a defined beat length \(in milliseconds\). If necessary, you can modify the beat length to speed up or slow down the song.
 
-**IMPORTANT:** You will need to include a copy of the `notes.h` file in your robot app, similar to including a library.
+**IMPORTANT:** In addition, you'll need to know the specific sequence of piano notes \(and their durations\) for the song. You'll need to find this information on your own by referring to sheet music or searching online.
 
-The `notes.h` file should be located inside the SparkFun RedBot Library folder:  
-**examples &gt; Exp4\_2\_Music &gt; notes.h**
+To play a song using the speaker, your robot app will need to:
 
-* If necessary, [download a ZIP file of the SparkFun RedBot Library](https://cdn.sparkfun.com/assets/learn_tutorials/3/5/6/SparkFun_RedBot_Arduino_Library-V_2.1.0.zip), and then unzip it to find the file.
-
-#### How to Play Song in Program:
-
-1. Add `notes.h` file to program as separate tab
-2. Include `notes.h` file in program code using: `#include "notes.h"`
-3. Add custom function named `playNote()` to play musical notes
-4. Create custom function named `playSong()` that calls the `playNote()` function for each note \(or rest\) in your song
-5. Play your song by calling the `playSong()` function in your `setup()` or `loop()` function
-
-**IMPORTANT:** You will need to know the specific piano notes \(and their durations\) for the song. You'll have to find this information on your own by using sheet music or searching online.
+1. Add `notes.h` as a separate tab \(separate file\) in your app
+2. Add `#include` statement for `notes.h` in your app
+3. Add `playNote()` custom function which can play musical notes
+4. Create custom function named `playSong()` to call the `playNote()` function for each note \(or rest\) in your song in sequence
 
 #### 1. Add `notes.h` File to Program as Separate Tab
 
-Add the `notes.h` file as a separate tab in your current program:
+Create a new tab named `notes.h` in your app:
 
 * **Arduino Create Web Editor:** Click the tab with a drop-down icon, and select "Import File Into Sketch."
-* **Arduino IDE Desktop Editor:** Under the “Sketch” menu, select “Add File…”
-
-A file upload window will appear. Navigate to where the `notes.h` file is located on your computer. Select the `notes.h` file, and click the "Open" button to close the window.
+* **Arduino IDE Desktop Editor:** Click the down arrow icon in the top-right corner of the code editor window, and then select "New Tab" in the drop-down list. A small dialog will appear at the bottom of the code editor window. Enter `notes.h` as the name of the new file, and then click the **OK** button.
 
 The `notes.h` file should now appear in your program as a separate tab.
 
