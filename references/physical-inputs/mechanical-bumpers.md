@@ -1,6 +1,6 @@
 # Mechanical Bumpers
 
-The RedBot has two mechanical bumpers \(left and right\) at its front to detect collisions with obstacles.
+The RedBot has two mechanical bumpers \(left and right\) at its front to [detect collisions](../robot-behaviors/detecting-objects.md#checkbumpers) with obstacles.
 
 Each mechanical bumper has a wire "whisker" that extends to one side about 6 inches. If the wire whisker collides with an obstacle, the wire will bend and eventually make contact with a metal screw attached to the bumper board. When this happens, it acts like an electrical switch, which the robot can detect has been closed.
 
