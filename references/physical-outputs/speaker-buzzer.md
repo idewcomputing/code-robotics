@@ -76,7 +76,7 @@ The `notes.h` file should be located inside the SparkFun RedBot Library folder:
 
 * If necessary, [download a ZIP file of the SparkFun RedBot Library](https://cdn.sparkfun.com/assets/learn_tutorials/3/5/6/SparkFun_RedBot_Arduino_Library-V_2.1.0.zip), and then unzip it to find the file.
 
-### How to Play Song in Program:
+#### How to Play Song in Program:
 
 1. Add `notes.h` file to program as separate tab
 2. Include `notes.h` file in program code using: `#include "notes.h"`
@@ -86,7 +86,7 @@ The `notes.h` file should be located inside the SparkFun RedBot Library folder:
 
 **IMPORTANT:** You will need to know the specific piano notes \(and their durations\) for the song. You'll have to find this information on your own by using sheet music or searching online.
 
-### 1. Add `notes.h` File to Program as Separate Tab
+#### 1. Add `notes.h` File to Program as Separate Tab
 
 Add the `notes.h` file as a separate tab in your current program:
 
@@ -97,7 +97,7 @@ A file upload window will appear. Navigate to where the `notes.h` file is locate
 
 The `notes.h` file should now appear in your program as a separate tab.
 
-### 2. Include `notes.h` File in Program Code
+#### 2. Include `notes.h` File in Program Code
 
 In the code editor, click the tab that contains your main program. Then add this line of code before your `setup()` function:
 
@@ -105,7 +105,7 @@ In the code editor, click the tab that contains your main program. Then add this
 #include "notes.h"
 ```
 
-### 3. Add Custom Function to Play Musical Notes
+#### 3. Add Custom Function to Play Musical Notes
 
 You will use a custom function named `playNote()` to play one musical note at a time. When calling the function, you include parameters for the note and its duration.
 
@@ -130,7 +130,7 @@ For example, to play a note, call the `playNote()` function by passing in variab
 playNote(noteC4, WN);
 ```
 
-### 4. Create Custom Function to Play Song Note by Note
+#### 4. Create Custom Function to Play Song Note by Note
 
 To play a song, you play each note in order, one at a time, by calling the `playNote()` function separately for each note \(or rest\) in the song.
 
@@ -149,7 +149,7 @@ So in order to play a specific song, you'll have to find out how it would be pla
 
 Then you'll have to use the `notes.h` file to determine what variable names to list for the note and its duration when calling the `playNote()` function for each note.
 
-### 5. Call Custom Function to Play Song
+#### 5. Call Custom Function to Play Song
 
 You can play your song by calling the `playSong()` function inside your `setup()` or `loop()` function:
 
@@ -159,7 +159,7 @@ playSong();
 
 If you want to play the song faster or slower, you can change the value for the `beatLength` defined in the `notes.h` file. By default, `beatLength` has been set to 200 milliseconds. For example, if the song should be played slightly faster, try a lower value such as 150.
 
-### Example Program — Do You Recognize This Song?
+#### Example Program — Do You Recognize This Song?
 
 For example, here's a program that will play a song that you might recognize:
 
@@ -217,9 +217,11 @@ Upload this example program to your RedBot, and push the D12 button on the mainb
 
 To speed up this particular example song to better match the beat of the original song, click the tab for the `notes.h` file, and change the value defined for `beatLength` from its default of `200` to `125` instead. Then re-upload the program to your RedBot, and test it.
 
+{% code-tabs %}
+{% code-tabs-item title="notes.h" %}
 ```cpp
 // NEEDED TO PLAY MUSIC NOTE BY NOTE
-// same code as "notes.h" file
+// add as new tab named "notes.h"
 #define beatLength 200  // milliseconds per beat
 
 // Define length of each note
@@ -374,4 +376,6 @@ To speed up this particular example song to better match the beat of the origina
 #define noteDs8 4978
 #define noteEb8 4978
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
