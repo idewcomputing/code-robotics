@@ -61,7 +61,7 @@ tone(speaker, 2000, 500); // frequency 2000 Hz, duration 500 ms
 **VOLUME:** There is **NOT** a way to change the volume of the tone. However, you will notice that certain frequencies will naturally seem louder to your ears.
 {% endhint %}
 
-## Play Music Note by Note
+## Play Song Note by Note
 
 You can use the speaker to play simple music by playing a song one note at a time. Each note corresponds to a specific frequency played for a specific duration \(such as: whole note, half note, quarter note, etc.\).
 
@@ -81,151 +81,34 @@ To play a song using the speaker, your robot app will need to:
 2. Add `#include` statement for `notes.h` in your app
 3. Add `playNote()` custom function to play musical notes
 4. Create custom function named `playSong()` to call the `playNote()` function for each note \(or rest\) in the song in sequence.
+5. Call `playSong()` function to play the song
 
-#### Step 1. Add `notes.h` File as Separate Tab
+#### STEP 1. Add `notes.h` as Separate Tab in App
 
-Create a new tab named `notes.h` in your app:
+In your app, create a new blank tab named `notes.h`:
 
-* **Arduino Create Web Editor:** Click the tab with a drop-down icon, and select "Import File Into Sketch."
-* **Arduino IDE Desktop Editor:** Click the down arrow icon in the top-right corner of the code editor window, and then select "New Tab" in the drop-down list. A small dialog will appear at the bottom of the code editor window. Enter `notes.h` as the name of the new file, and then click the **OK** button.
+* **Arduino Create Web Editor:** Click the tab with a drop-down icon, and select "New Tab." In the pop-up, enter `notes.h` as the name of the new tab, and click the **OK** button.
+* **Arduino IDE Desktop Editor:** Click the down arrow icon in the top-right corner of the code editor window, and then select "New Tab" in the drop-down list. A small dialog will appear at the bottom of the code editor window. Enter `notes.h` as the name of the new file, and click the **OK** button.
 
-The `notes.h` file should now appear in your program as a separate tab.
-
-#### 2. Include `notes.h` File in Program Code
-
-In the code editor, click the tab that contains your main program. Then add this line of code before your `setup()` function:
-
-```cpp
-#include "notes.h"
-```
-
-#### 3. Add Custom Function to Play Musical Notes
-
-You will use a custom function named `playNote()` to play one musical note at a time. When calling the function, you include parameters for the note and its duration.
-
-Add the `playNote()` custom function **after** your `loop()` function:
-
-```cpp
-void playNote(int note, int duration) {
-    // variable names for notes and durations defined in "notes.h"
-    tone(speaker, note, duration);
-    delay(duration);
-}
-```
-
-Variable names for the possible notes and durations are defined in the `notes.h` file:
-
-* Each note on a piano keyboard is defined in the file with a variable name that represents a specific frequency. For example, `noteC4` \("Middle C"\) is defined as representing a frequency of 262 Hertz.
-* Durations \(whole note, half note, quarter note, etc.\) are defined in the file with variable names that represent a specific amount of time \(in milliseconds\) to play the note.  For example, `WN` represents a whole note, which is defined as 800 milliseconds \(i.e., 4 beats when each beat is 200 milliseconds\).
-
-For example, to play a note, call the `playNote()` function by passing in variable names for the specific note and its duration:
-
-```cpp
-playNote(noteC4, WN);
-```
-
-#### 4. Create Custom Function to Play Song Note by Note
-
-To play a song, you play each note in order, one at a time, by calling the `playNote()` function separately for each note \(or rest\) in the song.
-
-You should create a custom function that contains all the `playNote()` statements for your song.
-
-Add your `playSong()` custom function **after** your `loop()` function:
-
-```cpp
-void playSong() {
-    // add code to play each note of song in order using playNote()
-
-}
-```
-
-So in order to play a specific song, you'll have to find out how it would be played on a piano: i.e., what are the specific notes \(in order\) and their durations \(whole note, half note, etc.\).
-
-Then you'll have to use the `notes.h` file to determine what variable names to list for the note and its duration when calling the `playNote()` function for each note.
-
-#### 5. Call Custom Function to Play Song
-
-You can play your song by calling the `playSong()` function inside your `setup()` or `loop()` function:
-
-```cpp
-playSong();
-```
-
-If you want to play the song faster or slower, you can change the value for the `beatLength` defined in the `notes.h` file. By default, `beatLength` has been set to 200 milliseconds. For example, if the song should be played slightly faster, try a lower value such as 150.
-
-#### Example Program — Do You Recognize This Song?
-
-For example, here's a program that will play a song that you might recognize:
-
-```cpp
-#include "notes.h"
-
-const int speaker = 9;
-const int button = 12;
-
-void setup() {
-    pinMode(speaker, OUTPUT);
-    pinMode(button, INPUT_PULLUP);
-}
-
-void loop() {
-    // when button pushed, play song
-    if (digitalRead(button) == LOW) {
-        playSong();
-    }
-}
-
-// custom functions
-
-void playNote(int note, int duration) {
-    // variable names for notes and durations defined in "notes.h"
-    tone(speaker, note, duration);
-    delay(duration);
-}
-
-void playSong() {
-    // play each note of song in order using playNote()
-    // Do you recognize this song?
-    playNote(noteC4, QN);
-    playNote(noteD4, QN);
-    playNote(noteF4, QN);
-    playNote(noteD4, QN);
-    playNote(noteA4, QN);
-    playNote(Rest, QN);
-    playNote(noteA4, WN);
-    playNote(noteG4, WN);
-    playNote(Rest, HN);
-    playNote(noteC4, QN);
-    playNote(noteD4, QN);
-    playNote(noteF4, QN);
-    playNote(noteD4, QN);
-    playNote(noteG4, QN);
-    playNote(Rest, QN);
-    playNote(noteG4, WN);
-    playNote(noteF4, WN);
-    playNote(Rest, HN);
-}
-```
-
-Upload this example program to your RedBot, and push the D12 button on the mainboard to play the song. [Do you recognize the song?](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-
-To speed up this particular example song to better match the beat of the original song, click the tab for the `notes.h` file, and change the value defined for `beatLength` from its default of `200` to `125` instead. Then re-upload the program to your RedBot, and test it.
+Copy the code below, and paste it into the blank tab named `notes.h`:
 
 {% code-tabs %}
 {% code-tabs-item title="notes.h" %}
 ```cpp
-// NEEDED TO PLAY MUSIC NOTE BY NOTE
+// NEEDED TO PLAY SONG NOTE BY NOTE
 // add as new tab named "notes.h"
+
+// define beat length - can modify to speed up or slow down song
 #define beatLength 200  // milliseconds per beat
 
-// Define length of each note
+// define length of each note
 #define WN   beatLength*4  // whole note
 #define HN   beatLength*2  // half note
 #define QN   beatLength    // quarter note
 #define EN   beatLength/2  // eighth note
 #define SN   beatLength/4  // sixteenth note
 
-// Define frequency for each note on a piano keyboard
+// define frequency of each note on a piano keyboard
 #define Rest 0
 #define noteC0 16
 #define noteCs0 17
@@ -372,4 +255,99 @@ To speed up this particular example song to better match the beat of the origina
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
+
+#### STEP 2. Include `notes.h` File in App
+
+Next you need to include the `notes.h` file in your app code, similar to including a library.
+
+In the code editor, click the tab that contains your main app. Add this code statement at the beginning of your code:
+
+```cpp
+#include "notes.h"
+```
+
+#### STEP 3. Add Custom Function to Play Individual Note
+
+A custom function named `playNote()` will be used to play one musical note at a time. When calling the function, you must include parameters for the note and its duration.
+
+Add this `playNote()` function **after** your `loop()` function:
+
+```cpp
+void playNote(int note, int duration) {
+    // variable names for notes and durations defined in "notes.h"
+    tone(speaker, note, duration);
+    delay(duration);
+}
+```
+
+The variable names for the notes and durations are defined in the `notes.h` file:
+
+* Each **note** on a piano keyboard is defined in `notes.h` with a variable name that represents a specific frequency. For example, `noteC4` is the variable name for "Middle C", which is defined as having a frequency of 262 Hertz.
+* Each **duration** \(whole note, half note, quarter note, etc.\) is defined in `notes.h` with a variable name that represent a specific duration.  For example, `WN` is the variable name for a whole note, which is defined as 4 beats \(which will be 800 milliseconds if each beat length is defined as 200 milliseconds\).
+
+To play a note, your app code will need to call the `playNote()` function and list the defined variable names for the specific note and its duration within the parentheses. For example, to play a "Middle C" whole note:
+
+```cpp
+playNote(noteC4, WN);
+```
+
+#### STEP 4. Create Custom Function to Play Song Note by Note
+
+To play a song, your app code will need to play each note in order, one at a time, by calling the `playNote()` function separately for each note \(or rest\) in the song in sequence.
+
+You'll create a custom function named `playSong()` that will contain all the `playNote()` statements for your song.
+
+Add this blank `playSong()` function **after** your `loop()` function:
+
+```cpp
+void playSong() {
+  // add code to play each note of song in order using playNote()
+
+}
+```
+
+To play a specific song, you'll need to know how it would be played on a piano one note at a time:  i.e., what are the specific notes and their durations \(whole note, half note, etc.\)
+
+Then you'll have to use the `notes.h` file to determine which variable names to list for the note and its duration. Then you'll need to list a code statement for each note to call the `playNote()` function.
+
+For example, here's what the code inside the `playSong()` function would need to be in order to play the beginning of the song "Twinkle, Twinkle Little Star":
+
+```cpp
+void playSong() {
+  // add code to play each note of song in order using playNote()
+  // beginning of "Twinkle, Twinkle Little Star"
+  playNote(noteC4, QN);
+  playNote(noteC4, QN);
+
+  playNote(noteG4, QN);    
+  playNote(noteG4, QN);  
+
+  playNote(noteA4, QN);    
+  playNote(noteA4, QN);  
+
+  playNote(noteG4, HN);
+
+  playNote(noteF4, QN);    
+  playNote(noteF4, QN);
+}
+```
+
+{% hint style="info" %}
+**MULTIPLE SONGS:**  If your app needs to play more than one song, create a separate custom function to play the notes for each song. Give each custom function a unique name, such as `playSong1()`, `playSong2()`, etc.
+{% endhint %}
+
+#### STEP 5. Call Custom Function to Play Song
+
+You can play your song by calling the `playSong()` function **within** another function \(such as the `setup()`, `loop()`, or another custom function\) depending on when the song should be played:
+
+```cpp
+playSong();
+```
+
+If you need the song to play faster or slower, you can change the value for the `beatLength` defined in the `notes.h` file. By default, `beatLength` has been set to `200` milliseconds.
+
+* If the song should be played **faster**, use a **lower** value for `beatLength`.
+* If the song should be played **slower**, use a **higher** value for `beatLength`.
+
+
 
