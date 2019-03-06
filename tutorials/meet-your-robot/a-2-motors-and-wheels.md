@@ -2,11 +2,11 @@
 
 ## Motors and Wheels
 
-The RedBot is a two-wheeled robot.  It also has a semi-circular plastic "nub caster" on the underside of its chassis at the back. This caster acts as a third point of contact to balance the robot \(similar to a third wheel, except this caster doesn't rotate\).
+The RedBot is a two-wheeled robot. It also has a semi-circular plastic "nub caster" on the underside of its chassis at the back. This caster acts as a third point of contact to balance the robot \(similar to a third wheel, except the caster doesn't rotate\).
 
 Each wheel is driven by its own motor, which is connected to the RedBot circuit board by a pair of red and black wires. These left and right motors can be controlled as a set or independently, in order to make the robot drive forward, backwards, or make turns.
 
-You can also determine how power each motor receives, in order to rotate the wheels faster or slower, to control the speed of your robot as it drives and turns.
+You can also determine how much power each motor receives, in order to rotate the wheels faster or slower, to control the speed of your robot as it drives and turns.
 
 ![Motors](../../.gitbook/assets/redbot-motors.jpg)
 
