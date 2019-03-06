@@ -37,7 +37,7 @@ This guidebook is tailored for a two-wheeled robotics kit called the [SparkFun I
 SparkFun sells other sensors and actuators that may be compatible the RedBot. If possible, it is highly recommended to add an [ultrasonic sensor](references/physical-inputs/ultrasonic-sensor.md) to the RedBot for more design possibilities. This sensor is inexpensive and can be easily connected to one of the unused set of pins on the RedBot circuit board.
 
 {% hint style="warning" %}
-**NOTE:** Your instructor may have provided you with a different robotics kit. If your robotics kit uses **Arduino**, then you might still be able to use this guidebook to help get familiar with programming your robot to perform different behaviors and tasks.
+**NOTE:** Your instructor may have provided you with a different robotics kit. If your robotics kit uses **Arduino**, then you might still be able to use this guidebook to learn how to program your robot to perform different behaviors and tasks.
 {% endhint %}
 
 ## Copyright and License
