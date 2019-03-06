@@ -63,22 +63,26 @@ tone(speaker, 2000, 500); // frequency 2000 Hz, duration 500 ms
 
 ## Play Music Note by Note
 
-You can use the speaker to play simple music by playing a song note by note. Each note corresponds to a specific frequency played for a specific duration \(such as: whole note, half note, quarter note, etc.\).
+You can use the speaker to play simple music by playing a song one note at a time. Each note corresponds to a specific frequency played for a specific duration \(such as: whole note, half note, quarter note, etc.\).
 
-Just be aware that while the song is playing, the robot will **NOT** be able to perform other behaviors such as checking sensors, etc.
+{% hint style="danger" %}
+**IMPORTANT:**  Be aware that while the song is playing, the robot will **NOT** be able to perform other behaviors such as checking sensors, navigating, etc.
+{% endhint %}
 
 Playing a song requires a file named `notes.h` that defines the specific frequencies for each note on a piano keyboard. It also defines durations \(in milliseconds\) for a whole note, half note, quarter note, etc. based on a defined beat length \(in milliseconds\). If necessary, you can modify the beat length to speed up or slow down the song.
 
-**IMPORTANT:** In addition, you'll need to know the specific sequence of piano notes \(and their durations\) for the song. You'll need to find this information on your own by referring to sheet music or searching online.
+{% hint style="success" %}
+**IMPORTANT:** To play a song, you need to know its specific sequence of piano notes \(and their durations\). You'll need to refer to sheet music or search online.
+{% endhint %}
 
 To play a song using the speaker, your robot app will need to:
 
 1. Add `notes.h` as a separate tab \(separate file\) in your app
 2. Add `#include` statement for `notes.h` in your app
-3. Add `playNote()` custom function which can play musical notes
-4. Create custom function named `playSong()` to call the `playNote()` function for each note \(or rest\) in your song in sequence
+3. Add `playNote()` custom function to play musical notes
+4. Create custom function named `playSong()` to call the `playNote()` function for each note \(or rest\) in the song in sequence.
 
-#### 1. Add `notes.h` File to Program as Separate Tab
+#### Step 1. Add `notes.h` File as Separate Tab
 
 Create a new tab named `notes.h` in your app:
 
