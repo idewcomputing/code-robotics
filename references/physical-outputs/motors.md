@@ -8,6 +8,15 @@ You can also determine how much power each motor receives, in order to rotate th
 
 ![Motors](../../.gitbook/assets/redbot-motors.jpg)
 
+The RedBot has a [wheel encoder](../physical-inputs/wheel-encoders.md) located directly behind each motor. The wheel encoders count the number of times each motor has rotated. This information can be used to calculate the distance that the robot has driven or turned.
+
+Together, the motors and wheel encoders can perform several useful robot behaviors:
+
+1. The robot can [**drive in a straight line**](../robot-behaviors/driving.md#drivestraight) by making small adjustments in the left and right motor powers to make sure both motors rotate at the same average speed.
+2. The robot can [**drive for a specific distance**](../robot-behaviors/driving.md#drivedistance) by calculating how far the wheels have traveled. This is combined with adjusting the motor powers to drive straight.
+3. The robot can ****[**pivot on both wheels by a specific angle**](../robot-behaviors/turning.md#pivotangle) by calculating how far the wheels have traveled while pivoting in a circle.
+4. The robot can [**turn on one wheel by a specific angle**](../robot-behaviors/turning.md#turnangle) by calculating how far the driving wheel has traveled while turning in a circle.
+
 ## How to Code Motors
 
 To use the motors in your robot app, you will need to:
@@ -126,7 +135,7 @@ There are three ways to turn the robot, depending on how tight the turn needs to
 
 The `RedBotMotors` object has a `pivot()` method which drives one motor forward, while driving the other motor in reverse. This makes the robot pivot either clockwise \(to the right\) or counter-clockwise \(to the left\).
 
-Pivoting results in a perfectly tight turn \("zero turn radius"\) as the robot's axis of rotation is centered between its wheels. As a result, the robot doesn't move forward while pivoting.
+Pivoting results in a perfectly tight turn \("zero turn radius"\) as the robot's axis of rotation is centered between its wheels.
 
 The `pivot()` method requires a **motor power** to be listed within its parentheses. The motor power can be can be any integer value \(whole number\) between `-255` and `255`:
 
