@@ -37,11 +37,11 @@ The `RedBotMotors` object has several methods for driving the robot's motors for
 * `leftDrive()` or `leftMotor()` — drives the left motor only
 * `rightDrive()` or `rightMotor()` – drives the right motor only
 
-Each of these methods requires a **motor power** to be listed within the parentheses. The motor power can be can be any integer value \(whole number\) between `-255` and `255`:
+Each of these methods requires a **motor power** to be listed within its parentheses. The motor power can be can be any integer value \(whole number\) between `-255` and `255`:
 
 * **Positive** values drive the robot **forward**.
 * **Negative** values drive the robot in **reverse**.
-* A **larger absolute value** produces a **faster speed** \(i.e., `255` is the fastest speed for driving forward, `-255` is the fastest speed for driving in reverse, etc.\).
+* A **larger absolute value** produces a **faster driving speed** \(i.e., `255` is the fastest speed for driving forward, `-255` is the fastest speed for driving in reverse, etc.\).
 
 {% hint style="warning" %}
 **ONE EXCEPTION TO RULE:**  The `leftMotor()` method works differently. Positive values rotate the left motor clockwise, which is actually in reverse. Negative values rotate the left motor counterclockwise, which is forward.
@@ -65,9 +65,19 @@ For example, to drive just the **left** motor forward at a power \(speed\) of 12
 motors.leftDrive(125);
 ```
 
-{% hint style="info" %}
-**KEEP ON DRIVING:**  Once a code statement is used to start one or both motors driving, the motor\(s\) will keep driving at that same power until another code statement is used to **stop** the motor\(s\).
-{% endhint %}
+**KEEP ON DRIVING**
+
+Once a code statement is used to start driving one or both motors, the motor\(s\) will keep driving continuously until a separate code statement is used to stop the motor\(s\). This is similar to how separate code statements are needed to turn an LED light on and then off.
+
+The `delay()` method can be used to allow the motor\(s\) to drive for a certain amount of time before stopping the motor\(s\).
+
+For example, this code will drive the robot forward at a motor power of 150 for 4 seconds and then stop the motors:
+
+```cpp
+motors.drive(150);
+delay(4000);
+motors.brake();
+```
 
 #### NOT TOO FAST – AND NOT TOO SLOW
 
@@ -106,21 +116,25 @@ motors.leftStop();
 
 ## Turning
 
-There are several ways to turn the RedBot left or right, depending on how tight the turn needs to be. The RedBot is capable of pivoting on both wheels, which results in a "zero turn radius" \(tightest possible turn\).
+There are three ways to turn the robot:
 
-| Type of Turn | How Turn Works |
-| :--- | :--- |
-| Pivot on Both Wheels | Both wheels rotate in **same** direction \(both CW or both CCW\) at **same** motor power |
-| Turn on One Wheel | Only one wheel rotates \(either CW or CCW\) while other wheel is **stopped** |
-| Gentle Turn | Wheels rotate in **opposite** directions \(one CW and other CCW\) at **different** motor powers |
-
-Here is a visual comparison of pivoting on both wheels versus turning on one wheel:
-
-![](../../.gitbook/assets/pivot-both-vs-turn-one.png)
+* **Pivot on Both Wheels** – both motors drive at same power, but in opposite directions
+* **Turn on One Wheel** – one motor drives, while other motor is stopped
+* **Drive in Curve** – both motors drive in same direction, but at different powers
 
 ### Pivot on Both Wheels
 
-The `pivot()` method results in a perfectly tight turn, as the RedBot's axis of rotation is centered between its wheels. As a result, the RedBot doesn't move forward while pivoting.
+The `RedBotMotors` object has a `pivot()` method which drives one motor forward, while driving the other motor in reverse. This makes the robot pivot either clockwise \(to the right\) or counter-clockwise \(to the left\).
+
+Pivoting results in a perfectly tight turn \("zero turn radius"\) as the robot's axis of rotation is centered between its wheels. As a result, the robot doesn't move forward while pivoting.
+
+The `pivot()` method requires a **motor power** to be listed within its parentheses. The motor power can be can be any integer value \(whole number\) between `-255` and `255`:
+
+* **Positive** values pivot the robot **clockwise to the right**.
+* **Negative** values pivot the robot **counter-clockwise to the left**.
+* A **larger absolute value** produces a **faster pivot speed** \(i.e., `255` is the fastest clockwise speed, `-255` is the fastest counter-clockwise speed, etc.\).
+
+Here is a visual comparison of pivoting on both wheels versus turning on one wheel:
 
 The `pivot()` method rotates **both** motors to pivot \(turn\) the RedBot either clockwise \(to the right\) or counter-clockwise \(to the left\):
 
