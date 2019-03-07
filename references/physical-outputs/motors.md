@@ -13,7 +13,7 @@ You can also determine how much power each motor receives, in order to rotate th
 To use the motors in your robot app, you will need to:
 
 1. Create `RedBotMotors` object for the motors
-2. Use the object's methods to control the motors:  `drive()`, `pivot()`, `brake()`, etc.
+2. Use the object's methods to control the motors:  `drive()`, `brake()`, `pivot()`, etc.
 
 ## Create RedBotMotors Object
 
@@ -29,7 +29,7 @@ RedBotMotors motors;
 **REDBOT LIBRARY:**  Be sure your robot app has an `#include` statement for the SparkFun RedBot library. [Here's how to include the RedBot library](../arduino-code-editor/include-redbot-library.md).
 {% endhint %}
 
-## Drive Motors
+## Driving
 
 The `drive()` method rotates **both** motors to move the RedBot either forwards or backwards:
 
@@ -59,7 +59,7 @@ If necessary, you can use the [wheel encoders](https://github.com/idewcomputing/
 
 You can also drive the left and right motors independently by using different powers for each motor \(or even stopping one motor while the other keeps driving\). In certain situations, this may be useful. For example, this can be used to make the RedBot curve or turn.
 
-### Drive Left Motor
+### Drive Individual Motor
 
 Use the `leftMotor()` method to drive just the left motor:
 
@@ -85,7 +85,7 @@ motors.leftDrive(power);
 
 For example, if the left motor rotates counter-clockwise \(forwards\) while the right motor is stopped, the RedBot will turn clockwise \(to the right\).
 
-### Drive Right Motor
+#### Drive Right Motor
 
 Use the `rightMotor()` method to drive just the right motor:
 
@@ -131,11 +131,23 @@ When driving both motors at the same power, you may notice that your RedBot drif
 
 If necessary, you can use the [wheel encoders](https://github.com/idewcomputing/code-robotics/tree/64cdad2dc649e653442a139dd557784bf73edac0/references/physical-outputs/wheel-encoders.md) to help adjust the left and right motor powers while the RedBot is driving, in order to make it drive in a straight line.
 
-## Stop Motors \(Coast to Stop\)
-
-The `coast()` method turns off **both** motors and allows the RedBot to coast to a stop.
+## Stopping
 
 ### Stop Both Motors
+
+#### Brake Motors \(Abrupt Stop\)
+
+The `brake()` method actively brakes **both** motors and causes the RedBot to abruptly stop.
+
+#### Brake Both Motors
+
+```cpp
+motors.brake();
+```
+
+You can also brake the left and right motors independently. In certain situations, this may be useful.
+
+#### Stop Both Motors
 
 ```cpp
 motors.coast();
@@ -149,7 +161,23 @@ motors.stop();
 
 You can also stop \(coast\) the left and right motors independently. In certain situations, this may be useful.
 
-### Stop Left Motor
+### Stop Individual Motor
+
+#### Brake Left Motor
+
+```cpp
+motors.leftBrake();
+```
+
+#### Brake Right Motor
+
+```cpp
+motors.rightBrake();
+```
+
+The `coast()` method turns off **both** motors and allows the RedBot to coast to a stop.
+
+#### Stop Left Motor
 
 ```cpp
 motors.leftCoast();
@@ -161,7 +189,7 @@ Alternatively, you can use the `leftStop()` method, which does the exact **same*
 motors.leftStop();
 ```
 
-### Stop Right Motor
+#### Stop Right Motor
 
 ```cpp
 motors.rightCoast();
@@ -173,31 +201,7 @@ Alternatively, you can use the `rightStop()` method, which does the exact **same
 motors.rightStop();
 ```
 
-## Brake Motors \(Abrupt Stop\)
-
-The `brake()` method actively brakes **both** motors and causes the RedBot to abruptly stop.
-
-### Brake Both Motors
-
-```cpp
-motors.brake();
-```
-
-You can also brake the left and right motors independently. In certain situations, this may be useful.
-
-### Brake Left Motor
-
-```cpp
-motors.leftBrake();
-```
-
-### Brake Right Motor
-
-```cpp
-motors.rightBrake();
-```
-
-## Turn Left or Right
+## Turning
 
 There are several ways to turn the RedBot left or right, depending on how tight the turn needs to be. The RedBot is capable of pivoting on both wheels, which results in a "zero turn radius" \(tightest possible turn\).
 
@@ -265,7 +269,7 @@ motors.leftStop();
 motors.rightDrive(100);
 ```
 
-### Make Gentle Turn
+### Drive in Curve
 
 Furthermore, you can make gentle turns or curves by simply applying different amounts of power to the two motors:
 
