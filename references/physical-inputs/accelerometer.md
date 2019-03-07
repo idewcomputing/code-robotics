@@ -36,7 +36,7 @@ To use the accelerometer in your robot app, you will need to:
 
 ## Create RedBotAccel Object
 
-The SparkFun `RedBot` library has a class named `RedBotAccel` which contains methods \(functions\) to control the accelerometer.
+The SparkFun `RedBot` library has a class named `RedBotAccel` which defines methods \(functions\) to control the accelerometer.
 
 Before the `setup()` function, create a `RedBotAccel` object by assigning it to a variable:
 

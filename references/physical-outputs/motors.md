@@ -17,7 +17,7 @@ To use the motors in your robot app, you will need to:
 
 ## Create RedBotMotors Object
 
-The SparkFun `RedBot` library has a class named `RedBotMotors` which contains methods \(functions\) to control the left and right motors.
+The SparkFun `RedBot` library has a class named `RedBotMotors` which defines methods \(functions\) to control the left and right motors.
 
 Before the `setup()` function, create a `RedBotMotors` object by assigning it to a variable name:
 
@@ -31,183 +31,77 @@ RedBotMotors motors;
 
 ## Driving
 
-The RedBotMotors objects has several methods for driving the robot's motors.
+The `RedBotMotors` object has several methods for driving the robot's motors forward \(or in reverse\). Both motors can be driven together, or each motor can be driven separately:
 
-The  `drive()` method rotates **both** motors to move the RedBot either forwards or backwards:
+* `drive()` — drives both motors
+* `leftDrive()` or `leftMotor()` — drives the left motor only
+* `rightDrive()` or `rightMotor()` – drives the right motor only
 
-* When moving the RedBot forward, the right motor rotates clockwise \(CW\), while the left motor rotates counter-clockwise \(CCW\).
-* When moving the RedBot backwards, the right motor rotates counter-clockwise \(CCW\), while the left motor rotates clockwise \(CW\).
+Each of these methods requires a **motor power** to be listed within the parentheses. The motor power can be can be any integer value \(whole number\) between `-255` and `255`:
 
-Even though this might seem like the wheels would be moving in opposite directions, it actually makes the wheels move in the **same** direction because the wheels are oriented as mirror images of each other.
-
-### Drive Both Motors
-
-The `RedBotMotors` object has a `drive()` method that rotates both motors in order to drive the robot forward \(or in reverse\):
-
-```cpp
-motors.drive(power);
-```
-
-`power` represents the power applied to the motors, which can be any integer value between `-255` and `255`:
-
-* Positive values drive the robot forward.
-* Negative values drive the robot in reverse.
-* A larger absolute value results in a faster speed \(i.e., `255` is the fastest speed for driving forward, `-255` is the fastest speed for driving in reverse, etc.\).
+* **Positive** values drive the robot **forward**.
+* **Negative** values drive the robot in **reverse**.
+* A **larger absolute value** produces a **faster speed** \(i.e., `255` is the fastest speed for driving forward, `-255` is the fastest speed for driving in reverse, etc.\).
 
 {% hint style="warning" %}
-**NOT TOO FAST:** If you run the motors at a very high power, the wheels might "spin out" due to insufficient traction. If you notice this issue, use a lower motor power. In general, use a power of 200 or less, depending on the surface.
+**ONE EXCEPTION TO RULE:**  The `leftMotor()` method works differently. Positive values rotate the left motor clockwise, which is actually in reverse. Negative values rotate the left motor counterclockwise, which is forward.
 {% endhint %}
 
-{% hint style="warning" %}
-**NOT TOO SLOW:**  If you run the motors at a very low power, they may not have enough torque to actually rotate the wheels. If you notice this issue, use a higher motor power. In general, use a power of 50 or more, depending on the surface.
+For example, to drive both motors forward at a power \(speed\) of 150: 
+
+```cpp
+motors.drive(150);
+```
+
+For example, to drive both motors in **reverse** at a power \(speed\) of 100: 
+
+```cpp
+motors.drive(-100);
+```
+
+For example, to drive just the **left** motor forward at a power \(speed\) of 125: 
+
+```cpp
+motors.leftDrive(125);
+```
+
+{% hint style="info" %}
+**KEEP ON DRIVING:**  Once a code statement is used to start one or both motors driving, the motor\(s\) will keep driving at that same power until another code statement is used to **stop** the motor\(s\).
 {% endhint %}
 
-When driving both motors at the same power, you may notice that your RedBot drifts slightly to the left \(or right\), instead of driving in a perfectly straight line. If this occurs, it is because the motors are rotating at slightly different speeds, even though they are receiving the same amount of power.
+#### NOT TOO FAST – AND NOT TOO SLOW
 
-If necessary, you can use the [wheel encoders](https://github.com/idewcomputing/code-robotics/tree/64cdad2dc649e653442a139dd557784bf73edac0/references/physical-outputs/wheel-encoders.md) to help adjust the left and right motor powers while the RedBot is driving, in order to make it drive in a straight line.
+If you run the motors at a **very high power**, the wheels might "spin out" due to insufficient traction with the surface. If you notice this issue, use a lower motor power. In general, use a motor power of 200 or less, depending on the surface.
 
-You can also drive the left and right motors independently by using different powers for each motor \(or even stopping one motor while the other keeps driving\). In certain situations, this may be useful. For example, this can be used to make the RedBot curve or turn.
+If you run the motors at a **very low power**, they might not have enough torque to actually rotate the wheels. If you notice this issue, use a higher motor power. In general, use a motor power of 50 or more, depending on the surface.
 
-### Drive Individual Motor
+#### DRIFTING WHILE DRIVING
 
-Use the `leftMotor()` method to drive just the left motor:
+When driving both motors, you may notice your robot drifts slightly to the left \(or right\), instead of driving in a perfectly straight line. This is actually a common occurrence with independent wheel drive vehicles. This happens because the motors are rotating at slightly different speeds, even though they may be receiving the same amount of power.
 
-```cpp
-motors.leftMotor(power);
-```
-
-* `power` represents the power applied to the left motor, which can be any integer value between `-255` and `255`.
-  * Positive values rotate the left motor clockwise \(backwards\).
-  * Negative values rotate the left motor counter-clockwise \(forwards\).
-  * A larger absolute value results in a faster speed. \(`-255` and `255` are the fastest speeds. `-1` and `1` are the slowest speeds.\)
-
-Alternatively, you can use the `leftDrive()` method, which does the exact **same** thing — except positive values are used to drive forwards \(and negative values are used to drive backwards\):
-
-```cpp
-motors.leftDrive(power);
-```
-
-* `power` represents the power applied to the left motor, which can be any integer value between `-255` and `255`.
-  * Positive values rotate the left motor forwards \(counter-clockwise\).
-  * Negative values rotate the left motor backwards \(clockwise\).
-  * A larger absolute value results in a faster speed. \(`-255` and `255` are the fastest speeds. `-1` and `1` are the slowest speeds.\)
-
-For example, if the left motor rotates counter-clockwise \(forwards\) while the right motor is stopped, the RedBot will turn clockwise \(to the right\).
-
-#### Drive Right Motor
-
-Use the `rightMotor()` method to drive just the right motor:
-
-```cpp
-motors.rightMotor(power);
-```
-
-* `power` represents the power applied to the right motor, which can be any integer value between `-255` and `255`.
-  * Positive values rotate the right motor clockwise \(forwards\).
-  * Negative values rotate the right motor counter-clockwise \(backwards\).
-  * A larger absolute value results in a faster speed. \(`-255` and `255` are the fastest speeds. `-1` and `1` are the slowest speeds.\)
-
-Alternatively, you can use the `rightDrive()` method, which does the exact **same** thing:
-
-```cpp
-motors.rightDrive(power);
-```
-
-* `power` represents the power applied to the right motor, which can be any integer value between `-255` and `255`.
-  * Positive values rotate the right motor forwards \(clockwise\).
-  * Negative values rotate the right motor backwards \(counter-clockwise\).
-  * A larger absolute value results in a faster speed. \(`-255` and `255` are the fastest speeds. `-1` and `1` are the slowest speeds.\)
-
-For example, if the right motor rotates clockwise \(forwards\) while the left motor is stopped, the RedBot will turn counter-clockwise \(to the left\).
-
-**NOTE:** You can accomplish the same results using either the `drive()` method or by combining the `leftMotor()` and `rightMotor()` methods:
-
-```cpp
-motors.drive(150); // move forwards
-/*  does same as:
-    motors.leftMotor(-150);
-    motors.rightMotor(150);
-*/
-
-motors.drive(-150); // move backwards
-/*  does same as:
-    motors.leftMotor(150);
-    motors.rightMotor(-150);
-*/
-```
-
-When driving both motors at the same power, you may notice that your RedBot drifts slightly to the left \(or right\), instead of driving in a perfectly straight line. If this occurs, it is because the motors are rotating at slightly different speeds, even though they are receiving the same amount of power.
-
-If necessary, you can use the [wheel encoders](https://github.com/idewcomputing/code-robotics/tree/64cdad2dc649e653442a139dd557784bf73edac0/references/physical-outputs/wheel-encoders.md) to help adjust the left and right motor powers while the RedBot is driving, in order to make it drive in a straight line.
+If necessary, there are custom functions that use the wheel encoders to adjust the left and right motor powers while the robot is driving, in order to make it [drive in a straight line](../robot-behaviors/driving.md).
 
 ## Stopping
 
-### Stop Both Motors
+The `RedBotMotors` object has several methods for stopping the robot's motors. Both motors can be stopped together, or each motor can be stopped separately:
 
-#### Brake Motors \(Abrupt Stop\)
+* `brake()` — abruptly stops both motors \(quick braking\)
+* `coast()` or `stop()` — stops both motors \(coast to a stop\)
+* `leftBrake()` — abruptly stops the left motor only
+* `rightBrake()` — abruptly stops the right motor only
+* `leftCoast()` or `leftStop()` – stops the left motor only
+* `rightCoast()` or `rightStop()` – stops the left motor only 
 
-The `brake()` method actively brakes **both** motors and causes the RedBot to abruptly stop.
-
-#### Brake Both Motors
+For example, to brake both the motors:
 
 ```cpp
 motors.brake();
 ```
 
-You can also brake the left and right motors independently. In certain situations, this may be useful.
-
-#### Stop Both Motors
-
-```cpp
-motors.coast();
-```
-
-Alternatively, you can use the `stop()` method, which does the exact **same** thing:
-
-```cpp
-motors.stop();
-```
-
-You can also stop \(coast\) the left and right motors independently. In certain situations, this may be useful.
-
-### Stop Individual Motor
-
-#### Brake Left Motor
-
-```cpp
-motors.leftBrake();
-```
-
-#### Brake Right Motor
-
-```cpp
-motors.rightBrake();
-```
-
-The `coast()` method turns off **both** motors and allows the RedBot to coast to a stop.
-
-#### Stop Left Motor
-
-```cpp
-motors.leftCoast();
-```
-
-Alternatively, you can use the `leftStop()` method, which does the exact **same** thing:
+For example, to stop just the **left** motor: 
 
 ```cpp
 motors.leftStop();
-```
-
-#### Stop Right Motor
-
-```cpp
-motors.rightCoast();
-```
-
-Alternatively, you can use the `rightStop()` method, which does the exact **same** thing:
-
-```cpp
-motors.rightStop();
 ```
 
 ## Turning

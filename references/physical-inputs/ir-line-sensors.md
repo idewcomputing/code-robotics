@@ -35,7 +35,7 @@ To use the IR sensors in your robot app, you will need to:
 
 ## Create RedBotSensor Objects
 
-The SparkFun `RedBot` library has a class named `RedBotSensor` which contains methods \(functions\) to control analog sensors, such as the IR line following sensors.
+The SparkFun `RedBot` library has a class named `RedBotSensor` which defines methods \(functions\) to control analog sensors, such as the IR line following sensors.
 
 Before the `setup()` function, create a `RedBotSensor` object for each IR sensor by assigning each object a variable name and indicating its pin number within parentheses:
 

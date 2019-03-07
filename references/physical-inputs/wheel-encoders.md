@@ -71,7 +71,7 @@ To use the wheel encoders in your robot app, you will need to:
 
 ## Create RedBotEncoder Object
 
-The SparkFun `RedBot` library has a class named `RedBotEncoder` which contains methods \(functions\) to control the wheel encoders.
+The SparkFun `RedBot` library has a class named `RedBotEncoder` which defines methods \(functions\) to control the wheel encoders.
 
 Before the `setup()` function, create a `RedBotEncoder` object by assigning it to a variable name and indicating the pin numbers for the left and right encoders in parentheses:
 
