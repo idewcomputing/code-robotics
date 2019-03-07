@@ -31,7 +31,9 @@ RedBotMotors motors;
 
 ## Driving
 
-The `drive()` method rotates **both** motors to move the RedBot either forwards or backwards:
+The RedBotMotors objects has several methods for driving the robot's motors.
+
+The  `drive()` method rotates **both** motors to move the RedBot either forwards or backwards:
 
 * When moving the RedBot forward, the right motor rotates clockwise \(CW\), while the left motor rotates counter-clockwise \(CCW\).
 * When moving the RedBot backwards, the right motor rotates counter-clockwise \(CCW\), while the left motor rotates clockwise \(CW\).
@@ -40,7 +42,7 @@ Even though this might seem like the wheels would be moving in opposite directio
 
 ### Drive Both Motors
 
-Use the `drive()` method to drive both motors at the same time:
+The `RedBotMotors` object has a `drive()` method that rotates both motors in order to drive the robot forward \(or in reverse\):
 
 ```cpp
 motors.drive(power);
