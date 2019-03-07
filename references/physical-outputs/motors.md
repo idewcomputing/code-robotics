@@ -156,7 +156,7 @@ Once a code statement is used to start pivoting the motors, the motors will keep
 
 The `delay()` method can be used to allow the motors to pivot for a certain amount of time before stopping the motors.
 
-For example, this code will pivot the robot clockwise to the right at a motor power of 100 for 0.75 seconds and then stop the motors:
+For example, this code will pivot the robot clockwise to the right at a motor power of 100 for 0.75 seconds and then stop:
 
 ```cpp
 motors.pivot(100);
@@ -194,7 +194,7 @@ Once a code statement is used to start driving one motor to turn the robot, the 
 
 The `delay()` method can be used to allow the motor to drive for a certain amount of time before stopping the motor.
 
-For example, this code will turn the robot clockwise on the right wheel at a motor power of 100 for 1.5 seconds and then stop the motors:
+For example, this code will turn the robot clockwise on the right wheel at a motor power of 100 for 1.5 seconds and then stop:
 
 ```cpp
 // turn CW to right
@@ -206,31 +206,49 @@ motors.leftStop();
 
 ### Drive in Curved Path
 
-Furthermore, you can make gentle turns or curves by simply applying different amounts of power to the two motors:
+Finally, you can also drive the robot in a curved path by driving both motors in the same direction \(both forward or both in reverse\) but at different motor powers:
 
-* Applying more power to the **left motor** will cause the RedBot to curve to the **right**.
-* Applying more power to the **right motor** will cause the RedBot to curve to the **left**.
-* A larger difference in the motor powers will make the RedBot curve more sharply, while a smaller difference will make the RedBot curve more gently.
+* Applying more power to the **left motor** will cause the robot to curve to the **right**.
+* Applying more power to the **right motor** will cause the robot to curve to the **left**.
+* A **larger difference** in the motor powers will make the robot drive in a **sharper curve** \(while a smaller difference will make the robot drive in more gentle curve\).
 
-This will help maintain even more of the RedBot's forward momentum, compared to turning on one wheel \(which is an extreme version of using different motor powers that applies a power of zero to one wheel\).
+For example, this code will make the robot drive in a curved path to the **left**:
 
 ```cpp
 // curve to left
-motors.leftMotor(-100);
-motors.rightMotor(150);
-
-// curve to right
-motors.leftMotor(-150);
-motors.rightMotor(100);
-
-// curve to right more sharply
-motors.leftMotor(-175);
-motors.rightMotor(100);
-
-// curve to right more gently
-motors.leftMotor(-125);
-motors.rightMotor(100);
+motors.leftDrive(100);
+motors.rightDrive(150);
 ```
 
+For example, this code will make the robot drive in a curved path to the **right**:
 
+```cpp
+// curve to right
+motors.leftDrive(150);
+motors.rightDrive(100);
+```
+
+For example, this code will make the robot drive in a **sharper** curved path to the right:
+
+```cpp
+// curve to right more sharply
+motors.leftDrive(200);
+motors.rightDrive(100);
+```
+
+**KEEP ON CURVING**
+
+Once code statements are used to start driving the motors in a curve, the motors will keep driving continuously until a separate code statement is used to stop the motors. This is similar to how separate code statements are needed to turn an LED light on and then off.
+
+The `delay()` method can be used to allow the motors to drive for a certain amount of time before stopping the motors.
+
+For example, this code will make the robot drive in a curved path to the left for 3 seconds and then stop:
+
+```cpp
+// curve to left
+motors.leftDrive(100);
+motors.rightDrive(150);
+delay(3000);
+motors.brake();
+```
 
