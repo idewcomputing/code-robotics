@@ -71,11 +71,11 @@ Once a code statement is used to start driving one or both motors, the motor\(s\
 
 The `delay()` method can be used to allow the motor\(s\) to drive for a certain amount of time before stopping the motor\(s\).
 
-For example, this code will drive the robot forward at a motor power of 150 for 4 seconds and then stop the motors:
+For example, this code will drive the robot forward at a motor power of 150 for 3 seconds and then stop the motors:
 
 ```cpp
 motors.drive(150);
-delay(4000);
+delay(3000);
 motors.brake();
 ```
 
@@ -116,11 +116,11 @@ motors.leftStop();
 
 ## Turning
 
-There are three ways to turn the robot:
+There are three ways to turn the robot, depending on how tight the turn needs to be:
 
 * **Pivot on Both Wheels** – both motors drive at same power, but in opposite directions
 * **Turn on One Wheel** – one motor drives, while other motor is stopped
-* **Drive in Curve** – both motors drive in same direction, but at different powers
+* **Drive in Curved Path** – both motors drive in same direction, but at different powers
 
 ### Pivot on Both Wheels
 
@@ -134,59 +134,77 @@ The `pivot()` method requires a **motor power** to be listed within its parenthe
 * **Negative** values pivot the robot **counter-clockwise to the left**.
 * A **larger absolute value** produces a **faster pivot speed** \(i.e., `255` is the fastest clockwise speed, `-255` is the fastest counter-clockwise speed, etc.\).
 
-Here is a visual comparison of pivoting on both wheels versus turning on one wheel:
+{% hint style="success" %}
+**PIVOT SLOWLY:**  Pivot the robot at a lower motor power to avoid wheel slippage. In general, try using a power of 100 for pivoting, depending on the surface.
+{% endhint %}
 
-The `pivot()` method rotates **both** motors to pivot \(turn\) the RedBot either clockwise \(to the right\) or counter-clockwise \(to the left\):
-
-* When pivoting the RedBot clockwise \(to the right\), both motors rotate counter-clockwise \(CCW\) at the same power.
-* When pivoting the RedBot counter-clockwise \(to the left\), both motors rotate clockwise \(CW\) at the same power.
-
-To pivot \(either clockwise or counter-clockwise\):
+For example, to pivot the robot **clockwise** to the right at a power \(speed\) of 100: 
 
 ```cpp
-motors.pivot(power);
+motors.pivot(100);
 ```
 
-* `power` represents the power applied to the motors, which can be any integer value between `-255` and `255`.
-  * Positive values pivot the RedBot clockwise \(to the right\).
-  * Negative values pivot the RedBot counter-clockwise \(to the left\).
-  * A larger absolute value results in a faster speed. \(`-255` and `255` are the fastest speeds. `-1` and `1` are the slowest speeds.\)
-
-**IMPORTANT:** Use a lower power when pivoting the RedBot, as compared to driving the RedBot. A power of about 100 should be sufficient to quickly pivot on most surfaces.
-
-**NOTE:** You can accomplish the same results using either the `pivot()` method or by combining the `leftMotor()` and `rightMotor()` methods:
+For example, to pivot the robot **counter-clockwise** to the left at a power \(speed\) of 100: 
 
 ```cpp
-motors.pivot(100); // turn CW to right
-/*  same as:
-    motors.leftMotor(-100);
-    motors.rightMotor(-100);
-*/
+motors.drive(-100);
+```
 
-motors.pivot(-100); // turn CCW to left
-/*  same as:
-    motors.leftMotor(100);
-    motors.rightMotor(100);
-*/
+**KEEP ON PIVOTING**
+
+Once a code statement is used to start pivoting the motors, the motors will keep pivoting continuously until a separate code statement is used to stop the motors. This is similar to how separate code statements are needed to turn an LED light on and then off.
+
+The `delay()` method can be used to allow the motors to pivot for a certain amount of time before stopping the motors.
+
+For example, this code will pivot the robot clockwise to the right at a motor power of 100 for 0.75 seconds and then stop the motors:
+
+```cpp
+motors.pivot(100);
+delay(750);
+motors.brake();
 ```
 
 ### Turn on One Wheel
 
-Alternatively, you can turn the RedBot on one wheel by driving only one motor forward while stopping the other motor.
+Alternatively, you can turn the robot on one wheel by driving one motor while stopping the other motor. The robot will turn in a circle centered on the stopped wheel.
 
-This will help retain more of the RedBot's forward momentum \(whereas pivoting requires the RedBot to stop moving forward\). However, the turn radius will be larger compared to using the `pivot()` method because the RedBot's axis of rotation is centered on the stopped wheel.
+Turning on one wheel produces a less tight turn compared to pivoting on both wheels:
+
+![](../../.gitbook/assets/pivot-vs-turn.png)
+
+ For example, to turn clockwise on the right wheel:
 
 ```cpp
 // turn CW to right
 motors.leftDrive(100);
 motors.rightStop();
+```
 
+For example, to turn counter-clockwise on the left wheel:
+
+```cpp
 // turn CCW to left
 motors.leftStop();
 motors.rightDrive(100);
 ```
 
-### Drive in Curve
+**KEEP ON TURNING**
+
+Once a code statement is used to start driving one motor to turn the robot, the motor will keep driving continuously until a separate code statement is used to stop the motor. This is similar to how separate code statements are needed to turn an LED light on and then off.
+
+The `delay()` method can be used to allow the motor to drive for a certain amount of time before stopping the motor.
+
+For example, this code will turn the robot clockwise on the right wheel at a motor power of 100 for 1.5 seconds and then stop the motors:
+
+```cpp
+// turn CW to right
+motors.leftDrive(100);
+motors.rightStop();
+delay(1500);
+motors.leftStop();
+```
+
+### Drive in Curved Path
 
 Furthermore, you can make gentle turns or curves by simply applying different amounts of power to the two motors:
 

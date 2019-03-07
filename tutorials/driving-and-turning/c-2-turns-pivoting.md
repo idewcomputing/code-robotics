@@ -43,7 +43,7 @@ The `motors.pivot()` method requires one parameter inside its parentheses:
 * **The motor power**, which can be any integer \(whole number\) between `-255` and `255`. A positive power pivots the robot clockwise \(to the right\), and a negative power pivots the robot counter-clockwise \(to the left\). A larger absolute power produces a faster pivot speed \(`-255` and `255` are the fastest speeds, while `-1` and `1` are the slowest speeds\). In this case, the power will be `100`.
 
 {% hint style="success" %}
-**PIVOT SLOWLY:**  You should pivot the robot at a lower power to avoid wheel slippage. In general, try using a power of 100 for pivoting \(though you may need to adjust this value depending on whether the floor surface is hard or soft, such as tile vs. carpet\).
+**PIVOT SLOWLY:**  Pivot the robot at a lower motor power to avoid wheel slippage. In general, try using a power of 100 for pivoting, depending on the surface.
 {% endhint %}
 
 The second `delay()` of `650` milliseconds \(0.65 seconds\) is an estimate of how much time it will take your robot to pivot 90 degrees. You may have to change this value after testing your robot.

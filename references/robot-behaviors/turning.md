@@ -107,7 +107,7 @@ void pivotAngle(float angle) {
 
 A custom function named `turnAngle()` uses the wheel encoders to make your robot turn on one wheel by a specified angle.
 
-Turning on one wheel is less tight than pivoting \(which has a zero turn radius\):
+Turning on one wheel is less tight than pivoting \(which has a "zero turn radius"\):
 
 ![](../../.gitbook/assets/pivot-vs-turn.png)
 
