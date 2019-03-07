@@ -46,12 +46,19 @@ Use the `drive()` method to drive both motors at the same time:
 motors.drive(power);
 ```
 
-* `power` represents the power applied to the motors, which can be any integer value between `-255` and `255`.
-  * Positive values move the RedBot forwards.
-  * Negative values move the RedBot backwards.
-  * A larger absolute value results in a faster speed. \(`-255` and `255` are the fastest speeds. `-1` and `1` are the slowest speeds.\)
+`power` represents the power applied to the motors, which can be any integer value between `-255` and `255`:
 
-**IMPORTANT:** Running the motors at high power can sometimes cause the wheels to spin-out \(due to insufficient traction with the surface\). If you notice traction issues between the wheels and the surface, use a lower power \(slower speed\). In general, use a power of 200 or less, depending on the surface.
+* Positive values drive the robot forward.
+* Negative values drive the robot in reverse.
+* A larger absolute value results in a faster speed \(i.e., `255` is the fastest speed for driving forward, `-255` is the fastest speed for driving in reverse, etc.\).
+
+{% hint style="warning" %}
+**NOT TOO FAST:** If you run the motors at a very high power, the wheels might "spin out" due to insufficient traction. If you notice this issue, use a lower motor power. In general, use a power of 200 or less, depending on the surface.
+{% endhint %}
+
+{% hint style="warning" %}
+**NOT TOO SLOW:**  If you run the motors at a very low power, they may not have enough torque to actually rotate the wheels. If you notice this issue, use a higher motor power. In general, use a power of 50 or more, depending on the surface.
+{% endhint %}
 
 When driving both motors at the same power, you may notice that your RedBot drifts slightly to the left \(or right\), instead of driving in a perfectly straight line. If this occurs, it is because the motors are rotating at slightly different speeds, even though they are receiving the same amount of power.
 
