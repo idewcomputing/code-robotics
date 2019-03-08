@@ -35,6 +35,10 @@ Add this code **within** another custom function, such as `task1()`, etc.
   motors.stop();
 ```
 
+{% hint style="success" %}
+**ADD CODE TO WHILE LOOP:**  You need to add code statement\(s\) within the `while()` loop to perform the continuous task\(s\).
+{% endhint %}
+
 ## checkButton\(\)
 
 A custom function named `checkButton()` checks whether the built-in D12 button is being pressed. If the button is pressed, the function will toggle the value of a global variable named `started` from `false` to `true` \(or vice versa\). The function will also provide feedback by blinking the built-in D13 LED light and producing a beep with the speaker.
@@ -92,6 +96,10 @@ You can add this code **within** the `loop()` function to perform different acti
     
   }
 ```
+
+{% hint style="success" %}
+**ADD CODE:**  You need to add code to perform different actions based on whether the robot is "started" \(e.g., drive, etc.\) or "paused" \(e.g., stop motors, etc.\).
+{% endhint %}
 
 {% hint style="info" %}
 **ONE BUTTON LIBRARY:**  Another option is to [use the OneButton library](../physical-inputs/push-button.md#use-onebutton-object) to detect different types of button presses \(single-press, double-press, or long-press\).
