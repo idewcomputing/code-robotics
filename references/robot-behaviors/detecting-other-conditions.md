@@ -12,9 +12,9 @@ You can also use the `millis()` method as a clock to set a timer for a `while()`
 
 ## while\(\) loop timer
 
-You can make your robot perform a task for a certain duration of time, similar to setting a timer. This is useful for behaviors that need to be continuously called within a loop \(such as:  drive straight, check bumpers, avoid collision, avoid line, check drop-off, etc.\) and don't have a distinct stopping point.
+You can make your robot perform a task for a certain duration of time, similar to setting a timer. This is useful for behaviors that must be **continuously** called within a loop \(such as:  drive straight, check bumpers, avoid collision, avoid line, check drop-off, etc.\).
 
-Arduino has a `millis()` method which acts like a clock. It keeps track of how many milliseconds have passed since your robot app first started running. The timer duration is used to set an end time for the task.
+Arduino has a `millis()` method which acts like a clock. Your robot's microcontroller keeps track of how many milliseconds have elapsed since your robot app first started. Your desired timer duration is then used to set an end time for the task.
 
 A `while()` loop is used to perform the task continuously until the timer runs out \(i.e., until the current time exceeds the end time\). In this example code, the timer is set for 30 seconds, but you can change the timer to whatever duration you need.
 
