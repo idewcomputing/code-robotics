@@ -12,7 +12,7 @@ You can also use the `millis()` method as a clock to set a timer for a `while()`
 
 ## while\(\) loop timer
 
-You can make your robot perform a task for a certain duration of time, similar to setting a timer. This is very useful for behaviors that need to be continuously called within a loop \(such as:  following a line, avoiding a line, etc.\) and don't have a distinct stopping point.
+You can make your robot perform a task for a certain duration of time, similar to setting a timer. This is useful for behaviors that need to be continuously called within a loop \(such as:  drive straight, check bumpers, avoid collision, avoid line, check drop-off, etc.\) and don't have a distinct stopping point.
 
 Arduino has a `millis()` method which acts like a clock. It keeps track of how many milliseconds have passed since your robot app first started running. The timer duration is used to set an end time for the task.
 
@@ -30,7 +30,7 @@ Add this code **within** another custom function, such as `task1()`, etc.
 
   // while current time is less than end time, loop performs task
   while (time < endTime) {
-    // add code to perform continuous task, such as: avoidLine(), etc.
+    // add code to perform continuous task (avoid line, etc.)
     
     
     time = millis(); // check current time again
@@ -224,6 +224,8 @@ For example, this code statement declares a local variable named `upsideDown` to
 bool upsideDown = checkUpsideDown();
 ```
 
+In order to work, the `checkUpsideDown()` function must be continuously called by the `loop()` function \(or continuously called by a loop within another function\).
+
 The `checkUpsideDown()` function requires these objects as part of your global variables before the `setup()` function:
 
 ```cpp
@@ -251,7 +253,7 @@ bool checkUpsideDown() {
 }
 ```
 
-Add this code **within** the `loop()` function \(if you are using the `started` variable, add this code within the `if` statement, so it will be performed when `started` is `true`\):
+Add this code **within** the `loop()` function \(if you are using the `started` variable, add this code within the `if` statement, so it will be performed when `started` is `true`\) or within a loop in a custom function:
 
 ```cpp
     bool upsideDown = checkUpsideDown();

@@ -13,6 +13,8 @@ A custom function named `checkBumpers()` uses the mechanical bumpers to detect c
 
 The left and right mechanical bumpers each have a "whisker" that extends out to one side. The "whisker" is a flexible metal wire that will bend during a collision. If the wire bends far enough, it will make electrical contact with a metal screw on the bumper board. It is similar to how a switch or button works.
 
+In order to work, the `checkBumpers()` function must be continuously called by the `loop()` function \(or continuously called by a loop within another function\).
+
 The `checkBumpers()` function requires these objects as part of your global variables before the `setup()` function:
 
 ```cpp
@@ -121,6 +123,8 @@ A custom function named `avoidCollision()` uses an ultrasonic sensor to avoid co
 
 The `avoidCollision()` function requires the `measureDistance()` function, so be sure to add that function **after** the `loop()` function.
 
+In order to work, the `avoidCollision()` function must be continuously called by the `loop()` function \(or continuously called by a loop within another function\).
+
 The `avoidColliion()` function requires this object as part of your global variables before the `setup()` function:
 
 ```cpp
@@ -161,7 +165,7 @@ You'll need to decide what actions the robot should perform when an obstacle is 
 * Maybe the robot should navigate around the obstacle to maintain its original direction.
 * etc.
 
-### While Following Line
+#### AVOID COLLISION WHILE FOLLOWING LINE
 
 Avoiding collisions while [following a line](detecting-lines.md#followline) is possible, but it presents a challenge:
 
@@ -201,13 +205,21 @@ void avoidCollision() {
   // if obstacle is too close, avoid collision
   if (distance <= minDist) {
     // add code to perform (brake, change direction, etc.)
+
+    // detour around obstacle
     motors.brake();
-    pivotAngle(-90);
+    pivotAngle(-90); // turn left
     driveDistance(detourDist, 100);
-    pivotAngle(90);
+    pivotAngle(90); // turn right
     driveDistance(minDist + detourDist, 100);
     pivotAngle(45);
-    motors.drive(100);
+    
+    // drive until line detected by center IR sensor
+    int lineThreshold = 800; // change value if necessary
+    while (centerLine.read() < lineThreshold) {
+      motors.drive(100);
+      delay(25);
+    }
   }
 }
 ```
