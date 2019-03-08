@@ -1,20 +1,21 @@
 # Autonomous Navigation
 
-In this example, the robot will navigate by using its sensors to detect features in its environment \(such as obstacles, lines, etc.\) and then make decisions about what actions to take \(such as: stop, turn, drive, etc.\). Your program will need to contain code instructions that break down the navigation into an ordered sequence of specific behaviors that involve reading sensors, making decisions, and performing actions.
+The robot uses its sensors to detect features in environment \(obstacles, etc.\), and then decides what actions to take \(stop, turn, drive, etc.\).
 
-Autonomous navigation can be used to make your robot travel in a predictable pattern — or it can be used to allow your robot to travel in a more "random" pattern that still accomplishes the robot's intended tasks — or it can be used to give your robot "artificial intelligence" such as the [ability to solve mazes](http://www.instructables.com/id/Robot-Maze-Solver/), etc. It depends on how you decide to program the robot's behaviors for your scenario.
+* **ADVANTAGE:**  The robot can adapt to changes in its environment \(e.g., obstacles in different positions, etc.\). The robot can be programmed to perform more complex behaviors \(e.g., [solving a maze](https://www.instructables.com/id/Robot-Maze-Solver/), etc.\).
+* **DISADVANTAGE:**  The robot may not necessarily follow a pre-determined path. The robot's behavior is limited by which sensors it has. Depending on the behavior needed, it may be more challenging to program the robot's rules.
 
-## Example Scenario
+## Example Task Scenario
 
 The diagram below represents a scenario where a security robot will patrol an area in a semi-random pattern. The robot will use its IR line sensors to avoid crossing the line around the area's perimeter. When the robot detects the line, the robot will pivot \(turn\) towards the interior of the area. In addition, the robot will use its ultrasonic sensor to avoid colliding with any obstacles within the area by pivoting away when they are too close. \(The red rectangles are cardboard boxes that represent obstacles.\)
 
 In this scenario, every time the robot makes a turn, the angle is slightly random \(though within a certain range\), which makes the robot's pattern different every time the demonstration is run. \(Thus, the diagram only shows one possible path.\) The robot can be started from anywhere in the environment \(pointing in any direction\), and the robot will still perform its task of patrolling within the area while avoiding obstacles.
 
+For the purposes of the demonstration, the robot will only patrol for a limited amount of time. In addition, the demo environment is obviously much smaller than a real environment.
+
 ![](../../.gitbook/assets/robot-demo4.jpg)
 
-For the purposes of the demonstration, we will set the robot to patrol for a limited amount of time \(such as 30 seconds\) before stopping. In addition, the testing environment is obviously much smaller than what an actual security guard setting would require.
-
-## Example Program
+## Example Code
 
 Here is a possible way to code the program to demonstrate this particular scenario:
 
