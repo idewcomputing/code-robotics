@@ -8,7 +8,7 @@ These custom functions use the [push button](../physical-inputs/push-button.md),
 * `checkUpsideDown()` — check if robot is upside down \(pitch or roll greater than 90°\)
 * `checkBump()` — check if robot has been bumped
 
-## while\(\) Loop Task Timer
+## while\(\) loop timer
 
 You can make your robot perform a task for a certain amount of time, similar to setting a timer. This is very useful for behaviors that need to be continuously called within a loop \(such as:  following a line, avoiding a line, etc.\) and don't have a distinct stopping point.
 
