@@ -8,6 +8,33 @@ These custom functions use the [push button](../physical-inputs/push-button.md),
 * `checkUpsideDown()` — check if robot is upside down \(pitch or roll greater than 90°\)
 * `checkBump()` — check if robot has been bumped
 
+## Timer for Continuous Task
+
+You can make your robot perform a task for a certain amount of time, similar to setting a timer. This is very useful for behaviors that need to be continuously called within a loop \(such as:  following a line, avoiding a line, etc.\) and don't have a distinct stopping point.
+
+A `while` loop is used to perform the task continuously until the timer runs out \(i.e., until the current time exceeds the end time\). In this example, the timer is set for 30 seconds, but you can change to whatever duration you need.
+
+Add this code **within** another custom function, such as `task1()`, etc.
+
+```cpp
+  // get current time (in milliseconds)
+  unsigned long time = millis();
+  
+  // set end time (in milliseconds)
+  unsigned long duration = 30000; // change if necessary
+  unsigned long endTime = time + duration;
+
+  // while current time is less than end time, loop performs task
+  while (time < endTime) {
+    // add code to perform continuous task, such as: avoidLine(), etc.
+    
+    
+    time = millis(); // check current time again
+  }
+  // time's up
+  motors.stop();
+```
+
 ## checkButton\(\)
 
 A custom function named `checkButton()` checks whether the built-in D12 button is being pressed. If the button is pressed, the function will toggle the value of a global variable named `started` from `false` to `true` \(or vice versa\). The function will also provide feedback by blinking the built-in D13 LED light and producing a beep with the speaker.

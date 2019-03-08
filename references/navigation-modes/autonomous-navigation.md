@@ -25,14 +25,16 @@ void task1() {
 
   // drive autonomously by avoiding lines and obstacles
 
-  // get current time in milliseconds
+  // get current time (in milliseconds)
   unsigned long time = millis();
   
-  // make end time 30 seconds from now
-  unsigned long endTime = time + 30000; 
+  // set end time (in milliseconds)
+  unsigned long duration = 30000; // 30 seconds
+  unsigned long endTime = time + duration;
 
-  // while current time is less than end time, run demo
+  // while current time is less than end time, loop performs task
   while (time < endTime) {
+    // add code to perform continuous task
     avoidLine();
     avoidCollision();
     time = millis(); // check current time again
