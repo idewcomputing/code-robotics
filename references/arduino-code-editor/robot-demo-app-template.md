@@ -16,7 +16,7 @@ You'll need to add other code to complete your app:
 * You may need to add code to declare other global variables or create other objects. For example, if your robot will use the IR line sensors, you'll need to add code to create an object for each line sensor.
 * You may need to add code within the `setup()` function. For example, if your robot will use an ultrasonic sensor, you'll need to add code to set the pin modes for the ultrasonic sensor's transmitter and receiver pins.
 * You may need to **modify** the code within the `loop()` function if your robot will demonstrate more than 3 tasks \(or fewer\). Otherwise, this code should work as is.
-* You'll need to add code within the `task1()` function, `task2()` function, and `task3()` function to perform your specific task scenarios.
+* You'll need to add code within the `task1()` function, `task2()` function, and `task3()` function to perform your specific task scenarios. If necessary, you can include a [`while()` loop timer](../robot-behaviors/detecting-other-conditions.md#timer-for-continuous-task) for a task to perform behaviors that must be continuously called \(such as:  avoiding line, etc.\) and stop them after a set duration.
 * You will need to add other custom functions depending on the navigation mode\(s\) and other behaviors that your robot will use to complete its tasks. For example, you'll most likely need to add the `driveDistance()` and `pivotAngle()` functions — as well other custom functions.
 * You may want or need to create some of your own custom functions to perform specific actions or decisions. This is especially helpful if the same set of actions will be performed multiple times within your robot tasks.
 

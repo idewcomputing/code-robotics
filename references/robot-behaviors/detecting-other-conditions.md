@@ -12,7 +12,7 @@ These custom functions use the [push button](../physical-inputs/push-button.md),
 
 You can make your robot perform a task for a certain amount of time, similar to setting a timer. This is very useful for behaviors that need to be continuously called within a loop \(such as:  following a line, avoiding a line, etc.\) and don't have a distinct stopping point.
 
-A `while` loop is used to perform the task continuously until the timer runs out \(i.e., until the current time exceeds the end time\). In this example, the timer is set for 30 seconds, but you can change to whatever duration you need.
+A `while` loop is used to perform the task continuously until the timer runs out \(i.e., until the current time exceeds the end time\). In this example code, the timer is set for 30 seconds, but you can change the timer to whatever duration you need.
 
 Add this code **within** another custom function, such as `task1()`, etc.
 
