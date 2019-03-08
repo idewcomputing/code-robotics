@@ -74,7 +74,7 @@
 * [Navigation Modes](references/navigation-modes/README.md)
   * [Distance Navigation](references/navigation-modes/distance-navigation.md)
   * [Line Counting Navigation](references/navigation-modes/line-counting-navigation.md)
-  * [Line Following Navigation](references/navigation-modes/line-following-navigation.md)
+  * [Line Following + Counting Navigation](references/navigation-modes/line-following-counting-navigation.md)
   * [Autonomous Navigation](references/navigation-modes/autonomous-navigation.md)
 
 ## LINKS
