@@ -8,9 +8,13 @@ These custom functions use the [push button](../physical-inputs/push-button.md),
 * `checkUpsideDown()` — check if robot is upside down \(pitch or roll greater than 90°\)
 * `checkBump()` — check if robot has been bumped
 
+You can also use the `millis()` method as a clock to set a timer for a `while()` loop to perform a continuous task \(such as:  avoiding a line, etc.\) for a certain duration of time.
+
 ## while\(\) loop timer
 
-You can make your robot perform a task for a certain amount of time, similar to setting a timer. This is very useful for behaviors that need to be continuously called within a loop \(such as:  following a line, avoiding a line, etc.\) and don't have a distinct stopping point.
+You can make your robot perform a task for a certain duration of time, similar to setting a timer. This is very useful for behaviors that need to be continuously called within a loop \(such as:  following a line, avoiding a line, etc.\) and don't have a distinct stopping point.
+
+Arduino has a `millis()` method which acts like a clock. It keeps track of how many milliseconds have passed since your robot app first started running. The timer duration is used to set an end time for the task.
 
 A `while()` loop is used to perform the task continuously until the timer runs out \(i.e., until the current time exceeds the end time\). In this example code, the timer is set for 30 seconds, but you can change the timer to whatever duration you need.
 
