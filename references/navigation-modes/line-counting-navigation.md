@@ -9,7 +9,7 @@ Line counting navigation is similar to the directions that a person might give y
 
 ## Example Task Scenario
 
-In this task scenario, a store stocking robot will navigate through the store aisles \(red rectangles are cardboard boxes representing store shelves\) to a specific location \(Shelf B in Aisle 2\), delivering a box of items \(simulated step\), and then drive back to the stockroom \(labeled as "Start"\). The black lines and "plus signs" are line markers that the robot will use for navigation.
+In this task scenario, a store robot will navigate through the store aisles \(red rectangles are cardboard boxes representing store shelves\) to a specific location \(Shelf B in Aisle 2\), deliver a box of items to be stocked \(simulated step\), and then drive back to the stockroom \(labeled as "Start"\). The black lines and "plus signs" are line markers that the robot will use for navigation.
 
 For the purposes of the demonstration, the distances traveled are much shorter than what would be required in an actual store environment.
 

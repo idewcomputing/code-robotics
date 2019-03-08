@@ -1,6 +1,6 @@
 # Line Following + Counting Navigation
 
-In this example, the robot will navigate by following a line while also counting other lines it crosses, and then making turns \(or stops\) at specific line counts. The robot's path is programmed as an ordered sequence of specific line counts and turns.
+When using line following + counting navigation, the robot follow a line while counting other lines it crosses, and then turns at a specific line number to start driving on a new line. The robot's path is programmed as an ordered sequence of specific line counts and turns.
 
 * **ADVANTAGE:**  You can create complex line patterns with straight paths, curved paths, and loops. Even if the robot's turns aren't perfect, the robot will usually self-correct its direction as it starts to follow its new line path.
 * **DISADVANTAGE:**  The robot can only stop or turn at a line intersection. You have to create a continuous line for each path.
@@ -9,11 +9,11 @@ Line following + counting navigation is similar to the directions that a person 
 
 ## Example Task Scenario
 
-The diagram below represents a scenario where a restaurant robot will deliver a food order from the kitchen out to Table 2, drive around the table \(delivering each person's order\), and then return to the kitchen. \(The red rectangles are cardboard boxes that represent a wall between the kitchen and dining area.\) The robot will follow the current line it is on while also counting other lines that it crosses, which help determine where it makes turns or stops. There is also a line marker \(labeled "Start"\) in the kitchen area, so the robot knows where to stop in the kitchen.
-
-![](../../.gitbook/assets/robot-demo3.jpg)
+In this task scenario, a restaurant robot will deliver a food order from the kitchen to Table 2 \(red rectangles are cardboard boxes representing a wall\), drive around the table \(delivering each person's order\), and then return to the "Start" line marker in the kitchen.
 
 For the purposes of the demonstration, the distances traveled are much shorter than what would be required in an actual restaurant environment.
+
+![](../../.gitbook/assets/robot-demo3.jpg)
 
 ## Example Code
 
@@ -22,8 +22,6 @@ Here is a possible way to code a custom function to perform this task scenario:
 ```cpp
 void task1() {
   // Example of Line Following + Counting Navigation
-
-    // Drive from kitchen to Table 2, drive around table, and return to start
 
   // drive from Start line to Table 2 line
   followCountLine(2); // 2nd line will be path to Table 2
