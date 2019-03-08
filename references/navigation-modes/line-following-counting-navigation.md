@@ -23,20 +23,20 @@ Here is a possible way to code a custom function to perform this task scenario:
 void task1() {
   // Example of Line Following + Counting Navigation
 
-  // drive from Start line to Table 2 line
+  // drive out of kitchen from Start towards Table 2
   followCountLine(2); // 2nd line will be path to Table 2
-  pivotAngle(-90); // pivot -90 angle = turn left
-  followCountLine(1); // next line is the circle around table
-  pivotAngle(-90);
-  singleBeep(); // alert guests that food has arrived
+  pivotAngle(-90); // turn left
+  followCountLine(1); // next line is circle around table
+  doubleBeep(); // alert guests that food has arrived
+  pivotAngle(-90); // turn left
   followCountLine(1); // drive once around table
 
   // turn and return to kitchen
-  pivotAngle(-90);
+  pivotAngle(-90); // turn left
   followCountLine(1); // next line is main path
-  pivotAngle(-90);
-  followCountLine(1); // next line is Start
-  singleBeep(); // alert staff that robot is ready for next order
+  pivotAngle(-90); // turn left
+  followCountLine(1); // drive back into kitchen, next line is Start
+  tripleBeep(); // alert staff that robot is ready for next order
 
   // at end of this task, reset for next task
   started = false;
