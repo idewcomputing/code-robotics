@@ -1,16 +1,14 @@
 # Distance Navigation
 
-In this example, the robot will navigate by driving straight for specific distances and making turns \(or stops\) at specific points. The robot app will need to contain code instructions that break down the navigation path into an ordered sequence of specific distances and turns \(i.e., pivot angles\).
-
-This navigation method is similar to the detailed "turn-by-turn" directions that a mapping app generates to route a car driver to a specific destination \(such as "Continue driving for 2 miles, and then turn right..."\).
+In this example, the robot will navigate by driving straight for a specific distance, and then turning to start driving in a new direction. The robot app will need to contain code instructions that break down the navigation path into an ordered sequence of specific distances and specific turns \(i.e., pivot angles\).
 
 ## Example Task Scenario
 
-The diagram below represents a task scenario where a hospital delivery robot will navigate through the hospital hallways \(red rectangles are cardboard boxes that represent walls\) towards an nurse's station \(labeled as "A"\), pick up blood samples \(simulated step\), and then transport the samples back to the hospital lab \(labeled as "Start"\).
-
-![](../../.gitbook/assets/robot-demo1.jpg)
+In this task scenario, a hospital lab delivery robot will navigate through the hospital hallways \(red rectangles represent walls\) to an nurse's station \(labeled as "A"\), pick up blood samples \(simulated step\), and deliver the samples to the hospital lab for analysis \(labeled as "Start"\).
 
 For the purposes of the demonstration, the distances traveled are obviously much shorter than a real hospital environment.
+
+![](../../.gitbook/assets/robot-demo1.jpg)
 
 ## Example Code
 
