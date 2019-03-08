@@ -2,7 +2,7 @@
 
 Finally, you'll code an app that uses the IR line sensors to make your robot count line markers it crosses as it follows a line. The robot will stop driving when it reaches a specific line number. You can then make the robot turn and start following a new line.
 
-The **advantage** of counting line markers while following a line is that the robot will follow the path more reliably \(even if the robot's turns aren't perfect\), and the path doesn't necessarily have to form a closed loop. You can also create complex patterns with curved paths, loops, and intersecting paths.
+The **advantage** of counting line markers while following a line is that the robot will follow the path more reliably \(even if the robot's turns aren't perfect\), and the path doesn't necessarily have to form a closed loop. You can also create complex patterns with straight paths, curved paths, and loops.
 
 The **limitation** of counting line markers while following a line is that you have to create a continuous line for each path, and different paths must intersect each other at 90° angles.
 
