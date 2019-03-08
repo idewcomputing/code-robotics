@@ -1,9 +1,9 @@
 # Autonomous Navigation
 
-The robot uses its sensors to detect features in environment \(obstacles, etc.\), and then decides what actions to take \(stop, turn, drive, etc.\).
+When using autonomous navigation, the robot uses its sensors to detect features in environment \(obstacles, etc.\), and then decides what actions to take \(stop, turn, drive, etc.\). The robot may not necessarily follow a pre-determined path, instead it follows pre-determined decision-making rules.
 
 * **ADVANTAGE:**  The robot can adapt to changes in its environment \(e.g., obstacles in different positions, etc.\). The robot can be programmed to perform more complex behaviors \(e.g., [solving a maze](https://www.instructables.com/id/Robot-Maze-Solver/), etc.\).
-* **DISADVANTAGE:**  The robot may not necessarily follow a pre-determined path. The robot's behavior is limited by which sensors it has. Depending on the behavior needed, it may be more challenging to program the robot's rules.
+* **DISADVANTAGE:**  The robot's behavior is limited by which sensors it has. Depending on the behavior needed, it may be more challenging to program the decision-making rules.
 
 ## Example Task Scenario
 
