@@ -1,9 +1,5 @@
 # Code Introduction
 
-{% hint style="danger" %}
-**UPDATE IN PROGRESS:** Portions of this code guidebook are being revised.
-{% endhint %}
-
 This Robotics Code Guidebook is a supplement to the [Robotics Project Guidebook](https://docs.idew.org/project-robotics/).
 
 ## What's in this Guidebook?
