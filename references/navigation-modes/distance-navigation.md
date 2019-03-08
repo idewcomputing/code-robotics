@@ -1,6 +1,6 @@
 # Distance Navigation
 
-When using distance navigation, the robot drives straight for a specific distance, and then turns to start driving in a new direction. The robot's path is programmed as an ordered sequence of specific driving distances and specific turns \(i.e., pivot angles\).
+When using distance navigation, the robot drives straight for a specific distance, and then turns to start driving in a new direction. The robot's path is programmed as an ordered sequence of specific distances and turns.
 
 * **ADVANTAGE**:  The robot can be programmed to follow any path needed \(i.e., path is not defined by lines or markers\).
 * **DISADVANTAGE**:  The robot's turns may not be perfectly accurate every time. After making several turns, the robot might be off-course from its intended path.
