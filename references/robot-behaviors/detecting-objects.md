@@ -209,9 +209,9 @@ void avoidCollision() {
     // detour around obstacle
     motors.brake();
     pivotAngle(-90); // turn left
-    driveDistance(detourDist, 100);
+    driveDistance(detourDist);
     pivotAngle(90); // turn right
-    driveDistance(minDist + detourDist, 100);
+    driveDistance(minDist + detourDist);
     pivotAngle(45);
     
     // drive until line detected by center IR sensor
