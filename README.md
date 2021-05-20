@@ -38,7 +38,7 @@ SparkFun sells other sensors and actuators that may be compatible the RedBot. If
 
 ## Copyright and License
 
-Copyright © 2017-2019 Michael Frontz and Jim Lyst, Indiana University School of Informatics and Computing at IUPUI
+Copyright © 2017-2021 Michael Frontz and Jim Lyst, Indiana University School of Informatics and Computing at IUPUI
 
 This material is part of the [Computing by Design](https://docs.idew.org/the-cxd-framework/) high school computer science curriculum developed for the [Informatics Diversity-Enhanced Workforce \(iDEW\)](http://soic.iupui.edu/idew/) program, an award-winning community partnership in central Indiana that is broadening student participation in computing and helping students develop the skills essential for success in the 21st century workplace. The iDEW program is managed by the [Indiana University School of Informatics and Computing at IUPUI](https://soic.iupui.edu/).
 

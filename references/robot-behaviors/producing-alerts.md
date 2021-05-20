@@ -101,8 +101,7 @@ In your app, create a new blank tab named `notes.h`:
 
 Copy the code below, and paste it into the blank tab named `notes.h`:
 
-{% code-tabs %}
-{% code-tabs-item title="notes.h" %}
+{% code title="notes.h" %}
 ```cpp
 // NEEDED TO PLAY SONG NOTE BY NOTE
 // add as new tab named "notes.h"
@@ -262,8 +261,7 @@ Copy the code below, and paste it into the blank tab named `notes.h`:
 #define noteDs8 4978
 #define noteEb8 4978
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 #### STEP 2. Include `notes.h` File in App <a id="step-2-include-notes-h-file-in-app"></a>
 
